@@ -1,0 +1,72 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization.DiagramEnums;
+@section SampleHeading{ <span class="sampleName">Diagram / Default Functionalities</span>}
+@section ControlsSection{
+    <ej-diagram id="diagram" width="100%" height="650px" enable-context-menu="false" tool="ZoomPan" node-template="nodeTemplate" create="Create">
+        <e-snap-settings snap-constraints="None">
+        </e-snap-settings>
+        <e-page-settings scroll-limit="@ScrollLimit.Diagram"></e-page-settings>
+        <e-default-settings>
+            <e-node width="150" height="50" border-color="transparent">
+                <e-labels>
+                    <e-diagram-label name="label1" font-color="#ffffff" font-size="12">
+                        <e-margin left="5" right="5"></e-margin>
+                    </e-diagram-label>
+                </e-labels>
+            </e-node>
+            <e-connector>
+                <e-segments>
+                    <e-segment type="Orthogonal"></e-segment>
+                </e-segments>
+                <e-target-decorator shape="None"></e-target-decorator>
+            </e-connector>
+        </e-default-settings>
+        <e-datasource-settings id="Id" parent="Manager" dataSource="ViewBag.datasource"></e-datasource-settings>
+        <e-layout type="OrganizationalChart" horizontal-spacing="40" vertical-spacing="40" margin-y="30" get-layout-info="getLayoutInfo"></e-layout>
+    </ej-diagram>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+
+
+        //creating the node template
+        function nodeTemplate(diagram, node) {
+            node.labels[0].text = node.Role;
+            node.fillColor = node.color;
+        }
+
+        function getLayoutInfo(diagram, node, options) {
+            if (node.labels[0].text == "General Manager") {
+                options.assistants.push(options.children[0]);
+                options.children.splice(0, 1);
+            }
+            if (!options.hasSubTree) {
+                if (node.ChartType) {
+                    options.type = node.ChartType
+                }
+                options.offset = -58;
+            }
+        }
+
+
+
+        function Create(args) {
+            if (!(ej.browserInfo().name === "msie" && Number(ej.browserInfo().version) < 9)) {
+                var diagram = $("#diagram").ejDiagram("instance");
+                diagram.activateTool("panTool");
+            }
+            else {
+                alert("Diagram will not be supported in IE Version < 9");
+            }
+        }
+    </script>
+}
+<style>
+    .svg-rotate-ie:hover {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+
+    .svg-rotate {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+</style>

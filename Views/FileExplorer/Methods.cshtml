@@ -1,0 +1,156 @@
+﻿@section SampleHeading{<span class="sampleName">FileExplorer / Methods</span> }
+
+@section ControlsSection{
+    <ej-file-explorer id="fileExplorer" path="wwwroot/css/images/FileExplorerContent" layout="LargeIcons" ajax-action="@Url.Content("FileActionDefault")" width="100%" is-responsive="true">
+    <e-file-ajax-settings>
+        <e-download url="/FileExplorer/Download{0}"></e-download>
+        <e-get-image url="/FileExplorer/GetImage{0}"></e-get-image>
+        <e-upload url="/FileExplorer/Upload{0}"></e-upload>
+    </e-file-ajax-settings>
+</ej-file-explorer>
+}
+@section PropertiesSection{
+<div class="row">
+    <div class="col-md-3">
+        Toolbar
+    </div>
+    <div class="col-md-3">
+        <ej-toggle-button id="check1" width="105" size="Normal" content-type="TextOnly" default-text="Hide" active-text="Show" click="Toolbar" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        Status Bar
+    </div>
+    <div class="col-md-3">
+        <ej-toggle-button id="check2" width="105" size="Normal" content-type="TextOnly" default-text="Hide" active-text="Show" click="Statusbar" />
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-3">
+        Treeview
+    </div>
+    <div class="col-md-3">
+        <ej-toggle-button id="check3" width="105" size="Normal" content-type="TextOnly" default-text="Hide" active-text="Show" click="Treeview" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        ContextMenu
+    </div>
+    <div class="col-md-3">
+        <ej-toggle-button id="check5" width="105" size="Normal" content-type="TextOnly" default-text="Disable" active-text="Enable" click="ContextMenu" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        Destroy/Restore
+    </div>
+    <div class="col-md-3">
+        <ej-toggle-button id="check6" width="105" size="Normal" content-type="TextOnly" default-text="Destroy" active-text="Restore" click="onDestoryRestore" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        Diable/Enable AddFolder
+    </div>
+    <div class="col-md-3">
+        <ej-toggle-button id="check7" width="105" size="Normal" content-type="TextOnly" default-text="Disable" active-text="Enable" click="onDisableEnable" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        Get Current Path
+    </div>
+    <div class="col-md-3">
+        <ej-button id="getPath" width="105" text="Get Path" click="getCurrentPath" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        Show/Hide Checkbox
+    </div>
+    <div class="col-md-3">
+        <ej-toggle-button id="check8" width="105px" size="Normal" content-type="TextOnly" default-text="Hide" active-text="Show" click="onShowHide" />
+    </div>
+</div>
+}
+
+@section ScriptSection{
+    <script>
+        var fileExplorerObj;
+        $(function () {
+            fileExplorerObj = $("#fileExplorer").data("ejFileExplorer");
+        });
+
+        function Toolbar(args) {
+            if (fileExplorerObj)
+                fileExplorerObj.option("showToolbar", !args.isChecked);
+        }
+        function Statusbar(args) {
+            if (fileExplorerObj)
+                fileExplorerObj.option("showFooter", !args.isChecked);
+        }
+        function Treeview(args) {
+            if (fileExplorerObj)
+                fileExplorerObj.option("showNavigationPane", !args.isChecked);
+        }
+        function ContextMenu(args) {
+            if (fileExplorerObj)
+                fileExplorerObj.option("showContextMenu", !args.isChecked);
+        }
+        function RTLSupport(args) {
+            if (fileExplorerObj)
+                fileExplorerObj.option("enableRTL", args.isChecked);
+        }
+        function onDestoryRestore(args) {
+            if (args.isChecked) {
+                fileExplorerObj.destroy();
+                fileExplorerObj = null;
+                if (!$("#check6").hasClass("not-disable"))
+                    $("#check6").addClass("not-disable");
+                var desobj = $("#sampleProperties .e-togglebutton.e-js").not(".not-disable");
+                desobj.ejToggleButton("disable");
+                desobj.ejToggleButton({ "toggleState": false });
+                $("#getPath").ejButton("disable");
+            }
+
+            else {
+                $("#fileExplorer").ejFileExplorer({
+                    isResponsive: true,
+                    width: "100%",
+                    minWidth: "150px",
+                    path: "@Url.Content("wwwroot/css/images/fileexplorercontent")",
+                    ajaxAction: "@Url.Content("FileActionDefault")"
+                });
+                fileExplorerObj = $("#fileExplorer").data("ejFileExplorer");
+                $("#sampleProperties .e-togglebutton.e-js").not(".not-disable").ejToggleButton("enable");
+                $("#getPath").ejButton("enable");
+            }
+        }
+        function getCurrentPath() {
+            if (fileExplorerObj)
+                alert(fileExplorerObj.option("selectedFolder"));
+        }
+        function onDisableEnable(args) {
+            if (args.isChecked) {
+                if (fileExplorerObj) {
+                    fileExplorerObj.disableToolbarItem("NewFolder");
+                    fileExplorerObj.disableMenuItem("New folder");
+                }
+            }
+            else {
+                if (fileExplorerObj) {
+                    fileExplorerObj.enableToolbarItem("NewFolder");
+                    fileExplorerObj.enableMenuItem("New folder");
+                }
+            }
+        }
+        function onShowHide(args) {
+            if (fileExplorerObj)
+                fileExplorerObj.option("showCheckbox", !args.isChecked);
+        }
+        $(document).ready(function () { $("#sampleProperties").ejPropertiesPanel(); });
+    </script>
+}

@@ -1,0 +1,24 @@
+﻿@section SampleHeading{
+    <span class="sampleName">ListBox / DataBinding - Local data</span>}
+@section ControlsSection{
+        <div class="control frame">
+            <div class="ctrllabel">
+                Select a bike</div>
+            <ej-list-box id="bikeList" datasource="ViewBag.datasource">
+                <e-list-box-fields id="empid" text="text" value="text" />
+            </ej-list-box>            
+        </div>
+}
+@section StyleSection{
+    <style class="cssStyles">
+        .ctrllabel {
+            padding: 0px 0px 12px 3px;
+            font-weight: 600;
+        }
+
+        .e-ddl-popup {
+            margin: 0 auto;
+        }
+
+    </style>
+}

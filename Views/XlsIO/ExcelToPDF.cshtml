@@ -1,0 +1,29 @@
+﻿@using Syncfusion.JavaScript.DataVisualization
+
+
+@section SampleHeading{<span class="sampleName">XlsIO / ExcelToPDF</span>}
+
+ @section ControlsSection{                                
+	      @{ViewBag.Title = "    Essential XlsIO (Excel) :Excel To PDF Conversion : Syncfusion";}
+
+<form name="form1" method="post" action="https://js.syncfusion.com/ejservices/api/xlsio/converttopdf" enctype="multipart/form-data">
+    <div class="Common">
+        <div class="tablediv">
+            <div class="rowdiv">
+                <label>
+                    Clicking the button below will result in a PDF document being converted from Excel document using Essential XlsIO and Essential PDF.
+                    Please note that you need to have a PDF viewer installed in order to view the generated PDF file.
+                </label>
+                <br />
+                <br />
+                <label>Select Document</label>
+                <br />
+                 @Html.TextBox("file", "", new { type = "file", accept = ".xlsx,.xls,.xlsm,.xltx", @style = "display:inline"})
+                <input class="buttonStyle" type="submit" value="Convert to PDF" name="button" style="width:150px" />
+            </div>
+            <br />
+        </div>
+    </div>
+</form>
+     }
+     

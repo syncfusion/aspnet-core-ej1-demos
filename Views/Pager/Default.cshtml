@@ -1,0 +1,71 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Pager / Default Functionalities</span>}
+
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <ej-rotator id="content" slide-width="100%" slide-height="350px" show-pager="false" show-navigate-button="false" is-responsive="true" show-play-button="false">
+                <e-rotator-items>
+                    <e-rotator-item>
+                        <e-content-template>
+                            <div>
+                                <img class="image" src="@Url.Content("~/Images/rotator/nature.jpg")" />
+                            </div>
+                        </e-content-template>
+                    </e-rotator-item>
+                    <e-rotator-item>
+                        <e-content-template>
+                            <div>
+                                <img class="image" src="@Url.Content("~/Images/rotator/bird.jpg")" />
+                            </div>
+                        </e-content-template>
+                    </e-rotator-item>
+                    <e-rotator-item>
+                        <e-content-template>
+                            <div>
+                                <img class="image" src="@Url.Content("~/Images/rotator/sculpture.jpg")" />
+                            </div>
+                        </e-content-template>
+                    </e-rotator-item>
+                    <e-rotator-item>
+                        <e-content-template>
+                            <div>
+                                <img class="image" src="@Url.Content("~/Images/rotator/seaview.jpg")" />
+                            </div>
+                        </e-content-template>
+                    </e-rotator-item>
+                    <e-rotator-item>
+                        <e-content-template>
+                            <div>
+                                <img class="image" src="@Url.Content("~/Images/rotator/snowfall.jpg")" />
+                            </div>
+                        </e-content-template>
+                    </e-rotator-item>
+                </e-rotator-items>
+            </ej-rotator>
+            <ej-pager id="pager" page-count="5" page-size="1" is-responsive="true" total-records-count="5" change="pagerChange"></ej-pager>
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script>
+
+    function pagerChange(args) {
+        slider_obj = $("#content").ejRotator("instance");
+        slider_obj.gotoIndex(args.currentPage - 1);
+    }
+    </script>
+}
+@section StyleSection{
+    <style type="text/css" class="cssStyles">
+        .frame {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #content > li .image {
+            width: 100%;
+            height: 350px;
+        }
+    </style>
+}

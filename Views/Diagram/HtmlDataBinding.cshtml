@@ -1,0 +1,171 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization.DiagramEnums;
+@section SampleHeading{ <span class="sampleName">Diagram / Default Functionalities</span>}
+@section ControlsSection{
+    <ej-diagram id="diagram" width="100%" height="650px" enable-context-menu="false" tool="ZoomPan" node-template="nodeTemplate">
+        <e-snap-settings snap-constraints="None">
+        </e-snap-settings>
+        <e-page-settings scroll-limit="@ScrollLimit.Diagram"></e-page-settings>
+        <e-default-settings>
+            <e-node width="120" height="40" border-color="transparent">
+                <e-labels>
+                    <e-diagram-label name="label1" font-color="#ffffff">
+                        <e-margin left="5" right="5"></e-margin>
+                    </e-diagram-label>
+                </e-labels>
+            </e-node>
+            <e-connector>
+                <e-segments>
+                    <e-segment type="Orthogonal"></e-segment>
+                </e-segments>
+                <e-target-decorator fill-color="#4F4F4F" border-color="#4F4F4F"></e-target-decorator>
+            </e-connector>
+        </e-default-settings>
+        <e-datasource-settings id="Id" parent="ReportingPerson">
+            <e-datamanager table="#htmlbinding"></e-datamanager>
+        </e-datasource-settings>
+        <e-layout type="HierarchicalTree" margin-x="0" margin-y="50" horizontal-spacing="30" vertical-spacing="40"></e-layout>
+    </ej-diagram>
+}
+
+<script id="htmlbinding" type="text/template">
+    <table style="display: none">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Role
+                </th>
+                <th>
+                    ReportingPerson
+                </th>
+                <th>
+                    Color
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>parent</td>
+                <td>Plant Manager</td>
+                <td>null</td>
+                <td>#0B4268</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Production Manager</td>
+                <td>parent</td>
+                <td>#D34A4A</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Administrative Officer</td>
+                <td>parent</td>
+                <td>#D34A4A</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Maintenance manager</td>
+                <td>parent</td>
+                <td>#D34A4A</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Control Room</td>
+                <td>11</td>
+                <td>#108D8D</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Plant Operator</td>
+                <td>11</td>
+                <td>#108D8D</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Foreman</td>
+                <td>3</td>
+                <td>#108D8D</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Craft Personnel</td>
+                <td>5</td>
+                <td>#108D8D</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Craft Personnel</td>
+                <td>5</td>
+                <td>#108D8D</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Foreman</td>
+                <td>4</td>
+                <td>#108D8D</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Craft Personnel</td>
+                <td>8</td>
+                <td>#108D8D</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Electrical Supervisor</td>
+                <td>2</td>
+                <td>#108D8D</td>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>Mechanical Supervisor</td>
+                <td>2</td>
+                <td>#108D8D</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Craft Personnel</td>
+                <td>10</td>
+                <td>#108D8D</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Craft Personnel</td>
+                <td>10</td>
+                <td>#108D8D</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Craft Personnel</td>
+                <td>111</td>
+                <td>#108D8D</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Craft Personnel</td>
+                <td>111</td>
+                <td>#108D8D</td>
+            </tr>
+        </tbody>
+    </table>
+</script>
+@section ScriptSection{
+    <script type="text/javascript">
+      function nodeTemplate(diagram, node) {
+            node.labels[0].text = node.Role;
+            node.fillColor = node.Color;
+        }
+    </script>
+}
+<style>
+    .svg-rotate-ie:hover {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+
+    .svg-rotate {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+</style>

@@ -1,0 +1,75 @@
+﻿@section SampleHeading{
+    <span class="sampleName">ListBox / Virtual Scrolling</span>}
+@section ControlsSection{
+    <div class="control frame">
+        <div class="ctrllabel">
+            Select a customer
+        </div>
+
+        <ej-list-box id="selectlang" query="ej.Query().from('Customers')" allow-virtual-scrolling="true" item-request-count="10">
+            <e-datamanager url="//js.syncfusion.com/ejServices/wcf/NorthWind.svc/" cross-domain="true" ></e-datamanager>
+            <e-list-box-fields text="CustomerID" />
+        </ej-list-box>        
+
+    </div>
+}
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-3">Select Dropdown</div>
+        <div class="col-md-3">
+            <ej-drop-down-list id="dropdown" width="120px" selected-item-index="0" change="onValueChange" target-id="Targetid"></ej-drop-down-list>            
+
+            <div id="Targetid">
+                <ul>
+                    <li value="disablevirtual">Normal Mode</li>
+                    <li value="enablevirtual">Continuous Mode</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+}
+@section StyleSection{
+    <style type="text/css" class="cssStyles">
+        .ctrllabel {
+            padding: 0px 0px 12px 3px;
+            font-weight: 600;
+        }
+
+        .e-ddl-popup {
+            margin: 0 auto;
+        }
+    </style>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        function onValueChange(args) {
+            var target = $('#selectlang').data("ejListBox");
+            //target.destroy();
+            var dataManger = ej.DataManager({
+                url: "//js.syncfusion.com/ejServices/Wcf/Northwind.svc/", crossDomain: true
+            });
+            // Query creation
+            var query = ej.Query()
+                   .from("Customers");
+            if (args.value == "enablevirtual") {
+                $("#selectlang").ejListBox({
+                    dataSource: dataManger,
+                    fields: { text: "CustomerID" },
+                    query: query, allowVirtualScrolling: true, virtualScrollMode: ej.VirtualScrollMode.Continuous
+
+                });
+            }
+            if (args.value == "disablevirtual") {
+                $("#selectlang").ejListBox({
+                    dataSource: dataManger,
+                    fields: { text: "CustomerID" },
+                    query: query, allowVirtualScrolling: true
+                });
+            }
+        }
+        $(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+        });
+    </script>
+}

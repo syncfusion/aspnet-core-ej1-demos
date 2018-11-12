@@ -1,0 +1,29 @@
+@section SampleHeading{<span class="sampleName">Grid / RowDragAndDrop</span> }
+@section ControlsSection{
+<div>
+    <div style="float:left;width:49%">
+        <ej-grid id="Grid" allow-paging="true"  selectiontype="Multiple" allow-row-drag-and-drop="true" row-drop-settings="@(new RowDropSettings() {DropTargetID="#destGrid"})">
+            <e-datamanager json="ViewBag.dataSource" adaptor="remoteSaveAdaptor"></e-datamanager>
+            <e-columns>
+                <e-column field="OrderID" header-text="Order ID" is-primary-key="true" text-align="Right" width="75"></e-column>
+                <e-column field="CustomerID" header-text="Customer ID" width="80"></e-column>
+                <e-column field="EmployeeID" header-text="Employee ID" text-align="Left" width="75"></e-column>
+                <e-column field="Freight" header-text="Freight" format="{0:C2}" text-align=Right width="75"></e-column>
+                <e-column field="ShipCity" header-text="Ship City" width="110"></e-column>
+            </e-columns>
+        </ej-grid>
+    </div>
+    <div style="float:right;width:49%">
+        <ej-grid id="destGrid" allow-paging="true" selectiontype="Multiple" allow-row-drag-and-drop="true" row-drop-settings="@(new RowDropSettings() {DropTargetID="#Grid"})">
+            <e-datamanager json="ViewBag.dataSource2" adaptor="remoteSaveAdaptor"></e-datamanager>
+            <e-columns>
+                <e-column field="OrderID" header-text="Order ID" is-primary-key="true" text-align="Right" width="75"></e-column>
+                <e-column field="CustomerID" header-text="Customer ID" width="80"></e-column>
+                <e-column field="EmployeeID" header-text="Employee ID" text-align="Left" width="75"></e-column>
+                <e-column field="Freight" header-text="Freight" format="{0:C2}" text-align=Right width="75"></e-column>
+                <e-column field="ShipCity" header-text="Ship City" width="110"></e-column>
+            </e-columns>
+        </ej-grid>
+    </div>
+</div>
+}

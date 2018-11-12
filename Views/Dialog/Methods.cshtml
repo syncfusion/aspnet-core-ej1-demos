@@ -1,0 +1,136 @@
+@section SampleHeading{ <span class="sampleName">Dialog / Methods</span>}
+
+@section ControlsSection{
+    <div class="control">
+        <ej-dialog id="dialogAPI" is-responsive="true" title="Northwind" containment=".control" close="onDialogClose" open="enableBtn">
+            <e-content-template>
+                <div>
+                    <p>
+                        Northwind is a privately held company that develops property management systems, as well as GDS/web based booking solutions for the hospitality industry.
+                        Maestro Enterprise Suite,<span> the company's flagship product, includes a variety of modules</span> which can be coordinated to comply with a hotel or hotel chain's requirements.
+                    </p>
+                    <p> Maestro is a multi-platform system,<span> with over 10,000 users, allowing for optimized adaptibility </span> to single or multi-property businesses. </p>
+                    <p> Northwind's headquarters are based in Markham, Ontario, with sales and support offices located worldwide.</p>
+                    <p>
+                </div>
+            </e-content-template>
+        </ej-dialog>       
+    </div>
+}
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-12">
+            <ej-button id="btnDialogOpen" width="107px" text="Open" click="onOpen" />            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ej-button id="btnDialogClose" width="107px" text="Close" click="onClose" />            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ej-toggle-button id="btnDialogMinimize" width="107px" default-text="Minimize" active-text="Restore" change="onMinimize" />            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ej-toggle-button id="btnDialogMaximize" width="107px" default-text="Maximize" active-text="Restore" change="onMaximize" />            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ej-toggle-button id="btnDialogCollapse" width="107px" default-text="Collapse" active-text="Expand" change="onCollapse" />                        
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script>
+        var eDialog;
+        $(document).ready(function () {
+            eDialog = $("#dialogAPI").data("ejDialog");
+        });
+        function onDialogClose(args) {
+            $("#btnDialogMinimize").ejToggleButton("disable");
+            $("#btnDialogMaximize").ejToggleButton("disable");
+            $("#btnDialogCollapse").ejToggleButton("disable");
+        }
+        function onclick() {
+            if (eDialog.model) {
+                $("#dialogAPI").ejDialog("open");
+            }
+        }
+        function onOpen() {
+            if (eDialog.model) {
+                eDialog.open();
+            }
+        }
+        function onClose() {
+            eDialog.close();
+			$("#btnDialogOpen").ejButton("enable");
+        }
+        function onMinimize(args) {
+            if (args.isChecked) {
+                if ($("#btnDialogMaximize").ejToggleButton("model.toggleState") == true)
+                    $("#btnDialogMaximize").ejToggleButton("model.toggleState", false);
+                eDialog.minimize();
+                $("#btnDialogMinimize").ejToggleButton("model.toggleState", true)
+                $("#btnDialogCollapse").ejToggleButton("disable");
+            }
+            else {
+                eDialog.restore();
+                $("#btnDialogCollapse").ejToggleButton("enable");
+                if ($("#btnDialogCollapse").ejToggleButton("model.toggleState") == true)
+                    $("#btnDialogCollapse").ejToggleButton("model.toggleState", false);
+            }
+        }
+        function onMaximize(args) {
+            if (args.isChecked) {
+                if ($("#btnDialogMinimize").ejToggleButton("model.toggleState") == true)
+                    $("#btnDialogMinimize").ejToggleButton("model.toggleState", false);
+                eDialog.maximize();
+                if ($("#btnDialogCollapse").ejToggleButton("model.toggleState") == true)
+                    $("#btnDialogCollapse").ejToggleButton("model.toggleState", false);
+            }
+            else {
+                eDialog.restore();
+                if ($("#btnDialogMinimize").ejToggleButton("model.toggleState") == true)
+                    $("#btnDialogMinimize").ejToggleButton("model.toggleState", false);
+                if ($("#btnDialogCollapse").ejToggleButton("model.toggleState") == true)
+                    $("#btnDialogCollapse").ejToggleButton("model.toggleState", false);
+            }
+            $("#btnDialogCollapse").ejToggleButton("enable");
+        }
+        function onCollapse(args) {
+            (args.isChecked) ? eDialog.collapse() : eDialog.expand();
+        }
+        function enableBtn(args) {
+            $("#btnDialogMinimize").ejToggleButton("enable");
+            $("#btnDialogMaximize").ejToggleButton("enable");
+            $("#btnDialogCollapse").ejToggleButton("enable");
+			$("#btnDialogOpen").ejButton("disable");
+        }
+        $(document).ready(function () { $("#sampleProperties").ejPropertiesPanel(); });
+    </script>
+}
+@section StyleSection{
+    <style class="cssStyles">
+        #dialogAPI span {
+            font-weight: 600;
+        }
+
+        .control {
+            height: 515px;
+            position: relative;
+        }
+
+        .row .cols-prop-area {
+            height: 520px;
+        }
+
+        #dialogAPI {
+            text-align: justify;
+            padding: 10px;
+        }
+    </style>
+}

@@ -1,0 +1,27 @@
+﻿@section SampleHeading{<span class="sampleName">Grid / Hierarchy Grid Exporing</span> }
+@section ControlsSection{
+    <ej-grid id="Grid" datasource=ViewBag.parent allow-paging="true"
+             export-to-excel-action="HierarchyExportToExcel"
+             export-to-pdf-action="HierarchyExportToPdf"
+             export-to-word-action="HierarchyExportToWord">
+        <ej-grid query-string="EmployeeID" datasource="ViewBag.child">
+            <e-columns>
+                <e-column field="OrderID" header-text="Order ID" text-align="Right" width="30"></e-column>
+                <e-column field="ShipCity" header-text="Ship City" width="80"></e-column>
+                <e-column field="CustomerID" header-text="Customer ID" width="80"></e-column>
+                <e-column field="Freight" header-text="Freight" format="{0:C2}" text-align="Right" width="80"></e-column>
+            </e-columns>
+        </ej-grid>
+        <e-toolbar-settings show-toolbar="true" toolbar-items=@(new List<string>() {"excelExport","wordExport","pdfExport" })>
+        </e-toolbar-settings>
+        <e-columns>
+            <e-column field="EmployeeID" header-text="EmployeeID" text-align="Right" width="30"></e-column>
+            <e-column field="FirstName" header-text="First Name" width="80"></e-column>
+            <e-column field="LastName" header-text="Last Name" width="80"></e-column>
+            <e-column field="Title" header-text="Title" width="80"></e-column>
+            <e-column field="Country" header-text="Country" width="80"></e-column>
+        </e-columns>
+    </ej-grid>
+
+
+}

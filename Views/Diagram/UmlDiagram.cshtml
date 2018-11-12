@@ -1,0 +1,269 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization.DiagramEnums;
+@section SampleHeading{ <span class="sampleName">Diagram / Default Functionalities</span>}
+@section ControlsSection{
+    <ej-diagram id="diagram" width="100%" height="800px" enable-context-menu="false" tool="SingleSelect | Tool.ZoomPan" node-template="nodeTemplate">
+        <e-page-settings scroll-limit="@ScrollLimit.Diagram"></e-page-settings>
+        <e-nodes>
+            <e-uml-classifier name="Patient" type="UMLClassifier" fill-color="#26A0DA" border-color="white" offset-x="85" offset-y="250">
+                <e-class name="Patient">
+                    <e-attributes>
+                        <e-attribute name="accepted" type="Date"></e-attribute>
+                        <e-attribute name="sickness" type="History"></e-attribute>
+                        <e-attribute name="prescription" type="String[*]"></e-attribute>
+                        <e-attribute name="allergies" type="String[*]"></e-attribute>
+                    </e-attributes>
+                    <e-methods>
+                        <e-method name="getHistory" type="History"></e-method>
+                    </e-methods>
+                </e-class>
+            </e-uml-classifier>
+            <e-uml-classifier name="Doctor" type="UMLClassifier" offset-x="125" offset-y="545" fill-color="#26A0DA" border-color="white">
+                <e-class name="Doctor">
+                    <e-attributes>
+                        <e-attribute name="specialist" type="String[*]"></e-attribute>
+                        <e-attribute name="locations" type="String[*]"></e-attribute>
+                    </e-attributes>
+                </e-class>
+            </e-uml-classifier>
+            <e-uml-classifier name="Person" type="UMLClassifier" offset-x="290" offset-y="105" fill-color="#26A0DA" border-color="white">
+                <e-class name="Person">
+                    <e-attributes>
+                        <e-attribute name="name" type="Name"></e-attribute>
+                        <e-attribute name="title" type="String[*]"></e-attribute>
+                        <e-attribute name="gender" type="Gender"></e-attribute>
+                    </e-attributes>
+                </e-class>
+            </e-uml-classifier>
+            <e-uml-classifier name="Hospital" type="UMLClassifier" offset-x="523" offset-y="100" fill-color="#26A0DA" border-color="white">
+                <e-class name="Hospital">
+                    <e-attributes>
+                        <e-attribute name="name" type="Name"></e-attribute>
+                        <e-attribute name="address" type="Address"></e-attribute>
+                        <e-attribute name="phone" type="Phone"></e-attribute>
+                    </e-attributes>
+                    <e-methods>
+                        <e-method name="getDepartment" type="String"></e-method>
+                    </e-methods>
+                </e-class>
+            </e-uml-classifier>
+            <e-uml-classifier name="Department" type="UMLClassifier" offset-x="523" offset-y="280" fill-color="#26A0DA" border-color="white">
+                <e-class name="Department">
+                    <e-methods>
+                        <e-method name="getStaffCount" type="Int"></e-method>
+                    </e-methods>
+                </e-class>
+            </e-uml-classifier>
+            <e-uml-classifier name="Staff" type="UMLClassifier" offset-x="520" offset-y="455" fill-color="#26A0DA" border-color="white">
+                <e-class name="Staff">
+                    <e-attributes>
+                        <e-attribute name="joined" type="Date"></e-attribute>
+                        <e-attribute name="education" type="String[*]"></e-attribute>
+                        <e-attribute name="certification" type="String[*]"></e-attribute>
+                        <e-attribute name="languages" type="String[*]"></e-attribute>
+                    </e-attributes>
+                    <e-methods>
+                        <e-method name="isDoctor" type="bool"></e-method>
+                        <e-method name="getHistory" type="bool"></e-method>
+                    </e-methods>
+                </e-class>
+            </e-uml-classifier>
+            <e-uml-classifier name="OperationStaff" type="UMLClassifier" offset-x="295" offset-y="455" fill-color="#26A0DA" border-color="white">
+                <e-class name="OperationStaff"></e-class>
+            </e-uml-classifier>
+            <e-uml-classifier name="Nurse" type="UMLClassifier" offset-x="295" offset-y="545" fill-color="#26A0DA" border-color="white">
+                <e-class name="Nurse"></e-class>
+            </e-uml-classifier>
+            <e-uml-classifier name="Surgeon" type="UMLClassifier" offset-x="125" offset-y="665" fill-color="#26A0DA" border-color="white">
+                <e-class name="Surgeon"></e-class>
+            </e-uml-classifier>
+            <e-uml-classifier name="AdministrativeStaff" type="UMLClassifier" offset-x="517" offset-y="605" fill-color="#26A0DA" border-color="white">
+                <e-class name="AdministrativeStaff"></e-class>
+            </e-uml-classifier>
+            <e-uml-classifier name="FrontDeskStaff" type="UMLClassifier" offset-x="515" offset-y="695" fill-color="#26A0DA" border-color="white">
+                <e-class name="FrontDeskStaff"></e-class>
+            </e-uml-classifier>
+            <e-uml-classifier name="TechnicalStaff" type="UMLClassifier" offset-x="813" offset-y="445" fill-color="#26A0DA" border-color="white">
+                <e-class name="TechnicalStaff"></e-class>
+            </e-uml-classifier>
+            <e-uml-classifier name="Technician" type="UMLClassifier" offset-x="700" offset-y="535" fill-color="#26A0DA" border-color="white">
+                <e-class name="Technician"></e-class>
+            </e-uml-classifier>
+            <e-uml-classifier name="Technologist" type="UMLClassifier" offset-x="900" offset-y="535" fill-color="#26A0DA" border-color="white">
+                <e-class name="Technologist"></e-class>
+            </e-uml-classifier>
+            <e-uml-classifier name="SurgicalTechnologist" type="UMLClassifier" offset-x="900" offset-y="630" fill-color="#26A0DA" border-color="white">
+                <e-class name="SurgicalTechnologist"></e-class>
+            </e-uml-classifier>
+        </e-nodes>
+        <e-connectors>
+            <e-connector name="connect1" source-node="Patient" target-node="Person">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Association" association="None"></e-shape>
+            </e-connector>
+            <e-connector name="connect2" source-node="Person" target-node="Hospital">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Association"></e-shape>
+            </e-connector>
+            <e-connector name="connect3" source-node="Department" target-node="Hospital">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Composition"></e-shape>
+            </e-connector>
+            <e-connector name="connect4" source-node="OperationStaff" target-node="Patient">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Association"></e-shape>
+            </e-connector>
+            <e-connector name="connect5" source-node="Doctor" target-node="OperationStaff">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Association" association="None"></e-shape>
+            </e-connector>
+            <e-connector name="connect6" source-node="Nurse" target-node="OperationStaff">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Association" association="None"></e-shape>
+            </e-connector>
+            <e-connector name="connect7" source-node="Surgeon" target-node="Doctor">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Association" association="None"></e-shape>
+            </e-connector>
+            <e-connector name="connect8" source-node="FrontDeskStaff" target-node="AdministrativeStaff">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Association" association="None"></e-shape>
+            </e-connector>
+            <e-connector name="connect9" source-node="Technician" target-node="TechnicalStaff">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Association" association="None"></e-shape>
+            </e-connector>
+            <e-connector name="connect10" source-node="Technologist" target-node="TechnicalStaff">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Association" association="None"></e-shape>
+            </e-connector>
+            <e-connector name="connect11" source-node="SurgicalTechnologist" target-node="Technologist">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Association" association="None"></e-shape>
+            </e-connector>
+            <e-connector name="connect12" source-node="Staff" target-node="Department">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Association" association="None"></e-shape>
+            </e-connector>
+            <e-connector name="connect13" source-node="Staff" target-node="Person">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Association" association="None"></e-shape>
+            </e-connector>
+            <e-connector name="connect14" source-node="OperationStaff" target-node="Staff">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Association" association="None"></e-shape>
+            </e-connector>
+            <e-connector name="connect15" source-node="AdministrativeStaff" target-node="Staff">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Association" association="None"></e-shape>
+            </e-connector>
+            <e-connector name="connect16" source-node="TechnicalStaff" target-node="Staff">
+                <e-segments>
+                    <e-segment type="Straight"></e-segment>
+                </e-segments>
+                <e-shape type="UMLClassifier" relationship="Association" association="None"></e-shape>
+            </e-connector>
+        </e-connectors>
+        <e-default-settings>
+            <e-node fill-color="#26A0DA" border-color="transparent" border-width="2">
+            </e-node>
+            <e-connector constraints="None">
+                <e-segments><e-segment type="Straight"></e-segment></e-segments>
+                <e-target-decorator width="10" height="10" fill-color="#666666"></e-target-decorator>
+            </e-connector>
+            <e-group fill-color="#26A0DA" border-color="transparent" border-width="2"></e-group>
+        </e-default-settings>
+    </ej-diagram>
+}
+
+@section ScriptSection{
+    <script type="text/javascript">
+        function nodeTemplate(node) {
+            if ((node.properties && node.properties.length > 0) || (node.methods && node.methods.length > 0)) {
+                node.type = "group";
+                node.children = node.children ? node.children : [];
+                node.container = { type: "stack" };
+                node.children.push({
+                    parent: node.name,
+                    horizontalAlign: "stretch",
+                    height: 30, width: node.minWidth, labels: [{ text: node.className, fontColor: "white", fontFamily: "Segoe UI" }]
+                });
+                createClassMembers(node, node.properties, "property");
+                createClassMembers(node, node.methods, "method");
+            }
+            else {
+                node.height = 30;
+                if (!node.labels) node.labels = [];
+                node.labels.push({ text: node.className, fontColor: "white", fontFamily: "Segoe UI" });
+            }
+        }
+
+        function createClassMembers(node, membersCollection, memberType) {
+            if (membersCollection && membersCollection.length > 0) {
+                createLine(node);
+                for (var i in membersCollection) {
+                    if (memberType === "property")
+                        createChild(node, membersCollection[i].name + ":" + membersCollection[i].type);
+                    else
+                        createChild(node, membersCollection[i].name + "(" + membersCollection[i].returnType + "):" + membersCollection[i].parameter);
+                }
+            }
+        }
+
+        function createLine(node) {
+            node.children.push({ height: .5, width: node.minWidth, borderColor: "white", })
+        }
+
+        function createChild(node, text) {
+            node.children.push({
+                height: 25, width: node.minWidth, borderColor: "transparent",
+                labels: [{
+                    fontColor: "white",
+                    margin: { left: -64, top: -10 }, horizontalAlignment: "left", verticalAlignment: "top",
+                    text: text,
+                    fontFamily: "Segoe UI"
+
+                }],
+            });
+        }
+    </script>
+}
+<style>
+    .svg-rotate-ie:hover {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+
+    .svg-rotate {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+</style>

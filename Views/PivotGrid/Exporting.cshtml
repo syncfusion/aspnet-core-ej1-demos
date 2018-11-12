@@ -1,0 +1,109 @@
+﻿@using Syncfusion.JavaScript;
+@section SampleHeading{<span class="sampleName">PivotGrid / Default</span> }
+@section ControlsSection{
+<ej-pivot-grid id="PivotGrid1" is-responsive="true" load="onload">
+    <e-data-source>
+        <e-pivot-rows>
+            <e-row-field field-name="Country" field-caption="Country"></e-row-field>
+        </e-pivot-rows>
+        <e-pivot-columns>
+            <e-column-field field-name="Date" field-caption="Date"></e-column-field>
+        </e-pivot-columns>
+        <e-pivot-values>
+            <e-value-field field-name="Amount" field-caption="Amount" format="currency"></e-value-field>
+        </e-pivot-values>
+    </e-data-source>
+</ej-pivot-grid>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        function onload(args) {
+            args.model.dataSource.data = [
+                                        { Amount: 100, Country: "Canada", Date: "FY 2005", Product: "Bike", Quantity: 2, State: "Alberta" },
+                                        { Amount: 200, Country: "Canada", Date: "FY 2006", Product: "Van", Quantity: 3, State: "British Columbia" },
+                                        { Amount: 300, Country: "Canada", Date: "FY 2007", Product: "Car", Quantity: 4, State: "Brunswick" },
+                                        { Amount: 150, Country: "Canada", Date: "FY 2008", Product: "Bike", Quantity: 3, State: "Manitoba" },
+                                        { Amount: 200, Country: "Canada", Date: "FY 2006", Product: "Car", Quantity: 4, State: "Ontario" },
+                                        { Amount: 100, Country: "Canada", Date: "FY 2007", Product: "Van", Quantity: 1, State: "Quebec" },
+                                        { Amount: 200, Country: "France", Date: "FY 2005", Product: "Bike", Quantity: 2, State: "Charente-Maritime" },
+                                        { Amount: 250, Country: "France", Date: "FY 2006", Product: "Van", Quantity: 4, State: "Essonne" },
+                                        { Amount: 300, Country: "France", Date: "FY 2007", Product: "Car", Quantity: 3, State: "Garonne (Haute)" },
+                                        { Amount: 150, Country: "France", Date: "FY 2008", Product: "Van", Quantity: 2, State: "Gers" },
+                                        { Amount: 200, Country: "Germany", Date: "FY 2006", Product: "Van", Quantity: 3, State: "Bayern" },
+                                        { Amount: 250, Country: "Germany", Date: "FY 2007", Product: "Car", Quantity: 3, State: "Brandenburg" },
+                                        { Amount: 150, Country: "Germany", Date: "FY 2008", Product: "Car", Quantity: 4, State: "Hamburg" },
+                                        { Amount: 200, Country: "Germany", Date: "FY 2008", Product: "Bike", Quantity: 4, State: "Hessen" },
+                                        { Amount: 150, Country: "Germany", Date: "FY 2007", Product: "Van", Quantity: 3, State: "Nordrhein-Westfalen" },
+                                        { Amount: 100, Country: "Germany", Date: "FY 2005", Product: "Bike", Quantity: 2, State: "Saarland" },
+                                        { Amount: 150, Country: "United Kingdom", Date: "FY 2008", Product: "Bike", Quantity: 5, State: "England" },
+                                        { Amount: 250, Country: "United States", Date: "FY 2007", Product: "Car", Quantity: 4, State: "Alabama" },
+                                        { Amount: 200, Country: "United States", Date: "FY 2005", Product: "Van", Quantity: 4, State: "California" },
+                                        { Amount: 100, Country: "United States", Date: "FY 2006", Product: "Bike", Quantity: 2, State: "Colorado" },
+                                        { Amount: 150, Country: "United States", Date: "FY 2008", Product: "Car", Quantity: 3, State: "New Mexico" },
+                                        { Amount: 200, Country: "United States", Date: "FY 2005", Product: "Bike", Quantity: 4, State: "New York" },
+                                        { Amount: 250, Country: "United States", Date: "FY 2008", Product: "Car", Quantity: 3, State: "North Carolina" },
+                                        { Amount: 300, Country: "United States", Date: "FY 2007", Product: "Van", Quantity: 4, State: "South Carolina" }
+            ];
+        }
+		function exportPivotGrid(args) {
+                    var dropDownObj = $('#GridExporting').data("ejDropDownList");
+					var pGridObj = $('#PivotGrid1').data("ejPivotGrid");
+                    var exportOption = dropDownObj.model.value;
+                    if (exportOption == "Excel")
+                        pGridObj.exportPivotGrid("ExcelExport", "Sample");
+                    else if (exportOption == "Word")
+                        pGridObj.exportPivotGrid("WordExport", "Sample");
+                    else if (exportOption == "PDF")
+                        pGridObj.exportPivotGrid("PDFExport", "Sample");
+        }
+		$(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+        });
+    </script>
+}
+@section StyleSection{
+    <style>
+        #PivotGrid1 {
+            width: 100%;
+            height: 350px;
+            overflow: auto;
+        }
+        #ExportBtn {
+            margin-left: 80px;
+        }
+        .cols-prop-area {
+            width: 300px !important;
+            min-height: 93px !important;
+        }
+
+        .col-md-3 {
+            height: 45px !important;
+        }
+        .cols-sample-area {
+            width: 100% !important;
+        }
+    </style>
+}
+@section PropertiesSection{
+    <ul id="Exporting">
+        <li>Excel</li>
+        <li>PDF</li>
+        <li>Word</li>
+    </ul>
+    <br />
+<div id="sampleProperties">
+    <div class="prop-grid">
+        <div class="row" style="float:left;margin-left:30px !important; padding-top: 8px;">
+            Export Option :
+        </div>
+        <div class="row" style="margin-right:20px;">
+            <div class="col-md-3">
+                <ej-drop-down-list id="GridExporting" target-id="Exporting" width="100px" selected-item-index="0"></ej-drop-down-list>
+            </div>
+        </div>
+    </div>
+    <div>
+        <ej-button id="ExportBtn" width="100px" height="30px" type="Button" text="Export" click="exportPivotGrid" />
+    </div>
+</div>
+}

@@ -1,0 +1,93 @@
+﻿@using Syncfusion.JavaScript
+@using Syncfusion.MVC.EJ
+@using Syncfusion.JavaScript.DataVisualization
+@using Syncfusion.JavaScript.DataVisualization.Models
+
+@section SampleHeading{
+	<span class="sampleName">TreeMap / Hierarchical</span>
+	}
+@section ControlsSection{
+  
+    <div style="min-height:381px;">  
+        <ej-tree-map id="container" datasource="ViewBag.hierarchicalData" tooltip-template="tooltiptemp" show-tooltip="true"
+                     color-value-path="Expense" weight-value-path="Sales">
+            <e-levels>
+                <e-level group-path="Country" header-height="25" show-labels="true" label-template="labeltemplate"></e-level>
+            </e-levels>
+            <e-desaturation-color-mapping from="1" to="0.5" color="#41B8C4" range-minimum="2000" range-maximum="8000">                
+            </e-desaturation-color-mapping>
+        </ej-tree-map>     
+                 </div>
+
+    <div id="tooltiptemp" style="display: none;">
+         <table style="background-color:#222222;width: 166px;height: 107px;">
+            <tr>
+                <td colspan="3">
+                    <span style="font-size:18px;color:white;margin-left:10px;opacity:0.8;font-weight:normal;">{{:Country}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td> <span style="font-size:14px;color:white;margin-left:10px;opacity:0.8;font-weight:normal;">Region</span></td>
+                <td> <span style="font-size:14px;color:white;margin-left:10px;opacity:0.8;font-weight:normal;">:</span></td>
+                <td colspan="3"> <span style="font-size:14px;color:white;margin-left:10px;opacity:0.8;font-weight:normal;">{{:Name}}</span></td>
+                <td style="width:20px;"></td>
+            </tr>
+            <tr>
+               <td> <span style="font-size:14px;color:white;margin-left:10px;opacity:0.8;font-weight:normal;">Sales</span></td>
+               <td> <span style="font-size:14px;color:white;margin-left:10px;opacity:0.8;font-weight:normal;">:</span></td>
+                <td colspan="3"> <span style="font-size:14px;color:white;margin-left:10px;opacity:0.8;font-weight:normal;">{{:Sales}}</span></td>
+            </tr>
+            <tr>
+                 <td> <span style="font-size:14px;color:white;margin-left:10px;opacity:0.8;font-weight:normal;">Expense</span></td>
+                 <td> <span style="font-size:14px;color:white;margin-left:10px;opacity:0.8;font-weight:normal;">:</span></td>
+                <td colspan="3"> <span style="font-size:14px;color:white;margin-left:10px;opacity:0.8;font-weight:normal;">{{:Expense}}</span></td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+        </table>
+    </div>
+    <script  id="headertemplate" type="application/jsrender">
+
+         <div>
+            <span style="color:gray;font-size:18px;font-weight:normal;" id="span1">{{:header}}</span><br />
+         </div>
+      </script>
+    <script  id="labeltemplate" type="application/jsrender">
+
+           <div align="center"  style="width:120px; height:120px;background-image:url('../images/treemap/circle.png');">
+             <table style="text-align:center;margin-left:-10px; margin-top:10px;" >
+               <tr>
+                <td></td>
+                <th>
+                <div style="margin-top:10px;margin-left:10px;">
+                <span style="color:white;font-size:16px;font-weight:normal;" id="span2">Sales</span>
+                </div></th>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                <div style="margin-top:-5px;">
+                <span style="color:white;font-size:15px;font-weight:normal;" id="span5">98486</span>
+                </div>
+                </td>
+              </tr>
+              <tr />
+              <tr>
+                <td></td>
+                <th>
+                <div style="margin-top:3px;margin-left:2px;">
+                <span style="color:white;font-size:16px;margin-top:-5px;font-weight:normal;" id="span3">Expense</span>
+                </div></th>
+              </tr>
+              <tr>
+
+                 <td></td>
+                <td>
+                <div style="margin-top:-5px;">
+                <span style="color:white;font-size:15px;font-weight:normal;" id="span4">87000</span>
+                </div></td>
+              </tr>
+            </table>
+          </div>
+        </script>
+    }

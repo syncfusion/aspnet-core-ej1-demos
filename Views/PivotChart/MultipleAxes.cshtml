@@ -1,0 +1,73 @@
+﻿@using Syncfusion.JavaScript;
+@section SampleHeading{<span class="sampleName">PivotChart / Multiple Axes</span> }
+@section ControlsSection{
+    <ej-pivot-chart id="PivotChart1" is-responsive="true" load="loadTheme" before-series-render="onBeforeRender">
+        <e-data-source catalog="Adventure Works DW 2008 SE" cube="Adventure Works" data="//bi.syncfusion.com/olap/msmdpump.dll">
+            <e-pivot-rows>
+                <e-row-field field-name="[Date].[Fiscal]"></e-row-field>
+            </e-pivot-rows>
+            <e-pivot-columns>
+                <e-column-field field-name="[Customer].[Customer Geography]"></e-column-field>
+            </e-pivot-columns>
+            <e-pivot-values>
+                <e-value-field axis="Column">
+                    <e-measures>
+                        <e-measure-items field-name="[Measures].[Internet Sales Amount]"></e-measure-items>
+                        <e-measure-items field-name="[Measures].[Customer Count]"></e-measure-items>
+                    </e-measures>
+                </e-value-field>
+            </e-pivot-values>
+        </e-data-source>
+        <e-common-series-options type="Column" enable-animation="true">
+            <e-chart-tooltip visible="true"></e-chart-tooltip>
+        </e-common-series-options>
+        <e-size width="100%" height="600px"></e-size>
+        <e-primary-x-axis>
+            <e-title text="Customer Count"></e-title>
+        </e-primary-x-axis>
+        <e-primary-y-axis>
+            <e-title text="Customer Count"></e-title>
+        </e-primary-y-axis>
+        <e-legend visible="true" row-count="4"></e-legend>
+        <e-axes>
+            <e-axis name="yAxisConfig" row-index="0" orientation="vertical" opposed-position="true" label-format="c">
+                <e-major-grid-lines visible="false"></e-major-grid-lines>
+                <e-axis-line visible="true"></e-axis-line>
+                <e-title text="Internet Sales Amount"></e-title>
+            </e-axis>
+        </e-axes>
+    </ej-pivot-chart>
+}
+
+@section ScriptSection{
+    <script type="text/javascript">
+        function onBeforeRender(args) {
+            for (var i = 0; i < args.series.length; i++) {
+                if (args.series[i].name.indexOf("Internet Sales Amount") > -1) {
+                    args.series[i].yAxisName = "yAxisConfig";
+                    args.series[i].type = "spline";
+                    args.series[i].marker.visible = true;
+                }
+
+            }
+            return args;
+        }
+    </script>
+
+}
+
+@section StyleSection{
+    <style>
+        #PivotChart1 {
+            min-height: 275px;
+            min-width: 525px;
+            height: 600px;
+            width: 100%;
+            float: left;
+        }
+
+        .cols-sample-area {
+            width: 100% !important;
+        }
+    </style>
+}

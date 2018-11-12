@@ -1,0 +1,33 @@
+﻿
+@section SampleHeading{
+    <span class="sampleName">Presentation / CreateAnimation</span>
+}
+
+@section ControlsSection{
+    @{Html.BeginForm("CreateAnimation", "Presentation", FormMethod.Post);
+        {
+            <div class="Common">
+                <div class="tablediv">
+                    <label class="rowdiv">
+                        This section demonstrates how animation can be created in a presentation using Essential Presentation.
+                    </label>
+                </div>
+                <div class="tablediv">
+                    <div class="rowdiv">
+                        <div class="celldiv">
+                            <div style="border: solid 1px #EDEDED; padding: 5px 7px 5px 7px;">
+                                <table width="100%">
+                                    <tr>
+                                        <td align="right">
+                                            <input type="submit" class="Button" value="Create Presentation" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            Html.EndForm();
+        }}}

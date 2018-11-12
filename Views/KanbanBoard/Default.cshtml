@@ -1,0 +1,16 @@
+﻿@using Syncfusion.JavaScript;
+@section SampleHeading{<span class="sampleName">Default Functionalities</span> }
+@section ControlsSection{
+<ej-kanban id="KanbanBoard" allow-selection="true" allow-title="true" key-field="Status">
+     <e-datamanager url="//js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Tasks" cross-domain="true"></e-datamanager> 
+     <e-kanbancolumns>
+        <e-kanbancolumn header-text="Backlog" key=@(new List<string>(){"Open"})>        
+        </e-kanbancolumn>
+        <e-kanbancolumn header-text="In Progress" key=@(new List<string>() {"InProgress"})></e-kanbancolumn>
+        <e-kanbancolumn header-text="Testing" key=@(new List<string>() {"Testing"})></e-kanbancolumn>
+        <e-kanbancolumn header-text="Done" key=@(new List<string>() {"Close"}) ></e-kanbancolumn>
+     </e-kanbancolumns>
+     <e-kanbanfield content="Summary" primary-key="Id" swimlane-key="Assignee">
+     </e-kanbanfield>
+</ej-kanban>
+}

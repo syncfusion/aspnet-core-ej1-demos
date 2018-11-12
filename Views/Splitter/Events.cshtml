@@ -1,0 +1,101 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Splitter / Events</span>}
+@section ControlsSection{
+    <ej-splitter id="outer" height="250" width="400" is-responsive="true" enable-auto-resize="true" before-expand-collapse="oncollapse" resize="onresize" create="oncreate" orientation="@Orientation.Vertical">
+        <e-split-panes>
+            <e-split-pane>
+                <e-content-template>
+                    <div class="splitdiv" style="height: 100%">
+                        <ej-Splitter id="inner" width="398" is-responsive="true" enable-auto-resize="true" orientation="@Orientation.Horizontal" before-expand-collapse="oncollapse" resize="onresize" create="oncreate">
+                            <e-split-panes>
+                                <e-split-pane>
+                                    <e-content-template>
+                                        <div class="cont">
+                                            Pane 1
+                                        </div>
+                                    </e-content-template>
+                                </e-split-pane>
+                                <e-split-pane>
+                                    <e-content-template>
+                                        <div class="cont">
+                                            Pane 2
+                                        </div>
+                                    </e-content-template>
+                                </e-split-pane>
+                            </e-split-panes>
+                        </ej-Splitter>
+                    </div>
+                </e-content-template>
+            </e-split-pane>
+            <e-split-pane>
+                <e-content-template>
+                    <div class="cont">
+                        Pane 3
+                    </div>
+                </e-content-template>
+            </e-split-pane>
+        </e-split-panes>
+    </ej-splitter>
+}
+@section EventsDropdown{
+    <ej-drop-down-list id="selectControls_input" target-id="evntname" show-checkbox="true" check-all="true" change="evtpropscheckedevent"></ej-drop-down-list>
+    <div id="evntname">
+        <ul>
+            <li>beforeExpandCollapse</li>
+            <li>resize</li>
+        </ul>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        var splitterOutter, splitterInner;
+        $(function () {
+            splitterOutter = $("#outer").data("ejSplitter");
+            splitterInner = $("#inner").data("ejSplitter");
+        });
+
+        function evtpropscheckedevent(args) {
+            if (args.isChecked) {
+                switch (args.selectedText) {
+                    case "beforeExpandCollapse":
+                        splitterOutter.option(args.selectedValue, "oncollapse");
+                        splitterInner.option(args.selectedValue, "oncollapse");
+                        break;
+                    case "resize":
+                        splitterOutter.option(args.selectedValue, "onresize");
+                        splitterInner.option(args.selectedValue, "onresize");
+                        break;
+                }
+            }
+            else {
+                splitterOutter.option(args.selectedText, null);
+                splitterInner.option(args.selectedText, null);
+            }
+        }
+
+        function oncreate(args) {
+            jQuery.addEventLog(this.element[0].id + " has been <span class='eventTitle'>created</span>.");
+        }
+        function oncollapse(args) {
+            jQuery.addEventLog("pane" + args.collapsed.index + " has been <span class='eventTitle'>collapsed</span> and " +
+            args.expanded.index + " has been <span class='eventTitle'>expanded</span>.");
+        }
+        function onresize(args) {
+            jQuery.addEventLog("Splitter has been <span class='eventTitle'>resized</span>.");
+        }
+        function onClear() {
+            $("#EventLog").html("");
+        }
+    </script>
+}
+@section StyleSection{
+    <style type="text/css">
+        #inner {
+            border: 0 none;
+        }
+
+        .cont {
+            padding: 10px 0 0 10px;
+        }
+    </style>
+}

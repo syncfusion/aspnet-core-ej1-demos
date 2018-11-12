@@ -1,0 +1,88 @@
+﻿@section SampleHeading{ <span class="sampleName">RadialSlider / Default Functionalities</span>}
+
+@section ControlsSection{    
+<ej-radial-slider id="apiradialSlider" inner-circle-image-url="@Url.Content("~/images/radialslider/chevron-right.png")" />
+    }
+@section PropertiesSection{
+    <div class="prop-grid">
+        <div class="row-fluid">
+            <div class="row">
+                <div class="col-md-12" style="text-align: left">
+                    Start Angle (0-360)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">  
+                <ej-slider id="startAngleSlider"  height="16" width="225" value="0" min-value="0" max-value="360" increment-step="10" change="onStartchange" />                      
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="row">
+                <div class="col-md-12" style="text-align: left">
+                    End Angle (360-0)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <ej-slider id="endAngleSlider" height="16" width="225" value="360" min-value="360" max-value="0" increment-step="10" change="onEndchange" />                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                Stroke width
+            </div>
+            <div class="col-md-3">
+                <ej-numeric-text-box id="numeric" name="numeric" min-value="1" max-value="10" value="2" width="108" change="valueChange" />                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                Show
+            </div>
+            <div class="col-md-3">
+                <ej-toggle-button id="radialshow" width="107" change="radialshowChange" default-text="Hide" active-text="Show" />                
+            </div>
+        </div>
+    </div>
+}
+<script>
+    $(function () {
+        $("#sampleProperties").ejPropertiesPanel();
+    });
+    function onStartchange(args) {
+        var instance = $("#apiradialSlider").data("ejRadialSlider");
+        var value1 = instance.model.endAngle;
+        if (args.value > value1)
+            alert("Value must be less than end angle");
+        else
+            $("#apiradialSlider").ejRadialSlider({ startAngle: args.value })
+    }
+    function onEndchange(args) {
+        var instance = $("#apiradialSlider").data("ejRadialSlider");
+        var value2 = instance.model.startAngle;
+        if (args.value < value2)
+            alert("Value must be greater than start angle");
+        else
+            $("#apiradialSlider").ejRadialSlider({ endAngle: args.value })
+    }
+    function onShowHideReset(args) {
+        var roundUpp = args.isChecked ? false : true;
+        $("#apiradialSlider").ejRadialSlider({ enableRoundOff: roundUpp })
+    }
+    function valueChange(args) {
+    if(!ej.isNullOrUndefined(args.value))
+        $("#apiradialSlider").ejRadialSlider({ strokeWidth: args.value })
+    }
+    function radialshowChange(args) {
+        $("#apiradialSlider").ejRadialSlider(args.isChecked ? "hide" : "show");
+
+    }
+</script>
+<style>
+   .cols-sample-area {
+			overflow-x:auto;
+			overflow-y: hidden;
+        }  
+</style>

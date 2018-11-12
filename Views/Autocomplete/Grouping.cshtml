@@ -1,0 +1,13 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Autocomplete / Grouping</span>}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+
+            <ej-autocomplete id="groupingCountry" datasource="ViewBag.datasource" items-count="7" width="100%" filter-type="@FilterOperatorType.Contains" highlight-search="true" watermark-text="Select a country">
+                <e-autocomplete-fields group-by="category" />
+            </ej-autocomplete>
+           
+        </div>
+    </div>
+}

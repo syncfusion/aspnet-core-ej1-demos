@@ -1,0 +1,25 @@
+﻿@section SampleHeading{
+    <span class="sampleName">ListBox / Grouping</span>}
+@section ControlsSection{
+    <div class="control frame">
+        <div class="ctrllabel">
+            Select a country
+        </div>
+        <ej-list-box id="group" datasource="ViewBag.datasource">
+            <e-list-box-fields text="text" group-by="category" />
+        </ej-list-box>
+    </div>
+}
+@section StyleSection{
+    <style type="text/css" class="cssStyles">
+        .ctrllabel {
+            padding: 0px 0px 12px 3px;
+            font-weight: 600;
+        }
+
+        .e-ddl-popup {
+            margin: 0 auto;
+        }
+
+    </style>
+}

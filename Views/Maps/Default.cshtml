@@ -1,0 +1,93 @@
+﻿@using Syncfusion.JavaScript
+@using Syncfusion.MVC.EJ
+@using Syncfusion.JavaScript.DataVisualization
+@using Syncfusion.JavaScript.DataVisualization.Models
+
+@section SampleHeading{
+	<span class="sampleName">Map / Data Markers</span>
+	}
+@section ControlsSection{
+   
+	<div style="background-color: #FAFAF9;border-color: lightgray;border-width: 2px;opacity: 0.7;height: 50px;width:290px;" >
+		<span style="color:Black;font-size:22px;margin:15px;margin-top:10px;margin-left:15px;margin-right:20px;height:25px;font-weight:Normal;">Syncfusion Locations</span>   
+    </div>	
+    <div style="min-height:435px;position:relative;">
+        <ej-map id="container" enable-animation="true">
+            <e-navigation-control enable-navigation="true" orientation="@Orientation.Vertical" dock-position="@DockPosition.None">                
+            </e-navigation-control>           
+            <e-zoom-settings enable-zoom="true"></e-zoom-settings>
+           <e-layers>
+               <e-layer layer-type="@LayerType.Geometry" marker-template="template" enable-animation="true">
+                   <e-shape-settings value-path="name" fill="#626171" stroke="#6F6F79" auto-fill="true" highlight-stroke="#6F6F79" highlight-color="gray">
+                   </e-shape-settings>
+               </e-layer>
+           </e-layers>
+        </ej-map>
+   </div>   
+	<script  id="template" type="application/jsrender">
+    
+         <div  >
+             <div style="background-image:url(../images/map/pin.png);margin-top:-38px;margin-left:-11px;height:40px;width:26px;background-repeat:no-repeat;">
+             
+              </div>
+				 <div  style="background-image:url(../images/map/mappath.png);margin-left:5px;height:25px;width:80px;margin-top:-15px;">
+				 	</div>
+                 <div style="margin-left:10px;height:45px;width:80px;margin-top:-25px;">					
+				 <span style="color:white;margin-left:15px;font-weight:normal">{{:Name}}</span>
+				 <p/>				 
+				 </div>
+				 
+           </div>    
+           
+    </script>  
+}
+@section ScriptSection{
+<script src="@Url.Content("~/scripts/MapsData/WorldMap.js")"></script>
+ <script>
+     
+     $("document").ready(function () {
+         var mapObj = $("#container").data("ejMap");
+         var synLocatn =
+    [
+	{ "Name": "USA", "latitude": 38.8833, "longitude": -77.0167 },
+	{ "Name": "Brazil", "latitude": -15.7833, "longitude": -47.8667 },
+	{ "Name": "India", "latitude": 21.0000, "longitude": 78.0000 },
+	{ "Name": "China", "latitude": 35.0000, "longitude": 103.0000 },
+	{ "Name": "Indonesia", "latitude": -6.1750, "longitude": 106.8283 }
+    ]
+         mapObj.model.layers[0].shapeData = world_map;
+         mapObj.model.layers[0].markers = synLocatn;
+             $("#container").css("height", "470px");
+             $("#container").ejMap("refresh");
+         
+     });
+  
+
+</script>
+}
+@section StyleSection
+{
+     <style type="text/css">	 
+	.panButton{		
+		border-radius: 5px;		
+	}	
+	.e-map{
+	position:static;
+	}
+	.panButton,.incrementButton{
+	     -moz-user-select     : none;
+		-khtml-user-select   : none;
+		-webkit-user-select  : none;
+		-o-user-select       : none;
+		user-select          : none;
+		width:18px;
+		height:18px;
+		border:1px solid white;
+		background-color:gray;
+	}
+	.panButton:hover,.incrementButton:hover {
+        cursor:pointer;
+		background-color:#676868;
+	}
+	</style>
+}

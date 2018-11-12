@@ -1,0 +1,36 @@
+﻿@section SampleHeading{
+    <span class="sampleName">ListBox / Drag and Drop</span>}
+@section ControlsSection{
+    <div class="frame">
+        <div class="row">
+            <div class="ctrllabel">Drag and drop skills</div>
+            <div class="contents">
+                <ej-list-box id="list1" allow-drag-and-drop="true" datasource="ViewBag.datasourcelang">
+                    <e-list-box-fields text="text" />
+                </ej-list-box>                
+            </div>
+            <div class="contents col-sm-offset-2">
+                <ej-list-box id="list2" allow-drag-and-drop="true"></ej-list-box>                
+            </div>
+        </div>
+    </div>
+}
+@section StyleSection{
+    <style class="cssStyles">
+        .ctrllabel {
+            padding: 0px 0px 12px 36px;
+            font-weight: 600;
+        }
+
+        .contents {
+            padding-left: 36px;
+            position: relative;
+            margin: 0 auto;
+            float: left;
+        }
+        
+        .frame {
+            width: 500px;
+        }
+    </style>
+}

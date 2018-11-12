@@ -1,0 +1,53 @@
+﻿@section SampleHeading{<span class="sampleName">FileExplorer / CustomTool </span>}
+@section ControlsSection{
+    <ej-file-explorer id="custom" path="wwwroot/css/images/FileExplorerContent" layout="Tile" ajax-action="@Url.Content("FileActionDefault")" width="100%" is-responsive="true"  tools-list='@new List<string>(){"creation","navigation","addressBar", "copyPaste", "searchBar", "customTool"}'>
+        <e-file-ajax-settings>
+            <e-download url="/FileExplorer/Download{0}"></e-download>
+            <e-get-image url="/FileExplorer/GetImage{0}"></e-get-image>
+            <e-upload url="/FileExplorer/Upload{0}"></e-upload>
+        </e-file-ajax-settings>
+        <e-file-tools>
+            <e-file-custom-tools>
+                <e-file-custom-tool name="help" tooltip="help" css="e-fileExplorer-toolbar-icon Help" action="dialogOpen">
+                </e-file-custom-tool>
+            </e-file-custom-tools>
+        </e-file-tools>
+    </ej-file-explorer>
+
+    <ej-dialog id="helpDialog" title="FileExplorer Help" enable-resize="false" enable-modal="true" show-on-init="false" width="350" css-class="e-fe-dialog">
+        <e-content-template>
+            <div class="text-content">
+                <div class="header-content">Need assistance?</div>
+                <div class="header-content">Our help document assists you to know more about FileExplorer control.</div>
+                <div class="header-content">
+                    Please refer -> <a href="//help.syncfusion.com/aspnetmvc/fileexplorer/overview"
+                                       target="_blank">Help Document</a>
+                </div>
+            </div>
+        </e-content-template>
+    </ej-dialog>
+}
+@section ScriptSection{
+    <script>
+        function dialogOpen() {
+            $('#helpDialog').ejDialog('open')
+        }
+    </script>
+}
+@section StyleSection{
+<style type="text/css">
+    /*Specify the custom tool icon*/
+    .e-fileExplorer-toolbar-icon {
+        height: 22px;
+        width: 22px;
+        font-family: 'ej-webfont';
+        font-size: 18px;
+        margin-top: 2px;
+        text-align: center;
+    }
+
+        .e-fileExplorer-toolbar-icon.Help:before {
+            content: "\e72b";
+        }
+</style>
+}

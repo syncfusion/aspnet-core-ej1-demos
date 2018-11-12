@@ -1,0 +1,23 @@
+﻿@section SampleHeading{<span class="sampleName">ColorPicker / DisplayInline </span>}
+@section ControlsSection{
+    <div class="frame">
+        <div id="col-md-3">Select a Color</div>
+        <ej-color-picker id="inlinePicker" value="#278787" tag-name ="div" model-type ="@ModelType.Picker" display-inline ="true" change="onChange"></ej-color-picker>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        function onChange(args) {
+            $("#col-md-3").html("Color Value " + args.value + " is choosen");
+        }
+        $("#sampleProperties").ejPropertiesPanel();
+    </script>
+}
+@section StyleSection{
+    <style>
+        #col-md-3 {
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+}

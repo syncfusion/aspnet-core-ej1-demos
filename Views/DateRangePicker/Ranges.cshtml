@@ -1,0 +1,31 @@
+﻿@section SampleHeading{<span class="sampleName">DateRangePicker / Ranges</span> }
+@{ DateTime Today = DateTime.Now;}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+       <ej-date-range-picker id="DateRange" width="100%">
+          <e-ranges>
+              <e-range label="Last 1 Month" range="new List<Object>() { Today.AddMonths(-1).ToString(), Today.ToString() }" />
+              <e-range label="Last 2 Months" range="new List<Object>() { Today.AddMonths(-2).ToString(), Today.ToString() }" />
+              <e-range label="Last Week" range="new List<Object>() { Today.AddDays(-7).ToString(), Today.ToString() }" />
+          </e-ranges>
+       </ej-date-range-picker>
+        </div>
+    </div>
+}
+@section StyleSection{
+    <style>
+        .control {
+            width: 100%;
+        }
+
+        .frame {
+            width: 75%;
+        }
+
+        .control .e-daterangewidget {
+            width: 225px;
+            margin: auto;
+        }
+    </style>
+}

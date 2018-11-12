@@ -1,0 +1,75 @@
+﻿@using Syncfusion.JavaScript;
+@section SampleHeading{<span class="sampleName">PivotClient / Calculated Members</span> }
+@section ControlsSection{
+<ej-pivot-client id="PivotClient1" title="OLAP Browser" before-export="Export" render-success="setChartProperties" load-report="reportSettings" fetch-report="reportSettings" save-report="reportSettings">
+   <e-toolbar-icon-settings enable-calculated-member="true"></e-toolbar-icon-settings>
+    <e-size width="910px"></e-size>
+    <e-data-source catalog="Adventure Works DW 2008 SE" cube="Adventure Works" data="//bi.syncfusion.com/olap/msmdpump.dll">
+        <e-pivot-rows>
+            <e-row-field field-name="[Date].[Fiscal]"></e-row-field>
+        </e-pivot-rows>
+        <e-pivot-columns>
+            <e-column-field field-name="BikeAndComponents" expression="([Product].[Product Categories].[Category].[Bikes] + [Product].[Product Categories].[Category].[Components] )" hierarchy-unique-name="[Product].[Product Categories]"></e-column-field>
+            <e-column-field field-name="[Customer].[Customer Geography]"></e-column-field>
+        </e-pivot-columns>
+        <e-pivot-values>
+            <e-value-field axis="Column">
+                <e-measures>
+                    <e-measure-items field-name="[Measures].[Internet Sales Amount]"></e-measure-items>
+                    <e-measure-items field-name="OderDiscount" expression="[Measures].[Order Quantity] + ([Measures].[Order Quantity] * 0.10)"></e-measure-items>
+                </e-measures>
+            </e-value-field>
+        </e-pivot-values>
+        
+    </e-data-source>
+
+    
+</ej-pivot-client>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        function setChartProperties(args) {
+            this._pivotChart.model.load = "loadTheme";
+			this._pivotChart.model.preRender = "preRender";
+            if (args._successAction == undefined || args._successAction == "Filter") {
+                this._pivotChart.model.legend.rowCount = 2;
+                this._pivotChart.model.primaryXAxis = { title: { text: "Customer Geography" }, labelRotation: 270 };
+                this._pivotChart.model.primaryYAxis = { title: { text: "Internet Sales Amount" } };
+            }
+        }
+		function preRender(sender) {
+            sender.model.border.opacity = 1;
+            if (sender.model.theme.indexOf("light") > -1 || sender.model.theme == "bootstrap" || sender.model.theme == "material") {
+                sender.model.background = "white";
+                sender.model.chartArea.background = "white";
+            }
+            else {
+                sender.model.background = "black";
+                sender.model.chartArea.background = "black"
+            }
+        }
+        function Export(args) {
+            args.url = "ExportPivotClient";
+        }
+        function reportSettings(args) {
+            if (args.fetchReportSetting)
+                args.fetchReportSetting.url = "//js.syncfusion.com/ejservices/api/PivotClient/Olap";
+            else if (args.loadReportSetting)
+                args.loadReportSetting.url = "//js.syncfusion.com/ejservices/api/PivotClient/Olap";
+            else
+                args.saveReportSetting.url = "//js.syncfusion.com/ejservices/api/PivotClient/Olap";
+            return args;
+        }
+    </script>
+}
+@section StyleSection{
+    <style>
+        #PivotClient1 {
+            min-height: 275px; 
+            min-width: 525px
+        }
+        .cols-sample-area {
+            width: 100% !important;
+        }
+    </style>
+}

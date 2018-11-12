@@ -1,0 +1,46 @@
+﻿@section SampleHeading{
+    <span class="sampleName">ListBox / Template</span>}
+@section ControlsSection{
+    <div class="control frame">
+        <div class="ctrllabel">
+            Select an expert
+        </div>
+        <ej-list-box id="selectExperts" datasource="ViewBag.datasource" template="<img class='eimg' src='../images/Employee/${eimg}.png' alt='employee' height='50px' width='50px'/><div class='ename'> ${text} </div><div class='desig'> ${desig} </div><div class='cont'> ${country} </div>"></ej-list-box>        
+    </div>
+}
+@section StyleSection{
+    <style type="text/css">
+        .ctrllabel {
+            padding: 0px 0px 12px 3px;
+            font-weight: 600;
+        }
+
+        .e-ddl-popup {
+            margin: 0 auto;
+        }
+
+        .eimg {
+            margin: 0;
+            padding: 3px 10px 3px 3px;
+            border: 0 none;
+            width: 60px;
+            height: 60px;
+            float: left;
+        }
+
+        .ename {
+            font-weight: bold;
+            padding: 3px 3px 1px 3px;
+        }
+
+        .desig, .cont {
+            font-size: smaller;
+            padding: 3px 3px -1px 0px;
+        }
+
+        #selectExperts li {
+            height: 70px;
+            padding: 5px;
+        }
+    </style>
+}

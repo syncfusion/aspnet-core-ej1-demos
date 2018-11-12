@@ -1,0 +1,91 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Splitter / Integaration</span>}
+@section ControlsSection{
+    <ej-splitter id="outterSplitter" is-responsive="true" enable-auto-resize="true" height="250" width="485">
+        <e-split-panes>
+            <e-split-pane paneSize="200">
+                <e-content-template>
+                    <div class="cont">
+                        <h3>FRENCH CITIES</h3>
+                        <ul id="treeView" class="visibleHide">
+                            <li>
+                                PARIS
+                                <ul>
+                                    <li id="tools" class="_child">Speciality</li>
+                                </ul>
+                            </li>
+                            <li>
+                                CAMEMBERT
+                                <ul>
+                                    <li id="chart" class="_child">Speciality </li>
+                                </ul>
+                            </li>
+                            <li>
+                                GRENOBLE
+                                <ul>
+                                    <li id="grid" class="_child">Speciality</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </e-content-template>
+            </e-split-pane>
+            <e-split-pane pane-size="200">
+                <e-content-Template>
+                    <div class="cont">
+                        <div class="_content">
+                            Select any city from the tree to show the description.
+                        </div>
+                        <div class="tools des">
+                            <h3>PARIS</h3>
+                            Paris, the city of lights and love - this short guide is full of ideas for how to make the most of the romanticism...
+                        </div>
+                        <div class="chart des">
+                            <h3>CAMEMBERT</h3>
+                            The village in the Orne département of Normandy where the famous French cheese is originated from.
+                        </div>
+                        <div class="grid des">
+                            <h3>GRENOBLE</h3>
+                            The capital city of the French Alps and a major scientific center surrounded by many ski resorts, host of the Winter Olympics in 1968.
+                        </div>
+                    </div>
+                </e-content-Template>
+            </e-split-pane>
+        </e-split-panes>
+    </ej-splitter>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        $(function () {
+            $("#treeView").ejTreeView({ nodeSelect: "treeClicked" });
+        });
+        function treeClicked(sender, args) {
+            if (sender.currentElement.hasClass('_child')) {
+                var content = $('.' + sender.currentElement[0].id).html();
+                $('._content').html(content);
+            }
+        }
+    </script>
+}
+@section StyleSection{
+    <style type="text/css">
+        .cont {
+            padding: 20px;
+            min-width: 50px;
+        }
+
+            .cont #treeView_Container {
+                margin-bottom: 0;
+                border: none;
+            }
+
+       .cont>h3 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .des {
+            display: none;
+        }
+    </style>
+}

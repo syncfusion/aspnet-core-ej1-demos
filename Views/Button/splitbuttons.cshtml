@@ -1,0 +1,115 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Button / Split Buttons</span>}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <table>
+                <tr>
+                    <td>
+                        Split button Normal
+                    </td>
+                    <td class="btnsht">
+                        <div class="spltspan">
+                            <ej-split-button id="spltbutton11" text="Login" show-rounded-corner="true" target-id="Ul11" size="@ButtonSize.Normal" content-type="@ContentType.ImageOnly" prefix-icon="e-icon e-uiLight e-login"/>
+                            <ul id="Ul11">
+                                <li><span>User</span></li>
+                                <li><span>Guest</span></li>
+                                <li><span>Admin</span></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Split button Mini
+                    </td>
+                    <td>
+                        <ej-split-button  id="spltbutton21" text="Login" show-rounded-corner="true" size="@ButtonSize.Mini" target-id="Ul21" />
+                        <ul id="Ul21">
+                            <li><span>User</span></li>
+                            <li><span>Guest</span></li>
+                            <li><span>Admin</span></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Split button Small
+                    </td>
+                    <td class="btnsht">
+                        <ej-split-button  id="spltbutton31" text="Login" show-rounded-corner="true" size="@ButtonSize.Small" target-id="Ul31" />
+                        <ul id="Ul31">
+                            <li><span>User</span></li>
+                            <li><span>Guest</span></li>
+                            <li><span>Admin</span></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Split button Medium
+                    </td>
+                    <td class="btnsht">
+                        <ej-split-button  id="spltbutton41" text="Login" show-rounded-corner="true" size="@ButtonSize.Medium" target-id="Ul41" />
+                        <ul id="Ul41">
+                            <li><span>User</span></li>
+                            <li><span>Guest</span></li>
+                            <li><span>Admin</span></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Split button Large
+                    </td>
+                    <td class="btnsht">
+                        <ej-split-button  id="spltbutton51" text="Login" show-rounded-corner="true" size="@ButtonSize.Large" content-type="@ContentType.TextAndImage" prefix-icon="e-icon e-uiLight e-login" target-id="Ul51" />
+                        <ul id="Ul51">
+                            <li><span>User</span></li>
+                            <li><span>Guest</span></li>
+                            <li><span>Admin</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+}
+<div id="modeTarget">
+    <ul>
+        <li value="split">Split</li>
+        <li value="dropdown">Dropdown</li>
+    </ul>
+</div>
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-3">
+            ButtonMode
+        </div>
+        <div class="col-md-3">
+            <ej-drop-down-list  id="btnmode" target-id="modeTarget" width="120px" selected-item-index="0" change="onChange"></ej-drop-down-list>
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        $(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+        });
+        function onChange(args) {
+            $(".e-splitbutton").ejSplitButton({ "buttonMode": args.value });
+        }
+    </script>
+}
+@section StyleSection{
+    <style>
+        .frame {
+            width: 50%;
+        }
+
+        .spltspan {
+            width: 50px;
+            padding-right: 100px;
+        }
+    </style>
+}

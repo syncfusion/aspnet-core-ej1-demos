@@ -1,0 +1,34 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization;
+@section ScriptReferenceSection{
+    <script src="@Url.Content("~/scripts/excanvas.min.js")"></script>
+    }
+@section SampleHeading{
+	<span class="sampleName">Default Functionalities</span>
+	}
+
+
+@section ControlsSection{
+
+<div id="linearframe">
+
+    <ej-digital-gauge id="ScaleGauge" is-responsive="true" label-color="#8c8c8c" width="525" height="305" load="loadGaugeTheme">
+        
+        <e-items>
+            <e-digital-gauge-items value="123456789">
+                <e-segment-settings width="1" spacing="0" color="#8c8c8c"></e-segment-settings>
+                <e-character-settings opacity="0.8"></e-character-settings>
+                <e-digital-position x="52" y="52"></e-digital-position>
+            </e-digital-gauge-items>
+        </e-items>
+
+    </ej-digital-gauge>           
+
+</div>
+
+}
+
+
+
+
+

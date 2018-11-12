@@ -1,0 +1,99 @@
+﻿@section SampleHeading{
+    <span class="sampleName">ScrollBar / Virtual Scrolling</span>}
+@section ControlsSection{
+    <div class="control">
+        <ej-scroller id="scrollcontent" height="400" width="700" scroll="onScroll">
+            <e-content-template>
+                <div>
+                    <div class="sampleContent" unselectable="on">
+                        <p><b>Scroll to see various contents loading virtually</b></p>
+                        <h3 style="font-size: 20px;">Syncfusion</h3>
+                        <div>
+                            <p>
+                                Founded by industry experts in 2001, Syncfusion, Inc. provides the broadest range of enterprise-class software components and tools for the Microsoft .NET platform.
+                            </p>
+                            <br />
+                            <p>
+                                With Syncfusion, developers can move beyond simply coding applications to delivering real business innovation—the elegant user interfaces, business intelligence dashboards, and sophisticated reporting that today's business users need, in the formats they demand.
+                                Our award-winning components and controls are designed to meet your evolving development needs, whether you're working in ASP.NET, ASP.NET MVC, Windows Forms, WPF, Windows Phone, WinRT, JavaScript, Silverlight, or Xamarin.
+                            </p>
+                            <br />
+                            <p><b>More than 650 stunning controls and frameworks</b></p>
+                            <p>
+                                The most comprehensive suite of components available for .NET and JavaScript, including charts, grids, diagrams, schedulers, Gantt controls, maps, gauges, docking, ribbons and much more.
+                                The Syncfusion Big Data Platform is the first and the only complete Hadoop distribution designed for Windows. Develop on Windows using tools that you are familiar with. Deploy on Windows.
+                            </p>
+                        </div>
+                    </div>
+                </div> 
+            </e-content-template>
+        </ej-scroller>
+    </div>
+}
+@section ScriptSection{
+    <script>
+        var scrollerObj, contentLoaded = false; var list = 0; var newItem, newItemHeading;
+        var content = ["mvccontent", "gridcontent", "twitter", "wpfcontent", "javascript", "lightswitch", "orubase", "bigdata"];
+        $(function () {
+            scrollerObj = $("#scrollcontent").data("ejScroller");
+        });
+        function onScroll(e) {
+            if (scrollerObj) {
+                scrollerPositon = e.scrollTop;
+                if (!contentLoaded && document.querySelectorAll(".sampleContent")[0].scrollHeight - (e.scrollTop) <= scrollerObj.option("height")) {
+                    $.ajax({
+                        url: "../css/samplecontent/" + content[list] + ".html",
+                        success: function (result) {
+                            newItem = $("<div unselectable='on'></div>").addClass("e-newItem").attr({ "id": "e-newItem" + list });
+                            newItemHeading = $("<h2>NewContent " + (list + 1) + " loaded</h2>");
+                            newItem.appendTo(".sampleContent");
+                            newItem.html(result);
+                            newItemHeading.prependTo(newItem);
+                            //refresh the scroller to adjust the scroller position automatically based on new content
+                            scrollerObj.refresh();
+                            scrollerObj.option("scrollTop", scrollerPositon);
+                            list++;
+                            if (list == content.length)
+                                contentLoaded = true;
+                        }
+                    });
+                }
+            }
+        }
+        
+    </script>
+}
+
+@section StyleSection{
+    <style type="text/css" class="cssStyles">
+        .control {
+            border: 1px solid #bbbcbb;
+            color: gray;
+            width: 700px;
+        }
+
+        .sampleContent {
+            width: 650px;
+            padding: 15px;
+            text-align: justify;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        #e-newItem0 {
+            height: 400px;
+        }
+
+        #e-newItem1 {
+            height: 250px;
+        }
+
+        #e-newItem3, #e-newItem2 {
+            height: 340px;
+        }
+    </style>
+}

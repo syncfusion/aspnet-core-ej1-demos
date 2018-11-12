@@ -1,0 +1,55 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Button / CheckBoxesFor</span>}
+
+@model samplebrowser.Controllers.ButtonController.checkModel
+
+
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <div class="chkalign">
+                <br />
+                Hobbies
+                <br />
+                <br />
+                <table>
+                    <tr>
+                        <td class="chkrad">
+                            <ej-check-box id="check1" css-class="nodetext" ej-for="@Model.isChecked" size="@Size.Small"  text="Music" value="Music" />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                Favorite Search Engines<br />
+                <br />
+                <table>
+                    <tr>
+                        <td class="chkrad">
+                            <ej-check-box id="Checkbox1" css-class="nodetext" text="Google" value="Google" />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                Favorite Social networks<br />
+                <br />
+                <table>
+                    <tr>
+                       <td class="chkrad">
+                            <ej-check-box id="Checkbox8" css-class="nodetext" ej-for="@Model.isChecked" size="@Size.Medium" text="Twitter" value="Twitter" enable-tri-state="true" check-state="@CheckState.Indeterminate"/>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+            </div>
+        </div>
+    </div>
+}
+@section StyleSection{
+    <style>
+        .frame {
+            width: 25%;
+        }
+    </style>
+}

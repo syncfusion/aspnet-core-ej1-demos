@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Events";
+}
+
+@section SampleHeading{
+    <span class="sampleName">Signature / Events</span>}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+			<div>Sign here</div>
+            <ej-signature id="signature" height="400px" stroke-width="3" is-responsive="true" mouse-down="onmousedown" mouse-up="onmouseup" mouse-move="onmousemove" change="onchange" />
+        </div>
+    </div>
+}
+@section EventsDropdown{
+@{
+    <ej-drop-down-list id="selectControls_input" target-id="list" show-checkbox="true" check-all="true" change="evtpropscheckedevent"></ej-drop-down-list>
+}
+<div id="list">
+    <ul>
+        <li value="mousedown">mousedown</li>
+        <li value="mousemove">mousemove</li>
+        <li value="mouseup">mouseup</li>
+        <li value="change">change</li>
+    </ul>
+</div>
+    }
+@section ScriptSection{
+    <script type="text/javascript" class="jsScript">
+        var signatureObj;
+        function evtpropscheckedevent(args) {
+            signatureObj = $("#signature").data("ejSignature");
+            if (args.isChecked) {
+                switch (args.selectedText) {
+                    case "mousedown": signatureObj.option(args.selectedText, "onmousedown"); break;
+                    case "mousemove": signatureObj.option(args.selectedText, "onmousemove"); break;
+                    case "mouseup": signatureObj.option(args.selectedText, "onmouseup"); break;
+                    case "change": signatureObj.option(args.selectedText, "onchange"); break;
+                }
+            }
+            else signatureObj.option(args.selectedText, null);
+        }
+        // Client side Events
+        function onmousedown(args) {
+            jQuery.addEventLog("Signature <span class='eventTitle'>mousedown</span> is triggered.");
+        }
+        function onmousemove(args) {
+            jQuery.addEventLog("Signature <span class='eventTitle'>mousemove</span> is triggered.");
+        }
+        function onmouseup(args) {
+            jQuery.addEventLog("Signature <span class='eventTitle'>mouseup</span> is triggered.");
+        }  
+        function onchange(args) {
+            jQuery.addEventLog("Signature <span class='eventTitle'>change</span> is triggered.");
+        }
+        function onClear() {
+            $("#EventLog").html("");
+        }
+    </script>
+    }
+
+@section StyleSection{
+<style type="text/css" class="cssStyles">
+    .frame {
+        width: 80%;
+    }
+</style>
+}
+
+
+
+

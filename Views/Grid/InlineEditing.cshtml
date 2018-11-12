@@ -1,0 +1,15 @@
+﻿@section SampleHeading{<span class="sampleName">Grid / InlineEditing</span> }
+@section ControlsSection{
+    <ej-grid id="FlatGrid" allow-paging="true">
+        <e-datamanager json="(IEnumerable<object>)ViewBag.datasource" update-url="NormalUpdate" insert-url="NormalInsert" remove-url="NormalDelete" adaptor="remoteSaveAdaptor" />
+        <e-edit-settings allow-adding="true" allow-editing="true" allow-deleting="true" edit-mode="@(EditMode.Normal)"></e-edit-settings>
+        <e-toolbar-settings show-toolbar="true" toolbar-items="@(new List<string>() {"add","edit","delete","update","cancel" })"></e-toolbar-settings>  
+        <e-columns>
+            <e-column field="OrderID" header-text="Order ID" is-primary-key="true" validation-rules='new Dictionary<string, object>() { {"required",true}, {"number",true} }' text-align="Right" width="75"></e-column>
+            <e-column field="CustomerID" header-text="Customer ID" validation-rules='new Dictionary<string, object>() { {"required",true}, {"minlength",3} }' width="80"></e-column>
+            <e-column field="EmployeeID" header-text="Employee ID" edit-type="@(EditingType.DropdownEdit)" text-align="Right" width="75"></e-column>
+            <e-column field="Freight" header-text="Freight" format="{0:C}" numeric-edit-options="@new EditorProperties(){ DecimalPlaces = 2}" validation-rules='new Dictionary<string, object>() { {"required",true}, {"range","[0,1000]"} }' edit-type="@(EditingType.NumericEdit)" text-align="Right" width="75"></e-column>
+            <e-column field="ShipCity" header-text="Ship City" width="110" text-align="Left"></e-column>
+        </e-columns>
+    </ej-grid>
+}

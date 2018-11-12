@@ -1,0 +1,73 @@
+﻿@section ScriptReferenceSection{
+    <script src="@Url.Content("~/Scripts/cultures/ej.culture.en-US.min.js")"></script>
+}
+@section SampleHeading{<span class="sampleName">DateRangePicker / Events </span>}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <ej-date-range-picker id="dateRange" create="oncreate" change="timeValChange" open="onOpen" click="Click" close="onClose" width="100%"></ej-date-range-picker>
+        </div>
+    </div>
+}
+<div id="target">
+    <ul>
+        <li>open</li>
+        <li>close</li>
+        <li>change</li>
+        <li>click</li>
+    </ul>
+</div>
+@section EventsDropdown{
+    <ej-drop-down-list id="selectControls_input" target-id="target" css-class="metroblue" show-checkbox="true" check-all="true" change="evtpropscheckedevent"></ej-drop-down-list>
+}
+@section ScriptSection{
+   <script type="text/javascript">
+        function evtpropscheckedevent(args) {
+            var dateRangeObj = $("#dateRange").data("ejDateRangePicker");
+            if (args.isChecked) {
+                switch (args.selectedText) {
+                    case "change": dateRangeObj.option(args.selectedText, "ValChange"); break;
+                    case "open": dateRangeObj.option(args.selectedText, "onOpen"); break;
+                    case "close": dateRangeObj.option(args.selectedText, "onClose"); break;
+                    case "click": dateRangeObj.option(args.selectedText, "Click"); break;
+                }
+            }
+            else dateRangeObj.option(args.selectedText, null);
+        }
+        // Client side Events
+        function oncreate(args) {
+            jQuery.addEventLog("DateRangePicker has been <span class='eventTitle'> created</span>.");
+        }
+        function ValChange(args) {
+            jQuery.addEventLog("DateRangePicker value has been <span class='eventTitle'> changed </span> to " + args.value + ".</br>");
+        }
+        function onOpen(args) {
+            jQuery.addEventLog("DateRangePicker popup has been <span class='eventTitle'> Opened</span>");
+        }
+        function onClose(args) {
+            jQuery.addEventLog("DateRangePicker popup has been <span class='eventTitle'> Closed</span>");
+        }
+        function Click(args) {
+            jQuery.addEventLog("DateRangePicker value has been <span class='eventTitle'> Clicked </span>");
+        }
+        function onClear() {
+            jQuery.clearEventLog();
+        }
+</script>
+}
+@section StyleSection{
+    <style>
+        .control {
+            width: 100%;
+        }
+
+        .frame {
+            width: 50%;
+        }
+
+        .control .e-daterangewidget {
+            width: 225px;
+            margin: auto;
+        }
+    </style>
+}

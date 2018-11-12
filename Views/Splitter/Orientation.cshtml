@@ -1,0 +1,84 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Splitter / Orientation</span>}
+@section ControlsSection{
+    <ej-splitter id="outer" height="250" width="400" is-responsive="true" orientation="@Orientation.Vertical" enable-auto-resize="true">
+        <e-split-panes>
+            <e-split-pane>
+                <e-content-template>
+                    <div class="splitdiv" style="height: 100%">
+                        <ej-Splitter id="inner" width="398" is-responsive="true" enable-auto-resize="true" orientation="@Orientation.Horizontal">
+                            <e-split-panes>
+                                <e-split-pane >
+                                    <e-content-template>
+                                        <div class="splitdiv">
+                                            Pane 1
+                                        </div>
+                                    </e-content-template>
+                                </e-split-pane>
+                                <e-split-pane>
+                                    <e-content-template>
+                                        <div class="splitdiv">
+                                            Pane 2
+                                        </div>
+                                    </e-content-template>
+                                </e-split-pane>
+                            </e-split-panes>
+                        </ej-Splitter>
+                    </div>
+                </e-content-template>
+            </e-split-pane>
+            <e-split-pane pane-size="60%">
+                <e-content-template>
+                    <div class="splitdiv">
+                        Pane 3
+                    </div>
+                </e-content-template>
+            </e-split-pane>
+        </e-split-panes>
+    </ej-splitter>
+}
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-3">
+            Orientation
+        </div>
+        <div class="col-md-3"> 
+            <ej-drop-down-list id="changeOrientation" target-id="evntname" width="120" selected-item-index="0" change="onOrientationChange"></ej-drop-down-list>
+            <div id="evntname">
+                <ul>
+                    <li>Horizontal</li>
+                    <li>Vertical</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        var splitterOutter, splitterInner;
+        function onOrientationChange(args) {
+            splitterOutter = $("#outer").data("ejSplitter");
+            splitterInner = $("#inner").data("ejSplitter");
+              switch (args.selectedText) {
+                case "Vertical":
+                    splitterInner.option("width", "100%")
+                    splitterOutter.option("orientation", "horizontal");
+                    splitterInner.option("orientation", "vertical");
+                    break;
+                case "Horizontal":
+                    splitterOutter.option("orientation", "vertical");
+                    splitterInner.option("orientation", "horizontal");
+                    break;
+            }
+        }
+
+        $("#sampleProperties").ejPropertiesPanel();
+    </script>
+}
+@section StyleSection{
+    <style type="text/css" class="cssStyles">
+        #inner {
+            border: 0 none;
+        }
+    </style>
+}
