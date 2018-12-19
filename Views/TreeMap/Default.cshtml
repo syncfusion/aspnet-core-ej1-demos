@@ -1,0 +1,54 @@
+﻿@using Syncfusion.JavaScript
+@using Syncfusion.MVC.EJ
+@using Syncfusion.JavaScript.DataVisualization
+@using Syncfusion.JavaScript.DataVisualization.Models
+
+@section SampleHeading{
+	<span class="sampleName">TreeMap / FlatCollection</span>
+	}
+    @section MetaTags{
+    <meta name="description" content="This sample demonstrates layout types based on continents population in the Syncfusion ASP.NET Web Forms Treemap control.">
+}
+@section ControlsSection{
+    @{
+        var datasource = ViewData["Population"];
+     }
+     <div class="Common">
+	<div class="tablediv" style = "font-size: 17px;font-weight: 400;">
+		This sample demonstrates layout types based on continents population in the Syncfusion ASP.NET Web Forms Treemap control
+    </div>
+    <br/>
+    <div style="min-height:380px;padding:2px">
+        <ej-tree-map id="treemap" highlight-border-brush="fdaa" datasource="ViewBag.datasource" color-value-path="Growth"
+                     weight-value-path="Population" show-legend="true">
+          <e-legend-settings icon-width="17" icon-height="17" dock-position="@TreeMapDockPosition.Top" height="40" width="600">
+          </e-legend-settings>
+            <e-leaf-item-settings show-labels="true" label-path="Country"></e-leaf-item-settings>
+            <e-levels>
+                <e-level group-path="Continent" group-gap="5" header-height="25"></e-level>
+            </e-levels>
+            <e-range-color-mappings>
+                <e-range-color-mapping from="0" to="1" color="#77D8D8" legendlabel="1% Growth"></e-range-color-mapping>
+                <e-range-color-mapping from="0" to="2" color="#AED960" legendlabel="2% Growth"></e-range-color-mapping>
+                <e-range-color-mapping from="0" to="3" color="#FFAF51" legendlabel="3% Growth"></e-range-color-mapping>
+                <e-range-color-mapping from="0" to="4" color="#F3D240" legendlabel="4% Growth"></e-range-color-mapping>
+            </e-range-color-mappings>
+        </ej-tree-map>
+        </div>
+     </div>
+  <script  id="headertemplate" type="application/jsrender">
+    
+	  <div>
+            <span style="color:gray;font-size:16px;font-weight:normal;">{{:header}}</span><br />            
+      </div>                        
+    </script>  
+    <script  id="labeltemplate" type="application/jsrender">    
+    
+	    <div style="background-color: transparent;">
+            <span style="color:white;font-size:large;font-weight:normal;">{{:label}}</span><br />            
+        </div>                        
+    </script>    
+    
+
+
+}

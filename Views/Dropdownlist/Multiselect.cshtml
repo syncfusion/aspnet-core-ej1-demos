@@ -1,0 +1,20 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Dropdownlist / Multi-Select</span>}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <ej-drop-down-list id="skillsets" datasource="(IEnumerable<Languages>)ViewBag.datasource" multi-select-mode="@(MultiSelectModeTypes.VisualMode)" show-checkbox="true" width="200" watermark-text="Select a skill">
+                <e-drop-down-list-fields text="skill" />
+            </ej-drop-down-list> 
+                    </div>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        var target;
+        $(function () {
+            target = $('#skillsets').data("ejDropDownList");
+        });
+    </script>
+}
+

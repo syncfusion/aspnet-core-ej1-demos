@@ -1,0 +1,73 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Autocomplete / Events</span>}
+@section MetaTags{
+    <meta name="description" content="This example demonstrates client-side events when particular operations are performed in the Syncfusion ASP.NET Core Autocomplete component.">
+}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <ej-autocomplete id="selectColor" width="100%" datasource="ViewBag.datasource" create="onCreate" change="onChange" focus-in="onFocusIn" focus-out="onFocusOut" select="onSelect" open="onOpen" close="onClose" watermark-text="Choose a color"></ej-autocomplete>
+
+        </div>
+    </div>
+}
+@section EventsDropdown{
+    @{
+        <ej-drop-down-list id="selectControls_input" target-id="evntname" show-checkbox="true" check-all="true" change="evtpropscheckedevent"></ej-drop-down-list>
+        
+    }
+    <div id="evntname">
+        <ul>
+            <li>focusIn</li>
+            <li>focusOut</li>
+            <li>select</li>
+            <li>change</li>
+            <li>open</li>
+            <li>close</li>
+        </ul>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript" class="jsScript">
+        var autocompleteObj;
+        function evtpropscheckedevent(args) {
+            autocompleteObj = $("#selectColor").data("ejAutocomplete");
+            if (args.isChecked) {
+                switch (args.selectedText) {
+                    case "focusIn": autocompleteObj.option(args.selectedText, "onFocusIn"); break;
+                    case "focusOut": autocompleteObj.option(args.selectedText, "onFocusOut"); break;
+                    case "select": autocompleteObj.option(args.selectedText, "onSelect"); break;
+                    case "change": autocompleteObj.option(args.selectedText, "onChange"); break;
+                    case "open": autocompleteObj.option(args.selectedText, "onOpen"); break;
+                    case "close": autocompleteObj.option(args.selectedText, "onClose"); break;
+                }
+            }
+            else autocompleteObj.option(args.selectedText, null);
+        }
+        // Client side Events
+        function onCreate(args) {
+            jQuery.addEventLog("Autocomplete has been <span class='eventTitle'>created</span>.");
+        }
+        function onFocusIn(args) {
+            jQuery.addEventLog("Autocomplete  is in <span class='eventTitle'>focus</span>. ");
+        }
+        function onFocusOut(args) {
+            jQuery.addEventLog("Autocomplete  is out of <span class='eventTitle'>focus</span>.");
+        }
+        function onSelect(args) {
+            jQuery.addEventLog("The value '" + args.value + "' has been <span class='eventTitle'>selected</span>.");
+        }
+        function onChange(args) {
+            jQuery.addEventLog("The value has been <span class='eventTitle'>changed</span> to '" + args.value + "'.");
+        }
+        function onOpen(args) {
+            jQuery.addEventLog("Suggestion List has been <span class='eventTitle'>opened</span>.");
+        }
+        function onClose(args) {
+            jQuery.addEventLog("Suggestion List has been <span class='eventTitle'>closed</span>.");
+        }
+        function onClear() {
+            jQuery.clearEventLog();
+        }
+    </script>
+}

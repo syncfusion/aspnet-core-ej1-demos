@@ -1,0 +1,33 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Conformance/PDF Conformance Sample</span>
+}
+
+@section ControlsSection
+{
+    @{Html.BeginForm("Conformance", "Pdf", FormMethod.Post);
+        {
+            <div class="Common">
+                <div class="tablediv" style = "font-size: 17px;font-weight: 400;">
+                    This sample demonstrates the creation of PDF/A-1b standard document from the scratch to create a self-contained document.
+                </div>
+                <br />
+                <div class="tablediv">
+                    <div class="rowdiv">
+                        <div class="celldiv">
+                            <div>
+                                <input type="submit" class="Button" value="Generate PDF" style="width: 150px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div style="font-size: 17px;font-weight: 400;">
+
+                    This feature can be used for long term archiving and standardization. More information about conformance can be found in this documentation <a href="https://help.syncfusion.com/file-formats/pdf/working-with-pdf-conformance">section</a>.
+
+                </div>
+            </div>
+            Html.EndForm();
+        }
+    }
+}

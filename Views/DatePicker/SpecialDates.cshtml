@@ -1,0 +1,61 @@
+﻿@section MetaTags{
+   <meta name="description" content="This example demonstrates how to highlight the specific dates like weekends, holidays and special dates in a ASP.NET Core DatePicker.">
+}
+
+@section ScriptReferenceSection
+    <script src="@Url.Content("~/Scripts/cultures/ej.culture.en-US.min.js")"></script>
+}
+@section SampleHeading{<span class="sampleName">DatePicker / SpecialDates</span> }
+@section ControlsSection{
+    <div class="frame ">
+        <div class="control">
+            <span>Select Show Date </span>
+            <ej-date-picker id="DatePick"  enable-persistence="true" highlight-weekend="true" value="DateTime.Now">
+                <e-special-dates>
+                    <e-special-date date="@DateTime.Now.AddDays(-7)" tooltip="America" icon-class="flag-aus" />
+                    <e-special-date date="@DateTime.Now.AddDays(-3)" tooltip="Argendina" icon-class="flag-fr" />
+                    <e-special-date date="@DateTime.Now.AddDays(0)" tooltip="Bangladesh" icon-class="flag-us" />
+                    <e-special-date date="@DateTime.Now.AddDays(5)" tooltip="Brasil" icon-class="flag-ind" />
+                    <e-special-date date="@DateTime.Now.AddDays(9)" tooltip="Canada" icon-class="flag-ger" />
+                </e-special-dates>
+            </ej-date-picker>
+        </div>
+    </div>
+}
+@section StyleSection{
+
+    <style>
+        #e-DatePick .e-special-date-icon{
+            background-image: url(../../images/tab/flags.png);
+            background-repeat: no-repeat;
+            width: 16px;
+            height: 12px;
+            display:inline-block;
+            margin-right:3px;
+        }
+
+        #e-DatePick .e-special-date-icon.flag-aus{
+            background-position: 0 -2px;
+        }
+
+        #e-DatePick .e-special-date-icon.flag-fr{
+            background-position: 0 -331px;
+        }
+
+        #e-DatePick .e-special-date-icon.flag-us{
+            background-position: 0 -1121px;
+        }
+
+        #e-DatePick .e-special-date-icon.flag-ind{
+            background-position: -3px -462px;
+        }
+
+        #e-DatePick .e-special-date-icon.flag-ger{
+            background-position: 0 -398px;
+        }
+
+        .e-datepicker.e-calendar {
+            width: 29em;
+        }
+    </style>
+}

@@ -1,0 +1,45 @@
+﻿@section ScriptReferenceSection{
+    <script src="@Url.Content("~/Scripts/cultures/ej.culture.en-US.min.js")"></script>
+}
+@section SampleHeading{<span class="sampleName">Editor / Rtl</span> }
+
+@section ControlsSection{
+    <div class="frame">
+        <div class="row">
+            <div class="col-xs-6 col-sm-3">
+                <span>Numeric Textbox</span>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <ej-numeric-text-box id="numeric" value="1000" enable-rtl="true" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-3">
+                <span>Percentage Textbox</span>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <ej-percentage-text-box id="percent" value="100" enable-rtl="true" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-3">
+                <span>Currency Textbox</span>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <ej-currency-text-box id="currency" value="50" enable-rtl="true">
+            </div>
+        </div>
+    </div>
+}
+@section StyleSection{
+
+    <style>
+        .frame {
+            width: 30%;
+        }
+
+        .col-xs-6.col-sm-3 {
+            padding: 5px;
+        }
+    </style>
+}
