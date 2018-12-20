@@ -1,4 +1,4 @@
-# Syncfusion Essential JS1 for ASP.NET Core Samples
+# Syncfusion Essential JS1 for ASP.NET Core Samples 
 
 This repository contains demos of [Syncfusion Essential JS 1 for ASP.NET Core components](https://www.syncfusion.com/products/jquery/aspnetcore). This is the best place to check out our controls to get more insight about the usage of their APIs. You can browser the demos for all the controls and view the source code of each sample.
 
