@@ -1,0 +1,36 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Modify Documents / Merge Documents Sample</span>
+}
+
+@section ControlsSection{
+
+    @{Html.BeginForm("MergeDocuments", "Pdf", FormMethod.Post);
+        {
+            <div class="Common">
+                <label>
+                    @ViewData["Error"]
+                </label>
+                <div class="tablediv" style="font-size: 17px;font-weight: 400;">
+                    This sample demonstrates how to merge two different PDF documents into single PDF document. It is also possible to import pages to the PDF document.                   
+                </div>
+                <br />
+                <div class="tablediv">
+                    <div class="rowdiv">
+                        <div class="celldiv">
+                            <div>
+                                <input type="submit" class="Button" value="Generate PDF" style="width: 150px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div style="font-size: 17px;font-weight: 400;">
+                    This feature can be used to assemble PDF documents for printing, electronic distribution, and bundle PDF for archiving.
+                    More information about the merge and import pages can be found in this documentation <a href="https://help.syncfusion.com/file-formats/pdf/merge-documents">section.</a>
+
+                </div>
+            </div>
+            Html.EndForm();
+        }
+    }
+}
