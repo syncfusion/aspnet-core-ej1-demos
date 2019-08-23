@@ -1,0 +1,61 @@
+﻿@section SampleHeading{<span class="sampleName">Rotator / Default </span>}
+@section MetaTags{
+    <meta name="description" content="This example demonstrates how to create a Syncfusion ASP.NET Core Rotator component where each slide contains images.">
+}
+@section ControlsSection{
+    <div class="frame">
+        <ej-rotator id="content" slide-width="100%" slide-height="350px" is-responsive="true" show-play-button="true">
+            <e-rotator-items>
+                <e-rotator-item>
+                    <e-content-template>
+                        <div>
+                            <img class="image" src="@Url.Content("~/Images/rotator/nature.jpg")" />
+                        </div>
+                    </e-content-template>
+                </e-rotator-item>
+                <e-rotator-item>
+                    <e-content-template>
+                        <div>
+                            <img class="image" src="@Url.Content("~/Images/rotator/bird.jpg")" />
+                        </div>
+                    </e-content-template>
+                </e-rotator-item>
+                <e-rotator-item>
+                    <e-content-template>
+                        <div>
+                            <img class="image" src="@Url.Content("~/Images/rotator/sculpture.jpg")" />
+                        </div>
+                    </e-content-template>
+                </e-rotator-item>
+                <e-rotator-item>
+                    <e-content-template>
+                        <div>
+                            <img class="image" src="@Url.Content("~/Images/rotator/seaview.jpg")" />
+                        </div>
+                    </e-content-template>
+                </e-rotator-item>
+                <e-rotator-item>
+                    <e-content-template>
+                        <div>
+                            <img class="image" src="@Url.Content("~/Images/rotator/snowfall.jpg")" />
+                        </div>
+                    </e-content-template>
+                </e-rotator-item>
+            </e-rotator-items>
+        </ej-rotator>
+        
+    </div>
+}
+@section StyleSection{
+    <style type="text/css" class="cssStyles">
+        .frame {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #content > li .image {
+            width: 100%;
+            height: 350px;
+        }
+    </style>
+}

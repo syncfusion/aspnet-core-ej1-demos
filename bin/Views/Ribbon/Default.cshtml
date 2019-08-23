@@ -1,0 +1,310 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.Models;
+@using samplebrowser.Controllers;
+@section SampleHeading{
+	<span class="sampleName">Default Functionalities</span>
+	}
+
+
+@section ControlsSection{
+
+<div>   
+<ej-ribbon id="defaultRibbon" width="100%" allow-resizing="true" >
+  <e-application-tab type=Menu menu-item-id="ribbonmenu">
+       <e-menu-settings open-on-click="false">
+      </e-menu-settings>
+  </e-application-tab>
+  <e-tabs>
+      <e-tab id="home" text="HOME">
+        <e-groups>
+          <e-group text="New" align-type=Rows>
+              <e-content>
+                   <e-contents>
+                         <e-content-groups>
+                                   <e-content-group id="new" text="New">
+                                            <e-button-settings content-type=ImageOnly image-position=ImageTop prefix-icon="e-icon e-ribbon e-new">
+                                            </e-button-settings>
+                                    </e-content-group>
+                         </e-content-groups>                    
+                         <e-defaults type=Button width="60px" height="70px" is-big="false"></e-defaults>
+                    </e-contents>
+              </e-content>
+         </e-group>           
+           <e-group text="Clipboard" align-type=Columns>
+                <e-content>
+                    <e-contents>
+                    <e-defaults width="50" height="75" type="SplitButton"></e-defaults>
+                        <e-content-groups>
+                            <e-content-group id="paste" tool-tip="Paste">
+                                <e-split-button-settings button-mode="Dropdown" arrow-position="Bottom" target-id="pasteul" content-type="TextAndImage" prefix-icon="e-icon e-ribbon e-ribbonpaste">
+                                </e-split-button-settings>
+                            </e-content-group>
+                        </e-content-groups>                     
+                    </e-contents>
+                    <e-contents>
+                        <e-defaults width="60" height="25" is-big="false" type="Button" />
+                        <e-content-groups>
+                            <e-content-group id="cut" tool-tip="Cut" text="Cut">
+                                <e-button-settings content-type="TextAndImage" type="Button" prefix-icon="e-icon e-ribbon e-ribboncut" />
+                            </e-content-group>
+                            <e-content-group id="copy" tool-Tip="Copy" text="Copy">
+                                <e-button-settings content-type="TextAndImage" type="Button" prefix-icon="e-icon e-ribbon e-ribboncopy" />
+                            </e-content-group>
+                            <e-content-group id="clear" tool-Tip="Clear All " text="Clear">
+                                <e-button-settings content-type="TextAndImage" Type="Button" prefix-icon="e-icon e-ribbon clearAll" />
+                            </e-content-group>
+                        </e-content-groups>
+                    </e-contents>
+                </e-content>
+            </e-group>
+            <e-group text="Alignment" align-type=Rows>
+                <e-content>
+                    <e-contents>
+                    <e-defaults type="Button" is-big="false"></e-defaults>
+                    <e-content-groups>
+                        <e-content-group id="bullet" text="Bullet Format" tool-tip="Bullets">
+                            <e-button-settings content-type="ImageOnly" type="Button" prefix-icon="e-icon e-ribbon e-bullet"  />
+                        </e-content-group>
+                        <e-content-group Id="number" text="Number Format" tool-tip="Numbering" enable-separator="true">
+                            <e-button-settings content-type="ImageOnly" Type="Button" prefix-icon="e-icon e-ribbon e-numbericon"  />
+                        </e-content-group>
+                        <e-content-group Id="textindent" text="Indent" tool-tip="Text Indent">
+                            <e-button-settings content-type="ImageOnly" Type="Button" prefix-icon="e-icon e-ribbon e-indent" />
+                        </e-content-group>
+                        <e-content-group Id="textoudent" text="Oudent" tool-tip="Text Oudent" enable-separator="true">
+                            <e-button-settings content-type="ImageOnly" Type="Button" prefix-icon="e-icon e-ribbon e-outdent" />
+                        </e-content-group>
+                        <e-content-group Id="sortascending" text="Sort" tool-tip="Sort" enable-separator="true">
+                            <e-button-settings content-type="ImageOnly" Type="Button" prefix-icon="e-icon e-ribbon e-sort" />
+                        </e-content-group>
+                        <e-content-group Id="border" Text="Border" tool-tip="Border">
+                            <e-button-settings content-type="ImageOnly" Type="Button" prefix-icon="e-icon e-ribbon e-border" />
+                        </e-content-group>
+                    </e-content-groups>
+                    </e-contents> 
+                    <e-contents>
+                    <e-content-groups>
+                        <e-content-group id="alignleft" text="JustifyLeft" tool-tip="Align Left">
+                            <e-button-settings content-type="ImageOnly" Type="Button" prefix-icon="e-icon e-ribbon alignleft" />
+                        </e-content-group>
+                        <e-content-group id="aligncenter" Text="JustifyCenter" tool-tip="Align Center">
+                            <e-button-settings content-type="ImageOnly" Type="Button" prefix-icon="e-icon e-ribbon aligncenter " />
+                        </e-content-group>
+                        <e-content-group id="alignright" text="JustifyRight" tool-tip="Align Right">
+                            <e-button-settings content-type="ImageOnly" Type="Button" prefix-icon="e-icon e-ribbon alignright" />
+                        </e-content-group>
+                        <e-content-group id="justify" text="JustifyFull" tool-tip="Justify" enable-separator="true">
+                            <e-button-settings content-type="ImageOnly" Type="Button" prefix-icon="e-icon e-ribbon justify" />
+                        </e-content-group>
+                        <e-content-group id="uppercase" Text="uppercase" tool-tip="Upper case">
+                            <e-button-settings content-type="ImageOnly" Type="Button" prefix-icon="e-icon e-ribbon e-uppercase" />
+                        </e-content-group>
+                        <e-content-group id="lowercase" Text="Lower Case" tool-tip="Lower Case">
+                            <e-button-settings content-type="ImageOnly" Type="Button" Prefix-Icon="e-icon e-ribbon e-lowercase" />
+                        </e-content-group>
+                    </e-content-groups>
+                    </e-contents>           
+                </e-content>
+            </e-group>
+            <e-group text="Actions" align-type=Rows>
+                <e-content>
+                    <e-contents>
+                        <e-content-groups>
+                            <e-content-group id="undo" text="Undo" tool-tip="undo">
+                                <e-button-settings content-type=TextAndImage image-position=ImageTop prefix-icon="e-icon e-ribbon e-undo">
+                                </e-button-settings>
+                            </e-content-group>
+                            <e-content-group id="redo" text="Redo" tool-tip="redo">
+                                <e-button-settings content-type=TextAndImage image-position=ImageTop prefix-icon="e-icon e-ribbon e-redo">
+                                </e-button-settings>
+                            </e-content-group>
+                        </e-content-groups>
+                        <e-defaults type=Button width="40px" height="70px" is-big="false"></e-defaults>
+                    </e-contents>
+                </e-content>
+            </e-group>
+            <e-group text="Views" align-type=Rows>
+                <e-content>
+                    <e-contents>
+                        <e-defaults type="Button" is-big="false" height="75" width="71" />
+                        <e-content-groups>
+                            <e-content-group id="zoomin" text="Zoom In" tool-tip="Zoom In">
+                                <e-button-settings content-type="TextAndImage" image-position="ImageTop" prefix-icon="e-icon e-ribbon e-undoe-ribbon e-zoomin" type="Button" />
+                            </e-content-group>
+                            <e-content-group id="zoomout" Text="Zoom Out" tool-tip="Zoom Out">
+                                <e-button-settings content-type="TextAndImage" image-position="ImageTop" prefix-icon="e-icon e-ribbon e-zoomout" type="Button" />
+                            </e-content-group>
+                            <e-content-group id="fullscreen" Text="Full Screen" tool-tip="Full Screen">
+                                <e-button-settings content-type="TextAndImage" image-position="ImageTop" prefix-icon="e-icon e-ribbon e-fullscreen" type="Button" width="73" />
+                            </e-content-group>
+                        </e-content-groups>
+                    </e-contents>
+                </e-content>
+            </e-group>
+      </e-groups>
+     </e-tab>
+      <e-tab id="insert" text="INSERT">
+          <e-groups>
+              <e-group text="Tables" align-type=Columns>
+                  <e-content>
+                      <e-contents>
+                          <e-content-groups>
+                              <e-content-group id="tables" text="Tables">
+                                  <e-button-settings content-type=TextAndImage image-position=ImageTop prefix-icon="e-icon e-ribbon e-table">
+                                  </e-button-settings>
+                              </e-content-group>
+                          </e-content-groups>
+                          <e-defaults type=Button width="50px" height="70px" is-big="false"></e-defaults>
+                      </e-contents>
+                  </e-content>
+              </e-group>
+              <e-group text="Illustrations" align-type=Rows>
+                  <e-content>
+                      <e-contents>
+                          <e-content-groups>
+                              <e-content-group id="pictures" text="Pictures" tool-tip="pictures">
+                                  <e-button-settings content-type=TextAndImage image-position=ImageTop prefix-icon="e-icon e-ribbon e-picture">
+                                  </e-button-settings>
+                              </e-content-group>
+                              <e-content-group id="videos" text="Videos" tool-tip="videos">
+                                  <e-button-settings content-type=TextAndImage image-position=ImageTop prefix-icon="e-icon e-ribbon e-video">
+                                  </e-button-settings>
+                              </e-content-group>
+                              <e-content-group id="shapes" text="Shapes" tool-tip="shapes">
+                                  <e-button-settings content-type=TextAndImage image-position=ImageTop prefix-icon="e-icon e-ribbon e-shape">
+                                  </e-button-settings>
+                              </e-content-group>
+                          </e-content-groups>
+                          <e-defaults type=Button width="56px" height="70px" is-big="false"></e-defaults>
+                      </e-contents>
+                  </e-content>
+              </e-group>
+              <e-group text="Comments" align-type=Rows>
+                  <e-content>
+                      <e-contents>
+                          <e-content-groups>
+                              <e-content-group id="comments" text="Comments" tool-tip="Comments">
+                                  <e-button-settings type="Button" content-type="TextAndImage" image-position="ImageTop" prefix-icon="e-icon e-ribbon e-comment"/>
+                              </e-content-group>
+                          </e-content-groups>
+                          <e-defaults type=Button width="70px" height="70px"></e-defaults>
+                      </e-contents>
+                  </e-content>
+              </e-group>
+              <e-group text="Text" align-type=Rows>
+                  <e-content>
+                      <e-contents>
+                          <e-content-groups>
+                              <e-content-group id="text" text="Text" tool-tip="Text">
+                                  <e-button-settings type="Button" content-type="TextAndImage" image-position="ImageTop" prefix-icon="e-icon e-ribbon e-text" width="50" />
+                              </e-content-group>
+                              <e-content-group Id="datetime" Text="DateTime" tool-tip="Date Time">
+                                  <e-button-settings Type="Button" content-type="TextAndImage" image-position="ImageTop" prefix-icon="e-icon e-ribbon e-datetimenew" width="65"/>
+                              </e-content-group>
+                          </e-content-groups>
+                          <e-defaults type=Button height="75px"></e-defaults>
+                      </e-contents>
+                  </e-content>
+              </e-group>
+              <e-group text="Hyperlink" align-type=Rows>
+                  <e-content>
+                      <e-contents>
+                          <e-content-groups>
+                              <e-content-group id="hyperlink" text="Hyperlink" tool-tip="Hyperlink">
+                                  <e-button-settings type="Button" content-type="TextAndImage" image-position="ImageTop" prefix-icon="e-icon e-ribbon e-hyperlink" />
+                              </e-content-group>
+                          </e-content-groups>
+                          <e-defaults type=Button height="70px" width="65px"></e-defaults>
+                      </e-contents>
+                  </e-content>
+              </e-group>
+              <e-group text="Equation" align-type=Rows>
+                  <e-content>
+                      <e-contents>
+                          <e-content-groups>
+                              <e-content-group id="equation" text="Equation" tool-tip="Equation">
+                                  <e-button-settings type="Button" content-type="TextAndImage" image-position="ImageTop" prefix-icon="e-icon e-ribbon e-equation" />
+                              </e-content-group>
+                          </e-content-groups>
+                          <e-defaults type=Button height="70px" width="60px"></e-defaults>
+                      </e-contents>
+                  </e-content>
+              </e-group>
+              <e-group text="Print Layout" align-type=Rows>
+                  <e-content>
+                      <e-contents>
+                          <e-content-groups>
+                              <e-content-group id="printlayout" text="Print Layout" tool-tip="Print Layout">
+                                  <e-button-settings type="Button" content-type="TextAndImage" image-position="ImageTop" prefix-icon="e-icon e-ribbon e-printlayout" />
+                              </e-content-group>
+                          </e-content-groups>
+                          <e-defaults type=Button height="70px" width="80px"></e-defaults>
+                      </e-contents>
+                  </e-content>
+              </e-group>
+              <e-group text="Save" align-type=Rows>
+                  <e-content>
+                      <e-contents>
+                          <e-content-groups>
+                              <e-content-group id="print" text="Print" tool-tip="Print">
+                                  <e-button-settings type="Button" content-type="TextAndImage" image-position="ImageTop" prefix-icon="e-icon e-ribbon e-print"/>
+                              </e-content-group>
+                              <e-content-group id="save" text="Save" tool-tip="Save">
+                                  <e-button-settings type="Button" content-type="TextAndImage" image-position="ImageTop" prefix-icon="e-icon e-ribbon e-save" />
+                              </e-content-group>
+                          </e-content-groups>
+                          <e-defaults type=Button height="70px" width="50px"></e-defaults>
+                      </e-contents>
+                  </e-content>
+              </e-group>
+          </e-groups>
+      </e-tab>
+ </e-tabs>
+</ej-ribbon>
+ 
+    <div id="contenteditor" class="e-contenteditor" contenteditable="true" spellcheck="false">
+    <p>Integer dui elit, cursus vel metus maximus, dictum semper magna. Donec volutpat porta gravida. Fusce dapibus cursus tellus et pulvinar. Fusce porta dolor eget consectetur ultricies.</p>
+    <p>Cras et quam scelerisque, blandit lorem a, tristique velit. Quisque sagittis sapien augue. Quisque tincidunt sit amet libero sed luctus.</p>
+    <p>Pellentesque rutrum mauris mi. Ut rutrum quam ac quam tincidunt elementum. Nullam pulvinar mattis velit, nec rutrum enim laoreet quis.Vestibulum ipsum leo, molestie convallis vehicula at, dictum non purus.</p>
+</div>
+<ul id="ribbonmenu">
+    <li>
+        <a>FILE</a>
+        <ul>
+            <li><a>New</a></li>
+            <li><a>Open</a></li>
+            <li><a>Save</a></li>
+            <li><a>Save as</a></li>
+            <li><a>Print</a></li>
+        </ul>
+    </li>
+</ul>
+    <ul id="pasteul">
+        <li><a>Paste</a></li>
+    </ul>
+</div>
+
+}
+@section ScriptSection{
+ 
+}
+@section StyleSection{
+    <link href="@Url.Content("~/css/ejthemes/ribbon-css/ej.icons.css")" rel="stylesheet" />
+    <style>
+
+.e-contenteditor {
+            width: 100%;
+            height: 220px;
+            border: 1px solid #D9DFDE;
+            border-top: 0;
+            overflow: auto;
+        }
+
+            .e-contenteditor p {
+                margin: 20px;
+            }
+             .e-btn .e-btntxt {
+            padding:0px!important;
+        }
+    </style>
+}

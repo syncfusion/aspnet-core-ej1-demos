@@ -1,0 +1,204 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization;
+@using Syncfusion.JavaScript.Models
+@addTagHelper *, Syncfusion.EJ
+@{
+    Layout = "~/Areas/ExpenseAnalysis/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Essential Studio for ASP.NET MVC : Expense Analysis";
+}
+<script src="@Url.Content("~/scripts/expenseanalysis/expense.js")"></script>
+<script src="@Url.Content("~/scripts/jquery.validate.js")"></script>
+<script src="@Url.Content("~/scripts/jquery.validate.unobtrusive.js")"></script>
+<link href="@Url.Content("~/css/expense/theme.css")" rel="stylesheet" />
+<div class="sample-title">
+</div>
+<div class="container">
+    <div class="sample-container">
+        <div id="control-container">
+            <div class="text-title">
+			<h1 style=" color: transparent; user-select: none; ">Expense Analysis</h1>
+            </div>
+            <div class="row imagetile">
+                <div class="col-md-5">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="left-image">
+                                </div>
+                            </td>
+                            <td>
+                                <div style="horz-align: right;">
+                                    <div class="e-exptitle">
+                                        <label class="e-name">
+                                            David Carter
+                                        </label><br />
+                                        <label class="e-phone">
+                                            Phone : +1 919.494.1974
+                                        </label>
+                                        <br />
+                                        <label class="e-mail">
+                                            email : davidc@syncfusion.com
+                                        </label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-7 e-values-td">
+                    <div class="initborder">
+                        <table class="e-values">
+                            <tr>
+                                <td class="pos-amt-td sideborder">
+                                    <p class="pos-amt"></p>
+                                    <p class="pos-text">
+                                        Positive
+                                    </p>
+                                    <p class="pos-transc">
+                                    </p>
+                                </td>
+                                <td class="neg-amt-td sideborder">
+                                    <p class="neg-amt"></p>
+                                    <p class="neg-text">
+                                        Negative
+                                    </p>
+                                    <p class="neg-transc"></p>
+                                </td>
+                                <td class="bal-amt-td">
+                                    <p class="bal-amt"></p>
+                                    <p class="bal-text">
+                                        Balance
+                                    </p>
+                                    <p class="bal-empty" style="visibility: hidden">
+                                        Transaction
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="chartgridtable">
+                <div id="control-panel" class="add-filter-panel">
+                    <div class="row">
+                        <div class="col-md-1" style="DISPLAY: inline">
+                            <label class="sample-t">
+                                Transactions
+                            </label>
+                        </div>
+                        <div class="col-md-8" style="DISPLAY: inline"></div>
+                        <div class="col-md-3" style="DISPLAY: inline">
+                            <table style="float: left;">
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <ej-drop-down-list id="selectMonth" width="150px" height="30px" select="changeMonth" datasource="(IEnumerable<string>)ViewBag.dropdown">
+                                            </ej-drop-down-list>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="add-image" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="expensegridborder">
+                    <div class="col-xs-13 grid-container">
+                        <div id="ExpenseGrid">
+                            <ej-grid id="grid" allow-sorting="true" allow-paging="true" enable-row-hover="true" allow-keyboard-navigation="true" is-responsive="true" enable-responsive-row="false" css-class="metroblue">
+                                <e-edit-settings allow-editing="false" allow-adding="true" edit-mode="@EditMode.Dialog">
+                                </e-edit-settings>
+                                <e-page-settings page-count="4">
+                                </e-page-settings>
+                                <e-columns>
+                                    <e-column field="DateTime" header-text="Date" text-align="Right" width="40" edit-type="Datepicker" format="{0:MMM dd yyyy}">
+                                    </e-column>
+                                    <e-column field="Description" header-text="Customer ID" width="100">
+                                    </e-column>
+                                    <e-column field="CategoryName" header-text="CategoryName" text-align="Left" width="100" visible="true">
+                                    </e-column>
+                                    <e-column field="Amount" header-text="Amount" width="50" edit-type="NumericEdit" format="{0:C}" priority="4">
+                                    </e-column>
+                                </e-columns>
+                            </ej-grid>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="col-xs-13 chart-inner">
+                        <div class="samplesec">
+                            <div>
+                                <div class="samplename">
+                                    <span>Expense Analysis Chart </span>
+                                </div>
+                                <div class="samplebody">
+                                    <div class="samplecontent">
+                                        <div class="chart-back-button">
+                                            <ej-button id="btnBack" size="@ButtonSize.Mini" create="hidebutton" click="btnClick" text="Back" />
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div id="ExpenseChart">
+                                                    <ej-chart id="chart" is-responsive="true" back-ground="transparent" pre-render="seriesRender" animation-complete="completeAnimation" point-region-click="onClick">
+                                                        <e-common-series-options type="@SeriesType.Pie">
+                                                        </e-common-series-options>
+                                                        <e-chart-series>
+                                                            <e-series name="ExpenseChart" enable-animation="true" label-position="@ChartLabelPosition.Outside" explode="true" x-name="ExpenseCategory" y-name="Amount">
+                                                                <e-marker visible="true">
+                                                                    <e-data-label visible="true"></e-data-label>
+                                                                </e-marker>
+                                                            </e-series>
+                                                        </e-chart-series>
+                                                        <e-legend visible="false"></e-legend>
+                                                    </ej-chart>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="spend-div">
+                                                    <table cellspacing="10">
+                                                        <tr>
+                                                            <td class="most-spent">
+                                                                <p class="most-spent-text">
+                                                                    Most Spent
+                                                                </p>
+                                                                <p class="most-spent-amt">
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="least-spent">
+                                                                <p class="least-spent-text">
+                                                                    Least Spent
+                                                                </p>
+                                                                <p class="least-spent-amt">
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="avg-spent">
+                                                                <p class="avg-spent-text">
+                                                                    Average Spent
+                                                                </p>
+                                                                <p class="avg-spent-amt">
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿@using Syncfusion.JavaScript.DataVisualization
+
+
+@section SampleHeading{<span class="sampleName">XlsIO / ExcelToPDF</span>}
+
+ @section ControlsSection{                                
+	      @{ViewBag.Title = "    Essential XlsIO (Excel) :Excel To PDF Conversion : Syncfusion";}
+
+    @{ Html.BeginForm("ExcelToPDF", "XlsIO", FormMethod.Post, new { enctype = "multipart/form-data" });
+        {
+            <div class="Common">
+                <div class="tablediv">
+                    <div class="rowdiv">
+                        <label>
+                            Essential XlsIO allows to export the Excel document into PDF document.
+                            Use the Convert method of ExcelToPDFConverter class to convert the Excel to PDF and save the PDF document.
+                            This enabling user easily converts the Excel document to PDF document.
+                        </label>
+                        <br />
+                        <br />
+                        <label>Select Document</label>
+                        <br />
+                        <input type="file" name="file" />
+                        <br />
+                        <br />
+                        <label>
+                            Clicking the button below will result in a PDF document being converted from Excel document using Essential XlsIO and Essential PDF.
+                            Please note that you need to have a PDF viewer installed in order to view the generated PDF file.
+                        </label>
+                    </div>
+                    <br />
+                    <div class="rowdiv">
+                        <div class="celldiv">
+                            <input type="radio" id="noScaleRadioBtn" name="Group1" value="NoScaling" />
+                            <label for="noScaleRadioBtn">
+                                NoScaling
+                            </label>
+                            <input type="radio" id="allRowsRadioBtn" name="Group1" value="FitAllRowsOnOnePage" />
+                            <label for="allRowsRadioBtn">
+                                FitAllRowsOnOnePage
+                            </label>
+                            <input type="radio" id="allColumnRadioBtn" name="Group1" value="FitAllColumnsOnOnePage" />
+                            <label for="allColumnRadioBtn">
+                                FitAllColumnsOnOnePage
+                            </label>
+                            <input type="radio" id="fitSheetRadioBtn" name="Group1" value="FitSheetOnOnePage" checked="checked" />
+                            <label for="fitSheetRadioBtn">
+                                FitSheetOnOnePage
+                            </label>
+                        </div>
+                        <br />
+                        <div class="celldiv">
+                            <input class="buttonStyle" type="submit" value="Convert to PDF" name="button" style="width:150px" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            Html.EndForm();
+        }
+    }
+}
+

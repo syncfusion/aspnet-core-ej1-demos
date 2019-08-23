@@ -1,0 +1,92 @@
+﻿@section SampleHeading{<span class="sampleName">Grid / DialogTemplateEditing</span> }
+@section MetaTags{
+    <meta name="description" content="This demo explains how to edit a datagrid record in a dialog box that is rendered using predefined custom template in Syncfusion ASP.NET Core DataGrid control.">
+}
+@section ControlsSection{
+    <ej-grid id="FlatGrid" allow-paging="true" action-complete="complete">
+        <e-datamanager json="(IEnumerable<object>)ViewBag.datasource" update-url="Update" insert-url="Insert" remove-url="Delete" adaptor="remoteSaveAdaptor" />
+        <e-edit-settings allow-adding="true" allow-editing="true" allow-deleting="true" dialog-editor-template-id="#template" edit-mode="@(EditMode.DialogTemplate)"></e-edit-settings>
+        <e-toolbar-settings show-toolbar="true" toolbar-items="@(new List<string>() {"add","edit","delete","update","cancel" })"></e-toolbar-settings>
+        <e-columns>
+            <e-column field="OrderID" header-text="Order ID" is-primary-key="true" validation-rules='new Dictionary<string, object>() { {"required",true}, {"number",true} }' text-align="Right" width="75"></e-column>
+            <e-column field="CustomerID" header-text="Customer ID" width="80" validation-rules='new Dictionary<string, object>() { {"required",true}, {"minlength",3} }'/>
+            <e-column field="Freight" header-text="Freight" format="{0:C}" numeric-edit-options="@new EditorProperties(){ DecimalPlaces = 2}" validation-rules='new Dictionary<string, object>() { {"required",true}, {"range","[0,1000]"} }' text-align="Right" width="75"></e-column>
+            <e-column field="ShipCity" header-text="Ship City" text-align="Left" width="110"></e-column>
+            <e-column field="ShipCountry" header-text="Ship Country" text-align="Left" width="75"></e-column>
+        </e-columns>
+    </ej-grid>
+}
+@section ScriptSection{
+    <script type="text/template" id="template">
+        <b>Order Details</b>
+        <table cellspacing="10">
+            <tr>
+                <td style="text-align: right;">
+                    Order ID
+                </td>
+                <td style="text-align: left">
+                    <input id="OrderID" name="OrderID" value="{{: OrderID}}" disabled="disabled" class="e-field e-ejinputtext valid e-disable"
+                           style="text-align: right; width: 116px; height: 28px" />
+                </td>
+                <td style="text-align: right;">
+                    Customer ID
+                </td>
+                <td style="text-align: left">
+                    <input id="CustomerID" name="CustomerID" value="{{: CustomerID}}" class="e-field e-ejinputtext valid"
+                           style="width: 116px; height: 28px" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    Freight
+                </td>
+                <td style="text-align: left">
+                    <input type="text" id="Freight" name="Freight" value="{{:Freight}}" />
+                </td>
+                <td style="text-align: right;">
+                    Ship Country
+                </td>
+                <td style="text-align: left">
+                    <select id="ShipCountry" name="ShipCountry">
+                        <option value="Germany">Germany</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="UK">UK</option>
+                        <option value="Sweden">Sweden</option>
+                        <option value="France">France</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Spain">Spain</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    Ship City
+                </td>
+                <td style="text-align: left">
+                    <input id="ShipCity" name="ShipCity" value="{{: ShipCity}}" class="e-field e-ejinputtext valid"
+                           style="width: 116px; height: 28px" />
+                </td>
+                <td style="text-align: right;">
+                    Ship Name
+                </td>
+                <td style="text-align: left">
+                    <input id="ShipName" name="ShipName" value="{{: ShipName}}" class="e-field e-ejinputtext valid"
+                           style="width: 116px; height: 28px" />
+                </td>
+            </tr>
+        </table>
+    </script>
+
+<script type="text/javascript">
+    function complete(args) {
+        if ((args.requestType == "beginedit" || args.requestType == "add") && args.model.editSettings.editMode == "dialogtemplate") {
+            $("#Freight").ejNumericTextbox({ value: parseFloat($("#Freight").val()), width: "116px", height: "28px", decimalPlaces: 2 });
+            $("#ShipCountry").ejDropDownList({ width: '116px' });
+            if (args.requestType == "beginedit") {
+                $("#OrderID").attr("disabled", "disabled");
+                $("#ShipCountry").ejDropDownList("setSelectedValue", args.row.children().eq(4).text());
+            }
+        }
+    }
+</script>
+ }
