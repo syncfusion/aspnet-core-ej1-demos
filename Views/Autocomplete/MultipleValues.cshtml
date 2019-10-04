@@ -1,0 +1,49 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Autocomplete / Multiple Values</span>}
+@section MetaTags{
+    <meta name="description" content="This example demonstrates using the Syncfusion ASP.NET Core Autocomplete component to select multiple values from the suggestion list.">
+}
+@section ControlsSection{
+    <div class="frame">
+        <div class="row">
+            <div class="control">
+                <span class="txt">Using Delimiter</span>
+
+                <ej-autocomplete id="delimit" datasource="ViewBag.datasource" width="100%" multi-select-mode="@MultiSelectModeTypes.Delimiter" show-popup-button="true"></ej-autocomplete>
+                
+            </div>
+            <div class="control">
+                <span class="txt">Using VisualMode</span>
+                <ej-autocomplete id="visualmode" datasource="ViewBag.datasource" width="100%" multi-select-mode="@MultiSelectModeTypes.VisualMode" show-popup-button="true"></ej-autocomplete>
+               
+            </div>
+        </div>
+    </div>
+}
+@section StyleSection{
+    <style type="text/css">
+        .frame
+        {
+            height: 150px;
+            width: 40%;
+        }
+        
+        .control
+        {
+            width: 100%;
+            display: inline-block;
+            float: left;
+        }
+        
+        .control:first-child
+        {
+            margin-bottom: 15px;
+        }
+        
+        .txt
+        {
+            display: block;
+            margin-bottom: 12px;
+        }
+    </style>
+}
