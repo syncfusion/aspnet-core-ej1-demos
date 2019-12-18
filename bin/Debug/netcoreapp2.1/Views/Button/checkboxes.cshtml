@@ -1,0 +1,73 @@
+﻿@section MetaTags{
+   <meta name="description" content=" This example demonstrates a simple, mobile-friendly and responsive ASP.NET Core checkbox control to shows the checked, unchecked, and indeterminate states of checkbox.">
+}
+
+@section SampleHeading{
+    <span class="sampleName">Button / Check Boxes</span>}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <div class="chkalign">
+                <br />
+                Hobbies
+                <br />
+                <br />
+                <table>
+                    <tr>
+                        <td class="chkrad">
+                            <ej-check-box id="check1" css-class="nodetext" text="Music" value="Music" />
+                        </td>
+                        <td class="chkrad">
+                            <ej-check-box id="Checkbox3" css-class="nodetext" text="Sports" value="Sports" />
+                        </td>
+                        <td class="chkrad">
+                            <ej-check-box id="Checkbox4" css-class="nodetext" text="Bike Riding" value="Bike Riding" />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                Favorite Search Engines<br />
+                <br />
+                <table>
+                    <tr>
+                        <td class="chkrad">
+                            <ej-check-box id="Checkbox1" css-class="nodetext" size="@Size.Medium" text="Google" value="Google" />
+                        </td>
+                        <td class="chkrad">
+                            <ej-check-box id="Checkbox5" css-class="nodetext" size="@Size.Medium" text="Yahoo" value="Yahoo" />
+                        </td>
+                        <td class="chkrad">
+                            <ej-check-box id="Checkbox6" css-class="nodetext" size="@Size.Medium" text="Bing" value="Bing" />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                Favorite Social networks<br />
+                <br />
+                <table>
+                    <tr>
+                        <td class="chkrad">
+                            <ej-check-box id="Checkbox2" css-class="nodetext" size="@Size.Medium" text="Facebook" value="Facebook" enable-tri-state="true" />
+                        </td>
+                        <td class="chkrad">
+                            <ej-check-box id="Checkbox7" css-class="nodetext" size="@Size.Medium" text="GPlus" value="GPlus" enable-tri-state="true" />
+                        </td>
+                        <td class="chkrad">
+                            <ej-check-box id="Checkbox8" css-class="nodetext" size="@Size.Medium" text="Twitter" value="Twitter" enable-tri-state="true" check-state="@CheckState.Indeterminate"/>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+            </div>
+        </div>
+    </div>
+}
+@section StyleSection{
+    <style>
+        .frame {
+            width: 50%;
+        }
+    </style>
+}

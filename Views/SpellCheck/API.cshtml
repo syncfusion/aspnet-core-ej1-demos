@@ -1,0 +1,166 @@
+﻿@section SampleHeading{
+    <span class="sampleName">SpellCheck / API's</span>
+}
+
+@section ControlsSection{
+    <div id="TextArea" contenteditable="true">
+        Amazon.com, Inc., often refered to as simply Amazon, is an American electronic commerce and cloud computing company with headquarters in Seattle, Washington. It is the largest web-based retailer in the United States. Amazon.com started as bookstore on the web, later diversifying to sell DVDs, Blu-rays, CDs, video downloads/streaming, MP3 downloads/streaming, audiobook downloads/streaming, software, video games, electronics, apparel, furniture, food, toys and jewelry. The company also produces consumer electronics—notably, Amazon Kindle e-book readers, Fire tablets, Fire TV and Fire Phone—and is the world's largest provider of cloud infrastructure services (IaaS). Amazon also sells certain low-end products like USB cables under its in-house brand AmazonBasics.
+        Amazon has separate retail websites for United States, United Kingdom and Ireland, France, Canada, Germany, Italy, Spain, Netherlands, Australia, Brazil, Japan, China, India and Mexico. Amazon also offers international shipping to cetain other countries for some of its products.
+    </div>
+
+    <ej-spell-check id="SpellCheckDialog" controls-to-validate="#TextArea" max-suggestion-count="2">
+        <e-dictionary-settings custom-dictionary-url="//js.syncfusion.com/ejServices/api/SpellCheck/AddToDictionary" dictionary-url="//js.syncfusion.com/ejServices/api/SpellCheck/CheckWords"></e-dictionary-settings>
+        <e-context-menu-settings enable="true"> </e-context-menu-settings>
+    </ej-spell-check>
+    <ej-button id="SpellCheck" width="100px" height="25px" text="Spell check" click="showInContextMenu" />
+}
+
+@section PropertiesSection{
+    <div id="sampleProperties">
+        <div class="prop-grid">
+            <div class="row">
+                <div class="col-md-3 aligntop">MisspellWordCss</div>
+                <div class="col-md-3">
+                    <select name="selectIndex" class="e-ddl" id="misspellWordCss">
+                        <option value="errorword">Highlight1</option>
+                        <option value="highlighter">Highlight2</option>
+                        <option value="e-errorword">Highlight3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">Ignore AlphaNumeric Words</div>
+                <div class="col-md-3">
+                    <input type="checkbox" class="nodetext" id="ignoreAlphaNumericWords" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-3">Ignore UpperCase</div>
+                <div class="col-md-3">
+                    <input type="checkbox" class="nodetext" id="ignoreUpperCase" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">Ignore MixedCase Words</div>
+                <div class="col-md-3">
+                    <input type="checkbox" class="nodetext" id="ignoreMixedCaseWords" />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-3">Ignore Url</div>
+                <div class="col-md-3">
+                    <input type="checkbox" class="nodetext" id="ignoreUrl" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">Ignore FileNames</div>
+                <div class="col-md-3">
+                    <input type="checkbox" class="nodetext" id="ignoreFileNames" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">Ignore Email Address</div>
+                <div class="col-md-3">
+                    <input type="checkbox" class="nodetext" id="ignoreEmailAddress" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">Maximum Suggestion Count</div>
+                <div class="col-md-3">
+                    <input type="text" id="maxSuggestionCount" value="maxSuggestionCount" />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-3">Ignore Words</div>
+                <div class="col-md-12">
+                    <input type="text" id="ignoreWordsDropDown" class="e-togglebtn" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section StyleSection{
+    <style>
+        .errorword {
+            color: red;
+        }
+
+        .highlighter {
+            color: blue;
+        }
+
+        #TextArea {
+            padding-bottom: 15px;
+        }
+    </style>
+}
+
+@section ScriptSection{
+
+    <script type="text/javascript">
+        var target;
+        var ignoreWordsData = [
+                { word: "audiobook" }, { word: "Blu" }, { word: "DVDs" }
+        ];
+        $(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+            var spellObj = $("#SpellCheckDialog").data("ejSpellCheck");
+            spellObj.validate();
+        });
+
+        $("#misspellWordCss").ejDropDownList({ selectedItemIndex: 2, select: "changeErrorHighlight", change: "showInContextMenu", width: "110px" });
+        $("#ignoreAlphaNumericWords").ejCheckBox({ change: "ignoreAlphaNumericWords", checked: true });
+        $("#ignoreUpperCase").ejCheckBox({ change: "ignoreUpperCase", checked: true });
+        $("#ignoreUrl").ejCheckBox({ change: "ignoreUrl", checked: true });
+        $("#ignoreMixedCaseWords").ejCheckBox({ change: "ignoreMixedCaseWords", checked: true });
+        $("#ignoreFileNames").ejCheckBox({ change: "ignoreFileNames", checked: true });
+        $("#ignoreEmailAddress").ejCheckBox({ change: "ignoreEmailAddress", checked: true });
+        $("#maxSuggestionCount").ejNumericTextbox({ name: "maxSuggestionCount", value: 6, width: 110, change: "maxSuggestionChange" });
+        $("#ignoreWordsDropDown").ejDropDownList({
+            dataSource: ignoreWordsData,
+            fields: { text: "word" },
+            watermarkText: "Select your ignore words",
+            showCheckbox: true,
+            width: "100%",
+            change: "addIgnoreWords"
+        });
+        
+        if (ej.browserInfo().name === "msie")
+            document.execCommand("AutoUrlDetect", false, false);
+
+        function changeErrorHighlight(args) {
+            $("#SpellCheckDialog").ejSpellCheck({ misspellWordCss: args.value });
+        }
+        function ignoreAlphaNumericWords(args) {
+            $("#SpellCheckDialog").ejSpellCheck({ ignoreSettings: { ignoreAlphaNumericWords: args.isChecked } });
+        }
+        function ignoreUrl(args) {
+            $("#SpellCheckDialog").ejSpellCheck({ ignoreSettings: { ignoreUrl: args.isChecked } });
+        }
+        function ignoreUpperCase(args) {
+            $("#SpellCheckDialog").ejSpellCheck({ ignoreSettings: { ignoreUpperCase: args.isChecked } });
+        }
+        function ignoreMixedCaseWords(args) {
+            $("#SpellCheckDialog").ejSpellCheck({ ignoreSettings: { ignoreMixedCaseWords: args.isChecked } });
+        }
+        function ignoreFileNames(args) {
+            $("#SpellCheckDialog").ejSpellCheck({ ignoreSettings: { ignoreFileNames: args.isChecked } });
+        }
+        function ignoreEmailAddress(args) {
+            $("#SpellCheckDialog").ejSpellCheck({ ignoreSettings: { ignoreEmailAddress: args.isChecked } });
+        }
+        function addIgnoreWords(args) {
+            $("#SpellCheckDialog").ejSpellCheck({ ignoreWords: !ej.isNullOrUndefined(args.model.value) ? args.model.value.split(",") : [] });
+        }
+        function maxSuggestionChange(args) {
+            $("#SpellCheckDialog").ejSpellCheck({ maxSuggestionCount: args.value });
+        }
+        function showInContextMenu() {
+            var spellObj = $("#SpellCheckDialog").data("ejSpellCheck");
+            spellObj.validate();
+        }
+    </script>
+
+}
+
