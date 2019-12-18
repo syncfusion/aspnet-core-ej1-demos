@@ -1,0 +1,18 @@
+{
+  "name": "Core",
+  "version": "0.0.0",
+  "description": "The Sample browser for EJ1 ASP.NET Core.",
+  "keywords": [
+    "asp.netcore-samplebrowser"
+  ],
+  "license": "MIT",
+  "author": "Synfusion Inc.",
+  "scripts": {
+    "postinstall": "gulp copyfiles"
+  },
+  "dependencies": {
+    "syncfusion-javascript": "*",
+    "gulp": "*",
+    "gulp-connect": "*"
+  }
+}
