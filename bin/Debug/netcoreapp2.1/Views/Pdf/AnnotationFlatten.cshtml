@@ -1,0 +1,36 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Graphics/AnnotationFlatten Sample</span>
+}
+@section ControlsSection
+{
+    @{Html.BeginForm("AnnotationFlatten", "Pdf", FormMethod.Post);
+        {
+            <div class="Common">
+                <div class="tablediv" style = "font-size: 17px;font-weight: 400;">
+                    This sample demonstrates the creation of different type of annotations such as ink, free text, pop up, text markup annotation and more. The Essential PDF supports  <a href="https://help.syncfusion.com/file-formats/pdf/working-with-annotations#supported-annotation-types">20+ annotations</a> with create, edit, and delete support.
+                </div>
+                <br />
+                <div>
+                    <input id="checkboxFlatten" type="checkbox" name="checkboxFlatten" value="Flatten">
+                    <label for="Opentype">Flatten annotation</label>
+                </div>
+                <br />
+                <div class="tablediv">
+                    <div class="rowdiv">
+                        <div class="celldiv">
+                            <div>
+                                <input type="submit" class="Button" value="Generate PDF" style="width: 150px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div style="font-size: 17px;font-weight: 400;">
+                    This feature can be used for reviewing purpose.
+                    More information about the annotations can be found in this documentation <a href="https://help.syncfusion.com/file-formats/pdf/working-with-annotations"> section. </a>
+                </div>
+            </div>
+            Html.EndForm();
+        }
+    }
+}
