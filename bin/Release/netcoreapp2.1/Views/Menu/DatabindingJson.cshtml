@@ -1,0 +1,32 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Menu / Databinding - Local data</span>}
+@section ControlsSection{
+
+   <ej-Menu id="menujson">
+
+       <e-menu-fields dataSource="ViewBag.datasource" id="pid" text="mtext" parent-id="parent" sprite-css-class="sprite"></e-menu-fields>
+           
+</ej-Menu>
+   
+}
+@section StyleSection{
+    <style type="text/css">
+        #menujson {
+            margin-left: 50px;
+        }
+
+        .e-menu li > ul > li > a {
+            padding: 3px 24px 3px 35px;
+        }
+
+        [class^="flag-"],
+        [class*="flag-"] {
+            background-image: url("../images/autocomplete/flags.png");
+            height: 14px;
+            left: 2px;
+            top: 4px;
+            width: 24px;
+        }
+    </style>
+    <link href="@Url.Content("~/css/Samples/MenuJson.css")" rel="stylesheet" />
+}

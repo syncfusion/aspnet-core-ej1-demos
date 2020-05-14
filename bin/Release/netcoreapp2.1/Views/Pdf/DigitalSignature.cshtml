@@ -1,0 +1,152 @@
+﻿
+@section SampleHeading{
+    <span class="sampleName">Security / DigitalSignature Sample</span>
+}
+
+@section ControlsSection{
+    @{Html.BeginForm("DigitalSignature", "Pdf", FormMethod.Post, new { enctype = "multipart/form-data" });
+        {
+            <div class="Common">
+                <div class="tablediv" style="font-size: 17px;font-weight: 400;" >
+                    This sample demonstrates how to digitally sign the PDF document with the PFX certificate file. It is possible to digitally sign with X509 certificates such as .pfx files with private keys and support for Hardware Security Module (HSM), Online Certificate Status Protocol (OCSP), Certificate Revocation List (CRL), and Windows Certificate Store to offer authenticity and integrity.
+                </div>
+                <div id="errorlabel" value="error">
+                    <p style="color: #FF0000;">
+                        @Html.Label("", (string)ViewBag.lab)
+                </div>
+                <div class="tablediv">
+                    <div class="rowdiv">
+                        <div class="celldiv">
+                            <table width="100%">
+                                <tbody>
+                                    <tr>
+                                        <td align="left">
+                                            <span style="font-weight: bold;" id="label8">Sign new PDF document</span><br>
+                                            <div style="border: solid 1px #788DB3; line-height: 23px; padding: 10px; background-color: #EDF0F7;">
+                                                <table cellspacing="0" cellpadding="0" border="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign="middle" style="padding-left: 0px; width: 100%;">
+                                                                <span id="label4">Standard Type: </span>
+                                                                <span style="margin-left: 10px">
+                                                                    <input type="radio" checked="checked" value="Standard" name="RadioButtonList2" id="RadioButtonList1"><label for="RadioButtonList2_0">Standard</label>
+                                                                </span>
+                                                                <span style="margin-left: 20px">
+                                                                    <input type="radio" value="Author"
+                                                                           name="RadioButtonList2" id="RadioButtonList2_1"><label for="RadioButtonList2">Author</label>
+                                                                </span>
+                                                            </td>
+                                                            <td align="right">
+                                                                <input name="submit" id="submit" type="submit" value="Generate PDF" style="width: 150px;" />
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <br />
+                    <div class="rowdiv">
+                        <div class="celldiv">
+                            <table width="100%">
+                                <tbody>
+                                    <tr>
+                                        <td align="left">
+                                            <span style="font-weight: bold;" id="label8">Sign existing PDF document</span><br>
+                                            <div style="border: solid 1px #788DB3; line-height: 23px; padding: 10px; background-color: #EDF0F7;">
+                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left" width="100%">
+                                                                <div>
+                                                                    <label for="page index">Source Document</label>
+                                                                    <input type="file" id="file" name="file" accept="application/pdf" />
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left">
+                                                                <br />
+                                                                <label>Certificate</label>
+                                                                <input type="file" id="certificate " name="certificate" accept="application/pfx" />
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left" width="100%">
+                                                                <br />
+                                                                <div>
+                                                                    <label>Password</label>
+                                                                    <label>
+                                                                        <input type="password" style="width: 102%; margin-left: 105px" id="password" value="" textmode="Password"
+                                                                               name="password">
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div style="line-height: 23px;">
+                                                                    <span style="font-weight: bold;" id="label1">Reason</span>
+                                                                    <label>
+                                                                        <input type="text" style="width: 97%; margin-left: 120px" id="Reason" value=""
+                                                                               name="Reason">
+                                                                    </label>
+                                                                </div>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left">
+                                                                <div style="line-height: 23px;">
+                                                                    <span style="font-weight: bold;" id="label1">Contact</span>
+                                                                    <label>
+                                                                        <input type="text" style="width: 98%; margin-left: 116px" id="Contact" value=""
+                                                                               name="Contact">
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td align="left">
+                                                                <div style="line-height: 23px;">
+                                                                    <span style="font-weight: bold;" id="label1">Location</span>
+                                                                    <label>
+                                                                        <input type="text" style="width: 100%; margin-left: 111px" id="Location" value=""
+                                                                               name="Location">
+                                                                    </label>
+                                                                </div>
+                                                            </td>                                                            
+                                                        </tr> 
+                                                        <tr>
+                                                            <td align="right">
+                                                                <input name="submit" type="submit" id="submit" value="Sign PDF" style="width: 150px;" />
+                                                            </td>
+                                                        </tr>                                                      
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div style="font-size: 17px;font-weight: 400;">
+                    It is also possible to digitally sign with <a href="https://help.syncfusion.com/file-formats/pdf/working-with-digitalsignature#adding-a-timestamp-in-digital-signature">timestamp.</a>
+                    More information about the digital signature and timestamp can be found in this documentation <a href="https://help.syncfusion.com/file-formats/pdf/working-with-digitalsignature">section.</a>
+
+                </div>
+            </div>
+            Html.EndForm();
+        }
+    }
+}

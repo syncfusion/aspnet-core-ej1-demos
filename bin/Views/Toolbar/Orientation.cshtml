@@ -1,0 +1,22 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Toolbar / Orientation</span>}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <div class="toolhor">
+                <ej-Toolbar id="edittoolsh" dataSource="ViewBag.datasource" orientation="@Orientation.Horizontal" width="100%">
+                    <e-toolbar-fields id="edid" sprite-css-class="spriteCss" />
+                </ej-Toolbar>
+            </div>
+            <br />
+            <div class="toolver">
+                <ej-Toolbar id="edittoolsv" width="30" dataSource="ViewBag.datasource" orientation="@Orientation.Vertical">
+                    <e-toolbar-fields id="edid" sprite-css-class="spriteCss" />
+                </ej-Toolbar>
+            </div>
+        </div>
+    </div>
+}
+@section StyleSection{
+    <link href="@Url.Content("~/css/Samples/ToolOrient.css")" rel="stylesheet" />
+}

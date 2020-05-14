@@ -1,0 +1,110 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Dropdownlist / Methods</span>}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <ej-drop-down-list id="bokSelect" datasource="(IEnumerable<Books>)ViewBag.datasource" watermark-text="Select a section" width="100%">
+                <e-drop-down-list-fields text="category" value="category" />
+            </ej-drop-down-list>
+        </div>
+    </div>
+}
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-3">
+            Select an item by index
+        </div>
+        <div class="col-md-3">
+            <ej-drop-down-list id="optionIndexChange" width="105px" datasource="(IEnumerable<Books>)ViewBag.datasource" change="onActiveIndexChange" watermark-text="Select">
+                <e-drop-down-list-fields text="text" id="id" />
+            </ej-drop-down-list>
+        </div>
+        <div class="col-md-3">
+            Select an item by value
+        </div>
+        <div class="col-md-3">
+            <ej-drop-down-list id="optionValueChange" width="105px" datasource="(IEnumerable<Books>)ViewBag.datasource" change="onActiveValueChange" watermark-text="Select">
+                <e-drop-down-list-fields text="category" value="category" />
+            </ej-drop-down-list>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Select an item by text
+        </div>
+        <div class="col-md-3">
+            <ej-drop-down-list id="optionTextChange" width="105px" datasource="(IEnumerable<Books>)ViewBag.datasource" change="onActiveTextChange" watermark-text="Select">
+                <e-drop-down-list-fields text="category" value="category" />
+            </ej-drop-down-list>
+        </div>
+        <div class="col-md-3">
+            TextBox Value
+        </div>
+        <div class="col-md-3">
+            <ej-button id="Buton" text="Value" width="105px" click="valuetext" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Disable\Enable
+        </div>
+        <div class="col-md-3">
+            <ej-toggle-button id="butonchkunchk" width="105px" default-text="Disable" active-text="Enable" change="onCheckUncheckAll" />
+        </div>
+        <div class="col-md-3">
+            Filter Search
+        </div>
+        <div class="col-md-3">
+            <ej-toggle-button id="incrementalbutton" width="105px" default-text="Disable" active-text="Enable" change="incrementalchange" />
+        </div>
+        <div class="col-md-3">
+            Case-Sensitive Search
+        </div>
+        <div class="col-md-3">
+            <ej-toggle-button id="casesensitivebutton" width="105px" default-text="Disable" active-text="Enable" change="casesensitivechange" />
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        $(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+        });
+        var target;
+        function onActiveIndexChange(args) {
+            target = $('#bokSelect').data("ejDropDownList");
+            $("#optionValueChange").ejDropDownList("clearText");
+            $("#optionTextChange").ejDropDownList("clearText");
+            target.option({ selectedIndex: args.itemId });
+        }
+        function onActiveValueChange(args) {
+            target = $('#bokSelect').data("ejDropDownList");
+            $("#optionIndexChange").ejDropDownList("clearText");
+            $("#optionTextChange").ejDropDownList("clearText");
+            target.selectItemByValue(args.selectedValue);
+        }
+        function onActiveTextChange(args) {
+            target = $('#bokSelect').data("ejDropDownList");
+            $("#optionIndexChange").ejDropDownList("clearText");
+            $("#optionValueChange").ejDropDownList("clearText");
+            target.selectItemByText(args.selectedValue);
+        }
+        function onCheckUncheckAll(args) {
+            target = $('#bokSelect').data("ejDropDownList");
+            (args.isChecked) ? target.disable() : target.enable();
+        }
+        function incrementalchange(args) {
+            target = $('#bokSelect').data("ejDropDownList");
+            (args.isChecked) ? target.option("enableFilterSearch", true) : target.option("enableFilterSearch", false);
+
+        }
+        function casesensitivechange(args) {
+            target = $('#bokSelect').data("ejDropDownList");
+            (args.isChecked) ? target.option("caseSensitiveSearch", true) : target.option("caseSensitiveSearch", false);
+
+        }
+        function valuetext(e, ui) {
+            alert("Selected Item is " + target.getValue());
+        }
+    </script>
+}
