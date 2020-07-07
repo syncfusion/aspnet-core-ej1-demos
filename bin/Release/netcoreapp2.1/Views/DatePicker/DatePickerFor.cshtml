@@ -1,0 +1,35 @@
+﻿@section MetaTags{
+   <meta name="description" content="DatePicker for ASP.NET Core with the strongly typed extension support. Value is set from the code behind by invoking DatePickerFor helper">
+}
+
+@section ScriptReferenceSection{
+    <script src="@Url.Content("~/Scripts/cultures/ej.culture.en-US.min.js")"></script>
+}
+@section SampleHeading{<span class="sampleName">DatePicker / DatePickerFor</span> }
+
+@model samplebrowser.Controllers.DatePickerController.datemodel
+
+
+@section ControlsSection{
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+    <div class="frame">
+        <div class="control">
+            <ej-date-picker id="datepick" ej-for="@Model.Value"
+                            validation-rules='new Dictionary<string, object>() { { "required",true} }'
+                            validation-messages='new Dictionary<string, object>() { { "required","Date value is required"} }' />
+             @Html.ValidationMessageFor(model=>model.Value)
+            <ej-button id="button" text="Post" type="Submit"/>
+        </div>
+    </div>
+}
+    }
+@section StyleSection{
+    <style>
+        #button {
+            margin-left: 30px;
+            margin-top: 20px;
+        }
+    </style>
+}

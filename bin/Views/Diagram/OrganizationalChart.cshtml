@@ -1,0 +1,350 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization.DiagramEnums;
+<style>
+    #resizeBorder {
+        stroke: black;
+        stroke-width: 3px;
+        stroke-dasharray: none;
+        opacity: 1;
+    }
+
+    #nw-resize, #n-resize, #ne-resize, #w-resize, #e-resize, #sw-resize, #s-resize, #se-resize {
+        fill: none;
+        stroke: transparent;
+    }
+</style>
+@section SampleHeading{ <span class="sampleName">Diagram / Default Functionalities</span>}
+@section MetaTags{
+    <meta name="description" content="This sample illustrates visualizing a simple organizational chart with an external data source and ASP.NET CORE diagram’s organizational chart algorithm.">
+}
+@section ControlsSection{
+    <ej-diagram id="diagram" width="700px" height="500px" enable-context-menu="false" tool="SingleSelect" click="diagramClick" node-template="nodeTemplate" selectionChange="selectionChanged">
+        <e-snap-settings snap-constraints="None">
+        </e-snap-settings>
+        <e-page-settings scroll-limit="@ScrollLimit.Diagram"></e-page-settings>
+        <e-layout type="OrganizationalChart" margin-x="3" margin-y="3" get-layout-info="getLayoutInfo"></e-layout>
+        <e-selected-items constraints="All &~ SelectorConstraints.Rotator"></e-selected-items>
+        <e-default-settings>
+            <e-node constraints="Select | NodeConstraints.PointerEvents" add-info="ViewBag.addInfo"  width="100" height="40" border-color="black">
+                <e-labels>
+                    <e-diagram-label font-color="#ffffff"></e-diagram-label>
+                </e-labels>
+            </e-node>
+            <e-connector line-color="#000000" constraints="None">
+                <e-target-decorator shape="None"></e-target-decorator>
+                <e-segments>
+                    <e-segment type="Orthogonal"></e-segment>
+                </e-segments>
+            </e-connector>
+        </e-default-settings>
+        <e-datasource-settings id="Id" parent="Phase" dataSource="ViewBag.datasource"></e-datasource-settings>
+    </ej-diagram>
+}
+
+@section PropertiesSection{
+    <div id="sampleProperties">
+        <div>
+            <div class="row">
+                <div class="col-md-6">
+                    <b>Layout Settings</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 aligntop" style="margin-right:-25px;">
+                    Orientation
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="align" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 aligntop" style="margin-right:-25px;">
+                    Margin X
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="marginX" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 aligntop" style="margin-right:-25px;">
+                    Margin Y
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="marginY" />
+                </div>
+            </div>
+            <div class="row"> <div class="col-md-6"></div></div>
+            <div class="row">
+                <div class="col-md-3">
+                    <b>Spacing</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 aligntop" style="margin-right:-25px;">
+                    Horizontal
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="horizontalSpacing" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 aligntop" style="margin-right:-25px;">
+                    Vertical
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="verticalSpacing" />
+                </div>
+            </div>
+            <div>
+                <div class="row" id="expandHide">
+                    <div class="col-md-3 aligntop" style="margin-right:-25px;">
+                        Expand
+                    </div>
+                    <div class="col-md-3">
+                        <input id="expand" />
+                    </div>
+                </div>
+                <div class="row" id="orientationHide">
+                    <div class="col-md-3 aligntop" style="margin-right:-25px;">
+                        Orientation
+                    </div>
+                    <div class="col-md-3">
+                        <input id="orientation" />
+                    </div>
+                </div>
+                <div class="row" id="typeAlter">
+                    <div class="col-md-3 aligntop" style="margin-right:-25px;">
+                        Type
+                    </div>
+                    <div class="col-md-3">
+                        <input id="typeAlternate" />
+                    </div>
+                </div>
+                <div class="row" id="typeCenter">
+                    <div class="col-md-3 aligntop" style="margin-right:-25px;">
+                        Type
+                    </div>
+                    <div class="col-md-3">
+                        <input id="typeCentered" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="list">
+        <ul>
+            <li value="toptobottom">Top-Bottom</li>
+            <li value="lefttoright">Left-Right</li>
+            <li value="righttoleft">Right-Left</li>
+            <li value="bottomtotop">Bottom-Top</li>
+        </ul>
+    </div>
+    <div id="horizontalVertical">
+        <ul>
+            <li value="horizontal">HORIZONTAL</li>
+            <li value="vertical">VERTICAL</li>
+
+        </ul>
+    </div>
+    <div id="rightLeftCenter">
+        <ul>
+            <li value="right">RIGHT</li>
+            <li value="left">LEFT</li>
+            <li value="center">CENTER</li>
+        </ul>
+    </div>
+    <div id="rightLeftAlternate">
+        <ul>
+            <li value="right">RIGHT</li>
+            <li value="left">LEFT</li>
+            <li value="alternate">ALTERNATE</li>
+        </ul>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        $("#sampleProperties").ejPropertiesPanel();
+
+
+
+        //Binds Custom JSON with node
+        function nodeTemplate(diagram, node) {
+            node.labels[0].text = node.Function;
+            node.fillColor = node.Color;
+            if (node.Id == "parent") { node.fillColor = "#3484bb"; }
+            if (node.Phase == "parent") { node.fillColor = "#9ace7f"; }
+            if (node.Phase == "1") { node.fillColor = "#9264aa"; }
+            if (node.Phase == "2") { node.fillColor = "#9264aa"; }
+            if (node.Phase == "3") { node.fillColor = "#9264aa"; }
+        }
+
+        //Customize subtree orientation
+        function getLayoutInfo(diagram, node, options) {
+            if (!options.hasSubTree) {
+                options.orientation = node.addInfo.orientation;
+                options.type = node.addInfo.type;
+
+            }
+        }
+
+        //Drop down list - orientation
+        $("#align").ejDropDownList({
+            text: "Top-Bottom", value: "toptobottom", targetID: "list", width: "130px",
+            change: function (args) {
+                $("#diagram").ejDiagram({
+                    layout: {
+                        orientation: args.value,
+                    }
+                });
+            }
+        });
+
+        //Numeric text boxes - for margin and spacings
+        $("#horizontalSpacing").ejNumericTextbox({
+            value: 30, minValue: 0, maxValue: 1000, width: "130px",
+            change: function (args) {
+                $("#diagram").ejDiagram({ layout: { horizontalSpacing: args.value } });
+            }
+        });
+        $("#verticalSpacing").ejNumericTextbox({
+            value: 30, minValue: 0, maxValue: 1000, width: "130px",
+            change: function (args) {
+                $("#diagram").ejDiagram({ layout: { verticalSpacing: args.value } });
+            }
+        });
+        $("#marginX").ejNumericTextbox({
+            value: 3, minValue: -120, maxValue: 1000, width: "130px",
+            change: function (args) {
+                $("#diagram").ejDiagram({ layout: { marginX: args.value } });
+            }
+        });
+        $("#marginY").ejNumericTextbox({
+            value: 3, minValue: 0, maxValue: 1000, width: "130px",
+            change: function (args) {
+                $("#diagram").ejDiagram({ layout: { marginY: args.value } });
+            }
+        });
+
+        //Ej check box to expand or collapse nodes
+        $("#expand").ejCheckBox({
+            change: function (args) {
+                var diagram = $("#diagram").ejDiagram("instance");
+                if (diagram.model.selectedItems.children.length != 0)
+                    diagram.updateNode(diagram.model.selectedItems.children[0].name, { isExpanded: args.isChecked ? true : false })
+            }
+        });
+
+        //Drop down list to change subtree orientation
+        $("#orientation").ejDropDownList({
+            text: "VERTICAL", value: "Vertical", targetID: "horizontalVertical", width: "130px",
+            change: function (args) {
+                updateSubTreeOrientation({ orientation: args.value });
+                if (args.value == "horizontal") {
+                    $("#typeCenter").show();
+                    $("#typeAlter").hide();
+                }
+                else if (args.value == "vertical") {
+                    $("#typeCenter").hide();
+                    $("#typeAlter").show();
+                }
+            }
+        });
+
+        //Drop down to change the vertical subtree orientation
+        $("#typeAlternate").ejDropDownList({
+            watermarkText: "Type", targetID: "rightLeftAlternate", text: "ALTERNATE", value: "alternate", width: "130px",
+            change: function (args) {
+                updateSubTreeOrientation({ type: args.value });
+            }
+        });
+
+        //Drop down to change the horizontal subtree orientation
+        $("#typeCentered").ejDropDownList({
+            watermarkText: "Type", text: "CENTER", value: "center", width: "130px", targetID: "rightLeftCenter",
+            change: function (args) {
+                updateSubTreeOrientation({ type: args.value });
+            }
+        });
+        //end region
+
+        //region event handlers
+
+        //Selection change event
+        function selectionChanged(args) {
+            var node, expanded;
+            if (args.selectedItems.length == 1 && args.selectedItems[0].type == "basic") {
+                node = args.selectedItems[0];
+                expanded = node.isExpanded;
+                hideSubTreeOptions(node.outEdges.length);
+                $("#expand").ejCheckBox({ checked: expanded ? true : false });
+                $("#orientation").ejDropDownList({ checked: expanded ? true : false });
+                $("#typeAlternate").ejDropDownList({ checked: expanded ? true : false });
+                $("#typeCentered").ejDropDownList({ checked: expanded ? true : false });
+                if (node.addInfo.orientation) {
+                    $("#orientation").ejDropDownList({ value: node.addInfo.orientation });
+                }
+                if (node.addInfo.type) {
+                    if (node.addInfo.type !== "center")
+                        $("#typeAlternate").ejDropDownList({ value: node.addInfo.type });
+                    if (node.addInfo.type !== "alternate")
+                        $("#typeCentered").ejDropDownList({ value: node.addInfo.type });
+                }
+            }
+            else {
+                hideSubTreeOptions();
+            }
+        }
+
+        function diagramClick(args) {
+            if (!args.element || args.element.type != "basic") {
+                var diagram = $("#diagram").ejDiagram("instance");
+                diagram.clearSelection();
+            }
+        }
+
+        $(document).ready(function () {
+            //Hide all dropdowns on loading
+            hideSubTreeOptions();
+        });
+
+        //endregion
+
+        //region helper methods
+
+        function updateSubTreeOrientation(options) {
+            var diagram = $("#diagram").ejDiagram("instance");
+            if (diagram.model.selectedItems.children[0]) {
+                var selectedNode = diagram.model.selectedItems.children[0];
+                if (options.type) { selectedNode.addInfo.type = options.type; }
+                if (options.orientation) { selectedNode.addInfo.orientation = options.orientation; }
+                diagram.model.layout.fixedNode = selectedNode.name;
+                diagram.layout();
+                diagram.addSelection(selectedNode);
+            }
+        }
+
+        function hideSubTreeOptions(show) {
+            if (show) {
+                $("#expandHide").show();
+                $("#orientationHide").show();
+                $("#typeAlter").show();
+            }
+            else {
+                $("#expandHide").hide();
+                $("#orientationHide").hide();
+                $("#typeAlter").hide();
+                $("#typeCenter").hide();
+            }
+        }
+
+    </script>
+}
+<style>
+    .svg-rotate-ie:hover {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+
+    .svg-rotate {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+</style>

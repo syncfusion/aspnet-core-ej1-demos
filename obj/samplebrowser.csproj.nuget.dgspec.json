@@ -1,0 +1,201 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Samples_18.2.0.44\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj": {}
+  },
+  "projects": {
+    "D:\\Samples_18.2.0.44\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Samples_18.2.0.44\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj",
+        "projectName": "samplebrowser",
+        "projectPath": "D:\\Samples_18.2.0.44\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj",
+        "packagesPath": "C:\\Users\\BuildAutomation\\.nuget\\packages\\",
+        "outputPath": "D:\\Samples_18.2.0.44\\ASPNETCORE\\samplebrowser\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\BuildAutomation\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://nexus.syncfusion.com/repository/nuget-hosted/": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.ApplicationInsights.AspNetCore": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.AspNetCore.All": {
+              "target": "Package",
+              "version": "[2.1.4, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Cookies": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.1.3, )"
+            },
+            "Microsoft.AspNetCore.Razor.Tools": {
+              "target": "Package",
+              "version": "[1.1.0-preview4-final, )"
+            },
+            "Microsoft.AspNetCore.Server.IISIntegration": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.AspNetCore.Server.Kestrel": {
+              "target": "Package",
+              "version": "[2.1.3, )"
+            },
+            "Microsoft.AspNetCore.StaticFiles": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.1.3, )"
+            },
+            "Microsoft.Extensions.Logging.Debug": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.BrowserLink": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[11.0.2, )"
+            },
+            "Syncfusion.Compression.Net.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.DocIO.Net.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.DocIORenderer.Net.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.EJ.AspNet.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.EJ.Export": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.EJ.Pivot": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.EJ.ReportDesigner.AspNet.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.EJ.ReportViewer.AspNet.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.Licensing": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.OfficeChart.Net.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.PMML.Net.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.Pdf.Imaging.Net.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.Pdf.Net.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.Presentation.Net.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.PresentationRenderer.Net.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.Report.Net.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.SkiaSharpHelper.Net.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.XlsIO.Net.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            },
+            "Syncfusion.XlsIORenderer.Net.Core": {
+              "target": "Package",
+              "version": "[18.2.0.44, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

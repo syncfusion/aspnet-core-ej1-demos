@@ -1,0 +1,28 @@
+﻿@using Syncfusion.JavaScript;
+@section MetaTags{
+  <meta name="description" content="This example illustrates the excel and pdf exporting in the Syncfusion Gantt control.">
+}
+
+@section SampleHeading{<span class="sampleName">Gantt/Export</span>}
+
+@section ControlsSection{
+<ej-gantt id="ganttSample3" datasource="ViewBag.datasource"
+          task-id-mapping="TaskID"
+          task-name-mapping="TaskName"
+          start-date-mapping="StartDate"
+          duration-mapping="Duration"
+          progress-mapping="Progress"
+          schedule-start-date="02/01/2017"
+          schedule-end-date="03/14/2017"
+          highlight-weekends="true"
+          include-weekend="true"
+          allow-column-resize="true"
+          predecessor-mapping="Predecessors"          
+          tree-column-index=1
+          child-mapping="SubTasks"
+          allow-selection="true"         
+          is-responsive="true">   
+    <e-gantt-size-settings height="450px" width="100%" />
+    <e-gantt-toolbar-settings show-toolbar="true" toolbar-items="ViewBag.toolbarItems" />
+</ej-gantt>        
+}

@@ -1,0 +1,22 @@
+﻿@section SampleHeading{<span class="sampleName">TreeView / RemoteData </span>}
+@section ControlsSection{
+    <div style="width: 300px;">
+
+        <ej-tree-view id="treeView">
+            <e-tree-view-fields query="ej.Query().from('Categories').select('CategoryID,CategoryName').take(3)" id="CategoryID" text="CategoryName" > 
+                <e-child table-name="Products" parent-id="CategoryID" text="ProductName"> 
+                    <e-datamanager url="//js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/" cross-domain="true"></e-datamanager> 
+                </e-child>
+                <e-datamanager url="//js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/" cross-domain="true"></e-datamanager> 
+            </e-tree-view-fields>
+        </ej-tree-view>        
+
+    </div>
+}
+@section StyleSection{
+    <style>
+        .e-waitingPopup-panel {
+            top: 140px !important;
+        }
+    </style>
+}

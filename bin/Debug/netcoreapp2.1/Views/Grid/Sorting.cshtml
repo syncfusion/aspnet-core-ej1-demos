@@ -1,0 +1,16 @@
+﻿@section SampleHeading{<span class="sampleName">Grid / Sorting</span> }
+@section MetaTags{
+    <meta name="description" content="This demo explains how to sort the columns of datagrid in either ascending or descending order using Syncfusion ASP.NET Core DataGrid control.">
+}
+@section ControlsSection{
+    <ej-grid id="FlatGrid" allow-paging="true" allow-sorting="true">
+        <e-datamanager url="//js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders/?$top=45" offline="true" cross-domain="true"></e-datamanager>
+        <e-columns>
+            <e-column field="OrderID" header-text="Order ID" is-primary-key="true" text-align="Right" width="75"></e-column>
+            <e-column field="CustomerID" header-text="Customer ID" width="80"></e-column>
+            <e-column field="EmployeeID" header-text="Employee ID" text-align="Right" width="75"></e-column>
+            <e-column field="Freight" header-text="Freight" format="{0:C2}" text-align="Right" width="75"></e-column>
+            <e-column field="ShipCity" header-text="Ship City" width="110"></e-column>
+        </e-columns>
+    </ej-grid>
+}
