@@ -1,0 +1,12 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Autocomplete / Data Binding - Remote data</span>}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <ej-combo-box id="searchCustomer" query="ej.Query().from('Suppliers').select('SupplierID', 'ContactName')" placeholder="Select a customer" width="100%">
+                <e-datamanager url="//js.syncfusion.com/ejServices/wcf/NorthWind.svc/" offline="false" cross-domain="true"></e-datamanager>
+                <e-combo-box-fields text="ContactName" value="SupplierID" />
+            </ej-combo-box>
+        </div>
+    </div>
+}

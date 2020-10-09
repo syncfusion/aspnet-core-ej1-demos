@@ -1,0 +1,226 @@
+﻿@section ScriptReferenceSection{
+    <script src="@Url.Content("~/Scripts/cultures/ej.culture.en-US.min.js")"></script>
+}
+@section SampleHeading{<span class="sampleName">Editor / Methods</span> }
+
+@section ControlsSection{
+    <div class="frame">
+        <div class="row">
+            <div class="column">
+                <span>Numeric TextBox</span>
+            </div>
+            <div class="column">
+                
+                <ej-numeric-text-box id="numeric" value="1000" width="100%"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <span>Percentage Textbox</span>
+            </div>
+            <div class="column">
+                
+                <ej-percentage-text-box id="percent" value="100" width="100%">            
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <span>Currency Textbox</span>
+            </div>
+            <div class="column">
+               
+                <ej-currency-text-box id="currency" value="50" width="100%"/>            
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <span>Mask Edit</span>
+            </div>
+            <div class="column">
+                
+                <ej-mask-edit id="maskedit" input-mode="@InputMode.Text" mask-format="(999)999-9999" custom-character="$" watermark-text="(999)999-9999" width="100%" />
+            </div>
+        </div>
+      </div>
+
+}
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-3 col-xs-4">
+            Enable / Disable
+        </div>
+        <div class="col-md-3 col-xs-4">
+            
+            <ej-toggle-button id="togbtn" width="105px" default-text="Disable" active-text="Enable" click="changeState"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-xs-4">
+            IncrementStep
+        </div>
+        <div class="col-md-3 col-xs-4">
+            
+            <ej-numeric-text-box id="incrementStep" width="105px" show-spin-button="false" watermark-text="Incrementstep"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-xs-4">
+            Min Value
+        </div>
+        <div class="col-md-3 col-xs-4">
+            
+            <ej-numeric-text-box id="minValue" width="105px" show-spin-button="false" watermark-text="Min Value"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-xs-4">
+            Max Value
+        </div>
+        <div class="col-md-3 col-xs-4">
+
+            <ej-numeric-text-box id="maxValue" width="105px" show-spin-button="false" watermark-text="Max Value"/>
+                
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-xs-4">
+            Decimal Value
+        </div>
+        <div class="col-md-3 col-xs-4">
+            
+            <ej-numeric-text-box id="decimalValue" width="105px" show-spin-button="false" watermark-text="Decimal Value"/>        
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-xs-4">
+            Apply Values
+        </div>
+        <div class="col-md-3 col-xs-4">
+            
+            <ej-button id="applybtn" text="Apply" width="105px" type="@ButtonType.Button" click="applyChanges"/>     
+        </div>
+    </div>
+    <div class="row">
+        <span id="error" style="color: red"></span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 col-xs-4">
+            <b>MaskEdit:</b>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 col-xs-4">
+            Mask
+        </div>
+        <div class="col-md-3 col-xs-4">
+            
+            <ej-drop-down-list id="masks" width="105px" dataSource="ViewBag.datasource" selected-item-index="0" change="onMaskChange">
+                <e-drop-down-list-fields text="text" value="value"/> 
+            </ej-drop-down-list>
+        </div>
+    </div>
+}
+
+<script>
+    var numobject, percentobject, currencyobject, maskobject;
+    $(function () {
+        objectcreation();
+        $("#sampleProperties").ejPropertiesPanel();
+
+
+    });
+    function objectcreation() {
+        numobject = $("#numeric").data("ejNumericTextbox");
+        percentobject = $("#percent").data("ejPercentageTextbox");
+        currencyobject = $("#currency").data("ejCurrencyTextbox");
+        maskobject = $("#maskedit").data("ejMaskEdit");
+    }
+    function changeState(args) {
+        objectcreation();
+        if (args.isChecked) {
+            numobject.disable();
+            percentobject.disable();
+            currencyobject.disable();
+            maskobject.disable();
+            $("#incrementStep").ejNumericTextbox("disable");
+            $("#minValue").ejNumericTextbox("disable");
+            $("#maxValue").ejNumericTextbox("disable");
+            $("#decimalValue").ejNumericTextbox("disable");
+        }
+        else {
+            numobject.enable();
+            percentobject.enable();
+            currencyobject.enable();
+            maskobject.enable();
+            $("#incrementStep").ejNumericTextbox("enable");
+            $("#minValue").ejNumericTextbox("enable");
+            $("#maxValue").ejNumericTextbox("enable");
+            $("#decimalValue").ejNumericTextbox("enable");
+        }
+    }
+
+    function applyChanges(args) {
+        objectcreation();
+        var val = parseFloat($("#incrementStep").val());
+        var minVal = parseFloat($("#minValue").val());
+        var maxVal = parseFloat($("#maxValue").val());
+        var decVal = parseInt($("#decimalValue").val());
+        if (!isNaN(val)) {
+            numobject.option("incrementStep", val);
+            percentobject.option("incrementStep", val);
+            currencyobject.option("incrementStep", val);
+        }
+        if (!isNaN(decVal)) {
+            numobject.option("decimalPlaces", decVal);
+            percentobject.option("decimalPlaces", decVal);
+            currencyobject.option("decimalPlaces", decVal);
+        }
+        if ((!isNaN(minVal)) && (!isNaN(maxVal)) && (maxVal < minVal))
+            $("#error").html("Min value exceeds Max value");
+        else {
+            if (!isNaN(minVal)) {
+                numobject.option("minValue", minVal);
+                percentobject.option("minValue", minVal);
+                currencyobject.option("minValue", minVal);
+                $("#error").html("");
+            }
+            if (!isNaN(maxVal)) {
+                numobject.option("maxValue", maxVal);
+                percentobject.option("maxValue", maxVal);
+                currencyobject.option("maxValue", maxVal);
+                $("#error").html("");
+            }
+        }
+    }
+    function onMaskChange(args) {
+        objectcreation();
+        maskobject.option("maskFormat", args.value);
+    }
+
+</script>
+
+@section StyleSection{
+
+    <style type="text/css" class="cssStyles">
+       .frame {
+            width: 38%;
+            padding: 30px;
+       }
+        .input {
+            width: 110px;
+            height: 22px;
+            text-indent: 10px;
+        }
+
+        .inputBtn, .e-togglebutton {
+            width: 114px;
+        }
+
+        .column {
+            padding-bottom: 5px;
+            padding-top: 5px;
+        }
+    </style>
+}

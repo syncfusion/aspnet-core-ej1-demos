@@ -1,0 +1,94 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Menu / Methods</span>}
+@section ControlsSection{
+
+<ej-Menu id="JobSearch">
+    <e-menu-items>
+        <e-menu-item id="Home" url="" text="Home"></e-menu-item>
+        <e-menu-item text="Search Jobs" url="">
+            <e-menu-child-items>
+                <e-menu-child-item text="Advanced Search" url=""></e-menu-child-item>
+                <e-menu-child-item text="Jobs by Company" url=""></e-menu-child-item>
+                <e-menu-child-item text="Jobs by Location" url=""></e-menu-child-item>
+                <e-menu-child-item text="Jobs by Category" url=""></e-menu-child-item>
+                <e-menu-child-item text="Jobs by Skills" url=""></e-menu-child-item>
+                <e-menu-child-item text="Jobs by Designation" url=""></e-menu-child-item>
+            </e-menu-child-items>
+        </e-menu-item>
+        <e-menu-item text="Post Resume" id="Post Resume" url=""> </e-menu-item>
+        <e-menu-item text="JobSeeker Login" id="Job Seeker" url=""> </e-menu-item>
+        <e-menu-item text="Fast Forward" id="Fast Forward" url="">
+            <e-menu-child-items>
+                <e-menu-child-item text="Resume writing" url=""></e-menu-child-item>
+                <e-menu-child-item text="Certification" url=""></e-menu-child-item>
+                <e-menu-child-item text="Resume Spotlight" url=""></e-menu-child-item>
+                <e-menu-child-item text="Jobs4u" url=""></e-menu-child-item>
+            </e-menu-child-items>
+        </e-menu-item>
+        <e-menu-item text="More" id="More" url="">
+            <e-menu-child-items>
+                <e-menu-child-item text="Mobile" url=""></e-menu-child-item>
+                <e-menu-child-item text="Pay check" url=""></e-menu-child-item>
+                <e-menu-child-item text="Blog" url=""></e-menu-child-item>
+            </e-menu-child-items>
+        </e-menu-item>
+    </e-menu-items>
+</ej-Menu>
+
+   
+}
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-3">
+            Disable Item</div>
+        <div class="col-md-3">  
+            <ej-drop-down-list id="Disable" width="105px" datasource="ViewBag.datasource" change="onChange2" watermark-text="Select">
+                <e-drop-down-list-fields text="text" value="text" /> 
+            </ej-drop-down-list>
+        </div>
+        <div class="col-md-3">
+            Enable Item</div>
+        <div class="col-md-3">
+            <ej-drop-down-list id="Enable" width="105px" datasource="ViewBag.datasource" change="onChange1" watermark-text="Select">
+                <e-drop-down-list-fields text="text" value="text" />
+            </ej-drop-down-list>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Disable\Enable</div>
+        <div class="col-md-3">
+            <ej-toggle-button id="butonchkunchk" width="105px" default-text="Disable" active-text="Enable" change="onCheckUncheckAll" />
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        var menuObj;
+        $(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+        });
+        function onChange1(args) {
+            var mobj = $("#JobSearch").data("ejMenu");
+            mobj.enableItem(args.value);
+			$("#Disable").ejDropDownList("clearText");
+        }
+        function onChange2(args) {
+            var mobj = $("#JobSearch").data("ejMenu");
+            mobj.disableItem(args.value);
+			$("#Enable").ejDropDownList("clearText");
+        }
+        function onCheckUncheckAll(args) {
+            menuObj = $("#JobSearch").data("ejMenu");
+			$("#Disable").ejDropDownList("clearText");
+			$("#Enable").ejDropDownList("clearText");
+            if (args.isChecked) {
+                menuObj.disable();
+            }
+            else {
+                menuObj.enable();
+            }
+        }
+   
+    </script>
+}

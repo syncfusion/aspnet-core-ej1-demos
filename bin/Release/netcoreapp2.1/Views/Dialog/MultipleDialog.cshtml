@@ -1,0 +1,81 @@
+﻿@section SampleHeading{ <span class="sampleName">Dialog / MultipleDialog</span>}
+@section MetaTags{
+    <meta name="description" content="This example demonstrates multiple Syncfusion ASP.NET Core Dialog widgets in the same web page with different contents and different functionalities.">
+}
+@section ControlsSection{
+
+    <div class="control">
+        <ej-dialog id="Dialog1" title="London" target=".control">
+            <e-dialog-position x-value="-245" y-value="-80" />
+            <e-content-template>
+                <div>
+                    <p>
+                        London  one of the most popular tourist destinations in the world for a reason. A cultural and historical hub, London has an excellent public transportation system that allows visitors to see all the fantastic sights without spending a ton of money on a rental car.London contains four World Heritage Sites.
+                    </p>
+                </div>
+            </e-content-template>
+        </ej-dialog>
+        <ej-dialog id="Dialog2" title="Paris" target=".control">
+            <e-dialog-position x-value="225" y-value="-80" />
+            <e-content-template>
+                <div>
+                    <p>
+                        Paris, the city of lights and love - this short guide is full of ideas for how to make the most of the romanticism that oozes from every one of its beautiful corners.You couldn't possibly visit Paris without seeing the Eiffel Tower. Even if you do not want to visit this world famous structure, you will see its top from all over Paris.
+                    </p>
+                </div>
+            </e-content-template>
+        </ej-dialog>
+        <ej-dialog id="Dialog3" title="Rome" target=".control">
+            <e-dialog-position x-value="0" y-value="140" />
+            <e-content-template>
+                <div>
+                    <p>
+                        Rome is one of the world's most fascinating cities. The old adage that Rome was not built in a day — and that you won't see it in one or even in three — is true. For the intrepid traveler who can keep pace, here is a list of must-sees. But remember what the Romans say: Even a lifetime isn't enough to see Rome.
+                    </p>
+                </div>
+            </e-content-template>
+        </ej-dialog>
+    </div>
+}
+@section StyleSection{
+    <style class="cssStyles">
+        .control {
+            height: 500px;
+            position: relative;
+        }
+
+        p {
+            margin: 0px;
+            text-align: justify;
+        }
+
+        #Dialog1, #Dialog2, #Dialog3 {
+            padding: 10px;
+        }
+
+        div#Dialog2_wrapper {
+            z-index: 1000000009;
+            width: 400px;
+            min-width: 200px;
+            height: auto;
+            min-height: 120px;
+            position: absolute;
+            left: 291px;
+            top: 201px;
+            display: block;
+        }
+
+        div#Dialog3_wrapper {
+            z-index: 1000000005;
+            width: 400px;
+            min-width: 200px;
+            height: auto;
+            min-height: 120px;
+            position: absolute;
+            left: 551px;
+            top: -3px;
+            display: block;
+        }
+    </style>
+}
+

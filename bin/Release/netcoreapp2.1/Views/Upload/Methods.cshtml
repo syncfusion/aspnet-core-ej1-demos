@@ -1,0 +1,42 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Upload / Methods</span>}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <div class="posupload"> 
+                <ej-upload-box id="UploadMethods" save-url="//js.syncfusion.com/demos/ejServices/api/uploadbox/Save" remove-url="//js.syncfusion.com/demos/ejServices/api/uploadbox/Remove" >
+                </ej-upload-box>
+             </div>
+        </div>
+    </div>
+}
+@section StyleSection{
+    <style class="cssStyles">
+        #UploadMethods {
+            margin: 0 auto;
+        }
+    </style>
+}
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-12"> 
+        <ej-toggle-button id="btnchkunchk" size="@ButtonSize.Mini" default-text="Disable" active-text="Enable"  change="onCheckUncheckAll"/>
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        $(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+        });
+        var target;
+        function onCheckUncheckAll(args) {
+            target = $("#UploadMethods").data("ejUploadbox");
+            if (args.isChecked)
+
+                target.disable();
+            else
+                target.enable();
+        }
+    </script>
+}
