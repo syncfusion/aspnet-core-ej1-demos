@@ -1,0 +1,24 @@
+﻿@section SampleHeading{ <span class="sampleName">Graphics / Graphic Brushes Sample</span>}
+
+@section ControlsSection{
+    @{Html.BeginForm("GraphicBrushes", "Pdf", FormMethod.Post);
+        {
+            <div class="Common">
+                <div class="tablediv" style = "font-size: 17px;font-weight: 400;">
+                    This sample demonstrates drawing of shapes with different brushes such as solid, tiling, Linear gradient, Radial gradient, and with different <a href="https://help.syncfusion.com/file-formats/pdf/working-with-colorspace">color spaces.</a> such as Cal RGB, ICC, Exponential interpolation, pantone, and indexed color space.
+                </div>
+                <br />
+                <div class="tablediv">
+                    <div class="rowdiv">
+                        <div class="celldiv">
+                            <div>
+                                <input type="submit" class="Button" value="Generate PDF" style="width: 150px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            Html.EndForm();
+        }
+    }
+}

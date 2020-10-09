@@ -1,0 +1,69 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization
+
+@section SampleHeading{<span class="sampleName">Chart / Area Chart</span>}
+
+@section ControlsSection{
+    <div>
+        <ej-chart id="container" can-resize="true" load="loadTheme">
+            <e-chart-area>
+                <e-border color="transparent"></e-border>
+            </e-chart-area>
+            <e-primary-x-axis>
+                <e-major-grid-lines visible="false"></e-major-grid-lines>
+                <e-title text="Year"></e-title>
+                <e-range max="2000" min="1900" interval="10"></e-range>
+            </e-primary-x-axis>
+            <e-primary-y-axis>
+                <e-axis-line visible="false"></e-axis-line>
+                <e-major-tick-lines visible="false"></e-major-tick-lines>
+                <e-title text="Sales Amount in Millions"></e-title>
+                <e-range max="5" min="2" interval="0.5"></e-range>
+            </e-primary-y-axis>
+            <e-chart-series>
+                <e-series name="Product A" type="@SeriesType.Area" enable-animation="true" opacity="0.5" fill="#69D2E7">
+                    <e-points>
+                        <e-point x="1900" y="4"></e-point>
+                        <e-point x="1920" y="3"></e-point>
+                        <e-point x="1940" y="3.8"></e-point>
+                        <e-point x="1960" y="3.4"></e-point>
+                        <e-point x="1980" y="3.2"></e-point>
+                        <e-point x="2000" y="3.9"></e-point>
+                    </e-points>
+                    <e-border color="transparent"></e-border>
+                </e-series>
+                <e-series name="Product B" type="@SeriesType.Area" enable-animation="true" opacity="0.5" fill="#C4C24A">
+                    <e-points>
+                        <e-point x="1900" y="2.6"></e-point>
+                        <e-point x="1920" y="2.8"></e-point>
+                        <e-point x="1940" y="2.6"></e-point>
+                        <e-point x="1960" y="3"></e-point>
+                        <e-point x="1980" y="3.6"></e-point>
+                        <e-point x="2000" y="3"></e-point>
+                    </e-points>
+                    <e-border color="transparent"></e-border>
+                </e-series>
+                <e-series name="Product C" type="@SeriesType.Area" enable-animation="true" opacity="0.5" fill="#6A4B82">
+                    <e-points>
+                        <e-point x="1900" y="2.8"></e-point>
+                        <e-point x="1920" y="2.5"></e-point>
+                        <e-point x="1940" y="2.8"></e-point>
+                        <e-point x="1960" y="3.2"></e-point>
+                        <e-point x="1980" y="2.9"></e-point>
+                        <e-point x="2000" y="2"></e-point>
+                    </e-points>
+                  
+                    <e-border color="transparent"></e-border>
+                </e-series>
+            </e-chart-series>
+            <e-title text="Average Sales Comparison"></e-title>
+            <e-size height="600"></e-size>
+            <e-legend visible="true"></e-legend>
+        </ej-chart>
+
+      <script>
+            $("#controlarea").css("visibility", "visible");
+        </script>
+    </div>
+}
+

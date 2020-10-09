@@ -122,4 +122,4 @@ Refer the Syncfusion Essential JS 1 for ASP.NET Core Product Release Notes in [o
 
 * To renew the subscription, click [here](https://www.syncfusion.com/sales/products?utm_source=github&utm_medium=listing) or contact our sales team at <salessupport@syncfusion.com>.
 
-<p>Copyright © 2001-2020 Syncfusion, Inc. Updated on 2020-10-09 at precisely 13:17:02 EST.</p>
+<p>Copyright © 2001-2020 Syncfusion, Inc. Updated on 2020-10-09 at precisely 14:11:16 EST.</p>

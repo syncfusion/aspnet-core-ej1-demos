@@ -1,0 +1,41 @@
+﻿@section SampleHeading{ <span class="sampleName">Rating / Precision</span>}
+
+@section ControlsSection{
+    <div class="frame">
+        <table>
+            <tr>
+                <td valign="top">
+                    Full Precision :
+                </td>
+                <td>
+                    <ej-rating id="fullRating" value="4"/>
+                   
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    Half Precision :
+                </td>
+                <td>
+                <ej-rating id="halfRating" value="3" precision="@Precision.Half" />
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    Exact Precision :
+                </td>
+                <td>
+                    
+                    <ej-rating id="exactRating" value="4" precision="@Precision.Exact"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+@section StyleSection{
+    <style type="text/css" class="cssStyles">
+        .frame {
+            width: 277px;
+        }
+    </style>
+}

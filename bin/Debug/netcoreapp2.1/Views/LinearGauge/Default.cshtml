@@ -1,0 +1,56 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization;
+@section ScriptReferenceSection{
+    <script src="@Url.Content("~/scripts/excanvas.min.js")"></script>
+    }
+@section SampleHeading{
+	<span class="sampleName">Default Functionalities</span>
+	}
+@section MetaTags{
+    <meta name="description" content="This sample illustrates the default functionality of the Syncfusion ASP.NET Web Forms Linear gauge control.">
+}
+
+@section ControlsSection{
+<div class="Common">
+<div id="linearframe">
+    <ej-linear-gauge id="ScaleGauge" is-responsive="true" label-color="#8c8c8c" width="500" load="loadGaugeTheme">
+        <e-linear-scale-collections>
+            <e-linear-scales width="4" background-color="transparent" show-ranges="true" length="310">
+                <e-border color="transparent"></e-border>
+                <e-linear-position x="51" y="50"></e-linear-position>
+                <e-marker-pointer-collections>
+                    <e-marker-pointers value="50" length="10" markerdistance-from-scale="8" width="10" marker-background-color="#4D4D4D">
+                        <e-border color="#4D4D4D"></e-border>
+                    </e-marker-pointers>
+                </e-marker-pointer-collections>
+                <e-linear-label-collections>
+                    <e-linear-labels>
+                        <e-font size="11px" font-family="Segoe UI" font-style="bold"></e-font>
+                        <e-distance-from-scale x="-13"></e-distance-from-scale>
+                    </e-linear-labels>
+                </e-linear-label-collections>
+                <e-bar-pointer-collections>
+                    <e-bar-pointers bar-pointer-value="50" width="4" bar-pointerdistance-from-scale="8" bar-pointer-background-color="#6FAAB0"></e-bar-pointers>
+                </e-bar-pointer-collections>
+                <e-linear-tick-collections>
+                    <e-linear-ticks color="#8c8c8c"></e-linear-ticks>
+                </e-linear-tick-collections>
+                <e-linear-range-collections>
+                    <e-linear-ranges end-value="60" start-value="0" range-background-color="#F6B53F" start-width="4" end-width="4">
+                        <e-border color="#F6B53F"></e-border>
+                    </e-linear-ranges>
+                    <e-linear-ranges end-value="100" start-value="60" range-background-color="#E94649" start-width="4" end-width="4">
+                        <e-border color="#E94649"></e-border>
+                    </e-linear-ranges>
+                </e-linear-range-collections>
+            </e-linear-scales>
+        </e-linear-scale-collections>
+    </ej-linear-gauge>           
+</div>
+</div>
+}
+
+
+
+
+
