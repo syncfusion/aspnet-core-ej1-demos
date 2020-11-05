@@ -1,0 +1,18 @@
+﻿@section SampleHeading{<span class="sampleName">Grid / Exporing</span> }
+@section MetaTags{
+    <meta name="description" content="This demo explains how to export the datagrid's content to Excel, PDF, and Word documents using the Syncfusion ASP.NET Core DataGrid control.">
+}
+@section ControlsSection{
+    <ej-grid id="FlatGrid" datasource="ViewBag.datasource" allow-paging="true">
+        <e-toolbar-settings show-toolbar="true" toolbar-items=@(new List<string>() {"excelExport","wordExport","pdfExport" })>
+           
+        </e-toolbar-settings>
+        <e-columns>
+            <e-column field="OrderID" header-text="Order ID" text-align="Right" width="75"></e-column>
+            <e-column field="CustomerID" header-text="Customer ID" width="80"></e-column>
+            <e-column field="EmployeeID" header-text="Employee ID" text-align="Left" width="75"></e-column>
+            <e-column field="Freight" header-text="Freight" format="{0:C2}" text-align=Right width="75"></e-column>
+            <e-column field="ShipCity" header-text="Ship City" width="110"></e-column>
+        </e-columns>
+    </ej-grid>
+}

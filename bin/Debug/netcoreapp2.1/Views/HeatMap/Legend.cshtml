@@ -1,0 +1,100 @@
+﻿@using Syncfusion.JavaScript
+@using Syncfusion.MVC.EJ
+@using Syncfusion.JavaScript.DataVisualization
+@using Syncfusion.JavaScript.DataVisualization.Models
+@section SampleHeading{
+    <span class="sampleName">Map / Heat Map</span>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        $("#Propertiespanel").ejPropertiesPanel();
+        function checkBoxChecked(args) {
+            if (args && args.id) {
+                if (args.id === "check2" && args.checked) {
+                    $("#check1")[0].checked = false;
+                    $("#heatmapLegend").ejHeatMapLegend({ legendMode: "list" });
+                }
+                if (args.id === "check1" && args.checked) {
+                    $("#check2")[0].checked = false;
+                    $("#heatmapLegend").ejHeatMapLegend({ legendMode: "gradient" });
+                }
+            }
+        }
+    </script>
+}
+@section ControlsSection{
+    <div style="border-width: 2px; opacity: 0.7; width: 290px; text-align: center;">
+        <label style="color: Black; font-size: 22px; height: 25px; font-weight: Normal;">Employee Rating in a Year</label>
+    </div>
+    <br />
+    <div style="width: 970px; margin: 0 auto; text-align: center;">
+        <ej-heatmap is-responsive="true" id="heatmap" width="700" height="auto" items-source="ViewBag.itemsource" items-mapping="ViewBag.itemsmapping" legend-collection="ViewBag.legendcollection">
+            <e-colorMappingCollection>
+                <e-color-mapping color="#fe0002" value="0">
+                    <e-label text="Poor"></e-label>
+                </e-color-mapping>
+                <e-color-mapping color="#ffff01" value="3">
+                    <e-label text="Average"></e-label>
+                </e-color-mapping>
+                <e-color-mapping color="#13ab11" value="6">
+                    <e-label text="Good"></e-label>
+                </e-color-mapping>
+                <e-color-mapping color="#005ba2" value="10">
+                    <e-label text="Excellent"></e-label>
+                </e-color-mapping>
+            </e-colorMappingCollection>
+        </ej-heatmap>
+        <div style="height: 15px; width: 100%;"></div>
+        <ej-heatmaplegend is-responsive="true" id="heatmapLegend" width="50%" height="50px" legend-mode="Gradient" orientation="Horizontal">
+            <e-colorMappingCollection>
+                <e-color-mapping color="#fe0002" value="0">
+                    <e-label text="Poor"></e-label>
+                </e-color-mapping>
+                <e-color-mapping color="#ffff01" value="3">
+                    <e-label text="Average"></e-label>
+                </e-color-mapping>
+                <e-color-mapping color="#13ab11" value="6">
+                    <e-label text="Good"></e-label>
+                </e-color-mapping>
+                <e-color-mapping color="#005ba2" value="10">
+                    <e-label text="Excellent"></e-label>
+                </e-color-mapping>
+            </e-colorMappingCollection>
+        </ej-heatmaplegend>
+    </div>
+}
+@section PropertiesSection{
+    <div id="Propertiespanel">
+        <div class="prop-grid">
+            <div class="row">
+                <div class="col-md-2">
+                    <b>Legend Type</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Gradient
+                </div>
+                <div class="col-md-3">
+                    <input type="radio" id="check1" checked="checked" onclick="checkBoxChecked(this)" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    List
+                </div>
+                <div class="col-md-3">
+                    <input type="radio" id="check2" onclick="checkBoxChecked(this)" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section StyleSection
+{
+    <style type="text/css">
+        #heatmapLegend {
+            margin-left: 100px;
+        }
+    </style>
+}
