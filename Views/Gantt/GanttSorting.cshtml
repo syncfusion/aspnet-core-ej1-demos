@@ -1,0 +1,28 @@
+﻿@using Syncfusion.JavaScript;
+@section MetaTags{
+  <meta name="description" content="This example illustrates the default sorting functionality for the columns in the Syncfusion Gantt control.">
+}
+
+@section SampleHeading{<span class="sampleName">Gantt/Sorting</span>}
+
+@section ControlsSection{
+<ej-gantt id="ganttSample4" datasource="ViewBag.datasource"
+          task-id-mapping="Id"
+          task-name-mapping="Name"
+          start-date-mapping="StartDate"
+          duration-mapping="Duration"
+          progress-mapping="PercentDone"
+          schedule-start-date="02/23/2017"
+          schedule-end-date="04/10/2017"
+          highlight-weekends="true"
+          include-weekend="true"
+          allow-sorting="true"
+          allow-column-resize="true"
+          tree-column-index=1
+          child-mapping="Children"
+          allow-selection="true"
+          allow-gantt-chart-editing="false"
+          is-responsive="true">
+    <e-gantt-size-settings height="450px" width="100%" />
+</ej-gantt>       
+}

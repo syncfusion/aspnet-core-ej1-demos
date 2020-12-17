@@ -1,0 +1,34 @@
+﻿@using Syncfusion.JavaScript
+@using Syncfusion.MVC.EJ
+@using Syncfusion.JavaScript.DataVisualization
+@using Syncfusion.JavaScript.DataVisualization.Models
+@section SampleHeading{
+    <span class="sampleName">Map / Heat Map</span>
+}
+@section ControlsSection{
+    <div style="border-width: 2px; opacity: 0.7; width: 290px; text-align: center;">
+        <label style="color: Black; font-size: 22px; height: 25px; font-weight: Normal;">Product Sales by Month</label><br />
+        <label style="color: Black; font-size: 22px; margin-top: -2px; height: 25px; font-weight: Normal;">(In Percentage)</label>
+    </div>
+    <br />
+    <div style="margin: 0 auto; text-align: center;">
+        <ej-heatmap is-responsive="true" id="heatmap" width="1000" height="300" enable-virtualization="true" items-source="ViewBag.itemsource" items-mapping="ViewBag.itemsmapping" legend-collection="ViewBag.legendcollection">
+            <e-colorMappingCollection>
+                <e-color-mapping color="#fe0002" value="0">
+                    <e-label text="0"></e-label>
+                </e-color-mapping>
+                <e-color-mapping color="#ffff01" value="30">
+                    <e-label text="30"></e-label>
+                </e-color-mapping>
+                <e-color-mapping color="#13ab11" value="60">
+                    <e-label text="60"></e-label>
+                </e-color-mapping>
+                <e-color-mapping color="#005ba2" value="100">
+                    <e-label text="100"></e-label>
+                </e-color-mapping>
+            </e-colorMappingCollection>
+        </ej-heatmap>
+    </div>
+}
+
+
