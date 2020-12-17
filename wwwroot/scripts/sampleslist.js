@@ -1124,7 +1124,7 @@ window.SamplesList = [
          ]         
      },
 		 {
-             "name": "XlsIO", "id": "XlsIO", "childcount": "1", "Group": "FILE FORMATS", "controller": "XlsIO","type": "update", "action": "Create",
+             "name": "XlsIO", "id": "XlsIO", "childcount": "1", "Group": "FILE FORMATS", "controller": "XlsIO", "action": "Create",
              "ugurl": "https://help.syncfusion.com/aspnet-core/xlsio/overview",
              "forumurl": "https://www.syncfusion.com/forums/aspnetcore/xlsio",
              "kburl": "https://www.syncfusion.com/kb/aspnetcore/",
@@ -1177,7 +1177,7 @@ window.SamplesList = [
                  },
 				 {
                      "id": "8", "name": "Export", "controller": "XlsIO", "action": "ExcelToPDF", "childcount": "1", samples: [
-                         { "id": "1", "name": "Excel To PDF", "controller": "XlsIO","type": "update", "action": "ExcelToPDF","childcount": "0","type": "update" },
+                         { "id": "1", "name": "Excel To PDF", "controller": "XlsIO", "action": "ExcelToPDF","childcount": "0" },
 						 { "id": "2", "name": "Worksheet To Image", "controller": "XlsIO", "action": "WorksheetToImage","childcount": "0" },
 						 { "id": "3", "name": "Worksheet To HTML", "controller": "XlsIO", "action": "WorksheetToHTML","childcount": "0" },
 						 { "id": "4", "name": "Excel To JSON", "controller": "XlsIO", "action": "ExcelToJSON","childcount": "0"}

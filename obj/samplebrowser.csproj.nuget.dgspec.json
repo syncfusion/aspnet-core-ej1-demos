@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Samples_18.3.0.47\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj": {}
+    "D:\\Samples_18.4.0.30\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj": {}
   },
   "projects": {
-    "D:\\Samples_18.3.0.47\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj": {
+    "D:\\Samples_18.4.0.30\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Samples_18.3.0.47\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj",
+        "projectUniqueName": "D:\\Samples_18.4.0.30\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj",
         "projectName": "samplebrowser",
-        "projectPath": "D:\\Samples_18.3.0.47\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj",
+        "projectPath": "D:\\Samples_18.4.0.30\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj",
         "packagesPath": "C:\\Users\\BuildAutomation\\.nuget\\packages\\",
-        "outputPath": "D:\\Samples_18.3.0.47\\ASPNETCORE\\samplebrowser\\obj\\",
+        "outputPath": "D:\\Samples_18.4.0.30\\ASPNETCORE\\samplebrowser\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -108,79 +108,79 @@
             },
             "Syncfusion.Compression.Net.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.DocIO.Net.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.DocIORenderer.Net.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.EJ.AspNet.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.EJ.Export": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.EJ.Pivot": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.EJ.ReportDesigner.AspNet.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.EJ.ReportViewer.AspNet.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.Licensing": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.OfficeChart.Net.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.PMML.Net.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.Pdf.Imaging.Net.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.Pdf.Net.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.Presentation.Net.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.PresentationRenderer.Net.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.Report.Net.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.SkiaSharpHelper.Net.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.XlsIO.Net.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             },
             "Syncfusion.XlsIORenderer.Net.Core": {
               "target": "Package",
-              "version": "[18.3.0.47, )"
+              "version": "[18.4.0.30, )"
             }
           },
           "imports": [

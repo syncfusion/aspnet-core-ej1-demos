@@ -3712,26 +3712,33 @@
           }
         }
       },
-      "SkiaSharp/1.59.3": {
+      "SkiaSharp/2.80.2": {
         "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
         "compile": {
-          "lib/netstandard1.3/SkiaSharp.dll": {}
+          "lib/netstandard2.0/SkiaSharp.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.3/SkiaSharp.dll": {}
+          "lib/netstandard2.0/SkiaSharp.dll": {}
         },
         "runtimeTargets": {
           "runtimes/osx/native/libSkiaSharp.dylib": {
             "assetType": "native",
             "rid": "osx"
           },
-          "runtimes/win7-x64/native/libSkiaSharp.dll": {
+          "runtimes/win-arm64/native/libSkiaSharp.dll": {
             "assetType": "native",
-            "rid": "win7-x64"
+            "rid": "win-arm64"
           },
-          "runtimes/win7-x86/native/libSkiaSharp.dll": {
+          "runtimes/win-x64/native/libSkiaSharp.dll": {
             "assetType": "native",
-            "rid": "win7-x86"
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/libSkiaSharp.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
           }
         }
       },
@@ -3889,7 +3896,7 @@
           "lib/netstandard1.5/StackExchange.Redis.StrongName.dll": {}
         }
       },
-      "Syncfusion.Compression.Net.Core/18.3.0.47": {
+      "Syncfusion.Compression.Net.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0"
@@ -3901,12 +3908,12 @@
           "lib/netstandard2.0/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.DocIO.Net.Core/18.3.0.47": {
+      "Syncfusion.DocIO.Net.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Compression.Net.Core": "18.3.0.47",
-          "Syncfusion.Licensing": "18.3.0.47",
-          "Syncfusion.OfficeChart.Net.Core": "18.3.0.47",
+          "Syncfusion.Compression.Net.Core": "18.4.0.30",
+          "Syncfusion.Licensing": "18.4.0.30",
+          "Syncfusion.OfficeChart.Net.Core": "18.4.0.30",
           "System.Text.Encoding.CodePages": "4.4.0"
         },
         "compile": {
@@ -3916,15 +3923,15 @@
           "lib/netstandard2.0/Syncfusion.DocIO.Portable.dll": {}
         }
       },
-      "Syncfusion.DocIORenderer.Net.Core/18.3.0.47": {
+      "Syncfusion.DocIORenderer.Net.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
-          "SkiaSharp": "1.59.3",
-          "Syncfusion.Compression.Net.Core": "18.3.0.47",
-          "Syncfusion.DocIO.Net.Core": "18.3.0.47",
-          "Syncfusion.OfficeChart.Net.Core": "18.3.0.47",
-          "Syncfusion.Pdf.Net.Core": "18.3.0.47",
-          "Syncfusion.SkiaSharpHelper.Net.Core": "18.3.0.47"
+          "SkiaSharp": "2.80.2",
+          "Syncfusion.Compression.Net.Core": "18.4.0.30",
+          "Syncfusion.DocIO.Net.Core": "18.4.0.30",
+          "Syncfusion.OfficeChart.Net.Core": "18.4.0.30",
+          "Syncfusion.Pdf.Net.Core": "18.4.0.30",
+          "Syncfusion.SkiaSharpHelper.Net.Core": "18.4.0.30"
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.DocIORenderer.Portable.dll": {}
@@ -3933,7 +3940,7 @@
           "lib/netstandard2.0/Syncfusion.DocIORenderer.Portable.dll": {}
         }
       },
-      "Syncfusion.EJ/18.3.0.47": {
+      "Syncfusion.EJ/18.4.0.30": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Hosting": "2.1.0",
@@ -3941,7 +3948,7 @@
           "Microsoft.AspNetCore.Mvc.Core": "2.1.0",
           "Microsoft.AspNetCore.Mvc.TagHelpers": "2.1.0",
           "Newtonsoft.Json": "11.0.2",
-          "Syncfusion.Licensing": "18.3.0.47",
+          "Syncfusion.Licensing": "18.4.0.30",
           "System.Collections": "4.3.0",
           "System.Collections.NonGeneric": "4.3.0",
           "System.Data.Common": "4.3.0",
@@ -3956,10 +3963,10 @@
           "lib/netcoreapp2.1/Syncfusion.EJ.dll": {}
         }
       },
-      "Syncfusion.EJ.AspNet.Core/18.3.0.47": {
+      "Syncfusion.EJ.AspNet.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.EJ": "18.3.0.47"
+          "Syncfusion.EJ": "18.4.0.30"
         },
         "compile": {
           "lib/netcoreapp2.1/Syncfusion.EJ.AspNet.Core.dll": {}
@@ -3968,16 +3975,16 @@
           "lib/netcoreapp2.1/Syncfusion.EJ.AspNet.Core.dll": {}
         }
       },
-      "Syncfusion.EJ.Export/18.3.0.47": {
+      "Syncfusion.EJ.Export/18.4.0.30": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc": "2.1.0",
-          "Syncfusion.Compression.Net.Core": "18.3.0.47",
-          "Syncfusion.DocIO.Net.Core": "18.3.0.47",
-          "Syncfusion.EJ": "18.3.0.47",
-          "Syncfusion.OfficeChart.Net.Core": "18.3.0.47",
-          "Syncfusion.Pdf.Net.Core": "18.3.0.47",
-          "Syncfusion.XlsIO.Net.Core": "18.3.0.47",
+          "Syncfusion.Compression.Net.Core": "18.4.0.30",
+          "Syncfusion.DocIO.Net.Core": "18.4.0.30",
+          "Syncfusion.EJ": "18.4.0.30",
+          "Syncfusion.OfficeChart.Net.Core": "18.4.0.30",
+          "Syncfusion.Pdf.Net.Core": "18.4.0.30",
+          "Syncfusion.XlsIO.Net.Core": "18.4.0.30",
           "System.Net.Http": "4.3.0",
           "System.Xml.XPath.XmlDocument": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
@@ -3989,7 +3996,7 @@
           "lib/netcoreapp2.1/Syncfusion.EJ.Export.dll": {}
         }
       },
-      "Syncfusion.EJ.Pivot/18.3.0.47": {
+      "Syncfusion.EJ.Pivot/18.4.0.30": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Hosting": "2.1.0",
@@ -3997,7 +4004,7 @@
           "Microsoft.AspNetCore.Mvc.Core": "2.1.0",
           "Microsoft.AspNetCore.Mvc.TagHelpers": "2.1.0",
           "Newtonsoft.Json": "11.0.2",
-          "Syncfusion.EJ.AspNet.Core": "18.3.0.47",
+          "Syncfusion.EJ.AspNet.Core": "18.4.0.30",
           "System.Collections": "4.3.0",
           "System.Collections.NonGeneric": "4.3.0",
           "System.Data.Common": "4.3.0",
@@ -4012,7 +4019,7 @@
           "lib/netcoreapp2.1/Syncfusion.EJ.Pivot.dll": {}
         }
       },
-      "Syncfusion.EJ.ReportDesigner.AspNet.Core/18.3.0.47": {
+      "Syncfusion.EJ.ReportDesigner.AspNet.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Hosting": "2.1.0",
@@ -4020,13 +4027,13 @@
           "Microsoft.AspNetCore.Mvc.Core": "2.1.0",
           "Microsoft.AspNetCore.Mvc.TagHelpers": "2.1.0",
           "Newtonsoft.Json": "11.0.2",
-          "Syncfusion.Compression.Net.Core": "18.3.0.47",
-          "Syncfusion.DocIO.Net.Core": "18.3.0.47",
-          "Syncfusion.EJ.ReportViewer.AspNet.Core": "18.3.0.47",
-          "Syncfusion.OfficeChart.Net.Core": "18.3.0.47",
-          "Syncfusion.Pdf.Net.Core": "18.3.0.47",
-          "Syncfusion.Report.Net.Core": "18.3.0.47",
-          "Syncfusion.XlsIO.Net.Core": "18.3.0.47",
+          "Syncfusion.Compression.Net.Core": "18.4.0.30",
+          "Syncfusion.DocIO.Net.Core": "18.4.0.30",
+          "Syncfusion.EJ.ReportViewer.AspNet.Core": "18.4.0.30",
+          "Syncfusion.OfficeChart.Net.Core": "18.4.0.30",
+          "Syncfusion.Pdf.Net.Core": "18.4.0.30",
+          "Syncfusion.Report.Net.Core": "18.4.0.30",
+          "Syncfusion.XlsIO.Net.Core": "18.4.0.30",
           "System.Net.Http": "4.3.0",
           "System.Xml.XPath.XmlDocument": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
@@ -4038,7 +4045,7 @@
           "lib/netcoreapp2.1/Syncfusion.EJ.ReportDesigner.dll": {}
         }
       },
-      "Syncfusion.EJ.ReportViewer.AspNet.Core/18.3.0.47": {
+      "Syncfusion.EJ.ReportViewer.AspNet.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Hosting": "2.1.0",
@@ -4046,12 +4053,12 @@
           "Microsoft.AspNetCore.Mvc.Core": "2.1.0",
           "Microsoft.AspNetCore.Mvc.TagHelpers": "2.1.0",
           "Newtonsoft.Json": "11.0.2",
-          "Syncfusion.Compression.Net.Core": "18.3.0.47",
-          "Syncfusion.DocIO.Net.Core": "18.3.0.47",
-          "Syncfusion.OfficeChart.Net.Core": "18.3.0.47",
-          "Syncfusion.Pdf.Net.Core": "18.3.0.47",
-          "Syncfusion.Report.Net.Core": "18.3.0.47",
-          "Syncfusion.XlsIO.Net.Core": "18.3.0.47",
+          "Syncfusion.Compression.Net.Core": "18.4.0.30",
+          "Syncfusion.DocIO.Net.Core": "18.4.0.30",
+          "Syncfusion.OfficeChart.Net.Core": "18.4.0.30",
+          "Syncfusion.Pdf.Net.Core": "18.4.0.30",
+          "Syncfusion.Report.Net.Core": "18.4.0.30",
+          "Syncfusion.XlsIO.Net.Core": "18.4.0.30",
           "System.Net.Http": "4.3.0",
           "System.Xml.XPath.XmlDocument": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
@@ -4063,7 +4070,7 @@
           "lib/netcoreapp2.1/Syncfusion.EJ.ReportViewer.dll": {}
         }
       },
-      "Syncfusion.Licensing/18.3.0.47": {
+      "Syncfusion.Licensing/18.4.0.30": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Syncfusion.Licensing.dll": {}
@@ -4072,11 +4079,11 @@
           "lib/netstandard2.0/Syncfusion.Licensing.dll": {}
         }
       },
-      "Syncfusion.OfficeChart.Net.Core/18.3.0.47": {
+      "Syncfusion.OfficeChart.Net.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "Syncfusion.Compression.Net.Core": "18.3.0.47"
+          "Syncfusion.Compression.Net.Core": "18.4.0.30"
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.OfficeChart.Portable.dll": {}
@@ -4085,12 +4092,12 @@
           "lib/netstandard2.0/Syncfusion.OfficeChart.Portable.dll": {}
         }
       },
-      "Syncfusion.Pdf.Imaging.Net.Core/18.3.0.47": {
+      "Syncfusion.Pdf.Imaging.Net.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "Syncfusion.Compression.Net.Core": "18.3.0.47",
-          "Syncfusion.Pdf.Net.Core": "18.3.0.47",
+          "Syncfusion.Compression.Net.Core": "18.4.0.30",
+          "Syncfusion.Pdf.Net.Core": "18.4.0.30",
           "System.Drawing.Common": "4.5.0"
         },
         "compile": {
@@ -4100,12 +4107,12 @@
           "lib/netstandard2.0/Syncfusion.Pdf.Imaging.Portable.dll": {}
         }
       },
-      "Syncfusion.Pdf.Net.Core/18.3.0.47": {
+      "Syncfusion.Pdf.Net.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "Syncfusion.Compression.Net.Core": "18.3.0.47",
-          "Syncfusion.Licensing": "18.3.0.47",
+          "Syncfusion.Compression.Net.Core": "18.4.0.30",
+          "Syncfusion.Licensing": "18.4.0.30",
           "System.Text.Encoding.CodePages": "4.4.0"
         },
         "compile": {
@@ -4115,7 +4122,7 @@
           "lib/netstandard2.0/Syncfusion.Pdf.Portable.dll": {}
         }
       },
-      "Syncfusion.PMML.Net.Core/18.3.0.47": {
+      "Syncfusion.PMML.Net.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0"
@@ -4127,12 +4134,12 @@
           "lib/netstandard2.0/Syncfusion.PMML.Portable.dll": {}
         }
       },
-      "Syncfusion.Presentation.Net.Core/18.3.0.47": {
+      "Syncfusion.Presentation.Net.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Compression.Net.Core": "18.3.0.47",
-          "Syncfusion.Licensing": "18.3.0.47",
-          "Syncfusion.OfficeChart.Net.Core": "18.3.0.47"
+          "Syncfusion.Compression.Net.Core": "18.4.0.30",
+          "Syncfusion.Licensing": "18.4.0.30",
+          "Syncfusion.OfficeChart.Net.Core": "18.4.0.30"
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.Presentation.Portable.dll": {}
@@ -4141,15 +4148,15 @@
           "lib/netstandard2.0/Syncfusion.Presentation.Portable.dll": {}
         }
       },
-      "Syncfusion.PresentationRenderer.Net.Core/18.3.0.47": {
+      "Syncfusion.PresentationRenderer.Net.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
-          "SkiaSharp": "1.59.3",
-          "Syncfusion.Compression.Net.Core": "18.3.0.47",
-          "Syncfusion.OfficeChart.Net.Core": "18.3.0.47",
-          "Syncfusion.Pdf.Net.Core": "18.3.0.47",
-          "Syncfusion.Presentation.Net.Core": "18.3.0.47",
-          "Syncfusion.SkiaSharpHelper.Net.Core": "18.3.0.47"
+          "SkiaSharp": "2.80.2",
+          "Syncfusion.Compression.Net.Core": "18.4.0.30",
+          "Syncfusion.OfficeChart.Net.Core": "18.4.0.30",
+          "Syncfusion.Pdf.Net.Core": "18.4.0.30",
+          "Syncfusion.Presentation.Net.Core": "18.4.0.30",
+          "Syncfusion.SkiaSharpHelper.Net.Core": "18.4.0.30"
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.PresentationRenderer.Portable.dll": {}
@@ -4158,15 +4165,15 @@
           "lib/netstandard2.0/Syncfusion.PresentationRenderer.Portable.dll": {}
         }
       },
-      "Syncfusion.Report.Net.Core/18.3.0.47": {
+      "Syncfusion.Report.Net.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.0",
-          "Syncfusion.Compression.Net.Core": "18.3.0.47",
-          "Syncfusion.DocIO.Net.Core": "18.3.0.47",
-          "Syncfusion.OfficeChart.Net.Core": "18.3.0.47",
-          "Syncfusion.Pdf.Net.Core": "18.3.0.47",
-          "Syncfusion.XlsIO.Net.Core": "18.3.0.47",
+          "Syncfusion.Compression.Net.Core": "18.4.0.30",
+          "Syncfusion.DocIO.Net.Core": "18.4.0.30",
+          "Syncfusion.OfficeChart.Net.Core": "18.4.0.30",
+          "Syncfusion.Pdf.Net.Core": "18.4.0.30",
+          "Syncfusion.XlsIO.Net.Core": "18.4.0.30",
           "System.Configuration.ConfigurationManager": "4.5.0",
           "System.Drawing.Common": "4.5.0"
         },
@@ -4177,12 +4184,12 @@
           "lib/netstandard2.0/Syncfusion.Report.Portable.dll": {}
         }
       },
-      "Syncfusion.SkiaSharpHelper.Net.Core/18.3.0.47": {
+      "Syncfusion.SkiaSharpHelper.Net.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "SkiaSharp": "1.59.3",
-          "Syncfusion.Compression.Net.Core": "18.3.0.47"
+          "SkiaSharp": "2.80.2",
+          "Syncfusion.Compression.Net.Core": "18.4.0.30"
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.SkiaSharpHelper.Portable.dll": {}
@@ -4191,12 +4198,12 @@
           "lib/netstandard2.0/Syncfusion.SkiaSharpHelper.Portable.dll": {}
         }
       },
-      "Syncfusion.XlsIO.Net.Core/18.3.0.47": {
+      "Syncfusion.XlsIO.Net.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "Syncfusion.Compression.Net.Core": "18.3.0.47",
-          "Syncfusion.Licensing": "18.3.0.47"
+          "Syncfusion.Compression.Net.Core": "18.4.0.30",
+          "Syncfusion.Licensing": "18.4.0.30"
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.XlsIO.Portable.dll": {}
@@ -4205,15 +4212,15 @@
           "lib/netstandard2.0/Syncfusion.XlsIO.Portable.dll": {}
         }
       },
-      "Syncfusion.XlsIORenderer.Net.Core/18.3.0.47": {
+      "Syncfusion.XlsIORenderer.Net.Core/18.4.0.30": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "SkiaSharp": "1.59.3",
-          "Syncfusion.Compression.Net.Core": "18.3.0.47",
-          "Syncfusion.Pdf.Net.Core": "18.3.0.47",
-          "Syncfusion.SkiaSharpHelper.Net.Core": "18.3.0.47",
-          "Syncfusion.XlsIO.Net.Core": "18.3.0.47"
+          "SkiaSharp": "2.80.2",
+          "Syncfusion.Compression.Net.Core": "18.4.0.30",
+          "Syncfusion.Pdf.Net.Core": "18.4.0.30",
+          "Syncfusion.SkiaSharpHelper.Net.Core": "18.4.0.30",
+          "Syncfusion.XlsIO.Net.Core": "18.4.0.30"
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.XlsIORenderer.Portable.dll": {}
@@ -4804,7 +4811,7 @@
           "lib/netstandard1.3/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Memory/4.5.1": {
+      "System.Memory/4.5.3": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.1/_._": {}
@@ -9983,47 +9990,87 @@
         "version.txt"
       ]
     },
-    "SkiaSharp/1.59.3": {
-      "sha512": "MNVXKHn3dDGnJPtO4dPMU6GtvFHO1aUHDWm1V5i7QbacVJFxT+a8x1chGGdgFNl7pB4+/yzEo39x9Q7ggRYt6A==",
+    "SkiaSharp/2.80.2": {
+      "sha512": "D25rzdCwh+3L+XyXqpNa+H/yiLJbE3/R3K/XexwHyQjGdzZvSufFW3oqf3En7hhqSIsxsJ8f5NEZ0J5W5wlGBg==",
       "type": "package",
-      "path": "skiasharp/1.59.3",
+      "path": "skiasharp/2.80.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "build/net45/SkiaSharp.dll.config",
-        "build/net45/SkiaSharp.targets",
-        "lib/MonoAndroid/SkiaSharp.dll",
-        "lib/MonoAndroid/SkiaSharp.xml",
-        "lib/XamarinMac/SkiaSharp.dll",
-        "lib/XamarinMac/SkiaSharp.xml",
-        "lib/XamariniOS/SkiaSharp.dll",
-        "lib/XamariniOS/SkiaSharp.xml",
-        "lib/XamarintvOS/SkiaSharp.dll",
-        "lib/XamarintvOS/SkiaSharp.xml",
-        "lib/net45/SkiaSharp.dll",
-        "lib/net45/SkiaSharp.dll.config",
-        "lib/net45/SkiaSharp.xml",
+        "LICENSE.txt",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/monoandroid1.0/SkiaSharp.targets",
+        "build/monoandroid1.0/arm/libSkiaSharp.so",
+        "build/monoandroid1.0/arm64/libSkiaSharp.so",
+        "build/monoandroid1.0/x64/libSkiaSharp.so",
+        "build/monoandroid1.0/x86/libSkiaSharp.so",
+        "build/net462/SkiaSharp.targets",
+        "build/tizen40/SkiaSharp.targets",
+        "build/tizen40/arm/libSkiaSharp.so",
+        "build/tizen40/x86/libSkiaSharp.so",
+        "build/xamarinios1.0/SkiaSharp.targets",
+        "build/xamarinios1.0/libSkiaSharp.framework/Info.plist",
+        "build/xamarinios1.0/libSkiaSharp.framework/Modules/module.modulemap",
+        "build/xamarinios1.0/libSkiaSharp.framework/_CodeSignature/CodeResources",
+        "build/xamarinios1.0/libSkiaSharp.framework/libSkiaSharp",
+        "build/xamarinmac2.0/SkiaSharp.targets",
+        "build/xamarintvos1.0/SkiaSharp.targets",
+        "build/xamarintvos1.0/libSkiaSharp.framework/Info.plist",
+        "build/xamarintvos1.0/libSkiaSharp.framework/Modules/module.modulemap",
+        "build/xamarintvos1.0/libSkiaSharp.framework/_CodeSignature/CodeResources",
+        "build/xamarintvos1.0/libSkiaSharp.framework/libSkiaSharp",
+        "build/xamarinwatchos1.0/SkiaSharp.targets",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/Info.plist",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/Modules/module.modulemap",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/_CodeSignature/CodeResources",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/libSkiaSharp",
+        "buildTransitive/monoandroid1.0/SkiaSharp.targets",
+        "buildTransitive/net462/SkiaSharp.targets",
+        "buildTransitive/tizen40/SkiaSharp.targets",
+        "buildTransitive/xamarinios1.0/SkiaSharp.targets",
+        "buildTransitive/xamarinmac2.0/SkiaSharp.targets",
+        "buildTransitive/xamarintvos1.0/SkiaSharp.targets",
+        "buildTransitive/xamarinwatchos1.0/SkiaSharp.targets",
+        "lib/monoandroid1.0/SkiaSharp.dll",
+        "lib/monoandroid1.0/SkiaSharp.xml",
+        "lib/net462/SkiaSharp.dll",
+        "lib/net462/SkiaSharp.xml",
         "lib/netstandard1.3/SkiaSharp.dll",
         "lib/netstandard1.3/SkiaSharp.xml",
-        "lib/portable-net45+win8+wpa81+wp8/SkiaSharp.dll",
-        "lib/portable-net45+win8+wpa81+wp8/SkiaSharp.xml",
-        "lib/uap10.0/SkiaSharp.dll",
-        "lib/uap10.0/SkiaSharp.xml",
+        "lib/netstandard2.0/SkiaSharp.dll",
+        "lib/netstandard2.0/SkiaSharp.xml",
+        "lib/tizen40/SkiaSharp.dll",
+        "lib/tizen40/SkiaSharp.xml",
+        "lib/uap10.0.10240/SkiaSharp.dll",
+        "lib/uap10.0.10240/SkiaSharp.xml",
+        "lib/uap10.0.16299/SkiaSharp.dll",
+        "lib/uap10.0.16299/SkiaSharp.xml",
+        "lib/xamarinios1.0/SkiaSharp.dll",
+        "lib/xamarinios1.0/SkiaSharp.xml",
+        "lib/xamarinmac2.0/SkiaSharp.dll",
+        "lib/xamarinmac2.0/SkiaSharp.xml",
+        "lib/xamarintvos1.0/SkiaSharp.dll",
+        "lib/xamarintvos1.0/SkiaSharp.xml",
+        "lib/xamarinwatchos1.0/SkiaSharp.dll",
+        "lib/xamarinwatchos1.0/SkiaSharp.xml",
         "runtimes/osx/native/libSkiaSharp.dylib",
+        "runtimes/win-arm64/native/libSkiaSharp.dll",
+        "runtimes/win-x64/native/libSkiaSharp.dll",
+        "runtimes/win-x86/native/libSkiaSharp.dll",
         "runtimes/win10-arm/nativeassets/uap10.0/libEGL.dll",
         "runtimes/win10-arm/nativeassets/uap10.0/libGLESv2.dll",
         "runtimes/win10-arm/nativeassets/uap10.0/libSkiaSharp.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/libEGL.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/libGLESv2.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/libSkiaSharp.dll",
         "runtimes/win10-x64/nativeassets/uap10.0/libEGL.dll",
         "runtimes/win10-x64/nativeassets/uap10.0/libGLESv2.dll",
         "runtimes/win10-x64/nativeassets/uap10.0/libSkiaSharp.dll",
         "runtimes/win10-x86/nativeassets/uap10.0/libEGL.dll",
         "runtimes/win10-x86/nativeassets/uap10.0/libGLESv2.dll",
         "runtimes/win10-x86/nativeassets/uap10.0/libSkiaSharp.dll",
-        "runtimes/win7-x64/native/libSkiaSharp.dll",
-        "runtimes/win7-x86/native/libSkiaSharp.dll",
-        "skiasharp.1.59.3.nupkg.sha512",
-        "skiasharp.nuspec",
-        "xamarin.interactive/SkiaSharp.Workbooks.dll"
+        "skiasharp.2.80.2.nupkg.sha512",
+        "skiasharp.nuspec"
       ]
     },
     "SQLitePCLRaw.bundle_green/1.1.11": {
@@ -10186,10 +10233,10 @@
         "stackexchange.redis.strongname.nuspec"
       ]
     },
-    "Syncfusion.Compression.Net.Core/18.3.0.47": {
-      "sha512": "kWldNQPFkKQMb8v5KtL+6L0/YDJmTNWY4AfogNNWkhZbrs4UyGg3Mcpc6Lf/NM/RbrTX/DBdtxoii8CFEwvDyg==",
+    "Syncfusion.Compression.Net.Core/18.4.0.30": {
+      "sha512": "oYJ8r3jcojSa5UubMAf/bXBKzYcrDI6BWx+UcZEc53PBB7Ka965oWhmLCEwI3vbmJdTYecWPtpMTgHEZMPJ2Hg==",
       "type": "package",
-      "path": "syncfusion.compression.net.core/18.3.0.47",
+      "path": "syncfusion.compression.net.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10199,14 +10246,14 @@
         "lib/netstandard1.4/Syncfusion.Compression.Portable.xml",
         "lib/netstandard2.0/Syncfusion.Compression.Portable.dll",
         "lib/netstandard2.0/Syncfusion.Compression.Portable.xml",
-        "syncfusion.compression.net.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.compression.net.core.18.4.0.30.nupkg.sha512",
         "syncfusion.compression.net.core.nuspec"
       ]
     },
-    "Syncfusion.DocIO.Net.Core/18.3.0.47": {
-      "sha512": "eihZN5m9CEtMQ4nzxdgvp7pIeZHnQfQko5Lw7rZN6nVoKDYMiEJP3YUHmd7lzrqHvakv9ov9ACtoLkOLnui/JQ==",
+    "Syncfusion.DocIO.Net.Core/18.4.0.30": {
+      "sha512": "orE7AT8jjZdieDSlHKIT7vH7rfITYfbT6eHduL6EAbki3VwvB3Y86BcfHs/UJn8vnCXOEh73UdsFK2D1Oj9miQ==",
       "type": "package",
-      "path": "syncfusion.docio.net.core/18.3.0.47",
+      "path": "syncfusion.docio.net.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10216,14 +10263,14 @@
         "lib/netstandard1.4/Syncfusion.DocIO.Portable.xml",
         "lib/netstandard2.0/Syncfusion.DocIO.Portable.dll",
         "lib/netstandard2.0/Syncfusion.DocIO.Portable.xml",
-        "syncfusion.docio.net.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.docio.net.core.18.4.0.30.nupkg.sha512",
         "syncfusion.docio.net.core.nuspec"
       ]
     },
-    "Syncfusion.DocIORenderer.Net.Core/18.3.0.47": {
-      "sha512": "+GMPdsNtwIs9lfvFCh/E6GKMrrlTl2/DrPQ+CNpee3em294c5x73A+LZ1pnGN9atwdpu4gpDHmWE4TE9jD6T4w==",
+    "Syncfusion.DocIORenderer.Net.Core/18.4.0.30": {
+      "sha512": "Wy+fkWTia8bUx+GrAhHAN4ux0+vs5RStxlBt2Pi17vVt4vmqYZgaVioY/R6Jg3EUxfoJ6S1sFS63G8ZTWOyn3w==",
       "type": "package",
-      "path": "syncfusion.dociorenderer.net.core/18.3.0.47",
+      "path": "syncfusion.dociorenderer.net.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10231,14 +10278,14 @@
         "lib/netstandard1.4/Syncfusion.DocIORenderer.Portable.xml",
         "lib/netstandard2.0/Syncfusion.DocIORenderer.Portable.dll",
         "lib/netstandard2.0/Syncfusion.DocIORenderer.Portable.xml",
-        "syncfusion.dociorenderer.net.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.dociorenderer.net.core.18.4.0.30.nupkg.sha512",
         "syncfusion.dociorenderer.net.core.nuspec"
       ]
     },
-    "Syncfusion.EJ/18.3.0.47": {
-      "sha512": "NYZYKx1iqJwKSVN9zeMFGz4gFhBQVnf/WsT2I3uxa46kCHNCYKcIgk5PkjNB4d3VwuQoZWWRGQMT7EgMhvk57g==",
+    "Syncfusion.EJ/18.4.0.30": {
+      "sha512": "+5QWJHD+i2FMK4FH4uOIgQvCay+AZjdhAdqHDenL+O3d4eFok9jkGRxswXlogfdvy1GsGjEg9dv04HUu68FobQ==",
       "type": "package",
-      "path": "syncfusion.ej/18.3.0.47",
+      "path": "syncfusion.ej/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10248,14 +10295,14 @@
         "lib/netcoreapp2.1/Syncfusion.EJ.xml",
         "lib/netcoreapp3.1/Syncfusion.EJ.dll",
         "lib/netcoreapp3.1/Syncfusion.EJ.xml",
-        "syncfusion.ej.18.3.0.47.nupkg.sha512",
+        "syncfusion.ej.18.4.0.30.nupkg.sha512",
         "syncfusion.ej.nuspec"
       ]
     },
-    "Syncfusion.EJ.AspNet.Core/18.3.0.47": {
-      "sha512": "7gHyTBjaNmKgnzOmt/JeSvmUjZtgKMrrX/qT8DtLU9EQ+05J4qajSI9zSUkA0VtZiBWLXN0atNZw8g6k2ivIhw==",
+    "Syncfusion.EJ.AspNet.Core/18.4.0.30": {
+      "sha512": "FvAIoKD48q4bu7FZAJnmGIdS04JitmSZS4sqLNQ/p8p5Bpt/nnz19m9cIlw0401NzTKM27YXgLCKRvjDifFvQQ==",
       "type": "package",
-      "path": "syncfusion.ej.aspnet.core/18.3.0.47",
+      "path": "syncfusion.ej.aspnet.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10265,14 +10312,14 @@
         "lib/netcoreapp2.1/Syncfusion.EJ.AspNet.Core.xml",
         "lib/netcoreapp3.1/Syncfusion.EJ.AspNet.Core.dll",
         "lib/netcoreapp3.1/Syncfusion.EJ.AspNet.Core.xml",
-        "syncfusion.ej.aspnet.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.ej.aspnet.core.18.4.0.30.nupkg.sha512",
         "syncfusion.ej.aspnet.core.nuspec"
       ]
     },
-    "Syncfusion.EJ.Export/18.3.0.47": {
-      "sha512": "XZWc2oeXlxz3qBI/aB3aD+hG3goIiaJPYCncBZr+j4FreK6RO/XuxilAftcpxuesNGbRuzQqq/qB+WoA92aUKQ==",
+    "Syncfusion.EJ.Export/18.4.0.30": {
+      "sha512": "Le17mTndJQXqqYYKznG6SE7oxdy9XVvPv1IjK8JUaYVg47/0fnRKKvVX3gSt2ptBNb7o2uAl2VCIYq/HzdIfQg==",
       "type": "package",
-      "path": "syncfusion.ej.export/18.3.0.47",
+      "path": "syncfusion.ej.export/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10282,14 +10329,14 @@
         "lib/netcoreapp2.1/Syncfusion.EJ.Export.xml",
         "lib/netcoreapp3.1/Syncfusion.EJ.Export.dll",
         "lib/netcoreapp3.1/Syncfusion.EJ.Export.xml",
-        "syncfusion.ej.export.18.3.0.47.nupkg.sha512",
+        "syncfusion.ej.export.18.4.0.30.nupkg.sha512",
         "syncfusion.ej.export.nuspec"
       ]
     },
-    "Syncfusion.EJ.Pivot/18.3.0.47": {
-      "sha512": "4VTq9J0sPRiaMM5T8BCZd8bC3vkm4B1qInVb3j45apo8x/atGt7hRFAViJjqSteU6ahQdF80zrWW6k7GBPPslg==",
+    "Syncfusion.EJ.Pivot/18.4.0.30": {
+      "sha512": "4oCwbtrSFw5pU5myV+gYQ4Z6z9rcqky0AjJ4Fw+HW52XtXur2AiZfoZUkLV3po0MFRaHmMZit4tjF8eeF7vV7A==",
       "type": "package",
-      "path": "syncfusion.ej.pivot/18.3.0.47",
+      "path": "syncfusion.ej.pivot/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10299,14 +10346,14 @@
         "lib/netcoreapp2.1/Syncfusion.EJ.Pivot.xml",
         "lib/netcoreapp3.1/Syncfusion.EJ.Pivot.dll",
         "lib/netcoreapp3.1/Syncfusion.EJ.Pivot.xml",
-        "syncfusion.ej.pivot.18.3.0.47.nupkg.sha512",
+        "syncfusion.ej.pivot.18.4.0.30.nupkg.sha512",
         "syncfusion.ej.pivot.nuspec"
       ]
     },
-    "Syncfusion.EJ.ReportDesigner.AspNet.Core/18.3.0.47": {
-      "sha512": "XurwYUnHlshyvpKEKeWsMSPG6oodGhjVl2lndR7XJujyNVDBR7fAqW+TmLZ0FPLyrn92/bdbAOx8MSRbeavfaQ==",
+    "Syncfusion.EJ.ReportDesigner.AspNet.Core/18.4.0.30": {
+      "sha512": "aUg8JmFA/ox9jwwstku/Pvo+VHpSnQ1dHSBxl00YlqiGigyYTR+UfVKMlZV3WyNZP8+eqbndztA/OSsddTgHLQ==",
       "type": "package",
-      "path": "syncfusion.ej.reportdesigner.aspnet.core/18.3.0.47",
+      "path": "syncfusion.ej.reportdesigner.aspnet.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10316,14 +10363,14 @@
         "lib/netcoreapp2.1/Syncfusion.EJ.ReportDesigner.xml",
         "lib/netcoreapp3.0/Syncfusion.EJ.ReportDesigner.dll",
         "lib/netcoreapp3.0/Syncfusion.EJ.ReportDesigner.xml",
-        "syncfusion.ej.reportdesigner.aspnet.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.ej.reportdesigner.aspnet.core.18.4.0.30.nupkg.sha512",
         "syncfusion.ej.reportdesigner.aspnet.core.nuspec"
       ]
     },
-    "Syncfusion.EJ.ReportViewer.AspNet.Core/18.3.0.47": {
-      "sha512": "c9nbHbhOJlJTDoXQ+Lg9nVNwFVm/mMu9KSPJJdiT3wFWLcjfk/7R7RKcBp48mR/OukWDyQkNkfK+XvgUNSrF8Q==",
+    "Syncfusion.EJ.ReportViewer.AspNet.Core/18.4.0.30": {
+      "sha512": "6FHmXfmhus/IFi7lzL9tY4bX/CaMEaOrhGotXhgu0cYc2wTMfI9SMVQYqsIaDARpMpmzv11kZgJeggmSNyvu8g==",
       "type": "package",
-      "path": "syncfusion.ej.reportviewer.aspnet.core/18.3.0.47",
+      "path": "syncfusion.ej.reportviewer.aspnet.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10333,14 +10380,14 @@
         "lib/netcoreapp2.1/Syncfusion.EJ.ReportViewer.xml",
         "lib/netcoreapp3.0/Syncfusion.EJ.ReportViewer.dll",
         "lib/netcoreapp3.0/Syncfusion.EJ.ReportViewer.xml",
-        "syncfusion.ej.reportviewer.aspnet.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.ej.reportviewer.aspnet.core.18.4.0.30.nupkg.sha512",
         "syncfusion.ej.reportviewer.aspnet.core.nuspec"
       ]
     },
-    "Syncfusion.Licensing/18.3.0.47": {
-      "sha512": "uLNI6lV0fSvQJnqB2Bx5H341AHa6m8wCI2C9xjP4tvS1QnZtFEBX940TV9YWb+QaxwPtJ9PzfZR+2v2W7/HhvA==",
+    "Syncfusion.Licensing/18.4.0.30": {
+      "sha512": "mz7sxnb0csWmckA1Oq7uSwMtV+sF8vmeo2L/N38uvnwsZb4LLSXPm9W6+OoKylNL5WUnwSRbwn+Fk/+elRpdBQ==",
       "type": "package",
-      "path": "syncfusion.licensing/18.3.0.47",
+      "path": "syncfusion.licensing/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10362,14 +10409,14 @@
         "lib/netstandard2.0/Syncfusion.Licensing.dll",
         "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Licensing.dll",
         "lib/uap10.0/Syncfusion.Licensing.dll",
-        "syncfusion.licensing.18.3.0.47.nupkg.sha512",
+        "syncfusion.licensing.18.4.0.30.nupkg.sha512",
         "syncfusion.licensing.nuspec"
       ]
     },
-    "Syncfusion.OfficeChart.Net.Core/18.3.0.47": {
-      "sha512": "k/nP9CPOLr7agAI6xsNwvl/uGrLzgJ3ht8F3uaG+0lkgam3arEtbgbQ2VJN0Q5HHSF+cu5y2JGxwXcoRUANkaQ==",
+    "Syncfusion.OfficeChart.Net.Core/18.4.0.30": {
+      "sha512": "UVdWLYJYt16Wx6U3DImBNM4LM5dOiJwdTHleYFIfo6SB3feRhj6o9Jl0y9kHpQ7KK20XpVOrLTZMExH9I1NOjQ==",
       "type": "package",
-      "path": "syncfusion.officechart.net.core/18.3.0.47",
+      "path": "syncfusion.officechart.net.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10379,27 +10426,27 @@
         "lib/netstandard1.4/Syncfusion.OfficeChart.Portable.xml",
         "lib/netstandard2.0/Syncfusion.OfficeChart.Portable.dll",
         "lib/netstandard2.0/Syncfusion.OfficeChart.Portable.xml",
-        "syncfusion.officechart.net.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.officechart.net.core.18.4.0.30.nupkg.sha512",
         "syncfusion.officechart.net.core.nuspec"
       ]
     },
-    "Syncfusion.Pdf.Imaging.Net.Core/18.3.0.47": {
-      "sha512": "/Ij1aikheZd9GhbzlPj58BvMynQW1YhjmxNIU5PvHR9unMJjevTndfEuADazG0zdp4zjC5RU/g1xgs09X96nqQ==",
+    "Syncfusion.Pdf.Imaging.Net.Core/18.4.0.30": {
+      "sha512": "XD1FtoH+YzHuosMPoBT3Rfo8PCTO/4JSXfXVJC/2quAI9DVbkAJaaZtaanlJJIc8mFtpuaQ8AbpODQwavF8uZQ==",
       "type": "package",
-      "path": "syncfusion.pdf.imaging.net.core/18.3.0.47",
+      "path": "syncfusion.pdf.imaging.net.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Syncfusion.Pdf.Imaging.Portable.dll",
         "lib/netstandard2.0/Syncfusion.Pdf.Imaging.Portable.xml",
-        "syncfusion.pdf.imaging.net.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.pdf.imaging.net.core.18.4.0.30.nupkg.sha512",
         "syncfusion.pdf.imaging.net.core.nuspec"
       ]
     },
-    "Syncfusion.Pdf.Net.Core/18.3.0.47": {
-      "sha512": "hTU+3IpGbr5BFMqsrHZMMdmTMWBeksS2C5+F2rd3tTuY41Wx9ik5V1rld1TD/XCDJA03CcKElhFLP1nqYKx2qw==",
+    "Syncfusion.Pdf.Net.Core/18.4.0.30": {
+      "sha512": "Fj4VNRvMwdBBcnLw8uCTfI7Fv8UJshnI62qcHegFej0omVigileuAa2cya9/xNsi6KDdVWJCDR8xGtefdqF5Ag==",
       "type": "package",
-      "path": "syncfusion.pdf.net.core/18.3.0.47",
+      "path": "syncfusion.pdf.net.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10409,14 +10456,14 @@
         "lib/netstandard1.4/Syncfusion.Pdf.Portable.xml",
         "lib/netstandard2.0/Syncfusion.Pdf.Portable.dll",
         "lib/netstandard2.0/Syncfusion.Pdf.Portable.xml",
-        "syncfusion.pdf.net.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.pdf.net.core.18.4.0.30.nupkg.sha512",
         "syncfusion.pdf.net.core.nuspec"
       ]
     },
-    "Syncfusion.PMML.Net.Core/18.3.0.47": {
-      "sha512": "SvBUAaPqT8e9bLKkNxwA6Y15/YL1/uwMGYD8jmBcdjuxVkVVlqlq8KO/mzsFeJMM1fMk4/wMKXgnkNXpZtZSjQ==",
+    "Syncfusion.PMML.Net.Core/18.4.0.30": {
+      "sha512": "kU6KwwyrmGQ0L8vZxXadel+kK5S9LX9qN55pxOdi7tNw8DAJEEWdxOYle3nqPRrSChDB0xNPPt8z3OhRznNdAg==",
       "type": "package",
-      "path": "syncfusion.pmml.net.core/18.3.0.47",
+      "path": "syncfusion.pmml.net.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10426,14 +10473,14 @@
         "lib/netstandard1.4/Syncfusion.PMML.Portable.xml",
         "lib/netstandard2.0/Syncfusion.PMML.Portable.dll",
         "lib/netstandard2.0/Syncfusion.PMML.Portable.xml",
-        "syncfusion.pmml.net.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.pmml.net.core.18.4.0.30.nupkg.sha512",
         "syncfusion.pmml.net.core.nuspec"
       ]
     },
-    "Syncfusion.Presentation.Net.Core/18.3.0.47": {
-      "sha512": "I9SGKwhTlp+4e6K5B9ISVPp/s4n4nUTGaagwrbEMD6x1BbHESO4tSBfJFNCe113MUjueHzAn74paW6lqz7YMAA==",
+    "Syncfusion.Presentation.Net.Core/18.4.0.30": {
+      "sha512": "kfZUsdV5vQmdfuNkgIiphsSsieTFdNGk3qVulWwgbJOLp2p31I53BWR/+0oUqftTCm8V56v2CjaRAduKsxOTPg==",
       "type": "package",
-      "path": "syncfusion.presentation.net.core/18.3.0.47",
+      "path": "syncfusion.presentation.net.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10443,14 +10490,14 @@
         "lib/netstandard1.4/Syncfusion.Presentation.Portable.xml",
         "lib/netstandard2.0/Syncfusion.Presentation.Portable.dll",
         "lib/netstandard2.0/Syncfusion.Presentation.Portable.xml",
-        "syncfusion.presentation.net.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.presentation.net.core.18.4.0.30.nupkg.sha512",
         "syncfusion.presentation.net.core.nuspec"
       ]
     },
-    "Syncfusion.PresentationRenderer.Net.Core/18.3.0.47": {
-      "sha512": "N9VSevLRAc07h5N038gvlwLVhtOH7NDecd1K8SV2hc//je181dNI/EBFtA7UP+B+srq+S6IpK7/w7NYUiE7pbw==",
+    "Syncfusion.PresentationRenderer.Net.Core/18.4.0.30": {
+      "sha512": "sNKLDM74CbLZvAgodeAjOZmZh4yxCGEHe6cZaO7b1MkjDdJzXA0rsIKcAxT44x2bQ0YZhv+CJRtsuGWCFD+a/g==",
       "type": "package",
-      "path": "syncfusion.presentationrenderer.net.core/18.3.0.47",
+      "path": "syncfusion.presentationrenderer.net.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10458,14 +10505,14 @@
         "lib/netstandard1.4/Syncfusion.PresentationRenderer.Portable.xml",
         "lib/netstandard2.0/Syncfusion.PresentationRenderer.Portable.dll",
         "lib/netstandard2.0/Syncfusion.PresentationRenderer.Portable.xml",
-        "syncfusion.presentationrenderer.net.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.presentationrenderer.net.core.18.4.0.30.nupkg.sha512",
         "syncfusion.presentationrenderer.net.core.nuspec"
       ]
     },
-    "Syncfusion.Report.Net.Core/18.3.0.47": {
-      "sha512": "XpQ4t7JAEkPbhV4nWRiCMEgjQ0Fn686OvOxLAKYi6RFY+fAwOgZSzOFrXrBrShNEoY8fCr0LXyXLMb/nAJczAQ==",
+    "Syncfusion.Report.Net.Core/18.4.0.30": {
+      "sha512": "R3+XVN+SPjHiFeVDz0FnaRdz3133Qqd91q8CF4TSHv4So5gnEa1hoTsE4sO8wHsLHFAhWjq8vSGi7a79Rpfxaw==",
       "type": "package",
-      "path": "syncfusion.report.net.core/18.3.0.47",
+      "path": "syncfusion.report.net.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10475,14 +10522,14 @@
         "lib/netstandard1.4/Syncfusion.Report.Portable.xml",
         "lib/netstandard2.0/Syncfusion.Report.Portable.dll",
         "lib/netstandard2.0/Syncfusion.Report.Portable.xml",
-        "syncfusion.report.net.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.report.net.core.18.4.0.30.nupkg.sha512",
         "syncfusion.report.net.core.nuspec"
       ]
     },
-    "Syncfusion.SkiaSharpHelper.Net.Core/18.3.0.47": {
-      "sha512": "iePp/Ufhnp6ixl0oT+c9AHQ2oOvxn2fPlz+vN5WaDkZxwX+xiWZ5yNDoDhRBCchMNV+/MrWR2EglJNi/xLRYAw==",
+    "Syncfusion.SkiaSharpHelper.Net.Core/18.4.0.30": {
+      "sha512": "b5Jfq4sw7ZFQAD4E3oynXPHVYZ9hSbN6pTNFlHgZbONelSeysLyYR398N0I4E7+3YrhMklaEbrL1TQ9772s4zA==",
       "type": "package",
-      "path": "syncfusion.skiasharphelper.net.core/18.3.0.47",
+      "path": "syncfusion.skiasharphelper.net.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10490,14 +10537,14 @@
         "lib/netstandard1.4/Syncfusion.SkiaSharpHelper.Portable.dll",
         "lib/netstandard2.0/Syncfusion.SkiaSharpHelper.Portable.dll",
         "lib/netstandard2.0/Syncfusion.SkiaSharpHelper.Portable.xml",
-        "syncfusion.skiasharphelper.net.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.skiasharphelper.net.core.18.4.0.30.nupkg.sha512",
         "syncfusion.skiasharphelper.net.core.nuspec"
       ]
     },
-    "Syncfusion.XlsIO.Net.Core/18.3.0.47": {
-      "sha512": "k5+sdjQGJLLf8TST0RboE2QrUNTZ8fyXr9XmmdSV3rRO15hxjxti4ayzxFhmndcPwXTOFy49JlAo1pvdoKnjKA==",
+    "Syncfusion.XlsIO.Net.Core/18.4.0.30": {
+      "sha512": "W4kWQM1Ss03iQysOTzS0lIuzGbjbgkdIKn5g9zn6IR9ERBifZW85h03D8/KYFv6Oe/nXFCqt26HhDnPxx+hl1w==",
       "type": "package",
-      "path": "syncfusion.xlsio.net.core/18.3.0.47",
+      "path": "syncfusion.xlsio.net.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10507,14 +10554,14 @@
         "lib/netstandard1.4/Syncfusion.XlsIO.Portable.xml",
         "lib/netstandard2.0/Syncfusion.XlsIO.Portable.dll",
         "lib/netstandard2.0/Syncfusion.XlsIO.Portable.xml",
-        "syncfusion.xlsio.net.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.xlsio.net.core.18.4.0.30.nupkg.sha512",
         "syncfusion.xlsio.net.core.nuspec"
       ]
     },
-    "Syncfusion.XlsIORenderer.Net.Core/18.3.0.47": {
-      "sha512": "4obVdJ8vXHbegufnxboFqtPcUulLLa3scUdImbwoSkxJ2rSbFXhtGaJiwtbKBxsJygoSddLoSiBtR7dYDpKebw==",
+    "Syncfusion.XlsIORenderer.Net.Core/18.4.0.30": {
+      "sha512": "12/IwYlIO0b7rzVVvcoGN6YeRXKG0Zg0CNwHN2bi6Hncoddrc8SrRFAbrTHeqh8rp2tv87DknjGsQIE8EqTptA==",
       "type": "package",
-      "path": "syncfusion.xlsiorenderer.net.core/18.3.0.47",
+      "path": "syncfusion.xlsiorenderer.net.core/18.4.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10522,7 +10569,7 @@
         "lib/netstandard1.4/Syncfusion.XlsIORenderer.Portable.xml",
         "lib/netstandard2.0/Syncfusion.XlsIORenderer.Portable.dll",
         "lib/netstandard2.0/Syncfusion.XlsIORenderer.Portable.xml",
-        "syncfusion.xlsiorenderer.net.core.18.3.0.47.nupkg.sha512",
+        "syncfusion.xlsiorenderer.net.core.18.4.0.30.nupkg.sha512",
         "syncfusion.xlsiorenderer.net.core.nuspec"
       ]
     },
@@ -12299,10 +12346,10 @@
         "system.linq.queryable.nuspec"
       ]
     },
-    "System.Memory/4.5.1": {
-      "sha512": "sDJYJpGtTgx+23Ayu5euxG5mAXWdkDb4+b0rD0Cab0M1oQS9H0HXGPriKcqpXuiJDTV7fTp/d+fMDJmnr6sNvA==",
+    "System.Memory/4.5.3": {
+      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "type": "package",
-      "path": "system.memory/4.5.1",
+      "path": "system.memory/4.5.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -12314,11 +12361,7 @@
         "lib/netstandard2.0/System.Memory.dll",
         "lib/netstandard2.0/System.Memory.xml",
         "ref/netcoreapp2.1/_._",
-        "ref/netstandard1.1/System.Memory.dll",
-        "ref/netstandard1.1/System.Memory.xml",
-        "ref/netstandard2.0/System.Memory.dll",
-        "ref/netstandard2.0/System.Memory.xml",
-        "system.memory.4.5.1.nupkg.sha512",
+        "system.memory.4.5.3.nupkg.sha512",
         "system.memory.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -15615,25 +15658,25 @@
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Web.BrowserLink >= 2.1.1",
       "Newtonsoft.Json >= 11.0.2",
-      "Syncfusion.Compression.Net.Core >= 18.3.0.47",
-      "Syncfusion.DocIO.Net.Core >= 18.3.0.47",
-      "Syncfusion.DocIORenderer.Net.Core >= 18.3.0.47",
-      "Syncfusion.EJ.AspNet.Core >= 18.3.0.47",
-      "Syncfusion.EJ.Export >= 18.3.0.47",
-      "Syncfusion.EJ.Pivot >= 18.3.0.47",
-      "Syncfusion.EJ.ReportDesigner.AspNet.Core >= 18.3.0.47",
-      "Syncfusion.EJ.ReportViewer.AspNet.Core >= 18.3.0.47",
-      "Syncfusion.Licensing >= 18.3.0.47",
-      "Syncfusion.OfficeChart.Net.Core >= 18.3.0.47",
-      "Syncfusion.PMML.Net.Core >= 18.3.0.47",
-      "Syncfusion.Pdf.Imaging.Net.Core >= 18.3.0.47",
-      "Syncfusion.Pdf.Net.Core >= 18.3.0.47",
-      "Syncfusion.Presentation.Net.Core >= 18.3.0.47",
-      "Syncfusion.PresentationRenderer.Net.Core >= 18.3.0.47",
-      "Syncfusion.Report.Net.Core >= 18.3.0.47",
-      "Syncfusion.SkiaSharpHelper.Net.Core >= 18.3.0.47",
-      "Syncfusion.XlsIO.Net.Core >= 18.3.0.47",
-      "Syncfusion.XlsIORenderer.Net.Core >= 18.3.0.47"
+      "Syncfusion.Compression.Net.Core >= 18.4.0.30",
+      "Syncfusion.DocIO.Net.Core >= 18.4.0.30",
+      "Syncfusion.DocIORenderer.Net.Core >= 18.4.0.30",
+      "Syncfusion.EJ.AspNet.Core >= 18.4.0.30",
+      "Syncfusion.EJ.Export >= 18.4.0.30",
+      "Syncfusion.EJ.Pivot >= 18.4.0.30",
+      "Syncfusion.EJ.ReportDesigner.AspNet.Core >= 18.4.0.30",
+      "Syncfusion.EJ.ReportViewer.AspNet.Core >= 18.4.0.30",
+      "Syncfusion.Licensing >= 18.4.0.30",
+      "Syncfusion.OfficeChart.Net.Core >= 18.4.0.30",
+      "Syncfusion.PMML.Net.Core >= 18.4.0.30",
+      "Syncfusion.Pdf.Imaging.Net.Core >= 18.4.0.30",
+      "Syncfusion.Pdf.Net.Core >= 18.4.0.30",
+      "Syncfusion.Presentation.Net.Core >= 18.4.0.30",
+      "Syncfusion.PresentationRenderer.Net.Core >= 18.4.0.30",
+      "Syncfusion.Report.Net.Core >= 18.4.0.30",
+      "Syncfusion.SkiaSharpHelper.Net.Core >= 18.4.0.30",
+      "Syncfusion.XlsIO.Net.Core >= 18.4.0.30",
+      "Syncfusion.XlsIORenderer.Net.Core >= 18.4.0.30"
     ]
   },
   "packageFolders": {
@@ -15644,11 +15687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Samples_18.3.0.47\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj",
+      "projectUniqueName": "D:\\Samples_18.4.0.30\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj",
       "projectName": "samplebrowser",
-      "projectPath": "D:\\Samples_18.3.0.47\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj",
+      "projectPath": "D:\\Samples_18.4.0.30\\ASPNETCORE\\samplebrowser\\samplebrowser.csproj",
       "packagesPath": "C:\\Users\\BuildAutomation\\.nuget\\packages\\",
-      "outputPath": "D:\\Samples_18.3.0.47\\ASPNETCORE\\samplebrowser\\obj\\",
+      "outputPath": "D:\\Samples_18.4.0.30\\ASPNETCORE\\samplebrowser\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -15745,79 +15788,79 @@
           },
           "Syncfusion.Compression.Net.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.DocIO.Net.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.DocIORenderer.Net.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.EJ.AspNet.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.EJ.Export": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.EJ.Pivot": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.EJ.ReportDesigner.AspNet.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.EJ.ReportViewer.AspNet.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.Licensing": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.OfficeChart.Net.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.PMML.Net.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.Pdf.Imaging.Net.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.Pdf.Net.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.Presentation.Net.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.PresentationRenderer.Net.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.Report.Net.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.SkiaSharpHelper.Net.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.XlsIO.Net.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           },
           "Syncfusion.XlsIORenderer.Net.Core": {
             "target": "Package",
-            "version": "[18.3.0.47, )"
+            "version": "[18.4.0.30, )"
           }
         },
         "imports": [
