@@ -1,0 +1,216 @@
+@section SampleHeading{
+    <span class="sampleName">ListBox / Methods</span>}
+@section MetaTags{
+    <meta name="description" content="This example demonstrates how to enable or disable, add or remove, and select or unselect the Syncfusion ASP.NET Core ListBox component items.">
+}
+@section ControlsSection{
+    <div class="control frame">
+        <div class="ctrllabel">
+            Select a skill
+        </div>
+        <ej-list-box id="SkillSelect" datasource="ViewBag.datasource" allow-multi-selection="true">
+            <e-list-box-fields text="text" value="text" />
+        </ej-list-box>        
+    </div>
+}
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-3">Enable/Disable All</div>
+        <div class="col-md-3">
+            <ej-toggle-button id="togbtn" width="105px" default-text="Disable" active-text="Enable" click="onEnableDiasableAll" />            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Remove Item</div>
+        <div class="col-md-3">
+            <ej-button id="removebtn" width="107px" text="Remove Item" click="remove" />            
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <input id="additem" style="width: 95px" class="ejinputtext" type="text" value="Java" />
+        </div>
+        <div class="col-md-3">
+            <ej-button id="addbtn" width="107px" text="Add Item" click="add" />            
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <input id="selects" style="width: 95px" class="ejinputtext" type="text" value="3,4" />
+        </div>
+        <div class="col-md-3">
+            <ej-button id="selectitems" width="107px" text="Select Items by Indices" click="selects" />            
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-3">
+            <input id="unselects" style="width: 95px" class="ejinputtext" type="text" value="3,4" />
+        </div>
+        <div class="col-md-3">
+            <ej-button id="unselectitems" width="107px" text="Unselect Items by Indices" click="unselects" />           
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-3">CheckBox Visibility</div>
+        <div class="col-md-3">
+            <ej-toggle-button id="btnshwhid" size="@ButtonSize.Normal" width="107px" default-text="Show" active-text="Hide" click="onShowHide" />            
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <input id="checks" style="width: 95px" class="ejinputtext" type="text" value="3,4" disabled /></div>
+        <div class="col-md-3">
+            <ej-button id="Checks" width="107px" text="Check Items by Indices" click="checks" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-3">
+            <input id="unchecks" style="width: 95px" class="ejinputtext" type="text" value="3,4" disabled /></div>
+        <div class="col-md-3">
+            <ej-button id="Unchecks" width="107px" text="Uncheck Items by Indices" click="unchecks" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <input id="disable" style="width: 95px" class="ejinputtext" type="text" value="2,4,6" />
+        </div>
+        <div class="col-md-3">
+            <ej-button id="DisableItems" width="107px" text="Disable Items by Indices" click="disable" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-3">
+            <input id="enable" style="width: 95px" class="ejinputtext" type="text" value="2,4" />
+        </div>
+        <div class="col-md-3">
+            <ej-button id="EnableItems" width="107px" text="Enable Items by Indices" click="enable" />            
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        $(function () {
+            ListboxObj = $('#SkillSelect').data("ejListBox");
+            CheckedObj = $("#Checks").data("ejButton");
+            UnCheckObj = $('#Unchecks').data("ejButton");
+            $("#sampleProperties").ejPropertiesPanel();
+            if (!ListboxObj.option('showCheckbox')) {
+                CheckedObj.disable();
+                UnCheckObj.disable();
+            }
+        });
+        function add(e) {
+            var target = $('#SkillSelect').data("ejListBox");
+            var value = $("#additem").val() ;
+            target.addItem(value);
+        }
+
+        function remove(e) {
+            var target = $('#SkillSelect').data("ejListBox");
+            target.removeSelectedItems();
+        }
+        function onEnableDiasableAll(args) {
+            var target = $('#SkillSelect').data("ejListBox");
+            if (args.isChecked){
+                target.disable();
+		$(".ctrllabel").css("opacity",0.5);
+		}		
+            else{
+                target.enable();
+		$(".ctrllabel").css("opacity",1);
+		}
+        }
+
+        function selects(e) {
+            var target = $('#SkillSelect').data("ejListBox");
+            var value = $("#selects").val();
+            target.selectItemsByIndex(value);
+        }
+        function unselects(e) {
+            var target = $('#SkillSelect').data("ejListBox");
+            var value = $("#unselects").val();
+            target.unselectItemsByIndex(value);
+        }
+        function disable(e) {
+            var target = $('#SkillSelect').data("ejListBox");
+            var value = $("#disable").val();
+            if (value != "")
+                target.disableItemsByIndices(value);
+            else alert("Please enter the item index");
+        }
+        function enable(e) {
+            var target = $('#SkillSelect').data("ejListBox");
+            var value = $("#enable").val();
+            if (value != "")
+                target.enableItemsByIndices(value);
+            else alert("Please enter the item index");
+        }
+        function onShowHide(args) {
+            ListboxObj = $('#SkillSelect').data("ejListBox");
+            CheckedObj = $("#Checks").data("ejButton");
+            UnCheckObj = $('#Unchecks').data("ejButton");
+            SelectObj = $("#selectitems").data("ejButton");
+            UnSelectObj = $('#unselectitems').data("ejButton");
+            if (args.isChecked) {
+                ListboxObj.option("showCheckbox", true);
+                CheckedObj.enable();
+                UnCheckObj.enable();
+                SelectObj.disable();
+                UnSelectObj.disable();
+                $("#unselects").attr("disabled", "true");
+                $("#selects").attr("disabled", "true");
+                $("#checks").removeAttr("disabled");
+                $("#unchecks").removeAttr("disabled");
+            }
+            else {
+                ListboxObj.option("showCheckbox", false);
+                CheckedObj.disable();
+                UnCheckObj.disable();
+                SelectObj.enable();
+                UnSelectObj.enable();
+                $("#unselects").removeAttr("disabled");
+                $("#selects").removeAttr("disabled");
+                $("#checks").attr("disabled", "true");
+                $("#unchecks").attr("disabled", "true");
+            }
+        }
+        function checks(e) {
+            var target = $('#SkillSelect').data("ejListBox");
+            value = $("#checks").val();
+            if (value != "") {
+                target.checkItemsByIndices(value);
+            }
+            else alert("Please enter the item index");
+        }
+        function unchecks(e) {
+            var target = $('#SkillSelect').data("ejListBox");
+            value = $("#unchecks").val();
+            if (value != "") {
+                target.uncheckItemsByIndices(value);
+            }
+            else alert("Please enter the item index");
+        }
+    </script>
+}
+@section StyleSection{
+    <style type="text/css" class="cssStyles">
+        .ctrllabel {
+            padding: 0px 0px 12px 3px;
+            font-weight: 600;
+        }
+
+        .e-ddl-popup {
+            margin: 0 auto;
+        }
+
+    </style>
+}

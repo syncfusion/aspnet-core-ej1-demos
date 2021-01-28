@@ -1,0 +1,133 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization;
+
+@section SampleHeading{<span class="sampleName">Chart / Line Chart </span>}
+
+@section ControlsSection{
+    <div id="Tooltip" style="display: none;">
+        <div id="icon">
+            <div id="eficon"></div>
+        </div>
+        <div id="value">
+            <div>
+                <span id="efpercentage">#point.y#</span><br />
+                <span id="ef">Efficiency</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <ej-chart id="container" can-resize="true" load="loadTheme">
+            <e-primary-x-axis>
+                <e-title text="Year"></e-title>
+                <e-range max="2011" min="2005" interval="1"></e-range>
+            </e-primary-x-axis>
+            <e-primary-y-axis range-padding="@ChartRangePadding.None" label-format="{value}%">
+                <e-title text="Efficiency"></e-title>
+                <e-range min="25" max="50" interval="5"></e-range>
+            </e-primary-y-axis>
+            <e-title text="Efficiency of oil-fired power production"></e-title>
+            <e-size height="600"></e-size>
+            <e-legend visible="true"></e-legend>
+            <e-common-series-options type="@SeriesType.Line" enable-animation="true">
+                <e-marker shape="@ChartShape.Circle" visible="true">
+                    <e-border width="2"></e-border>
+                    <e-Size height="10" width="10"></e-Size>
+                </e-marker>
+            </e-common-series-options>
+            <e-chart-series>
+                <e-series name="India">
+                    <e-chart-tooltip visible="true" template="Tooltip"></e-chart-tooltip>
+                    <e-points>
+                        <e-point x="2005" y="28"></e-point>
+                        <e-point x="2006" y="25"></e-point>
+                        <e-point x="2007" y="26"></e-point>
+                        <e-point x="2008" y="27"></e-point>
+                        <e-point x="2009" y="32"></e-point>
+                        <e-point x="2010" y="35"></e-point>
+                        <e-point x="2011" y="30"></e-point>
+                    </e-points>
+                </e-series>
+                <e-series name="Germany">
+                    <e-chart-tooltip visible="true" template="Tooltip"></e-chart-tooltip>
+                        <e-points>
+                            <e-point x="2005" y="31"></e-point>
+                            <e-point x="2006" y="28"></e-point>
+                            <e-point x="2007" y="30"></e-point>
+                            <e-point x="2008" y="36"></e-point>
+                            <e-point x="2009" y="36"></e-point>
+                            <e-point x="2010" y="39"></e-point>
+                            <e-point x="2011" y="37"></e-point>
+                        </e-points>
+</e-series>
+                <e-series name="England">
+                    <e-chart-tooltip visible="true" template="Tooltip"></e-chart-tooltip>
+                    <e-points>
+                        <e-point x="2005" y="36"></e-point>
+                        <e-point x="2006" y="32"></e-point>
+                        <e-point x="2007" y="34"></e-point>
+                        <e-point x="2008" y="41"></e-point>
+                        <e-point x="2009" y="42"></e-point>
+                        <e-point x="2010" y="42"></e-point>
+                        <e-point x="2011" y="43"></e-point>
+                    </e-points>
+                </e-series>
+                <e-series name="France">
+                    <e-chart-tooltip visible="true" template="Tooltip"></e-chart-tooltip>
+                    <e-points>
+                        <e-point x="2005" y="39"></e-point>
+                        <e-point x="2006" y="36"></e-point>
+                        <e-point x="2007" y="40"></e-point>
+                        <e-point x="2008" y="44"></e-point>
+                        <e-point x="2009" y="45"></e-point>
+                        <e-point x="2010" y="48"></e-point>
+                        <e-point x="2011" y="46"></e-point>
+                    </e-points>
+                </e-series>
+            </e-chart-series>
+        </ej-chart>
+        <script>
+            $("#controlarea").css("visibility", "visible");
+        </script>
+    </div>
+}
+@section StyleSection
+{
+    <style class="cssStyles">
+        .tooltipDivcontainer {
+            background-color: #E94649;
+            color: white;
+            width: 130px;
+        }
+
+        #Tooltip > div:first-child {
+            float: left;
+        }
+
+        #Tooltip #value {
+            float: right;
+            height: 50px;
+            width: 63px;
+        }
+
+            #Tooltip #value > div {
+                margin: 5px 5px 5px 5px;
+            }
+
+        #Tooltip #efpercentage {
+            font-size: 20px;
+            font-family: segoe ui;
+        }
+
+        #Tooltip #ef {
+            font-size: 12px;
+            font-family: segoe ui;
+        }
+
+        #eficon {
+            background-image: url("../images/chart/eficon.png");
+            height: 60px;
+            width: 60px;
+            background-repeat: no-repeat;
+        }
+    </style>
+}

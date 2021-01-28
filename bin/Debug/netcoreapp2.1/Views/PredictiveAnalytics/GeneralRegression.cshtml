@@ -1,0 +1,46 @@
+﻿@using Syncfusion.JavaScript;
+@section SampleHeading{<span class="sampleName"> PredictiveAnalytics/GeneralRegression</span>}
+@section ControlsSection{
+    @{Html.EJ().Grid<object>("resultGrid")
+                .Datasource((IEnumerable<object>)ViewBag.datasource)
+                .AllowSorting()
+                .AllowPaging()
+                .IsResponsive()
+                .MinWidth(700)
+                .Columns(col =>
+                {
+                  col.Field("ID").HeaderText("ID").IsPrimaryKey(true).TextAlign(TextAlign.Right).Width(100).Add();
+                  col.Field("Age").HeaderText("Age").TextAlign(TextAlign.Right).Width(100).Add();
+                  col.Field("Employment").HeaderText("Employment").Width(120).Add();
+                  col.Field("Education").HeaderText("Education").Width(100).Add();
+                  col.Field("Marital").HeaderText("Marital").Width(170).Add();
+                  col.Field("Occupation").HeaderText("Occupation").Width(100).Add();
+                  col.Field("Income").HeaderText("Income").TextAlign(TextAlign.Right).Width(100).Add();
+                  col.Field("Sex").HeaderText("Sex").Width(100).Add();
+                  col.Field("Deductions").HeaderText("Deductions").TextAlign(TextAlign.Right).Width(100).Add();
+                  col.Field("Hours").HeaderText("Hours").TextAlign(TextAlign.Right).Width(100).Add();
+                  col.Field("Accounts").HeaderText("Accounts").Width(100).Add();
+                  col.Field("Adjustment").HeaderText("Adjustment").TextAlign(TextAlign.Right).Width(100).Add();
+                  col.Field("Adjusted").HeaderText("Adjusted").TextAlign(TextAlign.Right).Width(100).Add();
+                  col.Field("Predicted_Adjusted").HeaderText("Predicted_Adjusted").TextAlign(TextAlign.Right).Width(150).CssClass("predictedColumnColor").Add();
+                  col.Field("AuditLowriskProbability").HeaderText("AuditLowriskProbability").TextAlign(TextAlign.Right).Width(200).CssClass("predictedColumnColor").Add();
+                  col.Field("AuditHighriskProbability").HeaderText("AuditHighriskProbability").TextAlign(TextAlign.Right).Width(200).CssClass("predictedColumnColor").Add();
+                })
+                .AllowScrolling(true)
+                .Render();
+    }
+
+}
+
+<style>
+    .predictedColumnColor {
+        background-color: #d6d3d1 !important;
+    }	
+	.e-grid .e-headercelldiv {
+        text-overflow: unset !important;
+    }
+    .e-grid .e-textover .e-headercelldiv {
+        text-overflow: unset !important;
+    }
+</style>
+

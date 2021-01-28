@@ -1,0 +1,154 @@
+﻿@section SampleHeading{<span class="sampleName">TreeView / Keyboard </span>}
+@section ControlsSection{
+
+    <div style="width: 250px">
+        <ej-tree-view id="tree" show-checkbox="true" allow-editing="true">
+            <e-tree-view-items>
+                <e-tree-view-item text="Cricket" expanded="true">
+                    <e-tree-view-child-items>
+                        <e-tree-view-child-item text="Princeton Club"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Harverd Club"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="st.Columbia Club"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Dartmouth Club"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Middlebury Club"></e-tree-view-child-item>
+                    </e-tree-view-child-items>
+                </e-tree-view-item>
+                <e-tree-view-item text="Basketball">
+                    <e-tree-view-child-items>
+                        <e-tree-view-child-item text="AGE Halkida"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Iraklio"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Sporting Athens"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Pagrati Athens"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Lodon colney"></e-tree-view-child-item>
+                    </e-tree-view-child-items>
+                </e-tree-view-item>
+                <e-tree-view-item text="Football">
+                    <e-tree-view-child-items>
+                        <e-tree-view-child-item text="A.F.C Blackpool"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="A.F.C Emley"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Bedford"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Farsley"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Rangers"></e-tree-view-child-item>
+                    </e-tree-view-child-items>
+                </e-tree-view-item>
+                <e-tree-view-item text="Volleyball">
+                    <e-tree-view-child-items>
+                        <e-tree-view-child-item text="CV Elche"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Jusan Canarias"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Unicaja Arukasur"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Voleibol Benidorm"></e-tree-view-child-item>
+                    </e-tree-view-child-items>
+                </e-tree-view-item>
+            </e-tree-view-items>
+        </ej-tree-view>
+       
+    </div>
+}
+
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-3">
+            Alt + j
+        </div>
+        <div class="col-md-3">
+            Focus the control
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            F2
+        </div>
+        <div class="col-md-3">
+            Edit the node
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Delete
+        </div>
+        <div class="col-md-3">
+            Delete the node
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Down
+        </div>
+        <div class="col-md-3">
+            Traverse next node
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Up
+        </div>
+        <div class="col-md-3">
+            Traverse previous node
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Right
+        </div>
+        <div class="col-md-3">
+            Expand node / Traverse first child
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Left
+        </div>
+        <div class="col-md-3">
+            Collapse node
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Enter
+        </div>
+        <div class="col-md-3">
+            Select node
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Space
+        </div>
+        <div class="col-md-3">
+            Check / Uncheck node
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Home
+        </div>
+        <div class="col-md-3">
+            Traverse the first node in Tree
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            End
+        </div>
+        <div class="col-md-3">
+            Traverse the last node in tree
+        </div>
+    </div>    
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        $(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+            //Control focus key
+            $(document).on("keydown", function (e) {
+                if (e.altKey && e.keyCode === 74) {
+                    // j- key code.
+                    $(".e-treeview.e-js").focus();
+                }
+            });
+        });
+
+    </script>
+
+
+}

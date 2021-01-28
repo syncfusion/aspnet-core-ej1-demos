@@ -1,0 +1,68 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Toolbar / Events</span>}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <ej-toolbar id="toolbarEvents" orientation="@Orientation.Horizontal" create="toolbarLoad" item-hover="toolbarChecked" item-leave="toolbarUnChecked" width="100%">
+                <e-toolbar-items>
+                    <e-toolbar-item sprite-css-class="movetofolder" tooltip-text="Mail" />
+                    <e-toolbar-item sprite-css-class="categorize" tooltip-text="Scheduler" />
+                    <e-toolbar-item sprite-css-class="flag" tooltip-text="Calculator" />
+                    <e-toolbar-item sprite-css-class="forward" tooltip-text="Sticky Notes" />
+                    <e-toolbar-item sprite-css-class="newmail" tooltip-text="Calender" />
+                    <e-toolbar-item sprite-css-class="reply" tooltip-text="Notes" />
+                    <e-toolbar-item sprite-css-class="done" tooltip-text="Delete" />                                     
+                </e-toolbar-items>
+            </ej-toolbar>
+      
+        </div>
+    </div>
+}
+@section EventsDropdown{
+    <ej-drop-down-list id="selectControls_input" target-id="evntname" show-checkbox="true" check-all="true" change="evtpropscheckedevent">  
+    </ej-drop-down-list>
+    <div id="evntname">
+        <ul>
+            <li>click</li>
+            <li>itemHover</li>
+            <li>itemLeave</li>
+        </ul>
+    </div>
+}
+@section StyleSection{
+    <link href="@Url.Content("~/css/Samples/ToolbarEvents.css")" rel="stylesheet" />
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        var toolbarObj;
+        function toolbarLoad(args) {
+            jQuery.addEventLog("Toolbar control has been <span class='eventTitle'>created </span>.");
+        }
+        function toolbarClick(args) {
+            jQuery.addEventLog("Toolbar item is <span class='eventTitle'>clicked </span>.");
+        }
+        function toolbarChecked(args) {
+            jQuery.addEventLog("Mouse pointer <span class='eventTitle'>hovered on</span> toolbar item. </br>");
+        }
+        function toolbarUnChecked(args) {
+            jQuery.addEventLog("Mouse pointer <span class='eventTitle'>hovered away</span> from toolbar item. </br>");
+        }
+
+        function onClear() {
+            jQuery.clearEventLog();
+        }
+        function evtpropscheckedevent(args) {
+            toolbarObj = $("#toolbarEvents").data("ejToolbar");
+            if (args.isChecked) {
+                switch (args.selectedText) {
+                    case "create": toolbarObj.option(args.selectedText, "toolbarLoad"); break;
+                    case "click": toolbarObj.option(args.selectedText, "toolbarClick"); break;
+                    case "itemHover": toolbarObj.option(args.selectedText, "toolbarChecked"); break;
+                    case "itemLeave": toolbarObj.option(args.selectedText, "toolbarUnChecked"); break;
+                }
+            }
+            else toolbarObj.option(args.selectedText, null);
+        }
+    </script>
+}
+

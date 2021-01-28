@@ -1,0 +1,36 @@
+﻿@section SampleHeading{ <span class="sampleName">Dialog / AjaxContent</span>}
+@section MetaTags{
+    <meta name="description" content="This example demonstrates loading the Syncfusion ASP.NET Core Dialog content from another page’s content using Ajax requests.">
+}
+@section ControlsSection{
+
+    <ej-button id="btnOpen" text="Click to open dialog" click="onclick" />
+   
+    <div class="control">
+        <ej-dialog id="ajaxDialog" content-type="ajax" title="Twitter" width="500" containment=".control" content-url="@Url.Content("~/dialog/twitter").ToString()" close="onDialogClose" is-responsive="true"></ej-dialog>        
+    </div>
+}
+@section ScriptSection{
+    <script>
+        $("#btnOpen").hide();
+        function onclick() {
+            $("#ajaxDialog").ejDialog("open");
+            $("#btnOpen").hide();
+        }
+        function onDialogClose(args) {
+            $("#btnOpen").show();
+        }
+    </script>
+}
+@section StyleSection{
+    <style class="cssStyles">
+        .control {
+            height: 500px;
+            position: relative;
+        }
+
+        #ajaxDialog {
+            padding: 10px;
+        }
+    </style>
+}

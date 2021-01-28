@@ -1,0 +1,44 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Autocomplete / Methods</span>}
+@section MetaTags{
+    <meta name="description" content="This example demonstrates how to disable and get the selected value in the Syncfusion ASP.NET Core Autocomplete component.">
+}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+           
+            <ej-autocomplete id="selectCountry" datasource="ViewBag.datasource" width="100%" watermark-text="Select a country">
+                <e-autocomplete-fields key="key" />
+            </ej-autocomplete>
+            
+           
+        </div>
+    </div>
+}
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-12">
+            <ej-toggle-button id="check21" width="105px" default-text="Disable" active-text="Enable"click="changeState"/>
+          </div>
+        <div class="col-md-12">
+            <ej-button id="getValue" width="105px" text="Get value" click="btnClick"/>
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript" class="jsScript">
+        var autocomplete;
+        $(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+            autocomplete = $('#selectCountry').data("ejAutocomplete");
+        });
+        function changeState(args) {
+            autocomplete = $('#selectCountry').data("ejAutocomplete");
+            if (args.isChecked) autocomplete.disable();
+            else autocomplete.enable();
+        }
+        function btnClick() {
+            alert("Current value is : " + autocomplete.getValue());
+        }
+    </script>
+}

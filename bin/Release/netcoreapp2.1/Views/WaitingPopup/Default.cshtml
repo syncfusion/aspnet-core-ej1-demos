@@ -1,0 +1,30 @@
+﻿@section SampleHeading{<span class="sampleName">WaitingPopup / Default</span> }
+
+@section ControlsSection{
+    <div id="target"></div>
+    <ej-waiting-popup id="target" show-on-init ="true" append-to=".cols-sample-area"/> 
+   
+}
+
+
+@section StyleSection{
+    <style type="text/css" class="cssStyles">
+	.cols-sample-area{
+				position:relative;
+			}
+        #target {
+            height: 320px;
+            width: 600px;
+        }
+
+        #target_WaitingPopup {
+            z-index: 5 !important;
+        }
+
+            #target_WaitingPopup .e-image {
+                display: block;
+                height: 70px;
+            }
+    </style>
+    
+}
