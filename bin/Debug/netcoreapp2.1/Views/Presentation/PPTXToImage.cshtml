@@ -1,0 +1,46 @@
+﻿
+@section SampleHeading{
+    <span class="sampleName">Presentation / PPTXToImage</span>
+}
+
+@section ControlsSection{
+    @{Html.BeginForm("PPTXToImage", "Presentation", FormMethod.Post);
+        {
+    <div class="Common">
+        <div class="tablediv">
+            <div class="rowdiv">
+                This sample demonstrates how to convert the PowerPoint slide to an image.
+                <br />
+                &nbsp;
+                <div class="rowdiv" style="border-width: 0.5px;border-style:solid; border-color: lightgray; padding: 1px 5px 7px 5px">
+                    Click the button to convert the first slide of the PowerPoint presentation to an image by using Essential Presentation.
+                    <br />
+                    <div class="rowdiv" style="margin-top: 10px">
+                        <div class="rowdiv" style="margin-top: 8px">
+                            <input id="viewtemplate" name="view" class="buttonStyle" type="submit" value="Input Template" style="width: 150px; height: 27px" />
+                            &nbsp;
+                            <input id="generate" name="view" class="buttonStyle" type="submit" value="Convert to Image" style="width:150px;height:27px" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="rowdiv">
+                <b>Features:</b>
+                <br />
+                <ul>
+                    <li>
+                        Convert all slide elements like text, shape, SmartArt diagram, table, etc., along with its formatting
+                    </li>
+                    <li>
+                        Charts in a slide can be converted to image.
+                    </li>
+                    <li>
+                        Slides can be converted to JPEG, PNG formats.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+            Html.EndForm();
+        }}}

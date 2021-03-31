@@ -1,0 +1,95 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization;
+
+@section SampleHeading{<span class="sampleName">Chart / StackingColumn Chart </span>}
+
+@section ControlsSection{
+    <div>
+        <ej-chart id="container" can-resize="true" load="loadTheme">
+            <e-title text="Most Popular Search Engines"></e-title>
+            <e-size height="600"></e-size>
+            <e-legend visible="true"></e-legend>
+            <e-primary-x-axis>
+                <e-title text="Month"></e-title>
+                <e-major-grid-lines visible="false"></e-major-grid-lines>
+            </e-primary-x-axis>
+            <e-primary-y-axis>
+                <e-range max="1800" min="0" interval="200"></e-range>
+                <e-title text="Number of visitors in Millions"></e-title>
+            </e-primary-y-axis>
+            <e-common-series-options type="@SeriesType.StackingColumn" enable-animation="true">
+                <e-chart-tooltip visible="true" format="#series.name#  <br/> #point.x# : #point.y# Million Visitors"></e-chart-tooltip>
+            </e-common-series-options>
+            <e-chart-series>
+                <e-series name="Google">
+                    <e-points>
+                        <e-point x="Jan" y="900"></e-point>
+                        <e-point x="Feb" y="820"></e-point>
+                        <e-point x="Mar" y="880"></e-point>
+                        <e-point x="Apr" y="725"></e-point>
+                        <e-point x="May" y="765"></e-point>
+                        <e-point x="June" y="679"></e-point>
+                        <e-point x="July" y="770"></e-point>
+                        <e-point x="Aug" y="825"></e-point>
+                        <e-point x="Sep" y="704"></e-point>
+                        <e-point x="Oct" y="781"></e-point>
+                        <e-point x="Nov" y="799"></e-point>
+                        <e-point x="Dec" y="882"></e-point>
+                    </e-points>
+                </e-series>
+                <e-series name="Bing">
+                    <e-points>
+                        <e-point x="Jan" y="190"></e-point>
+                        <e-point x="Feb" y="226"></e-point>
+                        <e-point x="Mar" y="194"></e-point>
+                        <e-point x="Apr" y="250"></e-point>
+                        <e-point x="May" y="222"></e-point>
+                        <e-point x="June" y="181"></e-point>
+                        <e-point x="July" y="128"></e-point>
+                        <e-point x="Aug" y="239"></e-point>
+                        <e-point x="Sep" y="268"></e-point>
+                        <e-point x="Oct" y="236"></e-point>
+                        <e-point x="Nov" y="285"></e-point>
+                        <e-point x="Dec" y="199"></e-point>
+                    </e-points>
+                </e-series>
+                <e-series name="Yahoo">
+                    <e-points>
+                        <e-point x="Jan" y="250"></e-point>
+                        <e-point x="Feb" y="145"></e-point>
+                        <e-point x="Mar" y="190"></e-point>
+                        <e-point x="Apr" y="220"></e-point>
+                        <e-point x="May" y="225"></e-point>
+                       <e-point x="June" y="135"></e-point>
+                       <e-point x="July" y="152"></e-point>
+                        <e-point x="Aug" y="216"></e-point>
+                        <e-point x="Sep" y="137"></e-point>
+                        <e-point x="Oct" y="147"></e-point>
+                        <e-point x="Nov" y="242"></e-point>
+                        <e-point x="Dec" y="230"></e-point>
+                    </e-points>
+                </e-series>
+                <e-series name="Ask">
+                    <e-points>
+                        <e-point x="Jan" y="150"></e-point>
+                        <e-point x="Feb" y="120"></e-point>
+                        <e-point x="Mar" y="115"></e-point>
+                        <e-point x="Apr" y="125"></e-point>
+                        <e-point x="May" y="132"></e-point>
+                       <e-point x="June" y="137"></e-point>
+                       <e-point x="July" y="110"></e-point>
+                        <e-point x="Aug" y="126"></e-point>
+                        <e-point x="Sep" y="97"></e-point>
+                        <e-point x="Oct" y="122"></e-point>
+                        <e-point x="Nov" y="85"></e-point>
+                        <e-point x="Dec" y="120"></e-point>
+                    </e-points>
+                </e-series>
+            </e-chart-series>
+        </ej-chart>
+            
+            <script>
+                $("#controlarea").css("visibility", "visible");
+            </script>
+</div>
+}

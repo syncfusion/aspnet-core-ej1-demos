@@ -1,0 +1,28 @@
+﻿@section SampleHeading{
+    <span class="sampleName">SpellCheck / Default Functionalities </span>
+}
+
+@section ControlsSection{
+    <div id="TextArea" contenteditable="true">
+        Facebook is a social networking service headquartered in Menlo Park, California. Its website was launched on February 4, 2004, by Mark Zuckerberg with his Harvard College roommates and fellow students Eduardo, Andrew McCollum, Dustin and Chris Hughes.
+        The fouders had initially limited the websites membrship to Harvard students, but later expanded it to collges in the Boston area, the Ivy League, and Stanford Univrsity. It graually added support for students at various other universities and later to high-school students.
+    </div><br />
+
+    <ej-spell-check id="SpellCheckDialog" controls-to-validate="#TextArea" max-suggestion-count="2">
+        <e-dictionary-settings custom-dictionary-url="//js.syncfusion.com/ejServices/api/SpellCheck/AddToDictionary" dictionary-url="//js.syncfusion.com/ejServices/api/SpellCheck/CheckWords">
+        </e-dictionary-settings>
+        <e-context-menu-settings enable="false"> </e-context-menu-settings>
+    </ej-spell-check>
+    <ej-button id="SpellCheck" width="200px" height="25px" text="Spell check using dialog" click="showDialog" />
+}
+
+@section ScriptSection{
+    <script type="text/javascript">
+        function showDialog() {
+            var spellObj = $("#SpellCheckDialog").data("ejSpellCheck");
+            spellObj.showInDialog();
+        }
+    </script>
+}
+
+

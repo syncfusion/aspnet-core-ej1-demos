@@ -1,0 +1,34 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization;
+@section SampleHeading{<span class="sampleName">Chart / Pyramid Chart </span>}
+
+@section ControlsSection{
+    <div>
+        <ej-chart id="container" can-resize="true" load="loadTheme">
+            <e-title text="Sales Distribution of Car by Region"></e-title>
+            <e-size height="600"></e-size>
+            <e-legend visible="true"></e-legend>
+            <e-chart-series>
+                <e-series name="Newyork"  type="@SeriesType.Pyramid" label-position="@ChartLabelPosition.Outside">
+                    <e-marker>
+                        <e-data-label visible="true" shape="@ChartShape.Rectangle">
+                            <e-font size="15px" color="white" font-weight="@ChartFontWeight.Lighter"></e-font>
+                        </e-data-label>
+                    </e-marker>
+                    <e-points>
+                        <e-point x="India" y="24" text="India 28%"></e-point>
+                        <e-point x="Japan" y="25" text="Japan 25%"></e-point>
+                        <e-point x="Australia" y="20" text="Australia 20%"></e-point>
+                        <e-point x="USA" y="35" text="USA 35%"></e-point>
+                        <e-point x="China" y="23" text="China 23%"></e-point>
+                        <e-point x="Germany" y="27" text="Germany 27%"></e-point>
+                        <e-point x="France" y="22" text="France 22%"></e-point>
+                    </e-points>
+                </e-series>
+            </e-chart-series>
+        </ej-chart>
+        <script>
+            $("#controlarea").css("visibility", "visible");
+        </script>
+</div>
+}
