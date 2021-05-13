@@ -1,0 +1,101 @@
+﻿@section MetaTags{
+   <meta name="description" content="This example demonstrates the pager various properties like pagesize, pagecount,totalpages and totalrecordscount in a ASP.NET Core">
+}
+
+@section SampleHeading{
+    <span class="sampleName">Pager / Methods</span>}
+
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <ej-pager id="pager" page-count="5" page-size="1" is-responsive="true" total-records-count="20" change="pagerChange"></ej-pager>
+         </div>
+    </div>
+}
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-3">
+            Page Count
+        </div>
+        <div class="col-md-3">
+            <ej-numeric-text-box id="pageCount" min-value="1" value="5" width="100px" change="pageChange" />
+         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Current Page</div>
+        <div class="col-md-3">
+            <ej-numeric-text-box id="currentPage" min-value="1" value="1" width="100px" change="currentPageChange" />
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">PageSize</div>
+        <div class="col-md-3">
+            <ej-numeric-text-box id="pageSize" min-value="1" max-value="5" value="1" width="100px" change="pageSizeChange" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Records Count</div>
+        <div class="col-md-3">
+            <ej-numeric-text-box id="recordsCount" min-value="1" value="20" width="100px" change="recrodsCountChange" />
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        $(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+        });
+
+        function pagerChange(args) {
+            pagerObj = $("#pager").ejPager("instance");
+            currentpageObj = $("#currentPage").ejNumericTextbox("instance");
+            currentpageObj.option("value", pagerObj.model.currentPage);
+        }
+        function pageChange(args) {
+            pagerObj = $("#pager").ejPager("instance");
+            pageCountObj = $("#pageCount").ejNumericTextbox("instance");
+            if (args.value < 8) {
+                pagerObj.option("pageCount", args.value);
+            }
+            else {
+                pagerObj.option("pageCount", 8);
+                pageCountObj.option("maxValue", 8);
+            }
+
+        }
+        function currentPageChange(args) {
+            currentpageObj = $("#currentPage").ejNumericTextbox("instance");
+            pagerObj = $("#pager").ejPager("instance");
+            pageCountObj = $("#pageCount").ejNumericTextbox("instance");
+            pagerObj.option("currentPage", args.value);
+            currentpageObj.option("maxValue", pagerObj.model.totalPages);
+
+        }
+
+        function pageSizeChange(args) {
+            currentpageObj = $("#currentPage").ejNumericTextbox("instance");
+            pagerObj = $("#pager").ejPager("instance");
+            pageCountObj = $("#pageCount").ejNumericTextbox("instance");
+            pagerObj.option("pageSize", args.value);
+            currentpageObj.option("maxValue", pagerObj.model.totalPages);
+            pageCountObj.option("maxValue", pagerObj.model.totalPages);
+
+        }
+
+        function recrodsCountChange(args) {
+            pagerObj = $("#pager").ejPager("instance");
+            pageCountObj = $("#pageCount").ejNumericTextbox("instance");
+            currentpageObj = $("#currentPage").ejNumericTextbox("instance");
+            pagerObj.option("totalRecordsCount", args.value);
+            currentpageObj.option("maxValue", pagerObj.model.totalPages);
+            pageCountObj.option("maxValue", pagerObj.model.totalPages);
+        }
+    </script>
+}
+@section StyleSection{
+    <style>
+        .frame {
+            width: 650px;
+        }
+    </style>
+}

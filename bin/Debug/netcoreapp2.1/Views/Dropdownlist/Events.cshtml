@@ -1,0 +1,114 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Dropdownlist / Events</span>}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <ej-drop-down-list id="selectCompany"  show-checkbox="true" width="100%" popup-width="300px" enable-filter-search="true" enable-popup-resize="true" create="drpcreate" popup-hide="drppopuphide" popup-shown="drppopupshow" before-popup-shown="drpbeforepopupshow" change="drpvaluechange" select="drpselectchange" search="drpsearch" action-complete="drpactionComplete" action-failure="drpactionFailure" action-success="drpactionSuccess" databound="drpdataBound" popup-resize-start="drppopupResizeStart" popup-resize="drppopupResize" popup-resize-stop="drppopupResizeStop" watermark-text="Select a company"> 
+                <e-datamanager url="//js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Customers" cross-domain="true"></e-datamanager>
+                <e-drop-down-list-fields text="CompanyName" value="ContactName" />
+            </ej-drop-down-list>
+         
+        </div>
+    </div>
+}
+@section EventsDropdown{
+    <ej-drop-down-list id="selectControls_input" target-id="evntname" width="160px" show-checkbox="true" check-all="true" change="evtpropscheckedevent">
+ </ej-drop-down-list> 
+    <div id="evntname">
+        <ul>
+            <li value="change">change</li>
+            <li value="select">select</li>
+            <li value="popupHide">popupHide</li>
+            <li value="popupShown">popupShown</li>
+            <li value="beforePopupShown">beforeShown</li>
+            <li value="search">search</li>           
+            <li value="actionComplete">actionComplete</li>
+            <li value="actionFailure">actionFailure</li>
+            <li value="actionSuccess">actionSuccess</li>           
+            <li value="dataBound">dataBound</li>
+            <li value="popupResizeStart">popupResizeStart</li>
+            <li value="popupResize">popupResize</li>
+            <li value="popupResizeStop">popupResizeStop</li>
+        </ul>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        var target;
+        function drpcreate(sender) {
+            jQuery.addEventLog("Dropdown control has been <span class='eventTitle'>created</span>.<br/>");
+        }
+        function drppopuphide(sender) {
+            jQuery.addEventLog("Dropdown popup is <span class='eventTitle'>closed</span>.<br/>");
+        }
+        function drppopupshow(sender) {
+            jQuery.addEventLog("Dropdown popup is <span class='eventTitle'>opened</span>.<br/>");
+        }
+        function drpbeforepopupshow(sender) {
+            jQuery.addEventLog("<span class='eventTitle'>BeforePopupShow</span> event is triggered.<br/>");
+        }
+        function drpvaluechange(sender) {
+            jQuery.addEventLog("<span class='eventTitle'>Value has changed</span> to " + sender.value + ".<br/>");
+        }
+        function drpselectchange(sender) {
+            jQuery.addEventLog(sender.text + " is <span class='eventTitle'>selected</span>.<br/>");
+        }
+        function drpsearch(sender) {
+            jQuery.addEventLog(sender.searchString + " is <span class='eventTitle'>searched</span>.<br/>");
+        }
+        function drpdataBound(sender) {
+            jQuery.addEventLog("The value is <span class='eventTitle'>Bounded</span>.<br/>");
+        }
+        function drppopupResizeStart(sender) {
+            jQuery.addEventLog("Dropdown control popup<span class='eventTitle'>Resizing has started</span>.<br/>");
+        }
+        function drppopupResize(sender) {
+            jQuery.addEventLog("Dropdown control Popup <span class='eventTitle'>is Resizing</span>.<br/>");
+        }
+        function drppopupResizeStop(sender) {
+            jQuery.addEventLog("Dropdown control popup <span class='eventTitle'>Resizing has stopped</span>.<br/>");
+        }
+        function drpactionComplete(sender) {
+            jQuery.addEventLog("The data fetching action is <span class='eventTitle'>Complete</span>.<br/>");
+        }
+        function drpactionFailure(sender) {
+            jQuery.addEventLog("The data fetching action is <span class='eventTitle'>Failure</span>.<br/>");
+        }
+        function drpactionSuccess(sender) {
+            jQuery.addEventLog("The data fetching action is <span class='eventTitle'>Success</span>.<br/>");
+        }
+        function onClear() {
+            jQuery.clearEventLog();
+        }
+
+        function evtpropscheckedevent(args) {
+            target = $("#selectCompany").data("ejDropDownList");
+            if (args.isChecked) {
+                switch (args.selectedValue) {
+                    case "create":
+                        target.option(args.selectedValue, "drpcreate");
+                        break;
+                    case "popupHide":
+                        target.option(args.selectedValue, "drppopuphide");
+                        break;
+                    case "change": target.option(args.selectedValue, "drpvaluechange"); break;
+                    case "select": target.option(args.selectedValue, "drpselectchange"); break;
+                    case "popupShown": target.option(args.selectedValue, "drppopupshow"); break;
+                    case "beforePopupShown": target.option(args.selectedValue, "drpbeforepopupshow"); break;                  
+                    case "search": target.option(args.selectedValue, "drpsearch"); break;                                     
+                    case "dataBound": target.option(args.selectedValue, "drpdataBound"); break;
+                    case "actionComplete": target.option(args.selectedValue, "drpactionComplete"); break;
+                    case "actionFailure": target.option(args.selectedValue, "drpactionFailure"); break;
+                    case "actionSuccess": target.option(args.selectedValue, "drpactionSuccess"); break;
+                    case "popupResizeStart": target.option(args.selectedValue, "drppopupResizeStart"); break;
+                    case "popupResize": target.option(args.selectedValue, "drppopupResize"); break;
+                    case "popupResizeStop": target.option(args.selectedValue, "drppopupResizeStop"); break;
+                }
+            }
+            else {
+                target.option(args.selectedValue, null);
+            }
+        }
+    </script>
+}
+

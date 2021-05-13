@@ -1,0 +1,28 @@
+﻿@section SampleHeading{ <span class="sampleName">Slider / Rtl</span>}
+
+@section ControlsSection{
+
+    <div class="frame">
+        <div class="txt">Range</div>
+        <ej-slider id="slider2rtl" slider-type="@SlideType.Range" values="30,70" enable-rtl="true" />
+        <br />
+        <br />
+        <div class="txt">Min-Range</div>
+        <ej-slider id="slider1rtl" slider-type="@SlideType.MinRange" value="60" enable-rtl="true" />
+    </div>
+
+}
+@section StyleSection{
+    <style type="text/css" class="cssStyles">
+        .frame {
+            width: 50%;
+        }
+
+        .txt {
+            direction: rtl;
+            font-size: 15px;
+            margin-bottom: 13px;
+            text-align: right;
+        }
+    </style>
+}

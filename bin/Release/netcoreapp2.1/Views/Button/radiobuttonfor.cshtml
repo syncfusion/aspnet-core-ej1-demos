@@ -1,0 +1,57 @@
+﻿@section MetaTags{
+   <meta name="description" content="RadioButton for ASP.NET Core with the strongly typed extension support. Value is set from the code behind by invoking RadioButtonFor helper">
+}
+
+@section SampleHeading{
+    <span class="sampleName">Button / RadioButtonFor</span>}
+
+
+@model samplebrowser.Controllers.ButtonController.radioModel
+
+
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <div class="radioalign">
+                <br />
+                Category<br />
+                <br />
+                <table>
+                    <tr>
+                        <td class="chkrad">
+                            <ej-radio-button  id="Radio1" name="small" ej-for="@Model.isChecked" size="@RadioButtonSize.Small" checked="true" enabled="true" text="Fresher" value="Fresher" />
+                        </td>
+                        <td class="chkrad" colspan="2">
+                            <ej-radio-button  id="Radio3" name="small" ej-for="@Model.isChecked"  size="@RadioButtonSize.Small" checked="false" enabled="true" text="Experienced" value="Experienced" />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                Experienced<br />
+                <br />
+                <table>
+                    <tr>
+                        <td class="chkrad">
+                            <ej-radio-button  id="Radio2" name="medium" size="@RadioButtonSize.Medium" checked="true" enabled="true" text="1+ years" value="1+ years" />
+                        </td>
+                        <td class="chkrad">
+                            <ej-radio-button  id="Radio4" name="medium" size="@RadioButtonSize.Medium" checked="false" enabled="true" text="2.5+years" value="2.5+years" />
+                        </td>
+                        <td>
+                            <ej-radio-button  id="Radio5" name="medium" size="@RadioButtonSize.Medium" checked="false" enabled="true" text="5+years" value="5+years" />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+            </div>
+        </div>
+    </div>
+}
+@section StyleSection{
+    <style>
+        .frame {
+            width: 50%;
+        }
+    </style>
+}

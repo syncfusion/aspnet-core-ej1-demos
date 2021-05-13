@@ -1,0 +1,17 @@
+﻿@using Syncfusion.JavaScript;
+
+@section SampleHeading{<span class="sampleName"> ReportViewer/Territory Sales</span>}
+@section ControlsSection{
+    <ej-report-viewer id="reportviewer1" report-service-url="../ReportViewer" report-path="Territory Sales.rdl" report-print="onReportPrint"/>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+            function onReportPrint(args) {               
+                args.isStyleLoad = false;
+                var data = $("#reportviewer1").data('ejReportViewer');
+                if (data._browserInfo.name != "msie") {
+                    args.printWind.printDelay = 2000;
+                }
+            }
+    </script>
+}

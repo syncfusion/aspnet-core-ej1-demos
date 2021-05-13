@@ -1,0 +1,253 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization.DiagramEnums;
+@section SampleHeading{ <span class="sampleName">Diagram / Default Functionalities</span>}
+@section MetaTags{
+    <meta name="description" content="This sample demonstrates ASP.NET CORE diagram's tooltip functionality and its customization in the diagram.">
+}
+@section ControlsSection{
+    <ej-diagram id="diagram" width="700px" height="560px" enable-context-menu="false">
+        <e-snap-settings snap-constraints="None">
+        </e-snap-settings>
+        <e-page-settings scroll-limit="@ScrollLimit.Diagram"></e-page-settings>
+        <e-nodes>
+            <e-bpmn-node name="node1" width="60" add-info="ViewBag.tipone" height="60" offset-X="35" offset-Y="90" shape="Event" event="Start" trigger="Message">
+                <e-labels>
+                    <e-diagram-label text="Customer query"></e-diagram-label>
+                </e-labels>
+            </e-bpmn-node>
+            <e-bpmn-node name="node2" add-info="ViewBag.tiptwo" width="75" height="70" offset-X="140" offset-Y="90" shape="Gateway">
+                <e-labels>
+                    <e-diagram-label text="Enough details?">
+                        <e-offset x="0.50f" y="0.50f"></e-offset>
+                    </e-diagram-label>
+                </e-labels>
+            </e-bpmn-node>
+            <e-bpmn-node name="node3" add-info="ViewBag.tipthree" width="60" height="50" offset-X="265" offset-Y="90" shape="Activity" activity="Task">
+                <e-labels>
+                    <e-diagram-label text="Analyse">
+                        <e-offset x="0.50f" y="0.50f"></e-offset>
+                    </e-diagram-label>
+                </e-labels>
+            </e-bpmn-node>
+            <e-bpmn-node name="node4" width="75" height="70" offset-X="370" offset-Y="90" shape="Gateway" gateway="Exclusive" constraints="Default &~ NodeConstraints.InheritTooltip">
+            </e-bpmn-node>
+            <e-bpmn-node name="node5" add-info="ViewBag.tipfour" width="75" height="70" offset-X="520" offset-Y="90" shape="Gateway">
+                <e-labels>
+                    <e-diagram-label text="Validate">
+                        <e-offset x="0.50f" y="0.50f"></e-offset>
+                    </e-diagram-label>
+                </e-labels>
+            </e-bpmn-node>
+            <e-bpmn-node name="node6" add-info="ViewBag.tipfive" width="60" height="60" offset-X="645" offset-Y="90" shape="Event" event="End" trigger="Message">
+            </e-bpmn-node>
+            <e-bpmn-node name="node7" add-info="ViewBag.tipsix" width="60" height="50" offset-X="140" offset-Y="200" shape="Activity" activity="Task">
+                <e-task type="Send"></e-task>
+                <e-labels>
+                    <e-diagram-label text="Request">
+                        <e-offset x="0.5f" y="0.5f"></e-offset>
+                    </e-diagram-label>
+                </e-labels>
+            </e-bpmn-node>
+            <e-bpmn-node name="node8" add-info="ViewBag.tipseven" width="60" height="60" offset-X="370" offset-Y="200" shape="Event" event="End" trigger="Message">
+            </e-bpmn-node>
+            <e-bpmn-node name="node9" add-info="ViewBag.tipeight" width="70" height="50" offset-X="520" offset-Y="200" shape="Activity" activity="Task">
+                <e-labels>
+                    <e-diagram-label text="Log bug/feature">
+                        <e-offset x="0.5f" y="0.5f"></e-offset>
+                    </e-diagram-label>
+                </e-labels>
+            </e-bpmn-node>
+            <e-bpmn-node name="node10" add-info="ViewBag.tipnine" width="75" height="55" offset-X="390" offset-Y="300" shape="Activity" activity="SubProcess">
+                <e-subProcess collapsed="false">
+                    <e-events>
+                        <e-event event="Intermediate" trigger="Timer">
+                            <e-offset x="0.5f" y="1"></e-offset>
+                        </e-event>
+                    </e-events>
+                </e-subProcess>
+                <e-labels>
+                    <e-diagram-label text="Implement">
+                        <e-offset x="0.5f" y="0.5f"></e-offset>
+                    </e-diagram-label>
+                </e-labels>
+            </e-bpmn-node>
+            <e-bpmn-node name="node12" add-info="ViewBag.tipten" width="60" height="60" offset-X="265" offset-Y="300" shape="Event" event="End" trigger="Message">
+            </e-bpmn-node>
+            <e-bpmn-node name="node13" add-info="ViewBag.tipeleven" width="60" height="60" offset-X="645" offset-Y="300" shape="Event" event="End" trigger="Message">
+            </e-bpmn-node>
+            <e-bpmn-node name="node14" width="60" height="60" offset-X="520" offset-Y="300" shape="Gateway" gateway="Parallel" constraints="Default &~ NodeConstraints.InheritTooltip">
+            </e-bpmn-node>
+        </e-nodes>
+        <e-connectors>
+            <e-connector name="connector1" source-node="node1" target-node="node2"></e-connector>
+            <e-connector name="connector2" source-node="node2" target-node="node3"></e-connector>
+            <e-connector name="connector3" source-node="node3" target-node="node4"></e-connector>
+            <e-connector name="connector4" source-node="node4" target-node="node5">
+                <e-labels>
+                    <e-diagram-label text="Feature/ Bug" fill-color="white" wrapping="Wrap">
+                        <e-offset x="0.5f" y="0.9f"></e-offset>
+                    </e-diagram-label>
+                </e-labels>
+            </e-connector>
+            <e-connector name="connector5" source-node="node5" target-node="node6">
+                <e-labels>
+                    <e-diagram-label text="Invalid" fill-color="white">
+                        <e-offset x="0.5f" y="0.05f"></e-offset>
+                    </e-diagram-label>
+                </e-labels>
+            </e-connector>
+            <e-connector name="connector6" source-node="node2" target-node="node7"></e-connector>
+            <e-connector name="connector7" source-node="node4" target-node="node8">
+                <e-labels>
+                    <e-diagram-label text="How to?" fill-color="white">
+                        <e-offset x="0.5f" y="0.5f"></e-offset>
+                    </e-diagram-label>
+                </e-labels>
+            </e-connector>
+            <e-connector name="connector8" source-node="node5" target-node="node9"></e-connector>
+            <e-connector name="connector9" source-node="node14" target-node="node13"></e-connector>
+            <e-connector name="connector10" source-node="node7" target-node="node3">
+                <e-segments>
+                    <e-segment type="Orthogonal" length="100" direction="right"></e-segment>
+                    <e-segment type="Orthogonal" length="100" direction="top"></e-segment>
+                </e-segments>
+            </e-connector>
+            <e-connector name="connector11" source-node="node14" target-node="node10"></e-connector>
+            <e-connector name="connector12" source-node="node10" target-node="node12"></e-connector>
+            <e-connector name="connector13" source-node="node9" target-node="node14"></e-connector>
+        </e-connectors>
+        <e-default-settings>
+            <e-node border-color="black">
+                <e-labels><e-diagram-label font-color="black"></e-diagram-label></e-labels>
+            </e-node>
+            <e-connector constraints="Default &~ ConnectorConstraints.InheritTooltip" line-width="1" line-color="black">
+                <e-segments><e-segment type="Orthogonal"></e-segment></e-segments>
+                <e-target-decorator shape="Arrow" border-color="black" width="5" height="10"></e-target-decorator>
+            </e-connector>
+        </e-default-settings>
+        <e-tooltip template-id="mouseovertoolTipId">
+            <e-alignment horizontal="Center" vertical="Bottom"></e-alignment>
+        </e-tooltip>
+    </ej-diagram>
+}
+@section PropertiesSection{
+    <div id="sampleProperties">
+        <div class="prop-grid">
+            <div class="row">
+                <div class="col-md-3">
+                    <b>Tooltip</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 aligntop" style="margin-right:-25px;">
+                    Position
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="tooltip" />
+                    <div id="options">
+                        <ul>
+                            <li value="Object">Object</li>
+                            <li value="Mouse">Mouse</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 aligntop" style="margin-right:-25px;">
+                    Margin
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="margin" />
+                </div>
+            </div>
+            <div class="row"> <div class="col-md-3"> </div> </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <b>Alignment</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 aligntop" style="margin-right:-25px;">
+                    Horizontal
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="horizontalalign" />
+                    <div id="horizontalalignlist">
+                        <ul>
+                            <li value="center">Center</li>
+                            <li value="left">Left</li>
+                            <li value="right">Right</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 aligntop" style="margin-right:-25px;">
+                    Vertical
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="verticalalign" />
+                    <div id="verticalalignlist">
+                        <ul>
+                            <li value="bottom">Bottom</li>
+                            <li value="top">Top</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        $("#sampleProperties").ejPropertiesPanel();
+
+
+
+        $("#tooltip").ejDropDownList({ targetID: "options", text: "Object", value: "value", width: "120px", "change": "changeOptions" });
+        function changeOptions(args) {
+            $("#diagram").ejDiagram({ tooltip: { relativeMode: ej.datavisualization.Diagram.RelativeMode[args.value] } });
+        }
+
+        //Drop down to change the Horizontalalign
+
+        $("#horizontalalign").ejDropDownList({ targetID: "horizontalalignlist", text: "Center", width: "120px", "change": "changeHorizontalAlign" });
+        function changeHorizontalAlign(args) {
+            $("#diagram").ejDiagram({ tooltip: { alignment: { horizontal: args.value } } });
+        }
+
+        //Drop down to change the Verticalalign
+
+        $("#verticalalign").ejDropDownList({ targetID: "verticalalignlist", text: "Bottom", width: "120px", "change": "changeVerticalAlign" });
+        function changeVerticalAlign(args) {
+            $("#diagram").ejDiagram({ tooltip: { alignment: { vertical: args.value } } });
+        }
+
+        //Numeric text box to change the Margin
+
+        $("#margin").ejNumericTextbox({ value: 0, minValue: 0, maxValue: 1000, width: "120px", "change": "changeMargin" });
+        function changeMargin(args) {
+            $("#diagram").ejDiagram({ tooltip: { margin: { left: args.value, right: args.value, top: args.value, bottom: args.value } } });
+        }
+
+        //End region
+
+
+    </script>
+    <script type="text/x-jsrender" id="mouseovertoolTipId">
+        <div style="background-color: #f4f4f4; color: black; border-width:1px;border-style: solid;border-color: #d3d3d3; border-radius: 8px;white-space: nowrap;">
+            <span style="margin: 10px;"> {{:addInfo.Description}} </span>
+        </div>
+    </script>
+
+}
+<style>
+    .svg-rotate-ie:hover {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+
+    .svg-rotate {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+</style>

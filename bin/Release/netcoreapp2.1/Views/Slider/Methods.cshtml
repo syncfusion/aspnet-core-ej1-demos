@@ -1,0 +1,45 @@
+﻿@section SampleHeading{ <span class="sampleName">Slider / Methods</span>}
+
+@section ControlsSection{
+
+    <div class="frame">
+        <ej-slider id="rangeSlider" slider-type="@SlideType.Range" values="20,40" width="315px" />
+    </div>
+}
+@section PropertiesSection{
+
+    <div class="row">
+        <div class="col-md-12">
+            <ej-toggle-button id="check21" width="71px" default-text="Disable" active-text="enable" click="changeState" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ej-button id="GetValue" text="Get Value" click="getValue" />
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script>
+        var target;
+        $(document).ready(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+            target = $("#rangeSlider").data("ejSlider");
+        });
+        function changeState(args) {
+            if (args.isChecked) target.disable();
+            else target.enable();
+        }
+        function getValue() {
+            alert(target.getValue());
+        }
+
+    </script>
+}
+@section StyleSection{
+    <style>
+        .cols-sample-area .frame {
+            width: 50%;
+        }
+    </style>
+}
