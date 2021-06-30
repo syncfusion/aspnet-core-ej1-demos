@@ -1,0 +1,52 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization
+@section SampleHeading{
+    <span class="sampleName">Presentation / PPTXToPDF</span>
+}
+
+@section ControlsSection{
+    @{Html.BeginForm("PPTXToPDF", "Presentation", FormMethod.Post);
+        {
+            <div class="Common">
+                <div class="tablediv">
+                    <div class="rowdiv">
+                        This sample demonstrates how to convert a PowerPoint presentation to PDF.
+                        <br />
+                        &nbsp;
+                        <div class="rowdiv" style="border-width: 0.5px;border-style:solid; border-color: lightgray; padding: 1px 5px 7px 5px">
+                            Click the button to convert the PowerPoint presentation to PDF document by using Essential Presentation and Essential PDF.
+                            <br />
+                            <b>Note:</b> Adobe Reader or its equivalent is required to view the resultant document.
+                            <br />
+                            <div class="rowdiv" style="margin-top: 10px">
+                                <div class="rowdiv" style="margin-top: 8px">
+                                    <input id="viewtemplate" name="view" class="buttonStyle" type="submit" value="Input Template" style="width: 150px; height: 27px" />
+                                    &nbsp;
+                                    <input id="generate" name="view" class="buttonStyle" type="submit" value="Convert to PDF" style="width:150px;height:27px" />
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    <br />
+                    <div class="rowdiv">
+                        <b>Features:</b>
+                        <br />
+                        <ul>
+                            <li>
+                                Convert all slide elements like text, shape, SmartArt diagram, table, etc., along with its formatting.
+                            </li>
+                            <li>
+                                Convert with handouts option.
+                            </li>
+                            <li>
+                                Convert the notes pages to PDF.
+                            </li>
+                            <li>
+                                Converted PDF document size can be optimized.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            Html.EndForm();
+        }}}
