@@ -1,0 +1,20 @@
+﻿@section SampleHeading{<span class="sampleName">Grid / Grouping</span> }
+@section MetaTags{
+    <meta name="description" content="This demo explains the basic functionalities of grouping and how to group a column in the initial rendering of Syncfusion ASP.NET Core DataGrid control">
+}
+@section ControlsSection{
+	@{ 
+        var GroupedCols = new List<string>() { "CustomerID" };
+    }
+    <ej-grid id="FlatGrid" allow-paging="true" allow-grouping="true">
+        <e-group-settings grouped-columns="GroupedCols"></e-group-settings>
+        <e-datamanager url="//js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders/?$top=45" offline="true" cross-domain="true"></e-datamanager>
+        <e-columns>
+            <e-column field="OrderID" header-text="Order ID" is-primary-key="true" text-align="Right" width="75"></e-column>
+            <e-column field="CustomerID" header-text="Customer ID" width="80"></e-column>
+            <e-column field="EmployeeID" header-text="Employee ID" text-align="Right" width="75"></e-column>
+            <e-column field="Freight" header-text="Freight" format="{0:C2}" text-align="Right" width="75"></e-column>
+            <e-column field="ShipCity" header-text="Ship City" width="110"></e-column>
+        </e-columns>
+    </ej-grid>
+}

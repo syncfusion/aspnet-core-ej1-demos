@@ -1,0 +1,45 @@
+﻿@using Syncfusion.JavaScript
+@using Syncfusion.MVC.EJ
+@using Syncfusion.JavaScript.DataVisualization
+@using Syncfusion.JavaScript.DataVisualization.Models
+@section SampleHeading{
+    <span class="sampleName">Map / Heat Map</span>
+}
+@section ControlsSection{
+    <div style="border-width: 2px; opacity: 0.7; width: 290px; text-align: center;">
+        <label style="color: Black; font-size: 22px; height: 25px; font-weight: Normal;">Product Sales by Year</label><br />
+        <label style="color: Black; font-size: 22px; margin-top: -2px; height: 25px; font-weight: Normal;">(In Percentage)</label>
+    </div>
+    <br />
+    <div style="width: 970px; margin: 0 auto; text-align: center;">
+        <ej-heatmap is-responsive="true" id="heatmap" width="950" items-source="ViewBag.itemsource" items-mapping="ViewBag.itemsmapping" legend-collection="ViewBag.legendcollection">
+            <e-colorMappingCollection>
+                <e-color-mapping color="#8ec8f8" value="0">
+                    <e-label text="0"></e-label>
+                </e-color-mapping>
+                <e-color-mapping color="#0d47a1" value="100">
+                    <e-label text="100"></e-label>
+                </e-color-mapping>
+            </e-colorMappingCollection>
+        </ej-heatmap>
+        <div style="height: 15px; width: 100%;"></div>
+        <ej-heatmaplegend is-responsive="true" id="heatmapLegend" width="75%" height="50px" legend-mode="Gradient" orientation="Horizontal">
+            <e-colorMappingCollection>
+                <e-color-mapping color="#8ec8f8" value="0">
+                    <e-label text="0"></e-label>
+                </e-color-mapping>
+                <e-color-mapping color="#0d47a1" value="100">
+                    <e-label text="100"></e-label>
+                </e-color-mapping>
+            </e-colorMappingCollection>
+        </ej-heatmaplegend>
+    </div>
+}
+@section StyleSection
+{
+    <style type="text/css">
+        #heatmapLegend {
+            margin-left: 120px;
+        }
+    </style>
+}

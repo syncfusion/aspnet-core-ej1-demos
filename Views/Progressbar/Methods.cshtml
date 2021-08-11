@@ -1,0 +1,55 @@
+﻿@section SampleHeading{ <span class="sampleName">ProgressBar / Methods</span>}
+
+@section ControlsSection{
+
+    <div class="frame">
+        <div class="control">
+            
+            <ej-progress-bar id="sampleBar" percentage="75" height="18px"/>
+        </div>
+        <div class="txt"></div>
+    </div>
+}
+@section PropertiesSection{
+
+    <div class="row">
+        <div class="col-md-12">            
+            <ej-toggle-button id="btnDisable" width="115px" default-text="Disable" active-text="Enable" click="changeState">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">           
+            <ej-button id="btnPercent" width="115px" text="Get Percentage" click="onGetPercentage"/>
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script>
+        var progressBar;
+        $(document).ready(function () {
+            progressBar = $("#sampleBar").data("ejProgressBar");
+            $('.txt').html(progressBar.getPercentage() + " %");
+        });
+        function changeState(args) {
+            if (args.isChecked) progressBar.disable();
+            else progressBar.enable();
+        }
+        function onGetPercentage() {
+            alert("Progress percentage : " + progressBar.getPercentage());
+        }
+        $(document).ready(function () { $("#sampleProperties").ejPropertiesPanel(); });
+    </script>
+}
+@section StyleSection{
+    <style type="text/css" class="cssStyles">
+        .frame {
+            width: 330px;
+        }
+
+        .txt {
+            font-size: 18px;
+            margin-top: 12px;
+            text-align: center;
+        }
+    </style>
+}
