@@ -1,0 +1,49 @@
+﻿@section MetaTags{
+   <meta name="description" content="This example demonstrates how to change the date format in the input field based on the format in a ASP.NET Core DatePicker">
+}
+
+
+@section ScriptReferenceSection{
+    <script src="@Url.Content("~/Scripts/cultures/ej.culture.en-US.min.js")"></script>
+}
+@section SampleHeading{<span class="sampleName">DatePicker / Format</span> }
+@section ControlsSection{
+    <div class="frame">
+          <div class="control" style="margin-left:35px;">
+            <ej-date-picker  id="DatePick" value="DateTime.Today" date-format="MM/dd/yyyy"></ej-date-picker>
+        </div>
+    </div>
+}
+
+<div id="droplist">
+    <ul>
+        <li>MM/dd/yyyy</li>
+        <li>d M, y</li>
+        <li>d MM, y</li>
+        <li>dddd, d MMMM, yy</li>
+        <li>yyyy-MM-dd</li>
+    </ul>
+</div>
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-3">
+            <span>Select Format</span>
+        </div>
+        <div class="col-md-3">
+            <ej-drop-down-list id="drop" target-id="droplist" width="120px" selected-item-index="0" change="onchange"></ej-drop-down-list>
+        </div>
+    </div>
+
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        $(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+        });
+        function onchange(args) {
+            var datebject = $("#DatePick").data("ejDatePicker");
+            datebject.setModel({ dateFormat: args.text });
+        }
+
+    </script>
+}

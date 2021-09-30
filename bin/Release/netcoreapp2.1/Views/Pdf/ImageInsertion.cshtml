@@ -1,0 +1,34 @@
+﻿@section SampleHeading{
+    <span class="sampleName">PDF / Image Insertion Sample</span>
+}
+
+@section ControlsSection{
+    @{Html.BeginForm("ImageInsertion", "Pdf", FormMethod.Post);
+        {
+            <div class="Common">
+                <div class="tablediv" style = "font-size: 17px;font-weight: 400;">
+                    This sample demonstrates insertion of various raster and vector images (JPEG, PNG, TIFF, EMF, and GIF) in the PDF document.
+                    This sample also demonstrates the image masking capability in the Essential PDF library.
+                </div>
+                <br />
+                <div class="tablediv">
+                    <div class="rowdiv">
+                        <div class="celldiv">
+                            <div>
+                                <input type="submit" class="Button" value="Generate PDF" style="width: 150px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div style="font-size: 17px;font-weight: 400;">
+
+                    It is also possible to rotate and paginate the images in the PDF document.
+                    More information about the images can be found in this documentation <a href="https://help.syncfusion.com/file-formats/pdf/working-with-images">section.</a>
+
+                </div>
+            </div>
+            Html.EndForm();
+        }
+    }
+}

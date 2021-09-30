@@ -1,0 +1,31 @@
+#region Copyright Syncfusion Inc. 2001-2021.
+// Copyright Syncfusion Inc. 2001-2021. All rights reserved.
+// Use of this code is subject to the terms of our license.
+// A copy of the current license can be obtained at any time by e-mailing
+// licensing@syncfusion.com. Any infringement will be prosecuted under
+// applicable laws. 
+#endregion
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using samplebrowser.Models;
+
+// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace samplebrowser.Controllers
+{
+    public partial class ScheduleController : Controller
+    {
+        // GET: /<controller>/
+        public ActionResult Timescale()
+        {
+            ViewBag.majorValue = new List<int>() { 240, 180, 120, 60, 30, 20, 12, 10 };
+            ViewBag.minorValue = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            ViewBag.appointments = new ScheduleData().GetAppData();
+            return View();
+        }
+    }
+}
