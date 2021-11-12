@@ -1,0 +1,236 @@
+﻿@section SampleHeading{<span class="sampleName">TreeView / Methods</span> }
+@section ControlsSection{
+    <div style="width: 250px">
+        <ej-tree-view id="treeView" show-checkbox="true" allow-editing="true">
+            <e-tree-view-items>
+                <e-tree-view-item text="Cricket" expanded="true">
+                    <e-tree-view-child-items>
+                        <e-tree-view-child-item text="Princeton Club"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Harverd Club"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="st.Columbia Club"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Dartmouth Club"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Middlebury Club"></e-tree-view-child-item>
+                    </e-tree-view-child-items>
+                </e-tree-view-item>
+                <e-tree-view-item text="Basketball">
+                    <e-tree-view-child-items>
+                        <e-tree-view-child-item text="AGE Halkida"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Iraklio"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Sporting Athens"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Pagrati Athens"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Lodon colney"></e-tree-view-child-item>
+                    </e-tree-view-child-items>
+                </e-tree-view-item>
+                <e-tree-view-item text="Football">
+                    <e-tree-view-child-items>
+                        <e-tree-view-child-item text="A.F.C Blackpool"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="A.F.C Emley"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Bedford"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Farsley"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Rangers"></e-tree-view-child-item>
+                    </e-tree-view-child-items>
+                </e-tree-view-item>
+                <e-tree-view-item text="Volleyball">
+                    <e-tree-view-child-items>
+                        <e-tree-view-child-item text="CV Elche"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Jusan Canarias"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Unicaja Arukasur"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Voleibol Benidorm"></e-tree-view-child-item>
+                    </e-tree-view-child-items>
+                </e-tree-view-item>
+            </e-tree-view-items>
+        </ej-tree-view>
+
+       
+    </div>
+}
+
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-3">
+            Expand / Collapse All
+        </div>
+        <div class="col-md-3">
+            <ej-toggle-button id="chkExpand" width="87px" default-text="Expand All" active-text="Collapse All" change="onExpandAll"/>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Check / Uncheck All
+        </div>
+        <div class="col-md-3">
+            <ej-toggle-button id="chkCheckAll" width="87px" default-text="Check All" active-text="Uncheck All" change="onCheckAll" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            Selected Node
+        </div>
+        <div class="col-md-3">
+            <ej-button id="btnExpand" size="@ButtonSize.Small" text="Expand" click="onExpand"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Selected Node
+        </div>
+        <div class="col-md-3">
+            <ej-button id="btnCollapse" size="@ButtonSize.Small" text="Collapse" click="onCollapse" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            Selected Node
+        </div>
+        <div class="col-md-3">
+            <ej-button id="btnCheck" size="@ButtonSize.Small" text="Check" click="onCheck" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Selected Node
+        </div>
+        <div class="col-md-3">
+            <ej-button id="btnUncheck" size="@ButtonSize.Small" text="Uncheck" click="onUncheck" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Selected Node
+        </div>
+        <div class="col-md-3">
+            <ej-button id="btnDisable" size="@ButtonSize.Small" text="Disable" click="onDisable" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Disable Nodes 
+        </div>
+        <div class="col-md-3">
+            <ej-button id="btnEnable" size="@ButtonSize.Small" text="Enable" click="onEnable" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Add New Node
+        </div>
+        <div class="col-md-3">
+            <ej-button id="btnAdd" size="@ButtonSize.Small" text="Add" click="onAddNew" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Remove Node
+        </div>
+        <div class="col-md-3">
+            <ej-button id="btnRemove" size="@ButtonSize.Small" text="Remove" click="onRemoveNode" />
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Destory
+        </div>
+        <div class="col-md-3">
+            <ej-toggle-button id="chkDestroy" width="87px" default-text="Destory" active-text="Restore" change="onDestoryRestore" />
+        </div>
+    </div>
+}
+
+@section ScriptSection{
+    <script type="text/javascript">
+        $(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+        });
+        var i = 0, treeview;
+        // Client side APIs 
+
+        function onExpandAll(args) {            
+                var treeview = $("#treeView").data("ejTreeView");
+                if (args.isChecked)
+                    treeview && treeview.expandAll();
+                else
+                    treeview && treeview.collapseAll();
+        }
+        function onCheckAll(args) {           
+                var treeview = $("#treeView").data("ejTreeView");
+                if (args.isChecked)
+                    treeview && treeview.checkAll();
+                else
+                    treeview && treeview.unCheckAll();
+        }
+        function onExpand() {            
+                var treeview = $("#treeView").data("ejTreeView");
+                treeview && treeview.expandNode(treeview.getSelectedNode());
+        }
+        function onCollapse() {            
+                var treeview = $("#treeView").data("ejTreeView");
+                treeview && treeview.collapseNode(treeview.getSelectedNode());
+        }
+        function onCheck() {           
+                var treeview = $("#treeView").data("ejTreeView");
+                treeview && treeview.checkNode(treeview.getSelectedNode());
+        }
+        function onUncheck() {            
+                var treeview = $("#treeView").data("ejTreeView");
+                treeview && treeview.uncheckNode(treeview.getSelectedNode());
+        }
+        function onEnable() {            
+                var treeview = $("#treeView").data("ejTreeView");
+                var node = $("#treeView").find('.e-node-disable');
+                treeview && treeview.enableNode(node[0]);
+        }
+        function onDisable() {            
+                var treeview = $("#treeView").data("ejTreeView");
+                treeview && treeview.disableNode(treeview.getSelectedNode());
+        }
+        function onAddNew() {            
+                var treeview = $("#treeView").data("ejTreeView");
+                treeview && treeview.addNode("Item" + i, treeview.getSelectedNode());
+                i++;            
+        }
+        function onRemoveNode() {           
+                var treeview = $("#treeView").data("ejTreeView");
+                treeview && treeview.removeNode(treeview.getSelectedNode());
+		}				
+        function onDestoryRestore(args) {
+            var treeview = $("#treeView").data("ejTreeView");
+            i = 0;
+            if (args.isChecked) {
+                treeview && treeview.destroy();
+                enableOrDisable(false);
+            } else {
+                $("#treeView").ejTreeView(
+                     {
+                         showCheckbox: true,
+                         allowEdit: true
+                     });
+                treeview = $("#treeView").data("ejTreeView");
+                enableOrDisable(true);
+            }
+        }
+        function enableOrDisable(value) {
+            var _array = ["chkExpand", "chkCheckAll", "btnExpand", "btnCollapse", "btnCheck", "btnUncheck", "btnDisable", "btnEnable", "btnAdd", "btnRemove"];
+            for (var i = 0; i < _array.length; i++) {
+                if (i == 0 || i == 1)
+                    enableOrDisableToggleButton(value, _array[i]);
+                else
+                    enableOrDisableButton(value, _array[i]);
+            }
+        }
+        function enableOrDisableButton(value, btnId) {
+            var btnObj = $("#" + btnId).data("ejButton");
+            value ? btnObj.enable() : btnObj.disable();
+        }
+        function enableOrDisableToggleButton(value, btnId) {
+            var btnObj = $("#" + btnId).data("ejToggleButton");
+            btnObj.option("toggleState", false);
+            value ? btnObj.enable() : btnObj.disable();
+        }
+    </script>
+
+}
+

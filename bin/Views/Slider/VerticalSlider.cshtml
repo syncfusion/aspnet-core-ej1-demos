@@ -1,0 +1,22 @@
+﻿@section SampleHeading{ <span class="sampleName">Slider / VerticalSlider</span>}
+
+@section ControlsSection{
+
+    <div class="frame">
+        <div class="control">
+            <ej-slider id="normalSlider" orientation="@Orientation.Vertical" slider-type="@SlideType.Default" value="30" height="200" />
+            <span>Default</span>
+        </div>
+        <div class="control">
+            <ej-slider id="minSlider" orientation="@Orientation.Vertical" slider-type="@SlideType.MinRange" value="70" height="200" />
+            <span>Min-Range</span>
+        </div>
+        <div class="control">
+            <ej-slider id="rangeSlider" orientation="@Orientation.Vertical" slider-type="@SlideType.Range" values="30,70" enable-rtl="true" height="200" />
+            <span>Range</span>
+        </div>
+    </div>
+}
+@section StyleSection{
+    <link href="@Url.Content("~/css/samples/verticalslider.css")" rel="stylesheet" />
+}
