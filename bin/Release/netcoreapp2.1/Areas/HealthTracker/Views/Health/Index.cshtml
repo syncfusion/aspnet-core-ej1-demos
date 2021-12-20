@@ -1,0 +1,501 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization;
+@using Syncfusion.JavaScript.Models
+@addTagHelper *, Syncfusion.EJ
+@{
+    Layout = "~/Areas/HealthTracker/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Essential Studio for ASP.NET Core : HealthTracker";
+}
+<div class="trackerheader">
+    <div class="sampleheader container">
+        <div class="col-xs-12">
+            <div class="title">
+                <img class="heartsym" src="@Url.Content("~/css/health-tracker/images/heart-img.png")" alt="Heart" />
+                <h1 class="healthtext">Health Tracker</h1>
+            </div>
+            <div>
+                <div class="boardpicdiv">
+                    <div class="dashboardpic">
+                        <b>Dashboard</b>
+                    </div>
+                </div>
+                <div class="nopicdiv">
+                    <div class="nopic">
+                        <b>4</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="samplecontainer container">
+    <div class="row"></div>
+    <div id="heading row">
+        <div class="col-xs-6">
+            <img class="personpic" src="@Url.Content("~/css/health-tracker/images/person.png")" alt="Person" />
+            <p class="persondet">
+                <br />
+                <b>Andrew Fuller</b><br />
+                34 years / 175 cm
+            </p>
+            <img class="personsym" src="@Url.Content("~/css/health-tracker/images/personimg.png")" alt="Person Symbol" />
+        </div>
+        <div class="col-xs-6">
+            <div class="bmiwight">
+                <div class="bmidiv">
+                    <label>BMI</label>
+                    <div class="bmi">
+                        <b>21.7</b><br />
+                        <label>Kg/m2</label>
+                    </div>
+                </div>
+                <div class="weightdiv">
+                    <label>Weight</label>
+                    <div class="weight">
+                        <b>72.3</b><br />
+                        <label>Kg</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row topspace">
+        <div class="col-md-12 titlecss">Today</div>
+    </div>
+    <div id="stepAnnotation" style="display:none">
+        <img style="width:130px; height:130px" src="~/css/health-tracker/images/step.png" alt="Step" />
+    </div>
+    <div id="floorAnnotation" style="display:none">
+        <img style="width:130px; height:130px" src="~/css/health-tracker/images/floor.png" alt="Floor" />
+    </div>
+    <div class="row" id="todayDetails">
+        <div class="col-md-6 ptiles">
+            <div class="col-sm-6  gauge1">
+                <ej-circular-gauge id="GaugeRDI" distance-from-corner="-5" gauge-position="@GaugePosition.BottomCenter" width="230" height="155">
+                    <e-frame frame-type="@Frame.HalfCircle">
+                    </e-frame>
+                    <e-circular-scale-collections>
+                        <e-circular-scales start-angle="182" sweep-angle="176" show-labels="false" radius="140" minimum="0" maximum="2200" major-interval-value="200" show-ranges="true">
+                            <e-pointer-cap background-color="#3AB54B" border-color="#3AB54B"></e-pointer-cap>
+                            <e-pointer-collections>
+                                <e-pointers value="450" length="90" width="1" needle-type="@NeedleType.Rectangle">
+                                    <e-border color="#3AB54B"></e-border>
+                                </e-pointers>
+                            </e-pointer-collections>
+                            <e-tick-collections>
+                                <e-ticks color="#FFFFFF" height="16" width="3"></e-ticks>
+                                <e-ticks color="#FFFFFF" height="7" width="1"></e-ticks>
+                            </e-tick-collections>
+                            <e-circular-range-collections>
+                                <e-circular-ranges size="10" start-value="0" end-value="449" background-color="#3AB54B">
+                                    <e-border color="#3AB54B"></e-border>
+                                </e-circular-ranges>
+                                <e-circular-ranges size="10" start-value="449" end-value="2200" background-color="#B0D2C8">
+                                    <e-border color="#B0D2C8"></e-border>
+                                </e-circular-ranges>
+                            </e-circular-range-collections>
+                        </e-circular-scales>
+                    </e-circular-scale-collections>
+                </ej-circular-gauge>
+                <br />
+                <label class="todaylabel rdilabel">Calories Intake - 450/2200</label>
+                <br />
+                <label class="pending todaylabel rdipenlabel">1750 calories pending</label>
+            </div>
+            <div class="col-sm-6 gauge2">
+                <ej-circular-gauge id="GaugeBurnt" distance-from-corner="-5" gauge-position="@GaugePosition.BottomCenter" width="230" height="155">
+                    <e-frame frame-type="@Frame.HalfCircle">
+                    </e-frame>
+                    <e-circular-scale-collections>
+                        <e-circular-scales start-angle="182" sweep-angle="176" show-labels="false" radius="140" minimum="0" maximum="1000" major-interval-value="200" show-ranges="true">
+                            <e-pointer-cap background-color="#b24848" border-color="#b24848"></e-pointer-cap>
+                            <e-pointer-collections>
+                                <e-pointers value="650" length="90" width="1" needle-type="@NeedleType.Rectangle">
+                                    <e-border color="#b24848"></e-border>
+                                </e-pointers>
+                            </e-pointer-collections>
+                            <e-tick-collections>
+                                <e-ticks color="#FFFFFF" height="16" width="3"></e-ticks>
+                                <e-ticks color="#FFFFFF" height="7" width="1"></e-ticks>
+                            </e-tick-collections>
+                            <e-circular-range-collections>
+                                <e-circular-ranges size="10" start-value="0" end-value="649" background-color="#b24848">
+                                    <e-border color="#b24848"></e-border>
+                                </e-circular-ranges>
+                                <e-circular-ranges size="10" start-value="649" end-value="1000" background-color="#C9A5A6">
+                                    <e-border color="#C9A5A6"></e-border>
+                                </e-circular-ranges>
+                            </e-circular-range-collections>
+                        </e-circular-scales>
+                    </e-circular-scale-collections>
+                </ej-circular-gauge>
+                <br />
+                <label class="todaylabel">Calories burnt - 650/1000</label>
+                <br />
+                <label class="todaylabel pending">350 calories pending</label>
+            </div>
+        </div>
+        <div class="col-md-6 ptiles">
+            <div class="col-sm-6 chart1">
+                <div class="chartimage" id="StepChartDiv">
+                    <ej-chart id="ChartStep">
+                        <e-chart-series>
+                            <e-series name="Newyork" type="@SeriesType.Doughnut" label-position="@ChartLabelPosition.Inside" doughnut-size="0.9f" doughnut-coefficient="0.7f" enable-animation="false" opacity="0.8f">
+                                <e-border color="#D3C1D4"></e-border>
+                                <e-points>
+                                    <e-point x="Carbohydrate" y="10" fill="#D3C1D4" visible="true"></e-point>
+                                    <e-point x="Fat" y="90" fill="#B26CAB" visible="true"></e-point>
+                                </e-points>
+                                <e-marker opacity="0.8f">
+                                    <e-border color="#D3C1D4"></e-border>
+                                </e-marker>
+                            </e-series>
+                        </e-chart-series>
+                        <e-margin top="0" bottom="0" left="10" right="10">
+                        </e-margin>
+                        <e-size height="170" width="200"></e-size>
+                        <e-legend visible="false" position="@LegendPosition.Bottom">
+                        </e-legend>
+                        <e-annotations>
+                            <e-annotation content="stepAnnotation" visible="true" region="@Region.Series"></e-annotation>
+                        </e-annotations>
+                    </ej-chart>
+                    <br />
+                    <label class="todaylabel">Step - 90/100</label>
+                    <br />
+                    <label class="pending todaylabel">10 steps pending</label>
+                </div>
+            </div>
+            <div class="col-sm-6 chart2">
+                <div class="chartimage" id="FloorChartDiv">
+                    <ej-chart id="ChartFloor">
+                        <e-chart-series>
+                            <e-series name="NewYork" type="@SeriesType.Doughnut" label-position="@ChartLabelPosition.Inside" doughnut-size="0.9f" doughnut-coefficient="0.7f" enable-animation="false" opacity="0.8f">
+                                <e-border color="#D3C1D4"></e-border>
+                                <e-points>
+                                    <e-point x="Carbohydrate" y="6" fill="#7D70B3" visible="true"></e-point>
+                                    <e-point x="Fat" y="4" fill="#BFBED9" visible="true"></e-point>
+                                </e-points>
+                            </e-series>
+                        </e-chart-series>
+                        <e-common-series-options>
+                            <e-chart-tooltip visible="false"></e-chart-tooltip>
+                        </e-common-series-options>
+                        <e-margin top="0" bottom="0" left="10" right="10">
+                        </e-margin>
+                        <e-size height="170" width="200"></e-size>
+                        <e-legend visible="false" position="@LegendPosition.Bottom">
+                            <e-font color="Black"></e-font>
+                        </e-legend>
+                        <e-annotations>
+                            <e-annotation content="floorAnnotation" visible="true" region="@Region.Series"></e-annotation>
+                        </e-annotations>
+                    </ej-chart>
+                    <br />
+                    <label class="todaylabel">Floor - 4/10</label>
+                    <br />
+                    <label class="pending todaylabel">6 floors pending</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="topspace row">
+        <div class="col-xs-6">
+            <label class="titlecss">
+                Meal Summary
+            </label>
+        </div>
+        <div class="addbutton col-xs-6">
+            <label class="addlabel">Add Meal</label>
+            <img class="add" src="@Url.Content("~/css/health-tracker/images/Add.png")" alt="Add" />
+        </div>
+    </div>
+    <div class="row" id="MealSummary">
+        <div class="col-md-6 ptiles">
+            <div class="chartimage1">
+                <ej-chart id="Chart" is-responsive="true" background="transparent">
+                    <e-chart-series>
+                        <e-series name="Newyork" type="@SeriesType.Doughnut" label-position="@ChartLabelPosition.Outside" doughnut-size="0.9f">
+                            <e-marker>
+                                <e-data-label visible="true">
+                                    <e-font color="#707070" font-size="15px" opacity="1" font-weight="@ChartFontWeight.Lighter"></e-font>
+                                </e-data-label>
+                            </e-marker>
+                        </e-series>
+                    </e-chart-series>
+                    <e-common-series-options>
+                        <e-chart-tooltip visible="false"></e-chart-tooltip>
+                    </e-common-series-options>
+                    <e-margin left="10" top="0" right="0" bottom="0">
+                    </e-margin>
+                    <e-size height="276"></e-size>
+                    <e-legend visible="false">
+                    </e-legend>
+                </ej-chart>
+            </div>
+        </div>
+        <div class="col-md-6 ptiles">
+            <ej-grid id="Grid" show-summary="true" enable-alt-row="false" allow-keyboard-navigation="true" is-responsive="true" enable-responsive-row="false" grid-lines="@GridLines.Horizontal" action-complete="actionComplete">
+                <e-edit-settings allow-editing="true" allow-adding="true" allow-deleting="true" edit-mode="@EditMode.DialogTemplate" dialog-editor-template-id="#healthAddTemplate"></e-edit-settings>
+                <e-columns>
+                    <e-column field="Time" header-text="TIME" text-align="@TextAlign.Center" width="80"></e-column>
+                    <e-column field="FoodName" header-text="FOOD" text-align="@TextAlign.Center" width="120"></e-column>
+                    <e-column field="Fat" header-text="FAT" text-align="@TextAlign.Center" format="{0:N0}g" width="60"></e-column>
+                    <e-column field="Carbohydrate" header-text="CARB" format="{0:N0}g" priority="3" text-align="@TextAlign.Center" width="70"></e-column>
+                    <e-column field="Protein" header-text="PROTEIN" format="{0:N0}g" priority="4" text-align="@TextAlign.Center" width="70"></e-column>
+                    <e-column field="Calorie" header-text="CALORIES" format="{0:N0}cal" priority="5" width="70" text-align="@TextAlign.Center"></e-column>
+                    <e-column field="FoodId" header-text="FoodID" is-primary-key="true" visible="false"></e-column>
+                </e-columns>
+                <e-summary-rows>
+                    <e-summary-row title="Sum">
+                        <e-summary-columns>
+                            <e-summary-column summary-type="@SummaryType.Sum" display-column="Fat" datamember="Fat" suffix="g"></e-summary-column>
+                            <e-summary-column summary-type="@SummaryType.Sum" display-column="Carbohydrate" datamember="Carbohydrate" suffix="g"></e-summary-column>
+                            <e-summary-column summary-type="@SummaryType.Sum" display-column="Protein" datamember="Protein" suffix="g"></e-summary-column>
+                            <e-summary-column summary-type="@SummaryType.Sum" display-column="Calorie" datamember="Calorie" suffix="cal"></e-summary-column>
+                        </e-summary-columns>
+                    </e-summary-row>
+                </e-summary-rows>
+            </ej-grid>
+        </div>
+    </div>
+    <div class="row topspace">
+        <div class="col-xs-6 titlecss loadondemand">
+            This Month
+        </div>
+    </div>
+    <div id="HistoryDetails" class="row">
+        <div class="col-md-6  chart3 burntCal loadondemand ptiles">
+            <ej-chart id="ChartBurnt" is-responsive="true" init-series-render="false" load="onChartBurntload" background="transparent">
+                <e-chart-area>
+                    <e-border width="1"></e-border>
+                </e-chart-area>
+                <e-primary-x-axis hide-partial-labels="true" value-type="AxisValueType.Double" range-padding="@ChartRangePadding.None" column-index="0">
+                    <e-major-grid-lines visible="false"></e-major-grid-lines>
+                    <e-title text="Days">
+                        <e-font opacity="1" font-size="14px" font-weight="@ChartFontWeight.Regular"></e-font>
+                    </e-title>
+                    <e-range max="31" min="0" interval="3"></e-range>
+                </e-primary-x-axis>
+                <e-primary-y-axis row-index="0" value-type="AxisValueType.Double" range-padding="@ChartRangePadding.None">
+                    <e-title text="Steps">
+                        <e-font opacity="1" font-size="14px" font-weight="@ChartFontWeight.Regular"></e-font>
+                    </e-title>
+                    <e-range max="1200" min="0" interval="100"></e-range>
+                </e-primary-y-axis>
+                <e-chart-series>
+                    <e-series name="Steps Moved" type="@SeriesType.Column" enable-animation="true" fill="#8CC640">
+                        <e-chart-tooltip visible="true" template="BurntTooltip"></e-chart-tooltip>
+                    </e-series>
+                </e-chart-series>
+                <e-title text="TOTAL STEPS"></e-title>
+                <e-size height="500"></e-size>
+                <e-legend position="@LegendPosition.Bottom">
+                    <e-item-style width="10" height="10"></e-item-style>
+                </e-legend>
+            </ej-chart>
+        </div>
+        <div class="col-md-6 chart4 ptiles">
+            <ej-chart id="ChartCal" is-responsive="true" init-series-render="false" load="onChartBurntload" background="transparent">
+                <e-common-series-options>
+                    <e-chart-tooltip visible="true"></e-chart-tooltip>
+                </e-common-series-options>
+                <e-primary-x-axis hide-partial-labels="true" value-type="AxisValueType.Double" range-padding="@ChartRangePadding.None" column-index="0">
+                    <e-major-grid-lines visible="false"></e-major-grid-lines>
+                    <e-title text="Days">
+                        <e-font opacity="1" font-size="14px" font-weight="@ChartFontWeight.Regular"></e-font>
+                    </e-title>
+                    <e-range max="31" min="0" interval="3"></e-range>
+                </e-primary-x-axis>
+                <e-primary-y-axis row-index="0" value-type="AxisValueType.Double" range-padding="@ChartRangePadding.None">
+                    <e-title text="Calorie">
+                        <e-font opacity="1" font-size="14px" font-weight="@ChartFontWeight.Regular"></e-font>
+                    </e-title>
+                    <e-range max="1200" min="0" interval="100"></e-range>
+                </e-primary-y-axis>
+                <e-chart-series>
+                    <e-series name="Calories Burnt" type="@SeriesType.Spline" enable-animation="true" fill="#24B7E5">
+                        <e-marker shape="@ChartShape.Circle" visible="true">
+                            <e-Size height="10" width="10"></e-Size>
+                        </e-marker>
+                        <e-chart-tooltip visible="true" template="CalTooltip"></e-chart-tooltip>
+                    </e-series>
+                </e-chart-series>
+                <e-title text="CALORIES BURNT"></e-title>
+                <e-size height="500"></e-size>
+                <e-legend position="@LegendPosition.Bottom" visible="true">
+                    <e-item-style width="10" height="10"></e-item-style>
+                </e-legend>
+            </ej-chart>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 ptiles chart5">
+            <ej-chart id="MealDetails" is-responsive="true" init-series-render="false" load="onChartLoad" background="transparent">
+                <e-chart-area>
+                    <e-border width="1"></e-border>
+                </e-chart-area>
+                <e-primary-x-axis hide-partial-labels="true" value-type="AxisValueType.Double" range-padding="@ChartRangePadding.None" column-index="0">
+                    <e-major-grid-lines visible="false"></e-major-grid-lines>
+                    <e-title text="Days">
+                        <e-font opacity="1" font-size="14px" font-weight="@ChartFontWeight.Regular"></e-font>
+                    </e-title>
+                    <e-range max="31" min="0" interval="3"></e-range>
+                </e-primary-x-axis>
+                <e-primary-y-axis row-index="0" value-type="AxisValueType.Double" range-padding="@ChartRangePadding.None">
+                    <e-title text="Cal">
+                        <e-font opacity="1" font-size="14px" font-weight="@ChartFontWeight.Regular"></e-font>
+                    </e-title>
+                    <e-range max="1200" min="0" interval="100"></e-range>
+                </e-primary-y-axis>
+                <e-chart-series>
+                    <e-series name="Carb" type="@SeriesType.Column" enable-animation="true" fill="#8CAA55">
+                        <e-chart-tooltip visible="true" template="HydrateTooltip"></e-chart-tooltip>
+                    </e-series>
+                    <e-series name="Protein" type="@SeriesType.Column" enable-animation="true" fill="#B34949">
+                        <e-chart-tooltip visible="true" template="ProteinTooltip"></e-chart-tooltip>
+                    </e-series>
+                    <e-series name="Fat" type="@SeriesType.Column" enable-animation="true" fill="#58A7C6">
+                        <e-chart-tooltip visible="true" template="FatTooltip"></e-chart-tooltip>
+                    </e-series>
+                </e-chart-series>
+                <e-title text="MEAL INTAKE"></e-title>
+                <e-size height="500"></e-size>
+                <e-legend position="@LegendPosition.Bottom">
+                    <e-item-style width="10" height="10"></e-item-style>
+                </e-legend>
+            </ej-chart>
+        </div>
+    </div>
+     <div id="footer">
+        <div class="bottom-links">
+            <div class="left">
+                <div class="sync-text">
+                    Copyright © 2001-2019 Syncfusion Inc.
+                </div>
+            </div>
+            <div class="right">
+                <a href="https://www.syncfusion.com">
+                    <div class="syncfusion-image"></div>
+                </a>
+            </div>
+        </div>
+    </div> 
+</div>
+<div id="healthAddTemplate" style="display: none">
+    <table cellspacing="14">
+        <tr>
+            <td>
+                Food time:
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" class="timelist valid" id="Time" value="{{:Time}}" aria-required="true" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Food type:
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" class="foodlist ejinputtext valid" id="FoodName" name="FoodName" value="{{:FoodName}}" aria-required="true" />
+            </td>
+        </tr>
+    </table>
+    <table cellspacing="14">
+        <tr>
+            <td>
+                Fat:
+            </td>
+            <td>
+                Carb:
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" id="Fat" value="{{:Fat}}" class="diatxt valid" aria-required="true" />
+            </td>
+            <td>
+                <input type="text" id="Carbohydrate" value="{{:Carbohydrate}}" class="diatxt valid" aria-required="true" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Protein:
+            </td>
+            <td>
+                Calorie:
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" id="Protein" value="{{:Protein}}" class="diatxt" aria-required="true" />
+            </td>
+            <td>
+                <input type="text" id="Calorie" value="{{:Calorie}}" class="diatxt" aria-required="true" />
+            </td>
+        </tr>
+        <tr>
+            <td id="validation">* All fields are mandatory</td>
+        </tr>
+    </table>
+</div>
+<div id="BurntTooltip" class="historytooltip">
+    <div id="stepTool"></div>
+    <div>
+        <label id="burntmonth">May #point.x#</label>
+        <label id="burntday">#point.y#</label><label class="burntlabel">  steps</label>
+    </div>
+</div>
+<div id="HydrateTooltip" class="historytooltip">
+    <div>
+        <div id="hydrateTool"></div>
+        <label class="tooltiplabel">May #point.x#</label>
+    </div>
+    <div class="hydlabel">
+        <label id="hydratemonth">Carb</label>
+        <label id="hydrateday">#point.y# g</label>
+    </div>
+</div>
+<div id="ProteinTooltip" class="historytooltip">
+    <div>
+        <div id="proteinTool"></div>
+        <label class="tooltiplabel">May #point.x#</label>
+    </div>
+    <div class="proLabel">
+        <label id="proteinmonth">Protein</label><br />
+        <label id="proteinday">#point.y# g</label>
+    </div>
+</div>
+<div id="FatTooltip" class="historytooltip">
+    <div>
+        <div id="fatTool"></div>
+        <label class="tooltiplabel">May #point.x#</label>
+    </div>
+    <div class="fatLabel">
+        <label id="fatmonth">Fat</label><br />
+        <label id="fatday">#point.y# g</label>
+    </div>
+</div>
+<div id="CalTooltip" class="historytooltip">
+    <div class="calldiv">
+        <span id="calday">#point.y# </span><span>cal</span>
+    </div>
+    <div class="monthdiv">
+        <span id="calmonth">May #point.x#</span>
+    </div>
+</div>
+@section scripts {
+    <script src="@Url.Content("~/scripts/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/scripts/jquery.validate.unobtrusive.min.js")"></script>
+    <script src="@Url.Content("~/scripts/healthtracker.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/respond.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/excanvas.min.js")" type="text/javascript"></script>
+}
