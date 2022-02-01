@@ -1,0 +1,15 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Autocomplete / Data Bining - Local Data</span>}
+@section MetaTags{
+    <meta name="description" content="This example demonstrates how to bind local data to the Syncfusion ASP.NET Core Autocomplete component.">
+}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <ej-autocomplete id="selectState" width="100%" datasource="ViewBag.datasource" watermark-text="Select a state">
+                <e-autocomplete-fields text="countryName" key="index" />
+            </ej-autocomplete>
+
+        </div>
+    </div>
+}

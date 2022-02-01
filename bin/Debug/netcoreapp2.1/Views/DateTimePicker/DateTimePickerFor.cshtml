@@ -1,0 +1,41 @@
+﻿@section MetaTags{
+   <meta name="description" content="DateTimePicker for ASP.NET Core with the strongly typed extension support. Value is set from the code behind by invoking DateTimePickerFor helper">
+}
+
+@section ScriptReferenceSection{
+    <script src="@Url.Content("~/Scripts/cultures/ej.culture.en-US.min.js")"></script>
+}
+@section SampleHeading{<span class="sampleName">DateTimePicker / DateTimePickerFor</span> }
+
+@model samplebrowser.Controllers.DateTimePickerController.datetimemodel
+
+@section ControlsSection{
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div class="frame">
+        <div class="control">
+            <ej-date-time-picker id="datetimepick" ej-for="@Model.Value" 
+            validation-rules='new Dictionary<string, object>() { { "required",true} }'  
+            validation-messages='new Dictionary<string, object>() { { "required","Datetime value is required"} }'  />
+            @Html.ValidationMessageFor(model => model.Value)
+            <ej-button id="button" type="Submit" text="Post" />
+        </div>
+    </div>
+}
+    }
+@section StyleSection{
+    <style>
+        .control {
+            width: 210px;
+        }
+
+        .control .e-datetime-wrap {
+            width: 175px;
+        }
+          #button {
+            margin-left: 30px;
+            margin-top: 20px;
+        }
+    </style>
+}
