@@ -1,0 +1,23 @@
+﻿.frame span {
+    display: block;
+}
+
+.inputBtn {
+    width: 87px;
+    text-align: center;
+}
+
+.input {
+    height: 22px;
+    text-indent: 10px;
+    width: 100px;
+}
+
+.control {
+    margin-top: 10px;
+    width: 144px;
+}
+
+.txt {
+    display: block;
+}
