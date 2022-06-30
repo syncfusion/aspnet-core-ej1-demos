@@ -1,0 +1,51 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization;
+
+@section SampleHeading{<span class="sampleName">Chart / User Interaction/ Zooming and Panning</span>}
+
+@section ControlsSection{
+    <div>
+        <ej-chart id="container" can-resize="true" load="onchartload" >
+            <e-title text="Server CPU Load"></e-title>
+            <e-size height="600"></e-size>
+            <e-legend visible="false"></e-legend>
+            <e-common-series-options enable-animation="true"></e-common-series-options>
+            <e-zooming enable="true"  enable-mouse-wheel="true"></e-zooming>
+            <e-primary-x-axis>
+                <e-title text="Date"></e-title>
+            </e-primary-x-axis>
+            <e-chart-series>
+                <e-series type="@SeriesType.Line" name="Server" width="2">
+
+                </e-series>
+            </e-chart-series>
+            <e-primary-y-axis label-format="{value}%" range-padding="@ChartRangePadding.Additional"></e-primary-y-axis>
+        </ej-chart>
+</div>
+}
+<script type="text/javascript">
+    function onchartload(sender) {
+        loadTheme(sender);
+        var data = GetData();
+        sender.model.series[0].dataSource = data.Open;
+        sender.model.series[0].xName = "XValue";
+        sender.model.series[0].yName = "YValue";
+    }
+    function GetData() {
+        var series1 = [];
+        var value = 100;
+        for (var i = 1; i < 250; i++) {
+            if (Math.random() > .5) {
+                value += Math.random();
+            } else {
+                value -= Math.random();
+            }
+            var point = { XValue: new Date(1970, i + 2, i), YValue: value };
+            series1.push(point);
+        }
+        var data = { Open: series1 };
+        return data;
+    }
+    $("#controlarea").css("visibility", "visible");
+</script>
+
