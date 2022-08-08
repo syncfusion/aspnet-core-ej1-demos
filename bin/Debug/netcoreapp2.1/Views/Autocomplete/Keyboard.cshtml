@@ -1,0 +1,67 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Autocomplete / Keyboard Interaction</span>}
+@section MetaTags{
+    <meta name="description" content="This example demonstrates how to access the Syncfusion ASP.NET Core Autocomplete control functionalities using keyboard interactions.">
+}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <ej-autocomplete id="keyboard" datasource="ViewBag.datasource" width="100%" watermark-text="Choose skills" multi-select-mode="@MultiSelectModeTypes.Delimiter"></ej-autocomplete>
+
+        </div>
+    </div>
+}
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-3">
+            Alt + j
+        </div>
+        <div class="col-md-3">
+            Focuses the control
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Up
+        </div>
+        <div class="col-md-3">
+            Moves to previous item
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Down
+        </div>
+        <div class="col-md-3">
+            Moves to next item
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Enter
+        </div>
+        <div class="col-md-3">
+            Selects the focused item
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Esc
+        </div>
+        <div class="col-md-3">
+            Closes the popup
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript" class="jsScript">
+        $(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+            $(document).on("keydown", function (e) {
+                if (e.altKey && e.keyCode === 74) { // j- key code.
+                    $("#keyboard").focus();
+                }
+            });
+        });
+    </script>
+}

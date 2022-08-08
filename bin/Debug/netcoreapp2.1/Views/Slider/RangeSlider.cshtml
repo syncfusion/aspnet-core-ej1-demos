@@ -1,0 +1,25 @@
+﻿@section SampleHeading{ <span class="sampleName">Slider / RangeSlider</span>}
+
+@section ControlsSection{
+
+    <div class="frame">
+        <div class="txt">Range</div>
+        <ej-slider id="rangeSlider" slider-type="@SlideType.Range" values="30,60" />
+        <br />
+        <br />
+        <div class="txt">Min-Range</div>
+        <ej-slider id="minSlider" slider-type="@SlideType.MinRange" value="60" />
+    </div>
+}
+@section StyleSection{
+    <style type="text/css" class="cssStyles">
+        .frame {
+            width: 50%;
+        }
+
+        .txt {
+            font-size: 15px;
+            margin-bottom: 13px;
+        }
+    </style>
+}

@@ -1,0 +1,108 @@
+﻿@section SampleHeading{
+    <span class="sampleName">ListBox / Checkboxes</span>}
+@section MetaTags{
+    <meta name="description" content="This example demonstrates how to select multiple items at a time and display their check-boxes with the Syncfusion ASP.NET Core ListBox component.">
+}
+@section ControlsSection{
+        <div class="control frame">
+            <div class="ctrllabel">
+                Select your skills</div>
+            <ej-list-box id="skillsets" datasource="ViewBag.datasource" height="220px" show-checkbox="true">
+                <e-list-box-fields text="text" />
+            </ej-list-box>           
+
+        </div>
+}
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-12">
+            <ej-toggle-button id="btnchkunchk" default-text="Check All" active-text="Uncheck All" width="130px" change="onCheckUncheckAll" />            
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-md-12">
+            <ej-button id="get" text="Get Values" width="130px" click="GetcheckedIndices" />            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ej-toggle-button id="bthshowhide" default-text="Hide CheckBox" active-text="Show CheckBox" width="130px" change="onShowHide" />
+        </div>
+    </div>
+    <div id="resultarea">
+    <span>CheckedItems</span>
+    <table id="resultdata">
+        <tr>
+            <th>Index</></th>
+            <th>Text</th>
+        </tr>
+    </table>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        var target;
+        $(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+        });
+        function onCheckUncheckAll(args) {
+            target = $('#skillsets').data("ejListBox");
+            if (args.isChecked)
+                target.checkAll();
+            else
+                target.uncheckAll();
+        }
+        function onShowHide(args) {
+            target = $('#skillsets').data("ejListBox");
+            ButtonObj = $("#get").data("ejButton");
+            ToggleButtonObj = $("#btnchkunchk").data("ejToggleButton");
+            if (args.isChecked) {
+                target.option("showCheckbox", false);
+                ButtonObj.disable();
+                ToggleButtonObj.disable();
+            }
+            else {
+                target.option("showCheckbox", true);
+                ButtonObj.enable();
+               ToggleButtonObj.enable();
+            }
+        }
+        function GetcheckedIndices(e) {
+             target = $('#skillsets').data("ejListBox");
+             var alertMsg = "";
+             var checkedItems = target.getCheckedItems();
+             if (checkedItems.length) {
+                 $(checkedItems).each(function (index, ele) {
+                     alertMsg += "<tr class='checkedItems'><td>" + ele.index + "</td><td>" + ele.value + "</td></tr>";
+                     $(".checkedItems").remove();
+                     $("#resultdata").append(alertMsg);
+                 });                 
+             }
+             else {
+                 $(".checkedItems").remove();
+                 $("#resultarea br").remove();
+                 $("#resultarea").append("<br /><span class='checkedItems'>No items are checked</span>");
+             }                 
+        }
+
+    </script>
+}
+@section StyleSection{
+    <style type="text/css" class="cssStyles">
+        .ctrllabel {
+            padding: 0px 0px 12px 3px;
+            font-weight: 600;
+        }
+
+        .e-ddl-popup {
+            margin: 0 auto;
+        }
+        #resultdata{
+            width:100%;
+        }
+        th{
+            width:50%;
+        }
+       
+    </style>
+}

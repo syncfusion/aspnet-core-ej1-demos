@@ -1,0 +1,15 @@
+﻿@section MetaTags{
+   <meta name="description" content="This example demonstrates a simple, mobile-friendly and responsive ASP.NET Core DatePicker to select a date.">
+}
+
+@section ScriptReferenceSection{
+    <script src="@Url.Content("~/Scripts/cultures/ej.culture.en-US.min.js")"></script>
+}
+@section SampleHeading{<span class="sampleName">DatePicker / Default</span> }
+@section ControlsSection{
+    <div class="frame">
+        <div class="control" style="margin-left:35px;">
+            <ej-date-picker id="DatePick" value="DateTime.Today"></ej-date-picker>
+        </div>
+    </div>
+}
