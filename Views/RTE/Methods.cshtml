@@ -1,0 +1,156 @@
+﻿@section ScriptReferenceSection{
+    <script src="@Url.Content("~/Scripts/cultures/ej.culture.en-US.min.js")"></script>
+}
+@section SampleHeading{<span class="sampleName">Essential Studio for JavaScript : RTE
+    / Methods</span>}
+@section ControlsSection{
+   <ej-rte id="rteSample" width="100%" height="350" is-responsive="true" min-width="20px">
+       <e-content-template>
+           <div>
+               &lt;p&gt;&lt;b&gt;Description:&lt;/b&gt;&lt;/p&gt;
+               &lt;p&gt;The Rich Text Editor (RTE) control is an easy to render in
+               client side. Customer easy to edit the contents and get the HTML content for
+               the displayed content. A rich text editor control provides users with a toolbar
+               that helps them to apply rich text formats to the text entered in the text
+               area. &lt;/p&gt;
+               &lt;p&gt;&lt;b&gt;Functional
+               Specifications/Requirements:&lt;/b&gt;&lt;/p&gt;
+               &lt;ol&gt;&lt;li&gt;&lt;p&gt;Provide
+               the tool bar support, it’s also customizable.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Options
+               to get the HTML elements with styles.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Support
+               to insert image from a defined path.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Footer
+               elements and styles(tag / Element information , Action button (Upload, Cancel))&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Re-size
+               the editor support. &lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Provide
+               efficient public methods and client side events.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Keyboard
+               navigation support.&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;
+           </div>
+       </e-content-template>
+    </ej-rte>
+    
+}
+@section PropertiesSection{
+    <div class="row">
+        <div class="col-md-3">
+            Get Html Text
+        </div>
+        <div class="col-md-3">
+            <ej-button id="getHtmlText" width="105px" text="Get HTML" click="ongetHtmlString"/> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Get Text
+        </div>
+        <div class="col-md-3">
+            <ej-button id="getText" width="105px" text="Get Text" click="ongetText" /> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Execute Bold
+        </div>
+        <div class="col-md-3">
+            <ej-button id="executeBold" width="105px" text="Exec Bold" click="onexec" /> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Command Status
+        </div>
+        <div class="col-md-3">
+            <ej-button id="commandStatus" width="105px" text="Bold Status" click="oncmdStatus" /> 
+        </div>
+    </div>
+
+<div class="row">
+    <div class="col-md-3">
+        Select all 
+    </div>
+    <div class="col-md-3">
+        <ej-button id="selectall" width="105px" text="Select All" click="onSelectAll" /> 
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        Select Range
+    </div>
+    <div class="col-md-3">
+        <ej-button id="selectrange" width="105px" text="Select Range" click="onSeletcRange" /> 
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        Paste Content
+    </div>
+    <div class="col-md-3">
+        <ej-button id="paste" width="105px" text="Paste Content" click="onPasteContent" /> 
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        Destroy/Restore
+    </div>
+    <div class="col-md-3">
+        <ej-toggle-button id="destroy" active-text="Restore" default-text="Destroy" change="onDestroyRestore"/> 
+    </div>
+</div>
+}
+@section ScriptSection{
+    <script>
+        var rte;
+        $(function () {
+            rte = $("#rteSample").data("ejRTE");
+        });
+        function ongetHtmlString() {
+            if (rte)
+                alert(rte.getHtml());
+        }
+        function ongetText() {
+            if (rte)
+                alert(rte.getText());
+        }
+        function onexec() {
+            if (rte)
+                rte.executeCommand("bold", true);
+        }
+        function oncmdStatus() {
+            alert(rte.getCommandStatus("bold"));
+        }
+        function onSelectAll() {
+		if(!ej.isNullOrUndefined(rte))
+            rte.selectAll();
+        }
+        function onSeletcRange() {
+		if(!ej.isNullOrUndefined(rte)){
+            var range = rte.createRange();
+            var liTag = rte.getDocument().getElementsByTagName("li");
+            if (!rte._isIE8()) {
+                range.setStart(liTag[2], 1);
+                range.setEnd(liTag[4], 0);
+            }
+            else {
+                range = rte.getDocument().body.createTextRange()
+                range.moveToElementText(liTag[3]);
+            }
+            rte.selectRange(range);
+        }
+		}
+        function onPasteContent() {
+		if(!ej.isNullOrUndefined(rte)){
+            select = rte.getSelectedHtml();
+            rte.pasteContent("<p style='background-color:yellow;color:skyblue'> " + select + " </p>");
+        }
+        }
+        function onDestroyRestore(args) {
+            if (args.isChecked) {
+                rte.destroy();
+                rte = null;
+            }
+            else {
+                $("#rteSample").ejRTE({ width: "100%", height: "350", minWidth: "20px",isResponsive:true });
+                rte = $("#rteSample").data("ejRTE");
+            }
+        }
+        $(document).ready(function () { $("#sampleProperties").ejPropertiesPanel(); });
+    </script>
+}

@@ -1,0 +1,31 @@
+﻿@section SampleHeading{
+    <span class="sampleName">SpellCheck /Context Menu</span>
+}
+
+@section ControlsSection{
+    <div id="TextArea" contenteditable="true">
+        It is a concept vehicle with Liuid Silver body colour, 20-inch wheels, fabric foding roof, electrically-controlled hood,
+        4-cylinder 2.0 TDI engine rated 204 PS (150 kW; 201 hp) and 400 (295.02 lbf ft), diesel particulate filter and Bluetec emission control system,
+        quattro permanent four-wheel drve system, Audi S tronic dual-clutch gearbox, McPherson-strut front axle and a four-link rear axle, Audi drive select system with 3 modes (dynamic, sport, efficiency),
+        MMI control panel with touch pad and dual-view technology, sound system with the proinent extending tweeters.
+    </div><br />
+
+    <ej-spell-check id="SpellCheckDialog" controls-to-validate="#TextArea">
+        <e-dictionary-settings custom-dictionary-url="//js.syncfusion.com/ejServices/api/SpellCheck/AddToDictionary" dictionary-url="//js.syncfusion.com/ejServices/api/SpellCheck/CheckWords">
+        </e-dictionary-settings>
+        <e-context-menu-settings enable="true"> </e-context-menu-settings>
+    </ej-spell-check>
+    <ej-button id="SpellCheck" width="100px" height="25px" text="Spell check" click="showDialog" />
+
+}
+
+@section ScriptSection{
+    <script type="text/javascript">
+        function showDialog() {
+            var spellObj = $("#SpellCheckDialog").data("ejSpellCheck");
+            spellObj.validate();
+        }
+    </script>
+}
+
+

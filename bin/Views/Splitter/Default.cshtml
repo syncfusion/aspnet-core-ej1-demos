@@ -1,0 +1,53 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Splitter / Default Functionalities</span>}
+@section MetaTags{
+    <meta name="description" content="This example demonstrates using the Syncfusion ASP.NET Core Splitter component to divide a web page into distinct areas by inserting resizable panes.">
+}
+@section ControlsSection{
+
+    <ej-Splitter id="outer" height="250" width="400" is-responsive="true" enable-auto-resize="true" orientation="@Orientation.Vertical">
+        <e-split-panes>
+            <e-split-pane>
+                <e-content-template>
+                       <ej-Splitter id="inner" width="398" is-responsive="true" enable-auto-resize="true" orientation="@Orientation.Horizontal">
+                           <e-split-panes>
+                               <e-split-pane>                                   
+                                   <e-content-template>
+                                       <div class="cont">
+                                           Pane 1
+                                       </div>
+                                   </e-content-template>
+                               </e-split-pane>
+                                <e-split-pane>
+                                   <e-content-template>
+                                       <div class="cont">
+                                           Pane 2
+                                       </div>
+                                   </e-content-template>
+                               </e-split-pane>
+                           </e-split-panes>
+                       </ej-Splitter>
+                </e-content-template>
+            </e-split-pane>
+            <e-split-pane pane-size="80">
+                <e-content-template>
+                    <div class="cont">
+                        Pane 3
+                    </div>
+                </e-content-template>
+            </e-split-pane>
+        </e-split-panes>
+    </ej-Splitter>
+}
+@section StyleSection{
+    <style type="text/css" class="cssStyles">
+        .cont {
+            padding: 10px 0 0 10px;
+            text-align: center;
+        }
+
+        #inner {
+            border: 0 none;
+        }
+    </style>
+}
