@@ -1,0 +1,53 @@
+﻿@using Syncfusion.JavaScript.DataVisualization
+
+
+@section SampleHeading{<span class="sampleName">XlsIO/GettingStarted/EncryptAndDecrypt</span>}
+
+ @section ControlsSection{                                
+	      @{ViewBag.Title = "    Essential XlsIO (Excel) : Encryption, Decryption, Excel 2007 : Syncfusion";}
+
+@{Html.BeginForm("EncryptAndDecrypt", "XlsIO", FormMethod.Post);
+{
+    <div class="Common">
+        <div class="tablediv">
+            <div class="rowdiv">
+                <label>
+                    This sample focuses on the encryption and decryption of Excel documents using Essential XlsIO.
+                    <br />
+                    <br/>
+                    Encryption is a method of protecting workbook data. It is based on a password that converts the data into an incomprehensible form and it restricts anonymous users from accessing the document. Decryption is the process of converting encrypted data back into its original form so that data can be read from the workbook.
+                    <br />
+                    <br />
+                     Note: The Excel document is encrypted with the password "PASSWORD".
+                </label>
+            </div>
+            <br />
+            <div class="rowdiv">
+                <div class="celldiv">
+                    <label>
+                        <strong>  Save As :</strong>
+                    </label>
+                    <input id="rbtnXls" type="radio" name="SaveOption" value="Xls" />
+                    <label for="rbtnXls">
+                        Xls
+                    </label>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <input id="rbtnXlsx" type="radio" name="SaveOption" value="Xlsx" checked="checked" />
+                    <label for="rbtnXlsx">
+                        Xlsx
+                    </label>
+                </div>
+                <br />                
+            </div>
+            <div class="rowdiv">                                
+                <div class="celldiv">
+                    <input class="buttonStyle1" type="submit" name="button" value="Encrypt Document" style=" width:200px;" />
+                    <input class="buttonStyle" type="submit" name="button" value="Decrypt Document" style=" width:200px;" />
+                </div>
+            </div>
+        </div>
+    </div>
+    Html.EndForm();
+    }
+  }               
+}

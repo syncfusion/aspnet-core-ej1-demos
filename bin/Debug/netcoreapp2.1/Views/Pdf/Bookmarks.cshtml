@@ -1,0 +1,30 @@
+﻿@section SampleHeading{
+    <span class="sampleName">User Interaction / Bookmark Sample</span>
+}
+@section ControlsSection{
+    @{Html.BeginForm("Bookmarks", "Pdf", FormMethod.Post);
+        {
+            <div class="Common">
+                <div class="tablediv" style = "font-size: 17px;font-weight: 400;">
+                    This sample demonstrates how to add bookmark with the different style in the document.
+                    It is also possible to insert, remove, change text appearance, change destination and more from the PDF document.
+                </div>
+                <br />
+                <div class="tablediv">
+                    <div class="rowdiv">
+                        <div class="celldiv">
+                            <div>
+                                <input type="submit" class="Button" value="Generate PDF" style="width: 150px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div style="font-size: 17px;font-weight: 400;">
+                    More information about the bookmarks can be found in this documentation <a href="https://help.syncfusion.com/file-formats/pdf/working-with-bookmarks">section.</a>
+                </div>
+            </div>
+            Html.EndForm();
+        }
+    }
+}
