@@ -1,0 +1,201 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization.DiagramEnums;
+@section SampleHeading{ <span class="sampleName">Diagram / Default Functionalities</span>}
+@section MetaTags{
+    <meta name="description" content="This sample demonstrates localization feature in the ASP.NET CORE diagram control.">
+}
+@section ControlsSection{
+    <ej-diagram id="diagram" width="730px" height="700px" enable-context-menu="false">
+        <e-page-settings scroll-limit="@ScrollLimit.Diagram"></e-page-settings>
+        <e-nodes>
+            <e-flow-shape name="NewIdea" width="150" height="60" offset-Y="60" shape="Terminator">
+                <e-labels>
+                    <e-diagram-label text="Start Terminator" font-color="white"></e-diagram-label>
+                </e-labels>
+            </e-flow-shape>
+            <e-flow-shape name="Meeting" width="150" height="60" offset-Y="165" shape="Process">
+                <e-labels>
+                    <e-diagram-label text="Progress"></e-diagram-label>
+                </e-labels>
+            </e-flow-shape>
+            <e-flow-shape name="BoardDecision" width="150" height="100" offset-Y="285" shape="Decision">
+                <e-labels>
+                    <e-diagram-label text="Decision"></e-diagram-label>
+                </e-labels>
+            </e-flow-shape>
+            <e-flow-shape name="Data" width="150" height="100" offset-Y="425" shape="Data">
+                <e-labels>
+                    <e-diagram-label text="Data"></e-diagram-label>
+                </e-labels>
+            </e-flow-shape>
+            <e-flow-shape name="Document" width="150" height="60" offset-Y="545" shape="Document">
+                <e-labels>
+                    <e-diagram-label text="Document"></e-diagram-label>
+                </e-labels>
+            </e-flow-shape>
+            <e-flow-shape name="End" width="150" height="60" offset-Y="650" shape="Terminator">
+                <e-labels>
+                    <e-diagram-label text="End Terminator"></e-diagram-label>
+                </e-labels>
+            </e-flow-shape>
+        </e-nodes>
+        <e-connectors>
+            <e-connector name="connector1" source-node="NewIdea" target-node="Meeting">
+            </e-connector>
+            <e-connector name="connector2" source-node="Meeting" target-node="BoardDecision">
+            </e-connector>
+            <e-connector name="connector3" source-node="BoardDecision" target-node="Data">
+                <e-labels>
+                    <e-diagram-label text="Yes"></e-diagram-label>
+                </e-labels>
+            </e-connector>
+            <e-connector name="connector4" source-node="Data" target-node="Document">
+            </e-connector>
+            <e-connector name="connector5" source-node="Document" target-node="End">
+            </e-connector>
+            <e-connector name="connector6" source-node="BoardDecision" target-node="Meeting">
+                <e-segments>
+                    <e-segment type="Orthogonal" length="50" direction="right"></e-segment>
+                </e-segments>
+                <e-labels>
+                    <e-diagram-label text="No" horizontal-alignment="Left"></e-diagram-label>
+                </e-labels>
+                <e-source-decorator shape="None"></e-source-decorator>
+                <e-target-decorator shape="Arrow"></e-target-decorator>
+            </e-connector>
+        </e-connectors>
+        <e-default-settings>
+            <e-node offset-x="340" border-color="#1BA0E2" fill-color="darkcyan">
+                <e-labels>
+                    <e-diagram-label font-color="white">
+                    </e-diagram-label>
+                </e-labels>
+            </e-node>
+            <e-connector line-width="2" line-color="#606060">
+                <e-segments><e-segment type="Orthogonal"></e-segment></e-segments>
+                <e-labels>
+                    <e-diagram-label fill-color="white" font-color="black"></e-diagram-label>
+                </e-labels>
+                <e-target-decorator shape="Arrow" border-color="#606060" width="10" height="10"></e-target-decorator>
+            </e-connector>
+        </e-default-settings>
+    </ej-diagram>
+}
+@section PropertiesSection{
+    <div id="sampleProperties">
+        <div class="prop-grid">
+            <div class="row">
+                <div class="col-md-3 aligntop" style="margin-right: -10px;">
+                    Selection Culture
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="language" />
+                    <div id="languagelistDiv">
+                        <ul>
+                            <li value="en-US">English</li>
+                            <li value="de-DE">Deutsch</li>
+                            <li value="es-ES">Español</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+       ej.datavisualization.Diagram.Locale["es-ES"] = {
+            cut: "Corte",
+            copy: "Copia",
+            paste: "Pasta",
+            undo: "Deshacer",
+            redo: "Rehacer",
+            selectAll: "Seleccionar todo",
+            grouping: "Agrupación",
+            group: "Grupo",
+            ungroup: "Desagrupar",
+            order: "Fin",
+            bringToFront: "Traer a delante",
+            moveForward: "Movimiento adelante",
+            sendToBack: "Enviar a espalda",
+            sendBackward: "Enviar hacia atrás"
+
+        };
+        ej.datavisualization.Diagram.Locale["de-DE"] = {
+            cut: "Schnitt",
+            copy: "Kopie",
+            paste: "Klebstoff",
+            undo: "Rückgängig ",
+            redo: "Rehacer",
+            selectAll: "Wählen alle",
+            grouping: "Gruppierung",
+            group: "Gruppe",
+            ungroup: "Aufheben",
+            order: "Bestellen",
+            bringToFront: "Bringen zu Front",
+            moveForward: "Umzug vorwärts",
+            sendToBack: "Senden zu zurück",
+            sendBackward: "Senden rückwärts"
+        };
+        var Labels = [];
+        this.Labels["en-US"] = [
+            { nodeName: "NewIdea", label: "Start Terminator" },
+            { nodeName: "Meeting", label: "Progress" },
+            { nodeName: "BoardDecision", label: "Decision" },
+            { nodeName: "Data", label: "Data" },
+            { nodeName: "End", label: "End Terminator" },
+            { nodeName: "Document", label: "Document" },
+            { nodeName: "connector3", label: "Yes" },
+            { nodeName: "connector6", label: "No" }
+        ];
+        this.Labels["de-DE"] = [
+            { nodeName: "NewIdea", label: "Start Terminator" },
+            { nodeName: "Meeting", label: "Fortschritt" },
+            { nodeName: "BoardDecision", label: "Entscheidung" },
+            { nodeName: "Data", label: "Daten" },
+            { nodeName: "End", label: "Ende Terminator" },
+            { nodeName: "Document", label: "Dokument" },
+            { nodeName: "connector3", label: "Ja" },
+            { nodeName: "connector6", label: "Keine" }
+        ];
+        this.Labels["es-ES"] = [
+            { nodeName: "NewIdea", label: "Comienzo Terminator" },
+            { nodeName: "Meeting", label: "Progreso" },
+            { nodeName: "BoardDecision", label: "Decisión" },
+            { nodeName: "Data", label: "Datos" },
+            { nodeName: "End", label: "Fin  Terminator" },
+            { nodeName: "Document", label: "Documento" },
+            { nodeName: "connector3", label: "Sí" },
+            { nodeName: "connector6", label: "No" }
+        ];
+        function onChange(args) {
+           if (!(ej.browserInfo().name === "msie" && Number(ej.browserInfo().version) < 9)) {
+                var diagram = $("#diagram").ejDiagram("instance");
+                var locale = "en-US";
+                if (args.itemId == 1)
+                    locale = "de-DE";
+                else if (args.itemId == 2)
+                    locale = "es-ES";
+                var currentCulture = Labels[locale];
+                for (var i = 0; i < currentCulture.length; i++) {
+                    var node = diagram.nameTable[currentCulture[i].nodeName];
+                    if (node)
+                        diagram.updateLabel(node.name, node.labels[0], { text: currentCulture[i].label });
+                }
+            }
+        }
+        $(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+        });
+        $("#language").ejDropDownList({ width: "120px", targetID: "languagelistDiv", change: "onChange", text:"English"});
+    </script>
+}
+<style>
+    .svg-rotate-ie:hover {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+
+    .svg-rotate {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+</style>

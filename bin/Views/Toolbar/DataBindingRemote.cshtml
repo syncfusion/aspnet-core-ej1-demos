@@ -1,0 +1,25 @@
+﻿@section SampleHeading{
+    <span class="sampleName">Toolbar / Data Binding - Remote Data</span>}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control">
+            <ej-toolbar id="toolbarOdata" width="100%" orientation=@Orientation.Horizontal query="ej.Query().from('Orders').take(6)">
+                <e-toolbar-fields text="CustomerID" />
+                <e-datamanager url="//js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/" cross-domain="true"></e-datamanager>
+            </ej-toolbar>            
+        </div>
+    </div>
+}
+@section StyleSection{
+    <style type="text/css" class="cssStyles">
+        .frame {
+            width: 35%;
+        }
+
+        .control {
+            color: black;
+            font-size: medium;
+        }
+    </style>
+}
+

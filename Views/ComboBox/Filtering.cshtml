@@ -1,0 +1,18 @@
+﻿@section SampleHeading{
+    <span class="sampleName">ComboBox / Filtering</span>}
+@section ControlsSection{
+    <div class="frame">
+        <div class="control"> 
+            <ej-combo-box id="searchCustomer" datasource="(IEnumerable<Countries>)ViewBag.datasource" placeholder="Select a country" allow-filtering="true" width="100%" filtering="filtering">
+                <e-combo-box-fields text="text" />
+            </ej-combo-box>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function filtering(e) {
+            var query = new ej.Query();
+            query = (e.text !== '') ? query.where('text', 'startswith', e.text, true) : query;
+            e.updateData(e.model.dataSource, query);
+        }
+    </script>
+}

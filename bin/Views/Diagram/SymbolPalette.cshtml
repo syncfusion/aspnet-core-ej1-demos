@@ -1,0 +1,228 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization.DiagramEnums;
+@section SampleHeading{ <span class="sampleName">Diagram / Default Functionalities</span>}
+@section MetaTags{
+    <meta name="description" content="This example illustrates ASP.NET CORE diagram's symbol palette feature that allows to predefining shapes in a palette and can be easily dragged and dropped into canvas.">
+}
+@section ControlsSection{
+    <ej-symbol-palette id="symbolpalette" width="300px" height="500px" show-palette-item-text="true" selected-palette-name="Flow Shapes">
+        <e-palettes>
+            <e-palette name="Flow Shapes" expanded="true">
+                <e-items>
+                    <e-flow-shape name="Process" height="40" width="44" fill-color="white" border-width="1" offset-x="20" offset-y="20" shape="Process"></e-flow-shape>
+                    <e-flow-shape name="Decision" height="40" width="44" fill-color="white" border-width="1" offset-x="20" offset-y="20" shape="Decision"></e-flow-shape>
+                    <e-flow-shape name="Sort" height="40" width="44" fill-color="white" border-width="1" offset-x="20" offset-y="20" shape="Sort"></e-flow-shape>
+                    <e-flow-shape name="Document" height="40" width="44" fill-color="white" border-width="1" offset-x="20" offset-y="15" shape="Document"></e-flow-shape>
+                    <e-flow-shape name="MultiDocument" height="40" width="43" fill-color="white" border-width="1" offset-x="20" offset-y="15" shape="MultiDocument"></e-flow-shape>
+                </e-items>
+            </e-palette>
+            <e-palette name="Connectors" expanded="true">
+                <e-items>
+                    <e-connector name="Link1">
+                        <e-palette-item height="45" width="57" enable-scale="false"></e-palette-item>
+                        <e-source-point x="0" y="0"></e-source-point>
+                        <e-target-decorator shape="Arrow"></e-target-decorator>
+                        <e-target-point x="40" y="40"></e-target-point>
+                        <e-segments>
+                            <e-segment type="Orthogonal"></e-segment>
+                        </e-segments>
+                    </e-connector>
+                    <e-connector name="Link2">
+                        <e-palette-item height="45" width="57" enable-scale="false"></e-palette-item>
+                        <e-source-point x="0" y="0"></e-source-point>
+                        <e-target-decorator shape="None"></e-target-decorator>
+                        <e-target-point x="40" y="40"></e-target-point>
+                        <e-segments>
+                            <e-segment type="Orthogonal"></e-segment>
+                        </e-segments>
+                    </e-connector>
+                    <e-connector name="Link3">
+                        <e-palette-item height="45" width="57" enable-scale="false"></e-palette-item>
+                        <e-source-point x="0" y="0"></e-source-point>
+                        <e-target-decorator shape="Arrow"></e-target-decorator>
+                        <e-target-point x="40" y="40"></e-target-point>
+                        <e-segments>
+                            <e-segment type="Straight"></e-segment>
+                        </e-segments>
+                    </e-connector>
+                    <e-connector name="Link4">
+                        <e-palette-item height="45" width="57" enable-scale="false"></e-palette-item>
+                        <e-source-point x="0" y="0"></e-source-point>
+                        <e-target-decorator shape="None"></e-target-decorator>
+                        <e-target-point x="40" y="40"></e-target-point>
+                        <e-segments>
+                            <e-segment type="Straight"></e-segment>
+                        </e-segments>
+                    </e-connector>
+                </e-items>
+            </e-palette>
+            <e-palette name="Basic Shapes" expanded="true">
+                <e-items>
+                    <e-basic-shape name="Rectangle" height="160" width="80" fill-color="white" border-width="1" shape="Rectangle">
+                        <e-palette-item enable-scale="false">
+                            <e-margin left="4" right="4" top="12" bottom="10"></e-margin>
+                        </e-palette-item>
+                    </e-basic-shape>
+                    <e-basic-shape name="Rectangle" height="70" width="70" fill-color="white" border-width="1.5" shape="Rectangle"></e-basic-shape>
+                    <e-basic-shape name="Ellipse" height="70" width="70" fill-color="white" border-width="1.5" shape="Ellipse"></e-basic-shape>
+                    <e-basic-shape name="Hexagon" height="70" width="70" fill-color="white" border-width="1.5" shape="Polygon">
+                        <e-points>
+                            <e-shape-point x="25" y="0"></e-shape-point>
+                            <e-shape-point x="75" y="0"></e-shape-point>
+                            <e-shape-point x="100" y="50"></e-shape-point>
+                            <e-shape-point x="75" y="100"></e-shape-point>
+                            <e-shape-point x="25" y="100"></e-shape-point>
+                            <e-shape-point x="0" y="50"></e-shape-point>
+                        </e-points>
+                    </e-basic-shape>
+                    <e-basic-shape name="Triangle" height="70" width="70" fill-color="white" border-width="1.5" shape="Polygon">
+                        <e-points>
+                            <e-shape-point x="50" y="0"></e-shape-point>
+                            <e-shape-point x="100" y="100"></e-shape-point>
+                            <e-shape-point x="0" y="100"></e-shape-point>
+                        </e-points>
+                    </e-basic-shape>
+                </e-items>
+            </e-palette>
+        </e-palettes>
+    </ej-symbol-palette>
+}
+
+@section PropertiesSection{
+    <div id="sampleProperties">
+        <div class="prop-grid">
+            <div class="row">
+                <div class="col-md-3">
+                    <b>Symbol Palette</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Header Height
+                </div>
+                <div class="col-md-3 aligntop">
+                    <input id="numeric" type="text" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Item Text
+                </div>
+                <div class="col-md-3 aligntop">
+                    <input type="checkbox" class="nodetext" id="itemtext" checked="checked" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Selected Palette
+                </div>
+                <div class="col-md-3 aligntop">
+                    <input type="text" id="selectedpalette" />
+                    <div id="palettelist">
+                        <ul>
+                            <li>Basic Shapes</li>
+                            <li>Flow Shapes</li>
+                            <li>Connectors</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <b>Palette</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Header Visiblity
+                </div>
+                <div class="col-md-3 aligntop">
+                    <input type="checkbox" class="nodetext" id="headervisibility" checked="checked" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Expandable
+                </div>
+                <div class="col-md-3 aligntop">
+                    <input type="checkbox" class="nodetext" id="headerinteraction" checked="checked" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Palette Visiblilty
+                </div>
+                <div class="col-md-3 aligntop">
+                    <input type="checkbox" class="nodetext" id="visiblepalette" checked="checked" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        $("#sampleProperties").ejPropertiesPanel();
+        $("#numeric").ejNumericTextbox({
+            name: "numeric", value: 30, minValue: 20, maxValue: 100, width: "88px",
+            change: function (args) {
+                var symbolpalette = $("#symbolpalette").ejSymbolPalette("instance");
+                symbolpalette.setHeaderHeight(args.value);
+            }
+        });
+        $("#headervisibility").ejCheckBox({ size: "small", change: change });
+        $("#headerinteraction").ejCheckBox({ size: "small", change: change });
+        $("#visiblepalette").ejCheckBox({ size: "small", change: change });
+        $("#itemtext").ejCheckBox({ size: "small", change: change });
+        var preventChange = false;
+        function change(args) {
+            var symbolpalette = $("#symbolpalette").ejSymbolPalette("instance");
+            if (!preventChange && symbolpalette.activePalette && args && args.model) {
+                switch (args.model.id) {
+                    case "headervisibility":
+                        symbolpalette.updatePalette(symbolpalette.activePalette.name, { constraints: symbolpalette.activePalette.constraints ^ ej.datavisualization.Diagram.PaletteConstraints.HeaderVisibility });
+                        break;
+                    case "headerinteraction":
+                        symbolpalette.updatePalette(symbolpalette.activePalette.name, { constraints: symbolpalette.activePalette.constraints ^ ej.datavisualization.Diagram.PaletteConstraints.Expandable });
+                        break;
+                    case "visiblepalette":
+                        symbolpalette.updatePalette(symbolpalette.activePalette.name, { constraints: symbolpalette.activePalette.constraints ^ ej.datavisualization.Diagram.PaletteConstraints.Visible });
+                        break;
+                }
+                if (args.model.id == "itemtext") {
+                    symbolpalette.showPaletteItemText(!symbolpalette.model.showPaletteItemText)
+                }
+            }
+        }
+
+
+        $('#selectedpalette').ejDropDownList({
+            targetID: "palettelist",
+            watermarkText: "Flow Shapes",
+            width: "100%", selectedIndex: 1,
+            change: function (args) {
+                if (args && args.selectedValue)
+                    $("#symbolpalette").ejSymbolPalette({ selectedPaletteName: args.selectedValue });
+                preventChange = true;
+                var symbolpalette = $("#symbolpalette").ejSymbolPalette("instance");
+                $("#itemtext").ejCheckBox({ checked: symbolpalette.model.showPaletteItemText ? "checked" : "" });
+                var constraints = symbolpalette.activePalette.constraints & ej.datavisualization.Diagram.PaletteConstraints.HeaderVisibility;
+                $("#headervisibility").ejCheckBox({ checked: constraints ? "checked" : "" });
+                constraints = symbolpalette.activePalette.constraints & ej.datavisualization.Diagram.PaletteConstraints.Visible;
+                $("#visiblepalette").ejCheckBox({ checked: constraints ? "checked" : "" });
+                constraints = symbolpalette.activePalette.constraints & ej.datavisualization.Diagram.PaletteConstraints.Expandable;
+                $("#headerinteraction").ejCheckBox({ checked: constraints ? "checked" : "" });
+                preventChange = false;
+            }
+        });
+    </script>
+}
+<style>
+    .svg-rotate-ie:hover {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+
+    .svg-rotate {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+</style>

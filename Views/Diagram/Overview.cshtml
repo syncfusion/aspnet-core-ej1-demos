@@ -1,0 +1,140 @@
+﻿@using Syncfusion.JavaScript;
+@using Syncfusion.JavaScript.DataVisualization.DiagramEnums;
+@section SampleHeading{ <span class="sampleName">Diagram / Default Functionalities</span>}
+@section MetaTags{
+    <meta name="description" content="This sample demonstrates ASP.NET CORE diagram's overview panel behavior which is used to improve the navigation experience when exploring large diagrams.">
+}
+@section ControlsSection{
+
+    <div>
+        <ej-diagram id="diagram" width="700px" height="560px" enable-context-menu="false" create="Create">
+            <e-snap-settings snap-constraints="None">
+            </e-snap-settings>
+            <e-page-settings scroll-limit="@ScrollLimit.Diagram"></e-page-settings>
+
+            <e-nodes>
+                <e-image-node type="Image" offset-x="75" offset-y="94" rotate-angle="20" source="../css/images/cards_05.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="606" offset-y="119" rotate-angle="41" source="../css/images/cards_03.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="512" offset-y="245" rotate-angle="-64" source="../css/images/cards_07.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="506" offset-y="705" rotate-angle="0" source="../css/images/cards_09.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="132" offset-y="654" rotate-angle="0" source="../css/images/cards_11.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="912" offset-y="520" rotate-angle="-24" source="../css/images/cards_14.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="85" offset-y="488" rotate-angle="20" source="../css/images/cards_16.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="725" offset-y="489" rotate-angle="37" source="../css/images/cards_18.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1232" offset-y="992" rotate-angle="-75" source="../css/images/cards_23.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="210" offset-y="196" rotate-angle="-9" source="../css/images/cards_25.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="827" offset-y="320" rotate-angle="0" source="../css/images/cards_100.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="827" offset-y="98" rotate-angle="0" source="../css/images/cards_101.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="685" offset-y="220" rotate-angle="-79" source="../css/images/cards_102.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="338" offset-y="230" rotate-angle="0" source="../css/images/cards_103.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="274" offset-y="655" rotate-angle="-20" source="../css/images/cards_104.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="345" offset-y="79" rotate-angle="-52" source="../css/images/cards_105.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="439" offset-y="367" rotate-angle="59" source="../css/images/cards_106.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="153" offset-y="338" rotate-angle="0" source="../css/images/cards_107.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="431" offset-y="523" rotate-angle="0" source="../css/images/cards_108.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="734" offset-y="621" rotate-angle="31" source="../css/images/cards_109.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1089" offset-y="638" rotate-angle="20" source="../css/images/cards_05.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="900" offset-y="186" rotate-angle="41" source="../css/images/cards_03.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1216" offset-y="215" rotate-angle="-64" source="../css/images/cards_07.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="548" offset-y="886" rotate-angle="0" source="../css/images/cards_09.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1044" offset-y="551" rotate-angle="0" source="../css/images/cards_100.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1291" offset-y="653" rotate-angle="-38" source="../css/images/cards_101.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="992" offset-y="320" rotate-angle="0" source="../css/images/cards_102.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="725" offset-y="992" rotate-angle="-41" source="../css/images/cards_104.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="347" offset-y="887" rotate-angle="-20" source="../css/images/cards_104.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1076" offset-y="116" rotate-angle="-52" source="../css/images/cards_105.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1013" offset-y="1014" rotate-angle="59" source="../css/images/cards_106.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1144" offset-y="480" rotate-angle="-42" source="../css/images/cards_107.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="496" offset-y="1010" rotate-angle="33" source="../css/images/cards_108.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="807" offset-y="854" rotate-angle="31" source="../css/images/cards_109.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="66" offset-y="1118" rotate-angle="0" source="../css/images/cards_05.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1123" offset-y="173" rotate-angle="41" source="../css/images/cards_03.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="468" offset-y="1269" rotate-angle="-64" source="../css/images/cards_07.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1199" offset-y="886" rotate-angle="0" source="../css/images/cards_09.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1373" offset-y="381" rotate-angle="-34" source="../css/images/cards_11.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="884" offset-y="1513" rotate-angle="-36" source="../css/images/cards_14.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="76" offset-y="1512" rotate-angle="31" source="../css/images/cards_16.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="681" offset-y="1513" rotate-angle="0" source="../css/images/cards_18.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1505" offset-y="173" rotate-angle="37" source="../css/images/cards_20.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1304" offset-y="1377" rotate-angle="-75" source="../css/images/cards_23.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="166" offset-y="1219" rotate-angle="-9" source="../css/images/cards_25.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1044" offset-y="551" rotate-angle="0" source="../css/images/cards_11.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="166" offset-y="886" rotate-angle="-24" source="../css/images/cards_14.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="964" offset-y="747" rotate-angle="31" source="../css/images/cards_16.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1267" offset-y="381" rotate-angle="0" source="../css/images/cards_18.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="641" offset-y="685" rotate-angle="-16" source="../css/images/cards_20.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="336" offset-y="756" rotate-angle="-75" source="../css/images/cards_23.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="283" offset-y="428" rotate-angle="-9" source="../css/images/cards_25.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="784" offset-y="1344" rotate-angle="0" source="../css/images/cards_100.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="784" offset-y="1122" rotate-angle="0" source="../css/images/cards_101.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="641" offset-y="685" rotate-angle="-79" source="../css/images/cards_102.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="295" offset-y="1283" rotate-angle="0" source="../css/images/cards_103.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1598" offset-y="80" rotate-angle="-20" source="../css/images/cards_104.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="302" offset-y="1102" rotate-angle="-52" source="../css/images/cards_105.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="395" offset-y="1391" rotate-angle="59" source="../css/images/cards_106.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="109" offset-y="1362" rotate-angle="0" source="../css/images/cards_107.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="338" offset-y="1513" rotate-angle="0" source="../css/images/cards_108.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1550" offset-y="804" rotate-angle="31" source="../css/images/cards_109.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1617" offset-y="797" rotate-angle="20" source="../css/images/cards_05.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="856" offset-y="1209" rotate-angle="41" source="../css/images/cards_03.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1173" offset-y="1239" rotate-angle="-64" source="../css/images/cards_07.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1267" offset-y="71" rotate-angle="0" source="../css/images/cards_09.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1377" offset-y="605" rotate-angle="0" source="../css/images/cards_11.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1565" offset-y="1001" rotate-angle="-24" source="../css/images/cards_14.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1673" offset-y="544" rotate-angle="31" source="../css/images/cards_16.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1549" offset-y="1195" rotate-angle="0" source="../css/images/cards_18.png" border-color="none"> </e-image-node>
+                <e-image-node type="Image" offset-x="1719" offset-y="299" rotate-angle="0" source="../css/images/cards_20.png" border-color="none"> </e-image-node>
+            </e-nodes>
+            <e-default-settings>
+                <e-node width="102" height="142"></e-node>
+            </e-default-settings>
+        </ej-diagram>
+
+
+    </div>
+
+
+}
+
+@section PropertiesSection{
+    <div float="right">
+        <div id="sampleProperties">
+            <div class="prop-grid">
+                <div class="row">
+                    <div class="col-md-3">
+                        Overview
+                    </div>
+                </div>
+                <div class="row">
+                    <ej-overview id="overview" source-id="diagram" width="100%" height="300px"></ej-overview>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section ScriptSection{
+    <script type="text/javascript">
+        $(function () {
+            $("#sampleProperties").ejPropertiesPanel();
+        });
+        function Create(args) {
+            if (!(ej.browserInfo().name === "msie" && Number(ej.browserInfo().version) < 9)) {
+                var diagram = $("#diagram").ejDiagram("instance");
+                diagram.activateTool("panTool");
+            }
+            else {
+                alert("Diagram will not be supported in IE Version < 9");
+            }
+        }
+    </script>
+
+}
+<style>
+    .svg-rotate-ie:hover {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+
+    .svg-rotate {
+        cursor: url("~/wwwroot/css/content/ej/common-images/rotate.cur"),default;
+    }
+</style>
